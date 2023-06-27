@@ -8,6 +8,11 @@
       class="h-64 w-full bg-gray-50 object-cover sm:h-80 lg:absolute lg:h-full lg:rounded-l-md"
       src="/images/firefly_jar_800_1200.jpg"
       alt="Fireflies captures in a jar on a dark wood background at night"
+      srcset="/images/firefly_jar_200.webp 200w, /images/firefly_jar_533.webp 500w,  /images/firefly_jar_800.webp 750w,"
+      sizes="(min-width: 66em) 50vw, 100vw"
+      height="1200"
+      width="800"
+      loading="lazy"
     />
   </div>
   <div
