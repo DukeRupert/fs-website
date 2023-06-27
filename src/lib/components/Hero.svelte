@@ -116,7 +116,7 @@
             clip-path="url(#2ade4387-9c63-4fc4-b754-10e687a0d332)"
           >
             <img
-              src="/images/screencapture-kagenandco-2023-06-11-08_26_37.png"
+              src="/images/screencapture-kagenandco-2023-06-11-08_26_37.webp"
               alt="Kagen Coffee and Crepes mobile website screen capture"
               width="488"
               height="1053"
