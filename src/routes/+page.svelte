@@ -1,12 +1,12 @@
 <script lang="ts">
+  import Seo from "$lib/components/SEO.svelte";
   import Hero from "$lib/components/Hero.svelte";
   import Services from "$lib/components/Services.svelte";
   import Features from "$lib/components/Features.svelte";
   import Pricing from "$lib/components/Pricing.svelte";
   import Testimonial from "$lib/components/Testimonial.svelte";
-  import Seo from "$lib/components/SEO.svelte";
+  import ContactForm from "$lib/components/ContactForm.svelte";
 
-  // SEO
   const seoData = {
     title: "Firefly Software - Handcrafted Web Design & Development",
     description:
@@ -23,8 +23,11 @@
 </script>
 
 <Seo data={seoData} />
-<Hero />
-<Services />
-<Features />
-<Pricing />
-<Testimonial />
+<main>
+  <Hero />
+  <Services />
+  <Testimonial />
+  <Features />
+  <Pricing />
+  <ContactForm />
+</main>

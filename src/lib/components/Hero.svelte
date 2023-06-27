@@ -66,7 +66,10 @@
         <h1
           class="mt-10 max-w-lg text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"
         >
-          Small Business <span class="gradient-heading">Web Development</span>
+          Small Business <span
+            class="bg-clip-text text-transparent box-decoration-clone bg-gradient-to-br from-tertiary-500 via-primary-500 to-secondary-500"
+            >Web Development</span
+          >
         </h1>
         <p class="mt-6 text-lg leading-8 text-gray-600">
           No do-it-yourself page builders like Wordpress, Wix and Squarespace.
