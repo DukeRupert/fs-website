@@ -24,7 +24,7 @@
             <h3 class="text-sm font-semibold leading-6 text-gray-900">
               Navigation
             </h3>
-            <ul role="list" class="mt-6 space-y-4">
+            <ul class="mt-6 space-y-4">
               <li>
                 <a
                   href="/"
@@ -59,7 +59,7 @@
             <h3 class="text-sm font-semibold leading-6 text-gray-900">
               Services
             </h3>
-            <ul role="list" class="mt-6 space-y-4">
+            <ul class="mt-6 space-y-4">
               <li>
                 <a
                   href="#"
