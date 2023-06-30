@@ -1,3 +1,13 @@
+<svelte:head>
+  <!-- Event snippet for Submit lead form conversion page -->
+  <!-- Event snippet for Submit lead form conversion page -->
+  <script>
+    gtag("event", "conversion", {
+      send_to: "AW-10903277132/6do0COqI3LIYEMyci88o",
+    });
+  </script>
+</svelte:head>
+
 <main
   class="grid h-screen min-h-full place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8"
 >

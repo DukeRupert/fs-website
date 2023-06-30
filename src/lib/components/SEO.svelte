@@ -26,6 +26,6 @@
   <meta property="og:image:alt" content={data.og.alt} />
   <meta property="og:image:type" content={data.og.mimeType} />
   <meta property="og:image:width" content={data.og.width.toString()} />
-  <met property="og:image:height" content={data.og.height.toString()} />
+  <meta property="og:image:height" content={data.og.height.toString()} />
   <link rel="canonical" href={data.url} />
 </svelte:head>
