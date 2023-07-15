@@ -23,7 +23,7 @@
       <p
         class="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl"
       >
-        Affordable options for every small business
+        Affordable options for every business
       </p>
     </div>
     <p

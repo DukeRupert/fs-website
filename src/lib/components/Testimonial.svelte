@@ -1,3 +1,8 @@
+<script lang="ts">
+  import kagen_kcc from "$lib/assets/images/kagen_coffee_and_crepes_owner_873.webp?run";
+  import Img from "@zerodevx/svelte-img";
+</script>
+
 <section
   id="testimonial"
   class="bg-secondary-900 pb-16 pt-24 sm:pb-24 sm:pt-32 xl:pb-32"
@@ -10,12 +15,10 @@
         <div
           class="relative aspect-[2/1] h-full md:-mx-8 xl:mx-0 xl:aspect-auto"
         >
-          <img
+          <Img
             class="absolute inset-0 h-full w-full rounded-2xl bg-gray-800 object-cover shadow-2xl"
-            src="/images/kagen_coffee_and_crepes_owner_436.webp"
+            src={kagen_kcc}
             alt="Kagen Cox owner of Kagen Coffee and Crepes"
-            height="436"
-            width="655"
           />
         </div>
       </div>
