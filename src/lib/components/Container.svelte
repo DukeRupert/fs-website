@@ -1,6 +1,6 @@
 <script lang="ts">
   export let classes = "";
-  export let centered = true;
+  export let centered = false;
 </script>
 
 <!-- Content Container -->

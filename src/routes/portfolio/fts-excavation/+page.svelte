@@ -31,7 +31,7 @@
 <article class="mt-24 sm:mt-32 lg:mt-40">
   <header>
     <!-- Page Intro -->
-    <PageIntro eyebrow="Case Study" title={caseStudy.title}>
+    <PageIntro eyebrow="Case Study" title={caseStudy.title} centered>
       <p
         class="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600"
       >
