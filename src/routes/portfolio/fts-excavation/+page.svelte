@@ -7,6 +7,7 @@
   import GrayscaleTransitionImage from "$lib/components/GrayscaleTransitionImage.svelte";
   import PageLinks from "$lib/components/pagelinks/PageLinks.svelte";
   import Blockquote from "$lib/components/Blockquote.svelte";
+  import Cta from "$lib/components/Cta.svelte";
 
   export const caseStudy = {
     client: "FtS Excavation",
@@ -32,7 +33,7 @@
   <title>Firefly Software | Our Work | FtS Excavation</title>
 </svelte:head>
 
-<article class="mt-24 sm:mt-32 lg:mt-40">
+<div class="mt-24 sm:mt-32 lg:mt-40">
   <header>
     <!-- Page Intro -->
     <PageIntro eyebrow="Case Study" title={caseStudy.title} centered>
@@ -115,4 +116,5 @@
     </article>
   </Container>
   <PageLinks title="More case studies" cls="mt-24 sm:mt-32 lg:mt-40" />
-</article>
+  <Cta />
+</div>

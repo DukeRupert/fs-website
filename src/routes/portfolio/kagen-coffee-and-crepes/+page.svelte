@@ -3,6 +3,7 @@
   import PageIntro from "$lib/components/PageIntro.svelte";
   import Blockquote from "$lib/components/Blockquote.svelte";
   import PageLinks from "$lib/components/pagelinks/PageLinks.svelte";
+  import Cta from "$lib/components/Cta.svelte";
   import kcc_splash from "$lib/assets/images/kcc_splash_4_3.png?run";
   import kagen_kcc from "$lib/assets/images/kagen_coffee_and_crepes_owner_873.webp?run";
   import Img from "@zerodevx/svelte-img";
@@ -124,4 +125,5 @@
     </article>
   </Container>
   <PageLinks title="More case studies" cls="mt-24 sm:mt-32 lg:mt-40" />
+  <Cta />
 </article>
