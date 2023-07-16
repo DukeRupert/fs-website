@@ -3,7 +3,7 @@
 
   let element: HTMLElement;
   let intersecting: boolean;
-  const threshold = 0.8;
+  const threshold = 1.0;
 </script>
 
 <IntersectionObserver {element} bind:intersecting {threshold}>

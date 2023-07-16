@@ -5,6 +5,8 @@
   import Container from "$lib/components/Container.svelte";
   import PageIntro from "$lib/components/PageIntro.svelte";
   import GrayscaleTransitionImage from "$lib/components/GrayscaleTransitionImage.svelte";
+  import PageLinks from "$lib/components/pagelinks/PageLinks.svelte";
+  import Blockquote from "$lib/components/Blockquote.svelte";
 
   export const caseStudy = {
     client: "FtS Excavation",
@@ -12,18 +14,16 @@
     description:
       "A dedication to bring precision and integrity to every excavation job in the challenging Puget Sound region.",
     summary: [
-      "Find love in the face of fear — Phobia is a dating app that matches users based on their mutual phobias so they can be scared together.",
-      "We worked with Phobia to develop a new onboarding flow. A user is shown pictures of common phobias and we use the microphone to detect which ones make them scream, feeding the results into the matching algorithm.",
+      " Frank and Beverly founded FtS Excavation in 2019. The mission was to provide excavation services to the Puget Sound region in a manner that demonstrated the highest precision and integrity. We share their love of excellence and constant drive towards improvement.",
     ],
 
-    date: "2019-06",
+    date: "2021-08",
+    skills: ["Web design", "Web development"],
     service: "Website development",
     testimonial: {
-      author: { name: "Kagen Cox", role: "Owner of Kagen Coffee and Crepes" },
-      content: `Firefly is an absolutely must have company working for you in your
-              corner! They are super approachable, helpful and friendly! If you
-              are looking to take your company to the next level I highly
-              recommend that you give Firefly a call!`,
+      author: { name: "Frank Sharp", role: "Owner" },
+      content: `Firefly is absolutely the best way to get the most value from your website. Reasonably priced and headache free! I appreciate getting to speak with a real person who responds lightening fast, listens to what I want and can create anything and do it better than anyone. I highly recommend using Firefly software to create your website or any digital tool you need. We've decided to hire them for our app creation too.`,
+      src: fts_frank,
     },
   };
 </script>
@@ -91,62 +91,28 @@
       </div>
     </div>
   </header>
-  <Container classes="mt-24 sm:mt-32 lg:mt-40">
-    <article class="mx-auto prose prose-lg text-left">
-      <div class="typography">
+  <Container cls="mt-24 sm:mt-32 lg:mt-40">
+    <article class="mx-auto text-left">
+      <div class="prose prose-lg">
         <h2>Overview</h2>
-        <p>
-          Frank and Beverly founded FtS Excavation in 2019. The mission was to
-          provide excavation services to the Puget Sound region in a manner that
-          demonstrated the highest precision and integrity. We share their love
-          of excellence and constant drive towards improvement.
-        </p>
+        {#each caseStudy.summary as item}
+          <p>{item}</p>
+        {/each}
 
         <h2>What we did</h2>
-      </div>
-      <ul role="list" class="list-none my-6 flex flex-wrap gap-4">
-        <li
-          class="rounded-full bg-neutral-100 px-4 py-1.5 text-base text-neutral-600"
-        >
-          Design
-        </li>
-        <li
-          class="rounded-full bg-neutral-100 px-4 py-1.5 text-base text-neutral-600"
-        >
-          Development
-        </li>
-      </ul>
 
-      <figure
-        class="grid grid-cols-[auto,1fr] items-center gap-x-4 gap-y-8 sm:grid-cols-12 sm:grid-rows-[1fr,auto,auto,1fr] sm:gap-x-10 lg:gap-x-16 my-32"
-      >
-        <blockquote
-          class="col-span-2 text-xl/7 text-neutral-600 sm:col-span-7 sm:col-start-6 sm:row-start-2"
-        >
-          <p>
-            {caseStudy.testimonial.content}
-          </p>
-        </blockquote>
-        <div
-          class="col-start-1 row-start-2 overflow-hidden sm:col-span-5 sm:row-span-full"
-        >
-          <Img
-            src={fts_frank}
-            alt="Kagen Cox owner of Kagen Coffee and Crepes"
-            class="grayscale h-full w-full rounded-2xl object-cover sm:aspect-[7/9] sm:h-auto sm:w-full"
-          />
-        </div>
-        <figcaption
-          class="text-sm text-neutral-950 sm:col-span-7 sm:row-start-3 sm:text-base"
-        >
-          <span class="font-semibold">{caseStudy.testimonial.author.name}</span
-          ><span class="hidden font-semibold sm:inline">, </span><br
-            class="sm:hidden"
-          /><span class="sm:font-semibold"
-            >{caseStudy.testimonial.author.role}</span
-          >
-        </figcaption>
-      </figure>
+        <ul role="list" class="list-none my-6 flex flex-wrap gap-4">
+          {#each caseStudy.skills as skill}
+            <li
+              class="rounded-full bg-neutral-100 px-4 py-1.5 text-base text-neutral-600"
+            >
+              {skill}
+            </li>
+          {/each}
+        </ul>
+      </div>
+      <Blockquote testimonial={caseStudy.testimonial} />
     </article>
   </Container>
+  <PageLinks title="More case studies" cls="mt-24 sm:mt-32 lg:mt-40" />
 </article>

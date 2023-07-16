@@ -54,14 +54,14 @@
   ];
 </script>
 
-<Container classes="mt-40">
+<Container cls="mt-40">
   <h2 class="font-display text-2xl font-semibold text-neutral-950">
     Case studies
   </h2>
   <div class="mt-10 space-y-20 sm:space-y-24 lg:space-y-32">
     {#each caseStudies as caseStudy}
       <article>
-        <Border classes="grid grid-cols-3 gap-x-8 gap-y-8 pt-16">
+        <Border cls="grid grid-cols-3 gap-x-8 gap-y-8 pt-16">
           <div
             class="col-span-full sm:flex sm:items-center sm:justify-between sm:gap-x-8 lg:col-span-1 lg:block"
           >
@@ -108,7 +108,7 @@
                 Read case study
               </a>
             </div>
-            <Border position="left" classes="pl-8">
+            <Border position="left" cls="pl-8">
               <figure class="text-sm mt-12">
                 <blockquote
                   class="text-neutral-600 [&>*]:relative [&>:first-child]:before:absolute [&>:first-child]:before:right-full [&>:first-child]:before:content-['“'] [&>:last-child]:after:content-['”']"

@@ -5,7 +5,7 @@
   export let centered = false;
 </script>
 
-<Container classes="mt-24 sm:mt-32 lg:mt-40" {centered}>
+<Container cls="mt-24 sm:mt-32 lg:mt-40" {centered}>
   <h1>
     <span class="text-base font-semibold leading-7 text-primary-600"
       >{eyebrow}</span

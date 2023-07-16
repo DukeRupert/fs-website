@@ -1,11 +1,11 @@
 <script lang="ts">
-  export let classes = "";
+  export let cls = "";
   export let centered = false;
 </script>
 
 <!-- Content Container -->
 <div
-  class="mx-auto max-w-7xl px-6 lg:px-8 {classes} {centered
+  class="mx-auto max-w-7xl px-6 lg:px-8 {cls} {centered
     ? 'text-center'
     : undefined}"
 >

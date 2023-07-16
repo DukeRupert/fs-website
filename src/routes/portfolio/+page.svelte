@@ -1,7 +1,4 @@
 <script lang="ts">
-  import fts_service_hardscape from "$lib/assets/images/fts_service_hardscape.png?run";
-  import fts_landing from "$lib/assets/images/fts_landing.png?run";
-  import { FxReveal as Img } from "@zerodevx/svelte-img";
   import PageIntro from "$lib/components/PageIntro.svelte";
   import CaseStudies from "$lib/components/CaseStudies.svelte";
 
