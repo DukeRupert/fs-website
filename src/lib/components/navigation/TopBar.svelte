@@ -2,6 +2,9 @@
   import { quintOut } from "svelte/easing";
   import { fly, fade } from "svelte/transition";
   import type { FlyParams, FadeParams } from "svelte/transition";
+  import Img from "@zerodevx/svelte-img";
+  import small_logo from "$lib/assets/images/logo/logo_small.jpg?run";
+  import large_logo from "$lib/assets/images/logo/logo_two_full.jpg?run";
 
   // Toggle mobile menu
   let is_mobile_open = false;
@@ -31,13 +34,7 @@
     <div class="flex lg:flex-1">
       <a href="/" class="-m-1.5 p-1.5">
         <span class="sr-only">Firefly Software</span>
-        <img
-          class="h-14 w-auto"
-          width="430"
-          height="200"
-          src="/images/firefly/logo_two_small.webp"
-          alt="Firefly Software logo of a white firefly on dark blue blackground"
-        />
+        <Img class="h-14 w-auto" src={large_logo} alt="Firefly Software" />
       </a>
     </div>
     <div class="flex lg:hidden">
@@ -64,17 +61,20 @@
       </button>
     </div>
     <div class="hidden lg:flex lg:gap-x-12">
-      <a href="#services" class="text-sm font-semibold leading-6 text-gray-900"
+      <a href="/#services" class="text-sm font-semibold leading-6 text-gray-900"
         >Services</a
       >
-      <a href="#features" class="text-sm font-semibold leading-6 text-gray-900"
+      <a href="/#features" class="text-sm font-semibold leading-6 text-gray-900"
         >Features</a
       >
-      <a href="#pricing" class="text-sm font-semibold leading-6 text-gray-900"
+      <a href="/#pricing" class="text-sm font-semibold leading-6 text-gray-900"
         >Pricing</a
       >
+      <a href="/portfolio" class="text-sm font-semibold leading-6 text-gray-900"
+        >Portfolio</a
+      >
       <a
-        href="#contact-us"
+        href="/#contact-us"
         class="text-sm font-semibold leading-6 text-gray-900">Contact Us</a
       >
     </div>
@@ -97,14 +97,12 @@
         class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
       >
         <div class="flex items-center justify-between">
-          <a href="#" class="-m-1.5 p-1.5">
+          <a href="/" class="-m-1.5 p-1.5">
             <span class="sr-only">Firefly Software</span>
-            <img
-              class="h-14 w-14"
-              height="377"
-              width="377"
-              src="/images/firefly/Firefly_Logo_Blue.png"
-              alt=""
+            <Img
+              class="h14 w-14 object-cover"
+              src={small_logo}
+              alt="Firefly Software"
             />
           </a>
           <button
@@ -134,25 +132,31 @@
             <div class="space-y-2 py-6">
               <a
                 on:click={close}
-                href="#services"
+                href="/#services"
                 class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >Services</a
               >
               <a
                 on:click={close}
-                href="#features"
+                href="/#features"
                 class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >Features</a
               >
               <a
                 on:click={close}
-                href="#pricing"
+                href="/#pricing"
                 class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >Pricing</a
               >
               <a
                 on:click={close}
-                href="#contact-us"
+                href="/portfolio"
+                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                >Portfolio</a
+              >
+              <a
+                on:click={close}
+                href="/#contact-us"
                 class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >Contact Us</a
               >

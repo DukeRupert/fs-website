@@ -29,6 +29,9 @@
   };
 </script>
 
+<svelte:head>
+  <title>Firefly Software | Our Work | Kagen Coffee & Crepes</title>
+</svelte:head>
 <article class="mt-24 sm:mt-32 lg:mt-40">
   <header>
     <!-- Page Intro -->

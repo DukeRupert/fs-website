@@ -11,6 +11,9 @@
   };
 </script>
 
+<svelte:head>
+  <title>Firefly Software | Our Work</title>
+</svelte:head>
 <PageIntro
   eyebrow="Our work"
   title="Proven solutions for real-world problems."
