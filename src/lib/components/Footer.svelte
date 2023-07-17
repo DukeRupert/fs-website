@@ -41,6 +41,13 @@
               </li>
               <li>
                 <a
+                  href="/portfolio"
+                  class="text-sm leading-6 text-gray-600 hover:text-gray-900"
+                  >Portfolio</a
+                >
+              </li>
+              <li>
+                <a
                   href="#features"
                   class="text-sm leading-6 text-gray-600 hover:text-gray-900"
                   >Features</a
