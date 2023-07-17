@@ -5,21 +5,26 @@
   import PageLinks from "$lib/components/pagelinks/PageLinks.svelte";
   import Cta from "$lib/components/Cta.svelte";
   import kcc_splash from "$lib/assets/images/kcc_splash_4_3.png?run";
-  import kagen_kcc from "$lib/assets/images/kagen_coffee_and_crepes_owner_873.webp?run";
+  import kcc_logo from "$lib/assets/images/kcc_logo.png?run";
+  import kcc_kagen from "$lib/assets/images/kagen_coffee_and_crepes_owner_873.webp?run";
   import Img from "@zerodevx/svelte-img";
   import GrayscaleTransitionImage from "$lib/components/GrayscaleTransitionImage.svelte";
+  import type { PageData } from "./$types";
 
-  export const caseStudy = {
+  const caseStudy = {
     client: "Kagen Coffee and Crepes",
     title: "Crepes, coffee, and community",
     description:
       "A vacation led to love, which led to a dream, which became Kagen Coffee and Crepes in Richland, WA",
+    href: "/portfolio/kagen-coffee-and-crepes",
     summary: [
       "Like many entrepreneurs Kagen started his business with a basic do-it-yourself website. After his first year though he wisely realized that his business needed a better online presence in order to compete in the Tri-Cities area.",
       "When Kagen Coffee and Crepes approached us to optimize their online presence we delivered a highly performant website that highlights their special combination of delicious crepes and friendly atmosphere. It must have worked since now Kagen Coffee and Crepes is about to open their second location!",
     ],
-    date: "2022-06",
-    service: "Website development",
+    logo: {
+      src: kcc_logo,
+      alt: "Kagen Coffee and Crepes logo",
+    },
     skills: [
       "Web Design",
       "Web Development",
@@ -28,9 +33,11 @@
       "Backend (Shopify)",
       "Integration (Toast)",
     ],
+    date: "2022-06",
+    service: "Website development",
     testimonial: {
       author: { name: "Kagen Cox", role: "Owner" },
-      src: kagen_kcc,
+      src: kcc_kagen,
       content: `Firefly is an absolutely must have company working for you in your
               corner! They are super approachable, helpful and friendly! If you
               are looking to take your company to the next level I highly
@@ -42,6 +49,7 @@
 <svelte:head>
   <title>Firefly Software | Our Work | Kagen Coffee & Crepes</title>
 </svelte:head>
+
 <article class="mt-24 sm:mt-32 lg:mt-40">
   <header>
     <!-- Page Intro -->
@@ -102,7 +110,7 @@
     </div>
   </header>
   <Container cls="mt-24 sm:mt-32 lg:mt-40">
-    <article class="mx-auto text-left">
+    <article class="mx-auto max-w-prose text-left">
       <div class="prose prose-lg">
         <h2>Overview</h2>
         {#each caseStudy.summary as item}

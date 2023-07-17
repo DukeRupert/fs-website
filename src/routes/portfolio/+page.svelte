@@ -1,11 +1,8 @@
 <script lang="ts">
   import PageIntro from "$lib/components/PageIntro.svelte";
   import CaseStudies from "$lib/components/CaseStudies.svelte";
-
-  const intro = {
-    eyebrow: "Case Study",
-    title: "Kagen Coffee & Crepes",
-  };
+  import Cta from "$lib/components/Cta.svelte";
+  import PROJECTS from "./projects";
 </script>
 
 <svelte:head>
@@ -21,4 +18,5 @@
     value to our clients.
   </p>
 </PageIntro>
-<CaseStudies />
+<CaseStudies projects={PROJECTS} />
+<Cta />

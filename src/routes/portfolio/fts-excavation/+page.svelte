@@ -93,7 +93,7 @@
     </div>
   </header>
   <Container cls="mt-24 sm:mt-32 lg:mt-40">
-    <article class="mx-auto text-left">
+    <article class="mx-auto max-w-prose text-left">
       <div class="prose prose-lg">
         <h2>Overview</h2>
         {#each caseStudy.summary as item}
