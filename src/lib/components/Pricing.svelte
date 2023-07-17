@@ -1,4 +1,5 @@
 <script lang="ts">
+  import FadeIn from "./FadeIn.svelte";
   import { quintOut } from "svelte/easing";
   import { fly } from "svelte/transition";
   import type { FlyParams } from "svelte/transition";
@@ -16,22 +17,25 @@
 
 <section id="pricing" class="bg-white py-24 sm:py-32">
   <div class="mx-auto max-w-7xl px-6 lg:px-8">
-    <div class="mx-auto max-w-4xl text-center">
-      <h2 class="text-base font-semibold leading-7 text-primary-600">
-        Pricing
-      </h2>
-      <p
-        class="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl"
-      >
-        Affordable options for every business
-      </p>
-    </div>
-    <p
-      class="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600"
+    <FadeIn
+      ><div class="mx-auto max-w-4xl text-center">
+        <h2 class="text-base font-semibold leading-7 text-primary-600">
+          Pricing
+        </h2>
+        <p
+          class="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl"
+        >
+          Affordable options for every business
+        </p>
+        <p
+          class="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600"
+        >
+          Choose from our most common services to take your business to the next
+          level. We believe in transparent, no surprise pricing.
+        </p>
+      </div></FadeIn
     >
-      Choose from our most common services to take your business to the next
-      level. We believe in transparent, no surprise pricing.
-    </p>
+
     <div class="mt-16 flex justify-center">
       <fieldset
         class="grid grid-cols-2 gap-x-1 rounded-full p-1 text-center text-xs font-semibold leading-5 ring-1 ring-inset ring-gray-200"

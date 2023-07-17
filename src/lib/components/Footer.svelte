@@ -41,18 +41,19 @@
                   >Portfolio</a
                 >
               </li>
-              <li>
-                <a
-                  href="#features"
-                  class="text-sm leading-6 text-gray-600 hover:text-gray-900"
-                  >Features</a
-                >
-              </li>
+
               <li>
                 <a
                   href="#pricing"
                   class="text-sm leading-6 text-gray-600 hover:text-gray-900"
                   >Pricing</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/contact-us"
+                  class="text-sm leading-6 text-gray-600 hover:text-gray-900"
+                  >Contact us</a
                 >
               </li>
             </ul>

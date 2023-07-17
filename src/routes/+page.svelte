@@ -5,6 +5,7 @@
   import Features from "$lib/components/Features.svelte";
   import Pricing from "$lib/components/Pricing.svelte";
   import Testimonial from "$lib/components/Testimonial.svelte";
+  import Cta from "$lib/components/Cta.svelte";
   import ContactForm from "$lib/components/ContactForm.svelte";
   import Portfolio from "$lib/components/Portfolio.svelte";
 
@@ -101,5 +102,5 @@
   <Testimonial />
   <Features />
   <Pricing />
-  <ContactForm />
+  <Cta />
 </main>

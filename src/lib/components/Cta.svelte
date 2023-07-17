@@ -6,15 +6,15 @@
       <h2
         class="mx-auto max-w-2xl text-3xl font-bold tracking-tight text-white sm:text-4xl"
       >
-        Tell us about your project
+        Let's get started
       </h2>
       <p class="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-300">
-        Let's talk about how we can improve the perfomance of your online
+        Find out today how we can improve the performance of your online
         presence.
       </p>
       <div class="mt-10 flex items-center justify-center gap-x-6">
         <a
-          href="/#contact-us"
+          href="/contact-us"
           class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
           >Get started</a
         >
