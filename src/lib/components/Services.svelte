@@ -1,131 +1,143 @@
+<script lang="ts">
+  import FadeIn from "./FadeIn.svelte";
+</script>
+
 <section id="services" class="bg-white py-24 sm:py-32">
   <div class="mx-auto max-w-7xl px-6 lg:px-8">
-    <div class="mx-auto max-w-2xl lg:text-center">
-      <h2 class="text-base font-semibold leading-7 text-primary-600">
-        What We Do
-      </h2>
-      <p
-        class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
-      >
-        Creating <span
-          class="bg-clip-text text-transparent box-decoration-clone bg-gradient-to-br from-tertiary-500 via-primary-500 to-secondary-500"
-          >handcrafted</span
-        > websites that deliver superior results.
-      </p>
-      <p class="mt-6 text-lg leading-8 text-gray-600">
-        Every line of code is written by hand to ensure the best performance,
-        which helps bring in more customers to your site and bring more revenue
-        to your business.
-      </p>
-    </div>
+    <FadeIn>
+      <div class="mx-auto max-w-2xl lg:text-center">
+        <h2 class="text-base font-semibold leading-7 text-primary-600">
+          What We Do
+        </h2>
+        <p
+          class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
+        >
+          Creating <span
+            class="bg-clip-text text-transparent box-decoration-clone bg-gradient-to-br from-tertiary-500 via-primary-500 to-secondary-500"
+            >handcrafted</span
+          > websites that deliver superior results.
+        </p>
+        <p class="mt-6 text-lg leading-8 text-gray-600">
+          Every line of code is written by hand to ensure the best performance,
+          which helps bring in more customers to your site and bring more
+          revenue to your business.
+        </p>
+      </div>
+    </FadeIn>
     <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
       <dl
         class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3"
       >
-        <div class="group flex flex-col">
-          <dt
-            class="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900"
-          >
-            <svg
-              class="h-5 w-5 flex-none text-primary-600 group-hover:text-tertiary-500 group-hover:animate-bounce"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              aria-hidden="true"
+        <FadeIn>
+          <div class="group flex flex-col">
+            <dt
+              class="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900"
             >
-              <path
-                fill-rule="evenodd"
-                d="M5.5 17a4.5 4.5 0 01-1.44-8.765 4.5 4.5 0 018.302-3.046 3.5 3.5 0 014.504 4.272A4 4 0 0115 17H5.5zm3.75-2.75a.75.75 0 001.5 0V9.66l1.95 2.1a.75.75 0 101.1-1.02l-3.25-3.5a.75.75 0 00-1.1 0l-3.25 3.5a.75.75 0 101.1 1.02l1.95-2.1v4.59z"
-                clip-rule="evenodd"
-              />
-            </svg>
-            Optimized for speed
-          </dt>
-          <dd
-            class="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600"
-          >
-            <p class="flex-auto">
-              If it doesn't load fast you are losing customers. We design and
-              code websites that load fast, really fast.
-            </p>
-            <p class="mt-6">
-              <a
-                href="https://www.thinkwithgoogle.com/marketing-strategies/app-and-mobile/page-load-time-statistics/"
-                class="text-sm font-semibold leading-6 text-primary-600"
-                >Learn more <span aria-hidden="true">→</span></a
+              <svg
+                class="h-5 w-5 flex-none text-primary-600 group-hover:text-tertiary-500 group-hover:animate-bounce"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
               >
-            </p>
-          </dd>
-        </div>
-        <div class="group flex flex-col">
-          <dt
-            class="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900"
-          >
-            <svg
-              class="h-5 w-5 flex-none text-primary-600 group-hover:text-tertiary-500 group-hover:animate-bounce"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              aria-hidden="true"
+                <path
+                  fill-rule="evenodd"
+                  d="M5.5 17a4.5 4.5 0 01-1.44-8.765 4.5 4.5 0 018.302-3.046 3.5 3.5 0 014.504 4.272A4 4 0 0115 17H5.5zm3.75-2.75a.75.75 0 001.5 0V9.66l1.95 2.1a.75.75 0 101.1-1.02l-3.25-3.5a.75.75 0 00-1.1 0l-3.25 3.5a.75.75 0 101.1 1.02l1.95-2.1v4.59z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              Optimized for speed
+            </dt>
+            <dd
+              class="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600"
             >
-              <path
-                fill-rule="evenodd"
-                d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z"
-                clip-rule="evenodd"
-              />
-            </svg>
-            Mobile-first design
-          </dt>
-          <dd
-            class="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600"
-          >
-            <p class="flex-auto">
-              Google predominantly uses the mobile version of a site's content
-              for indexing and ranking. Didn't know that? Don't worry, that is
-              our job. We optimize for seo to ensure client's will find you.
-            </p>
-            <p class="mt-6">
-              <a
-                href="https://developers.google.com/search/docs/crawling-indexing/mobile/mobile-sites-mobile-first-indexing"
-                class="text-sm font-semibold leading-6 text-primary-600"
-                >Learn more <span aria-hidden="true">→</span></a
-              >
-            </p>
-          </dd>
-        </div>
-        <div class="group flex flex-col">
-          <dt
-            class="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900"
-          >
-            <svg
-              class="h-5 w-5 flex-none text-primary-600 group-hover:text-tertiary-500 group-hover:animate-spin"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              aria-hidden="true"
+              <p class="flex-auto">
+                If it doesn't load fast you are losing customers. We design and
+                code websites that load fast, really fast.
+              </p>
+              <p class="mt-6">
+                <a
+                  href="https://www.thinkwithgoogle.com/marketing-strategies/app-and-mobile/page-load-time-statistics/"
+                  class="text-sm font-semibold leading-6 text-primary-600"
+                  >Learn more <span aria-hidden="true">→</span></a
+                >
+              </p>
+            </dd>
+          </div>
+        </FadeIn>
+        <FadeIn>
+          <div class="group flex flex-col">
+            <dt
+              class="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900"
             >
-              <path
-                fill-rule="evenodd"
-                d="M15.312 11.424a5.5 5.5 0 01-9.201 2.466l-.312-.311h2.433a.75.75 0 000-1.5H3.989a.75.75 0 00-.75.75v4.242a.75.75 0 001.5 0v-2.43l.31.31a7 7 0 0011.712-3.138.75.75 0 00-1.449-.39zm1.23-3.723a.75.75 0 00.219-.53V2.929a.75.75 0 00-1.5 0V5.36l-.31-.31A7 7 0 003.239 8.188a.75.75 0 101.448.389A5.5 5.5 0 0113.89 6.11l.311.31h-2.432a.75.75 0 000 1.5h4.243a.75.75 0 00.53-.219z"
-                clip-rule="evenodd"
-              />
-            </svg>
-            Responsive design
-          </dt>
-          <dd
-            class="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600"
-          >
-            <p class="flex-auto">
-              We handcraft our websites to ensure they look good on all screen
-              sizes; mobile, tablet or desktop. Our client's look their best no
-              matter what device customers are using.
-            </p>
-            <p class="mt-6">
-              <a
-                href="https://developers.google.com/search/docs/crawling-indexing/mobile/mobile-sites-mobile-first-indexing"
-                class="text-sm font-semibold leading-6 text-primary-600"
-                >Learn more <span aria-hidden="true">→</span></a
+              <svg
+                class="h-5 w-5 flex-none text-primary-600 group-hover:text-tertiary-500 group-hover:animate-bounce"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
               >
-            </p>
-          </dd>
-        </div>
+                <path
+                  fill-rule="evenodd"
+                  d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              Mobile-first design
+            </dt>
+            <dd
+              class="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600"
+            >
+              <p class="flex-auto">
+                Google predominantly uses the mobile version of a site's content
+                for indexing and ranking. Didn't know that? Don't worry, that is
+                our job. We optimize for seo to ensure client's will find you.
+              </p>
+              <p class="mt-6">
+                <a
+                  href="https://developers.google.com/search/docs/crawling-indexing/mobile/mobile-sites-mobile-first-indexing"
+                  class="text-sm font-semibold leading-6 text-primary-600"
+                  >Learn more <span aria-hidden="true">→</span></a
+                >
+              </p>
+            </dd>
+          </div>
+        </FadeIn>
+        <FadeIn>
+          <div class="group flex flex-col">
+            <dt
+              class="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900"
+            >
+              <svg
+                class="h-5 w-5 flex-none text-primary-600 group-hover:text-tertiary-500 group-hover:animate-spin"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M15.312 11.424a5.5 5.5 0 01-9.201 2.466l-.312-.311h2.433a.75.75 0 000-1.5H3.989a.75.75 0 00-.75.75v4.242a.75.75 0 001.5 0v-2.43l.31.31a7 7 0 0011.712-3.138.75.75 0 00-1.449-.39zm1.23-3.723a.75.75 0 00.219-.53V2.929a.75.75 0 00-1.5 0V5.36l-.31-.31A7 7 0 003.239 8.188a.75.75 0 101.448.389A5.5 5.5 0 0113.89 6.11l.311.31h-2.432a.75.75 0 000 1.5h4.243a.75.75 0 00.53-.219z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              Responsive design
+            </dt>
+            <dd
+              class="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600"
+            >
+              <p class="flex-auto">
+                We handcraft our websites to ensure they look good on all screen
+                sizes; mobile, tablet or desktop. Our client's look their best
+                no matter what device customers are using.
+              </p>
+              <p class="mt-6">
+                <a
+                  href="https://developers.google.com/search/docs/crawling-indexing/mobile/mobile-sites-mobile-first-indexing"
+                  class="text-sm font-semibold leading-6 text-primary-600"
+                  >Learn more <span aria-hidden="true">→</span></a
+                >
+              </p>
+            </dd>
+          </div>
+        </FadeIn>
       </dl>
     </div>
   </div>
