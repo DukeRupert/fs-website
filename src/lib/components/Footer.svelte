@@ -1,5 +1,6 @@
 <script lang="ts">
-  //Todo
+  import logo from "$lib/assets/images/logo/logo_two_full.jpg?run";
+  import Img from "@zerodevx/svelte-img";
 </script>
 
 <footer class="bg-white" aria-labelledby="footer-heading">
@@ -7,13 +8,7 @@
   <div class="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
     <div class="xl:grid xl:grid-cols-3 xl:gap-8">
       <div class="space-y-8">
-        <img
-          class="h-14 w-auto"
-          src="/images/firefly/logo_two_small.webp"
-          alt="Firefly Software"
-          width="430"
-          height="200"
-        />
+        <Img class="h-14 w-auto" src={logo} alt="Firefly Software" />
         <p class="text-sm leading-6 text-gray-600">
           Creating a better online experience through meticulous craftsmanship.
         </p>
