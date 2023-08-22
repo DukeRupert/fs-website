@@ -102,5 +102,6 @@
   <Testimonial />
   <Features />
   <Pricing />
+  <Portfolio />
   <Cta />
 </main>
