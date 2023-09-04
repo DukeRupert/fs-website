@@ -1,6 +1,6 @@
 <script lang="ts">
-  import fts_splash from "$lib/assets/images/fts_splash_4_3.png?run";
-  import fts_frank from "$lib/assets/images/fts_frank.jpg?run";
+  import fts_splash from "$lib/assets/images/fts_splash_4_3.png?as=run";
+  import fts_frank from "$lib/assets/images/fts_frank.jpg?as=run";
   import Img from "@zerodevx/svelte-img";
   import Container from "$lib/components/Container.svelte";
   import PageIntro from "$lib/components/PageIntro.svelte";
@@ -17,7 +17,7 @@
     summary: [
       " Frank and Beverly founded FtS Excavation in 2019. The mission was to provide excavation services to the Puget Sound region in a manner that demonstrated the highest precision and integrity. We share their love of excellence and constant drive towards improvement.",
     ],
-
+    link: "https://www.fts-excavation.com/",
     date: "2021-08",
     skills: ["Web design", "Web development"],
     service: "Website development",
@@ -27,6 +27,25 @@
       src: fts_frank,
     },
   };
+
+  const pages = [
+    {
+      href: "/portfolio/kagen-coffee-and-crepes",
+      client: "Kagen Coffee and Crepes",
+      title: "Crepes, coffee, and community",
+      description:
+        "A vacation led to love, which led to a dream, which became Kagen Coffee and Crepes in Richland, WA",
+      date: "2022-06",
+    },
+    {
+      client: "Ebony and Ivory",
+      title: "A passion for music in Montana",
+      description:
+        "In the charming town of Helena, MT, there lived a music virtuoso whose unwavering passion for both music and children led her to open her very own enchanted studio for the sweet melodies of young hearts to flourish.",
+      href: "/portfolio/ebony-and-ivory",
+      date: "2023-07",
+    },
+  ];
 </script>
 
 <svelte:head>
@@ -81,14 +100,16 @@
 
     <div class="border-y border-neutral-200 bg-neutral-100">
       <div class="-my-px mx-auto max-w-[76rem] bg-neutral-200">
-        <GrayscaleTransitionImage>
-          <Img
-            src={fts_splash}
-            alt="FtS Excavation mobile website views"
-            class="w-full filter grayscale-[0]"
-            loading="eager"
-          />
-        </GrayscaleTransitionImage>
+        <a href={caseStudy.link} target="_blank" referrerpolicy="no-referrer">
+          <GrayscaleTransitionImage>
+            <Img
+              src={fts_splash}
+              alt="FtS Excavation mobile website views"
+              class="w-full filter grayscale-[0]"
+              loading="eager"
+            />
+          </GrayscaleTransitionImage>
+        </a>
       </div>
     </div>
   </header>
@@ -115,6 +136,6 @@
       <Blockquote testimonial={caseStudy.testimonial} />
     </article>
   </Container>
-  <PageLinks title="More case studies" cls="mt-24 sm:mt-32 lg:mt-40" />
+  <PageLinks title="More case studies" cls="mt-24 sm:mt-32 lg:mt-40" {pages} />
   <Cta />
 </div>

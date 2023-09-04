@@ -3,8 +3,8 @@
   import { fly, fade } from "svelte/transition";
   import type { FlyParams, FadeParams } from "svelte/transition";
   import Img from "@zerodevx/svelte-img";
-  import small_logo from "$lib/assets/images/logo/logo_small.jpg?run";
-  import large_logo from "$lib/assets/images/logo/logo_two_full.jpg?run";
+  import small_logo from "$lib/assets/images/logo/logo_small.jpg?as=run";
+  import large_logo from "$lib/assets/images/logo/logo_two_full.jpg?as=run";
 
   // Toggle mobile menu
   let is_mobile_open = false;

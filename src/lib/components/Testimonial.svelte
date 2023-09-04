@@ -1,5 +1,5 @@
 <script lang="ts">
-  import kagen_kcc from "$lib/assets/images/kagen_coffee_and_crepes_owner_873.webp?run";
+  import kagen_kcc from "$lib/assets/images/kagen_coffee_and_crepes_owner_873.webp?as=run";
   import Img from "@zerodevx/svelte-img";
 </script>
 

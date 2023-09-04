@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { Project } from "./../../routes/portfolio/projects";
-  import fts_logo from "$lib/assets/images/fts_logo.png?run";
-  import kcc_logo from "$lib/assets/images/kcc_logo.png?run";
+  import fts_logo from "$lib/assets/images/fts_logo.png?as=run";
+  import kcc_logo from "$lib/assets/images/kcc_logo.png?as=run";
   import { formatDate } from "$lib/utils/formatDate";
   import Img from "@zerodevx/svelte-img";
   import Border from "./Border.svelte";
