@@ -1,5 +1,5 @@
 <script lang="ts">
-  import logo from "$lib/assets/images/logo/logo_two_full.jpg?run";
+  import logo from "$lib/assets/images/logo/logo_two_full.jpg?as=run";
   import Img from "@zerodevx/svelte-img";
 </script>
 

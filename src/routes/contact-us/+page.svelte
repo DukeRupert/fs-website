@@ -1,5 +1,5 @@
 <script lang="ts">
-  import firefly_jar from "$lib/assets/images/firefly_jar.jpeg?run";
+  import firefly_jar from "$lib/assets/images/firefly_jar.jpeg?as=run";
   import Img from "@zerodevx/svelte-img";
   import FadeIn from "$lib/components/FadeIn.svelte";
 </script>

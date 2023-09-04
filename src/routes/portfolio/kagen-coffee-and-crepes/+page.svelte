@@ -4,9 +4,9 @@
   import Blockquote from "$lib/components/Blockquote.svelte";
   import PageLinks from "$lib/components/pagelinks/PageLinks.svelte";
   import Cta from "$lib/components/Cta.svelte";
-  import kcc_splash from "$lib/assets/images/kcc_splash_4_3.png?run";
-  import kcc_logo from "$lib/assets/images/kcc_logo.png?run";
-  import kcc_kagen from "$lib/assets/images/kagen_coffee_and_crepes_owner_873.webp?run";
+  import kcc_splash from "$lib/assets/images/kcc_splash_4_3.png?as=run";
+  import kcc_logo from "$lib/assets/images/kcc_logo.png?as=run";
+  import kcc_kagen from "$lib/assets/images/kagen_coffee_and_crepes_owner_873.webp?as=run";
   import Img from "@zerodevx/svelte-img";
   import GrayscaleTransitionImage from "$lib/components/GrayscaleTransitionImage.svelte";
   import type { PageData } from "./$types";
@@ -17,6 +17,7 @@
     description:
       "A vacation led to love, which led to a dream, which became Kagen Coffee and Crepes in Richland, WA",
     href: "/portfolio/kagen-coffee-and-crepes",
+    link: "https://www.kagenandco.com/",
     summary: [
       "Like many entrepreneurs Kagen started his business with a basic do-it-yourself website. After his first year though he wisely realized that his business needed a better online presence in order to compete in the Tri-Cities area.",
       "When Kagen Coffee and Crepes approached us to optimize their online presence we delivered a highly performant website that highlights their special combination of delicious crepes and friendly atmosphere. It must have worked since now Kagen Coffee and Crepes is about to open their second location!",
@@ -44,6 +45,26 @@
               recommend that you give Firefly a call!`,
     },
   };
+
+  const pages = [
+    {
+      client: "Ebony and Ivory",
+      title: "A passion for music in Montana",
+      description:
+        "In the charming town of Helena, MT, there lived a music virtuoso whose unwavering passion for both music and children led her to open her very own enchanted studio for the sweet melodies of young hearts to flourish.",
+      href: "/portfolio/ebony-and-ivory",
+      date: "2023-07",
+    },
+    {
+      href: "/portfolio/fts-excavation",
+      client: "FtS Excavation",
+      title: "Precision + Integrity",
+      description:
+        "A dedication to bring precision and integrity to every excavation job in the challenging Puget Sound region.",
+
+      date: "2021-08",
+    },
+  ];
 </script>
 
 <svelte:head>
@@ -98,14 +119,16 @@
 
     <div class="border-y border-neutral-200 bg-neutral-100">
       <div class="-my-px mx-auto max-w-[76rem] bg-neutral-200">
-        <GrayscaleTransitionImage>
-          <Img
-            src={kcc_splash}
-            alt="Kagen Coffee and Crepes mobile website views"
-            class="w-full filter grayscale-[0]"
-            loading="eager"
-          />
-        </GrayscaleTransitionImage>
+        <a href={caseStudy.link} target="_blank" referrerpolicy="no-referrer">
+          <GrayscaleTransitionImage>
+            <Img
+              src={kcc_splash}
+              alt="Kagen Coffee and Crepes mobile website views"
+              class="w-full filter grayscale-[0]"
+              loading="eager"
+            />
+          </GrayscaleTransitionImage>
+        </a>
       </div>
     </div>
   </header>
@@ -132,6 +155,6 @@
       <Blockquote testimonial={caseStudy.testimonial} />
     </article>
   </Container>
-  <PageLinks title="More case studies" cls="mt-24 sm:mt-32 lg:mt-40" />
+  <PageLinks title="More case studies" cls="mt-24 sm:mt-32 lg:mt-40" {pages} />
   <Cta />
 </article>

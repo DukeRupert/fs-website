@@ -1,24 +1,26 @@
 <script lang="ts">
-  //Todo
+  import FadeIn from "./FadeIn.svelte";
+  import CaseStudies from "./CaseStudies.svelte";
+  import PROJECTS from "../../routes/portfolio/projects";
 </script>
 
 <section id="pricing" class="bg-white py-24 sm:py-32">
   <div class="mx-auto max-w-7xl px-6 lg:px-8">
-    <div class="mx-auto max-w-4xl text-center">
-      <h2 class="text-base font-semibold leading-7 text-primary-600">
-        Pricing
-      </h2>
-      <p
-        class="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl"
-      >
-        Affordable options for every small business
-      </p>
-    </div>
-    <p
-      class="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600"
-    >
-      Choose from our most common services to take your business to the next
-      level. We believe in transparent, no surprise pricing.
-    </p>
+    <FadeIn>
+      <div class="mx-auto max-w-2xl lg:text-center">
+        <h2 class="text-base font-semibold leading-7 text-primary-600">
+          Our work
+        </h2>
+        <p
+          class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
+        >
+          Creating success for our clients
+        </p>
+        <!-- <p class="mt-6 text-lg leading-8 text-gray-600">
+          Learn a how we have helped our clients succeed.
+        </p> -->
+      </div>
+    </FadeIn>
   </div>
+  <CaseStudies projects={PROJECTS} />
 </section>

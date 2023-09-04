@@ -1,5 +1,5 @@
 <script lang="ts">
-  import kcc_landing from "$lib/assets/images/kcc_landing.png?run";
+  import kcc_landing from "$lib/assets/images/kcc_landing.png?as=run";
   import Img from "@zerodevx/svelte-img";
   let is_hiring = false;
 </script>
