@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { CaseStudy } from "$lib/types/caseStudy";
   import type { PageLink } from "$lib/components/pagelinks/pageLink";
+  import Seo from "$lib/components/SEO.svelte";
   import PageContainer from "$lib/components/PageContainer.svelte";
   import PageIntro from "$lib/components/PageIntro.svelte";
   import PageLinks from "$lib/components/pagelinks/PageLinks.svelte";
@@ -67,15 +68,26 @@
       date: "2021-08",
     },
   ];
+
+  const eyebrow = "Case Study"
+  const seoData = {
+    title: `${caseStudy.title} | Firefly Software`,
+    description: caseStudy.description,
+    url: `https://www.fireflysoftware.dev${caseStudy.href}`,
+    og: {
+      src: "https://www.fireflysoftware.dev/images/facebook_link_image.png",
+      alt: "Firefly Software landing page",
+      mimeType: "image/png",
+      width: 1200,
+      height: 648,
+    },
+  };
 </script>
 
-<svelte:head>
-  <title>Firefly Software | Our Work | Kagen Coffee & Crepes</title>
-</svelte:head>
-
+<Seo data={seoData} />
 <PageContainer centered={true}>
   <span slot="intro">
-    <PageIntro eyebrow="Case Study" title={caseStudy.title} centered={true}>
+    <PageIntro {eyebrow} title={caseStudy.title} centered={true}>
       <p>
         {caseStudy.description}
       </p>

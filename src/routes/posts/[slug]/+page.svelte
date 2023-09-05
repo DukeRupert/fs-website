@@ -9,7 +9,6 @@
 
   export let data: PageData;
   $: ({ post } = data);
-  $: console.log(data);
 
   $: seoData = {
     title: `${post.title} | Firefly Software`,

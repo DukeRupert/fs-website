@@ -1,12 +1,35 @@
 <script lang="ts">
   import type { PageData } from "./$types";
+  import Seo from "$lib/components/SEO.svelte";
+  import PageContainer from "$lib/components/PageContainer.svelte";
   import PageIntro from "$lib/components/PageIntro.svelte";
 
   export let data: PageData;
   $: ({ posts } = data);
   $: console.log(posts);
+  
+  const title = "Website development";
+  const description = `Firefly Software specializes in website development services that prioritize
+    lightning-fast load times and mobile-first design. Our commitment to
+    delivering exceptional user experiences ensures that our clients not only
+    attract more visitors but also convert them into loyal customers, driving
+    their online success.`;
+
+  const seoData = {
+    title: `${title} | Firefly Software`,
+    description: description,
+    url: "https://www.fireflysoftware.dev/posts",
+    og: {
+      src: "https://www.fireflysoftware.dev/images/facebook_link_image.png",
+      alt: "Firefly Software landing page",
+      mimeType: "image/png",
+      width: 1200,
+      height: 648,
+    },
+  };
 </script>
 
+<Seo data={seoData} />
 <PageIntro
   eyebrow="Posts"
   title="Demystifying the web and exploring best practices"

@@ -4,6 +4,7 @@
   import fts_splash from "$lib/assets/images/fts_splash_4_3.png?as=run";
   import fts_frank from "$lib/assets/images/fts_frank.jpg?as=run";
   import fts_logo from '$lib/assets/images/fts_logo.png?as=run';
+  import Seo from "$lib/components/SEO.svelte";
   import ProjectShowcase from "../ProjectShowcase.svelte";
   import PageContainer from "$lib/components/PageContainer.svelte";
   import PageIntro from "$lib/components/PageIntro.svelte";
@@ -55,14 +56,26 @@
       date: "2023-07",
     },
   ];
+
+  const eyebrow = "Case Study"
+  const seoData = {
+    title: `${caseStudy.title} | Firefly Software`,
+    description: caseStudy.description,
+    url: `https://www.fireflysoftware.dev${caseStudy.href}`,
+    og: {
+      src: "https://www.fireflysoftware.dev/images/facebook_link_image.png",
+      alt: "Firefly Software landing page",
+      mimeType: "image/png",
+      width: 1200,
+      height: 648,
+    },
+  };
 </script>
 
-<svelte:head>
-  <title>Firefly Software | Our Work | FtS Excavation</title>
-</svelte:head>
+<Seo data={seoData} />
 <PageContainer centered={true}>
   <span slot="intro">
-    <PageIntro eyebrow="Case Study" title={caseStudy.title} centered={true}>
+    <PageIntro {eyebrow} title={caseStudy.title} centered={true}>
       <p>
         {caseStudy.description}
       </p>
