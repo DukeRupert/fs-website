@@ -1,12 +1,15 @@
 <script lang="ts">
+  import type { CaseStudy } from "$lib/types/caseStudy";
+  import type { PageLink } from "$lib/components/pagelinks/pageLink";
   import PageContainer from "$lib/components/PageContainer.svelte";
   import PageIntro from "$lib/components/PageIntro.svelte";
   import ProjectShowcase from "../ProjectShowcase.svelte";
   import eandi_logo from "$lib/assets/images/ebony_and_ivory/logo.png?as=run";
   import eandi_chante from "$lib/assets/images/ebony_and_ivory/chante.png?as=run";
   import eandi_splash from "$lib/assets/images/ebony_and_ivory/splash_mobile.png?as=run";
+  import PageLinks from "$lib/components/pagelinks/PageLinks.svelte";
 
-  const caseStudy = {
+  const caseStudy: CaseStudy = {
     client: "Ebony and Ivory",
     title: "A passion for music in Montana",
     description:
@@ -35,13 +38,13 @@
     },
   };
 
-  const pages = [
+  const pages: PageLink[] = [
     {
       href: "/portfolio/kagen-coffee-and-crepes",
       client: "Kagen Coffee and Crepes",
       title: "Crepes, coffee, and community",
       description:
-        "A vacation led to love, which led to a dream, which became Kagen Coffee and Crepes in Richland, WA",
+        "A vacation sparked a love that kindled a dream, ultimately giving birth to Kagen Coffee and Crepes in Richland, WA.",
       date: "2022-06",
     },
     {
@@ -71,7 +74,8 @@
 
   <span slot="body">
     <div class="mx-auto max-w-5xl">
-      <ProjectShowcase {caseStudy} {pages} />
+      <ProjectShowcase {caseStudy} />
     </div>
+    <PageLinks title="More case studies" cls="mt-24 sm:mt-32 lg:mt-40" {pages} />
   </span>
 </PageContainer>

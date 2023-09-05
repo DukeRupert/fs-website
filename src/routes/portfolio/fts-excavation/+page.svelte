@@ -1,11 +1,15 @@
 <script lang="ts">
+  import type { CaseStudy } from "$lib/types/caseStudy";
+  import type { PageLink } from "$lib/components/pagelinks/pageLink";
   import fts_splash from "$lib/assets/images/fts_splash_4_3.png?as=run";
   import fts_frank from "$lib/assets/images/fts_frank.jpg?as=run";
+  import fts_logo from '$lib/assets/images/fts_logo.png?as=run';
   import ProjectShowcase from "../ProjectShowcase.svelte";
   import PageContainer from "$lib/components/PageContainer.svelte";
   import PageIntro from "$lib/components/PageIntro.svelte";
+  import PageLinks from "$lib/components/pagelinks/PageLinks.svelte";
 
-  const caseStudy = {
+  const caseStudy: CaseStudy = {
     client: "FtS Excavation",
     title: "Precision + Integrity",
     description:
@@ -13,6 +17,11 @@
     summary: [
       " Frank and Beverly founded FtS Excavation in 2019. The mission was to provide excavation services to the Puget Sound region in a manner that demonstrated the highest precision and integrity. We share their love of excellence and constant drive towards improvement.",
     ],
+    logo: {
+      src: fts_logo,
+      alt: "FtS logo"
+    },
+    href: "/portfolio/fts-excavation",
     link: "https://www.fts-excavation.com/",
     date: "2021-08",
     skills: ["Web design", "Web development"],
@@ -28,13 +37,13 @@
     },
   };
 
-  const pages = [
+  const pages: PageLink[] = [
     {
       href: "/portfolio/kagen-coffee-and-crepes",
       client: "Kagen Coffee and Crepes",
       title: "Crepes, coffee, and community",
       description:
-        "A vacation led to love, which led to a dream, which became Kagen Coffee and Crepes in Richland, WA",
+        "A vacation sparked a love that kindled a dream, ultimately giving birth to Kagen Coffee and Crepes in Richland, WA.",
       date: "2022-06",
     },
     {
@@ -62,7 +71,8 @@
 
   <span slot="body">
     <div class="mx-auto max-w-5xl">
-      <ProjectShowcase {caseStudy} {pages} />
+      <ProjectShowcase {caseStudy} />
     </div>
+    <PageLinks title="More case studies" cls="mt-24 sm:mt-32 lg:mt-40" {pages} />
   </span>
 </PageContainer>

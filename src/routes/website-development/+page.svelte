@@ -6,7 +6,6 @@
   import PageIntro from "$lib/components/PageIntro.svelte";
   import type { ProductScreenshotData } from "$lib/components/ProductScreenshot";
   import FeatureProductScreenshot from "$lib/components/ProductScreenshot.svelte";
-  import Cta from "$lib/components/Cta.svelte";
 
   const load_fast: ProductScreenshotData = {
     left: false,
