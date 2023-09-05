@@ -1,13 +1,18 @@
-import { createClient } from "@supabase/supabase-js";
-import {
-  PUBLIC_SUPABASE_URL,
-  PUBLIC_SUPABASE_ANON_KEY,
-} from "$env/static/public";
-// import type { Database } from '$lib/types/supabase';
+import { createClient } from "@sanity/client";
+import imageUrlBuilder from "@sanity/image-url";
+import type { SanityAsset } from "@sanity/image-url/lib/types/types";
 
-console.log(PUBLIC_SUPABASE_ANON_KEY, PUBLIC_SUPABASE_URL)
+const client = createClient({
+  projectId: "vpzagt04",
+  dataset: "production",
+  apiVersion: "2023-09-04",
+  useCdn: false,
+});
 
-export const Supabase = createClient(
-  PUBLIC_SUPABASE_URL,
-  PUBLIC_SUPABASE_ANON_KEY
-);
+const builder = imageUrlBuilder(client);
+
+export function urlFor(source: string | SanityAsset) {
+  return builder.image(source);
+}
+
+export default client;
