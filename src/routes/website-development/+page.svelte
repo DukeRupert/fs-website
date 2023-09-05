@@ -1,4 +1,6 @@
 <script lang="ts">
+  import image_1 from '$lib/assets/images/kcc_ecommerce_coffee.png?as=run';
+  import image_2 from '$lib/assets/images/ebony_and_ivory/ebonyandivory_light.png?as=run';
   import PageIntro from "$lib/components/PageIntro.svelte";
   import type { ProductScreenshotData } from "$lib/components/ProductScreenshot";
   import FeatureProductScreenshot from "$lib/components/ProductScreenshot.svelte";
@@ -9,6 +11,10 @@
     eyebrow: "Fast page load",
     title: "Why loading lightning-fast matters",
     description: "At Firefly Software, we don't just build websites; we craft digital experiences that leave a lasting impression. Our secret ingredient? Lightning-fast page load speeds. In a world where every second counts, your website's speed is your competitive edge. Our handcrafted websites are meticulously optimized for speed, ensuring that your visitors don't just browse; they zoom through your content. Why does this matter?",
+    image: {
+      src: image_1,
+      alt: "Kagen Coffee and Crepes e-commerce mobile view"
+    },
     features: [
       {
         title: "Enhanced User Experience",
@@ -44,8 +50,12 @@
   const support: ProductScreenshotData = {
     left: true,
     eyebrow: "Mobile-first design",
-    title: "Your website design matters",
+    title: "Why your website design matters",
     description: "In today's fast-paced digital landscape, the way your website performs on mobile devices is mission-critical. That's where Firefly Software steps in with our cutting-edge mobile-first design approach.",
+    image: {
+      src: image_2,
+      alt: "Ebony and Ivory landing page mobile view"
+    },
     features: [
       {
         title: "Google's Favorite",
@@ -90,9 +100,7 @@
   centered={false}
 >
   <p>
-    Empower your business online with handcrafted excellence! Experience
-    lightning-fast websites, tailored support, and transparent pricing starting
-    at $150/mo.
+    Firefly Software specializes in website development services that prioritize lightning-fast load times and mobile-first design. Our commitment to delivering exceptional user experiences ensures that our clients not only attract more visitors but also convert them into loyal customers, driving their online success.
   </p>
 </PageIntro>
 <FeatureProductScreenshot {...load_fast} />
