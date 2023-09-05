@@ -22,29 +22,59 @@
         title: "Enhanced User Experience",
         description:
           "Extremely fast web page load speeds ensure that visitors to your site have a smooth and enjoyable experience. Quick loading times reduce frustration, keep users engaged, and encourage them to explore your content, contact you or make a purchase.",
-        iconPath: [
-          '<path stroke="none" d="M0 0h24v24H0z"/>',
-          '<path d="M12 20l-7 -7a4 4 0 0 1 6.5 -6a.9 .9 0 0 0 1 0a4 4 0 0 1 6.5 6l-7 7" />',
-        ],
+        icon: `<svg
+                    class="absolute left-1 top-1 h-5 w-5 text-primary-600"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z"/>
+                  <path d="M12 20l-7 -7a4 4 0 0 1 6.5 -6a.9 .9 0 0 0 1 0a4 4 0 0 1 6.5 6l-7 7" />
+                </svg>`,
       },
       {
         title: "Improved Search Engine Ranking",
         description:
           "Search engines like Google consider page load speed as a ranking factor. Faster-loading pages are more likely to rank higher in search results, increasing your website's visibility and attracting more organic traffic.",
-        iconPath: [
-          '<path stroke="none" d="M0 0h24v24H0z"/>',
-          '<polyline points="3 17 9 11 13 15 21 7" />',
-          '<polyline points="14 7 21 7 21 14" />',
-        ],
+        icon: `<svg
+                  class="absolute left-1 top-1 h-5 w-5 text-primary-600"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+              >
+              <path stroke="none" d="M0 0h24v24H0z"/>
+              <polyline points="3 17 9 11 13 15 21 7" />
+              <polyline points="14 7 21 7 21 14" />
+              </svg>`,
       },
       {
         title: "Higher Conversion Rates",
         description:
           "Speedy web pages lead to higher conversion rates. Whether you're selling products, generating leads, or simply providing information, a fast-loading site increases the likelihood that visitors will take the desired action, such as making a purchase or filling out a contact form.",
-        iconPath: [
-          '<line x1="12" y1="1" x2="12" y2="23" />',
-          '<path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />',
-        ],
+        icon: `<svg
+                  class="absolute left-1 top-1 h-5 w-5 text-primary-600"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+              >
+              <line x1="12" y1="1" x2="12" y2="23" />
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+              </svg>`,
       },
     ],
   };
@@ -64,31 +94,61 @@
         title: "Google's Favorite",
         description:
           "Did you know that Google predominantly uses the mobile version of your site for indexing and ranking? Don't worry; we've got it covered. Our mobile-first approach optimizes your site for SEO, ensuring that potential clients find you easily.",
-        iconPath: [
-          '<path stroke="none" d="M0 0h24v24H0z"/>',
-          '<path d="M4 13a8 8 0 0 1 7 7a6 6 0 0 0 3 -5a9 9 0 0 0 6 -8a3 3 0 0 0 -3 -3a9 9 0 0 0 -8 6a6 6 0 0 0 -5 3" />',
-          '<path d="M7 14a6 6 0 0 0 -3 6a6 6 0 0 0 6 -3" />',
-          '<circle cx="15" cy="9" r="1"  />',
-        ],
+        icon: `<svg
+                    class="absolute left-1 top-1 h-5 w-5 text-primary-600"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+                    <path stroke="none" d="M0 0h24v24H0z"/>
+                    <path d="M4 13a8 8 0 0 1 7 7a6 6 0 0 0 3 -5a9 9 0 0 0 6 -8a3 3 0 0 0 -3 -3a9 9 0 0 0 -8 6a6 6 0 0 0 -5 3" />
+                    <path d="M7 14a6 6 0 0 0 -3 6a6 6 0 0 0 6 -3" />
+                    <circle cx="15" cy="9" r="1"  />
+                </svg>`,
       },
       {
         title: "Consistent Branding",
         description:
           "With Firefly Software, you don't have to compromise on design. We maintain a consistent brand image across all devices, so your audience recognizes and trusts your business, no matter how they access your site.",
-        iconPath: [
-          '<path stroke="none" d="M0 0h24v24H0z"/>',
-          '<rect x="7" y="4" width="10" height="16" rx="1" />',
-          '<line x1="11" y1="5" x2="13" y2="5" />',
-          '<line x1="12" y1="17" x2="12" y2="17.01" />',
-        ],
+        icon: `<svg
+                    class="absolute left-1 top-1 h-5 w-5 text-primary-600"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+                    <path stroke="none" d="M0 0h24v24H0z"/>
+                    <rect x="7" y="4" width="10" height="16" rx="1" />
+                    <line x1="11" y1="5" x2="13" y2="5" />
+                    <line x1="12" y1="17" x2="12" y2="17.01" />
+                </svg>`,
       },
       {
         title: "Future-Proofing",
         description:
           "Mobile-first isn't just a trend; it's the future. We build websites with tomorrow in mind, ensuring your online presence remains relevant and competitive as mobile technology continues to evolve.",
-        iconPath: [
-          '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>',
-        ],
+        icon: `<svg
+                    class="absolute left-1 top-1 h-5 w-5 text-primary-600"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                </svg>`,
       },
     ],
   };
