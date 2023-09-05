@@ -61,8 +61,10 @@
       </button>
     </div>
     <div class="hidden lg:flex lg:gap-x-12">
-      <a href="/#services" class="text-sm font-semibold leading-6 text-gray-900"
-        >Services</a
+      <a
+        href="/website-development"
+        class="text-sm font-semibold leading-6 text-gray-900"
+        >Website Development</a
       >
       <a href="/#features" class="text-sm font-semibold leading-6 text-gray-900"
         >Features</a

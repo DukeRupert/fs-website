@@ -65,10 +65,10 @@
             <ul class="mt-6 space-y-4">
               <li>
                 <a
-                  href="#"
+                  href="/website-development"
                   class="text-sm leading-6 text-gray-600 hover:text-gray-900"
-                  >Web Design</a
-                >
+                  >Website Development
+                </a>
               </li>
               <li>
                 <a
