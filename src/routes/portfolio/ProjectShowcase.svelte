@@ -32,6 +32,10 @@
       src: eandi_chante,
       content: `As a business owner, I'm all about efficiency, and Firefly Software totally delivered. Thanks to their work, our online presence has blown up, and we've got more students than ever.`,
     },
+    splash: {
+      src: eandi_chante,
+      alt: "Fix me",
+    },
   };
 
   export let pages = [
@@ -92,8 +96,8 @@
       <a href={caseStudy.link} target="_blank" referrerpolicy="no-referrer">
         <GrayscaleTransitionImage>
           <Img
-            src={eandi_splash}
-            alt="Ebony and Ivory mobile website views"
+            src={caseStudy.splash.src}
+            alt={caseStudy.splash.alt}
             class="w-full filter grayscale-[0]"
             loading="eager"
           />

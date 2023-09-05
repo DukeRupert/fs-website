@@ -1,9 +1,10 @@
 <script lang="ts">
   import PageContainer from "$lib/components/PageContainer.svelte";
   import PageIntro from "$lib/components/PageIntro.svelte";
-  import ProjectShowcase from "./ProjectShowcase.svelte";
+  import ProjectShowcase from "../ProjectShowcase.svelte";
   import eandi_logo from "$lib/assets/images/ebony_and_ivory/logo.png?as=run";
   import eandi_chante from "$lib/assets/images/ebony_and_ivory/chante.png?as=run";
+  import eandi_splash from "$lib/assets/images/ebony_and_ivory/splash_mobile.png?as=run";
 
   const caseStudy = {
     client: "Ebony and Ivory",
@@ -27,6 +28,10 @@
       author: { name: "Chante' Williams", role: "Owner" },
       src: eandi_chante,
       content: `As a business owner, I'm all about efficiency, and Firefly Software totally delivered. Thanks to their work, our online presence has blown up, and we've got more students than ever.`,
+    },
+    splash: {
+      src: eandi_splash,
+      alt: "A mobile view of Ebony and Ivory website",
     },
   };
 
