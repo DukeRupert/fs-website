@@ -1,11 +1,15 @@
 <script lang="ts">
   import PageContainer from "$lib/components/PageContainer.svelte";
   import PageIntro from "$lib/components/PageIntro.svelte";
-  import ProjectShowcase from "./ProjectShowcase.svelte";
+  import Blockquote from "$lib/components/Blockquote.svelte";
+  import PageLinks from "$lib/components/pagelinks/PageLinks.svelte";
+  import eandi_splash from "$lib/assets/images/ebony_and_ivory/splash_mobile.png?as=run";
   import eandi_logo from "$lib/assets/images/ebony_and_ivory/logo.png?as=run";
   import eandi_chante from "$lib/assets/images/ebony_and_ivory/chante.png?as=run";
+  import Img from "@zerodevx/svelte-img";
+  import GrayscaleTransitionImage from "$lib/components/GrayscaleTransitionImage.svelte";
 
-  const caseStudy = {
+  export let caseStudy = {
     client: "Ebony and Ivory",
     title: "A passion for music in Montana",
     description:
@@ -30,7 +34,7 @@
     },
   };
 
-  const pages = [
+  export let pages = [
     {
       href: "/portfolio/kagen-coffee-and-crepes",
       client: "Kagen Coffee and Crepes",
@@ -51,22 +55,75 @@
   ];
 </script>
 
-<svelte:head>
-  <title>Firefly Software | Our Work | Ebony and Ivory</title>
-</svelte:head>
-
-<PageContainer centered={true}>
-  <span slot="intro">
-    <PageIntro eyebrow="Case Study" title={caseStudy.title} centered={true}>
-      <p>
-        {caseStudy.description}
-      </p>
-    </PageIntro>
-  </span>
-
-  <span slot="body">
+<article class="mt-24 sm:mt-32 lg:mt-40">
+  <div class="border-t border-neutral-200 bg-white/50">
     <div class="mx-auto max-w-5xl">
-      <ProjectShowcase {caseStudy} {pages} />
+      <dl
+        class="-mx-6 grid grid-cols-1 text-sm text-neutral-950 sm:mx-0 sm:grid-cols-3"
+      >
+        <div
+          class="border-t border-neutral-200 px-6 py-4 first:border-t-0 sm:border-l sm:border-t-0"
+        >
+          <dt class="font-semibold">Client</dt>
+          <dd>{caseStudy.client}</dd>
+        </div>
+        <div
+          class="border-t border-neutral-200 px-6 py-4 first:border-t-0 sm:border-l sm:border-t-0"
+        >
+          <dt class="font-semibold">Year</dt>
+          <dd>
+            <time dateTime={caseStudy.date.split("-")[0]}>
+              {caseStudy.date.split("-")[0]}
+            </time>
+          </dd>
+        </div>
+        <div
+          class="border-t border-neutral-200 px-6 py-4 first:border-t-0 sm:border-l sm:border-t-0"
+        >
+          <dt class="font-semibold">Service</dt>
+          <dd>{caseStudy.service}</dd>
+        </div>
+      </dl>
     </div>
-  </span>
-</PageContainer>
+  </div>
+
+  <div class="border-y border-neutral-200 bg-neutral-100">
+    <div class="-my-px mx-auto max-w-[76rem] bg-neutral-200">
+      <a href={caseStudy.link} target="_blank" referrerpolicy="no-referrer">
+        <GrayscaleTransitionImage>
+          <Img
+            src={eandi_splash}
+            alt="Ebony and Ivory mobile website views"
+            class="w-full filter grayscale-[0]"
+            loading="eager"
+          />
+        </GrayscaleTransitionImage>
+      </a>
+    </div>
+  </div>
+
+  <div class="mt-24 sm:mt-32 lg:mt-40">
+    <article class="mx-auto max-w-prose text-left">
+      <div class="prose prose-lg">
+        <h2>Overview</h2>
+        {#each caseStudy.summary as item}
+          <p>{item}</p>
+        {/each}
+
+        <h2>What we did</h2>
+        <ul role="list" class="list-none my-6 flex flex-wrap gap-4">
+          {#each caseStudy.skills as skill}
+            <li
+              class="rounded-full bg-neutral-100 px-4 py-1.5 text-base text-neutral-600"
+            >
+              {skill}
+            </li>
+          {/each}
+        </ul>
+      </div>
+
+      <Blockquote testimonial={caseStudy.testimonial} />
+    </article>
+  </div>
+</article>
+<PageLinks title="More case studies" cls="mt-24 sm:mt-32 lg:mt-40" {pages} />

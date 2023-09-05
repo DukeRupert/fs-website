@@ -2,6 +2,7 @@
   import image_1 from "$lib/assets/images/kcc_ecommerce_coffee.png?as=run";
   import image_2 from "$lib/assets/images/fts_landing.png?as=run";
   import Seo from "$lib/components/SEO.svelte";
+  import PageContainer from "$lib/components/PageContainer.svelte";
   import PageIntro from "$lib/components/PageIntro.svelte";
   import type { ProductScreenshotData } from "$lib/components/ProductScreenshot";
   import FeatureProductScreenshot from "$lib/components/ProductScreenshot.svelte";
@@ -175,19 +176,20 @@
 </script>
 
 <Seo data={seoData} />
-<PageIntro
-  eyebrow="Website development"
-  title="Exceptional Web Developers: Elevate Your Online Presence"
-  centered={false}
->
-  <p>
-    Firefly Software specializes in website development services that prioritize
-    lightning-fast load times and mobile-first design. Our commitment to
-    delivering exceptional user experiences ensures that our clients not only
-    attract more visitors but also convert them into loyal customers, driving
-    their online success.
-  </p>
-</PageIntro>
-<FeatureProductScreenshot {...load_fast} />
-<FeatureProductScreenshot {...support} />
-<Cta />
+<PageContainer centered>
+  <span slot="intro">
+    <PageIntro
+      eyebrow="Elevate your online presence"
+      title="Website development"
+    >
+      <p>
+        Our commitment to delivering exceptional user experiences ensures that
+        our clients attract more visitors and converts them into customers.
+      </p>
+    </PageIntro>
+  </span>
+  <span slot="body">
+    <FeatureProductScreenshot {...load_fast} />
+    <FeatureProductScreenshot {...support} />
+  </span>
+</PageContainer>
