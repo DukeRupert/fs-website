@@ -29,9 +29,9 @@
               </li>
               <li>
                 <a
-                  href="#services"
+                  href="/website-development"
                   class="text-sm leading-6 text-gray-600 hover:text-gray-900"
-                  >Services</a
+                  >Website development</a
                 >
               </li>
               <li>
@@ -41,7 +41,13 @@
                   >Portfolio</a
                 >
               </li>
-
+              <li>
+                <a
+                  href="/posts"
+                  class="text-sm leading-6 text-gray-600 hover:text-gray-900"
+                  >Posts</a
+                >
+              </li>
               <li>
                 <a
                   href="#pricing"
