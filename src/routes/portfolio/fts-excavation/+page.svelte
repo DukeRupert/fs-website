@@ -3,7 +3,7 @@
   import type { PageLink } from "$lib/components/pagelinks/pageLink";
   import fts_splash from "$lib/assets/images/fts_splash_4_3.png?as=run";
   import fts_frank from "$lib/assets/images/fts_frank.jpg?as=run";
-  import fts_logo from '$lib/assets/images/fts_logo.png?as=run';
+  import fts_logo from "$lib/assets/images/fts_logo.png?as=run";
   import Seo from "$lib/components/SEO.svelte";
   import ProjectShowcase from "../ProjectShowcase.svelte";
   import PageContainer from "$lib/components/PageContainer.svelte";
@@ -20,7 +20,7 @@
     ],
     logo: {
       src: fts_logo,
-      alt: "FtS logo"
+      alt: "FtS logo",
     },
     href: "/portfolio/fts-excavation",
     link: "https://www.fts-excavation.com/",
@@ -57,7 +57,7 @@
     },
   ];
 
-  const eyebrow = "Case Study"
+  const eyebrow = "Case Study";
   const seoData = {
     title: `${caseStudy.title} | Firefly Software`,
     description: caseStudy.description,
@@ -86,6 +86,10 @@
     <div class="mx-auto max-w-5xl">
       <ProjectShowcase {caseStudy} />
     </div>
-    <PageLinks title="More case studies" cls="mt-24 sm:mt-32 lg:mt-40" {pages} />
+    <PageLinks
+      title="More case studies"
+      cls="mt-24 sm:mt-32 lg:mt-40"
+      {pages}
+    />
   </span>
 </PageContainer>

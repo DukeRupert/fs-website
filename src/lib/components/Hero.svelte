@@ -5,7 +5,7 @@
 </script>
 
 <section id="hero" class="bg-white">
-  <div class="relative isolate px-6 pt-14 lg:px-8">
+  <div class="relative isolate pt-14">
     <svg
       class="absolute inset-0 -z-10 h-full w-full stroke-gray-200 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
       aria-hidden="true"

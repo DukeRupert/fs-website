@@ -5,11 +5,13 @@
   import Seo from "$lib/components/SEO.svelte";
   import PostHead from "$lib/components/PostHead.svelte";
   import PortableText from "$lib/components/portableText/PortableText.svelte";
+  import PageContainer from "$lib/components/PageContainer.svelte";
+  import PageIntro from "$lib/components/PageIntro.svelte";
   import Cta from "$lib/components/Cta.svelte";
 
   export let data: PageData;
   $: ({ post } = data);
-
+  const eyebrow = "Post";
   $: seoData = {
     title: `${post.title} | Firefly Software`,
     description: post?.excerpt ?? "An article from Firefly Software",
@@ -32,12 +34,16 @@
 </script>
 
 <Seo data={seoData} type="article" />
-<div class="bg-white">
-  <PostHead eyebrow="Article" title={post.title} image={post.mainImage} />
-  <article id="services" class="bg-white py-24 sm:py-32">
-    <div class="mx-auto max-w-3xl prose">
-      <PortableText value={post.body} />
-    </div>
-  </article>
-  <Cta />
-</div>
+<PageContainer centered={true}>
+  <span slot="intro">
+    <PostHead eyebrow="Article" title={post.title} image={post.mainImage} />
+  </span>
+
+  <span slot="body">
+    <article id="services" class="bg-white py-24 sm:py-32">
+      <div class="mx-auto max-w-3xl prose">
+        <PortableText value={post.body} />
+      </div>
+    </article>
+  </span>
+</PageContainer>
