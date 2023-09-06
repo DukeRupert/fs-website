@@ -17,7 +17,7 @@
   <div class="relative w-full">
     <img
       src={urlFor(post.mainImage.asset).width(340).format("webp").toString()}
-      alt={post.mainImage.alt}
+      alt={post?.title ?? "A stock image"}
       class="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
     />
     <div
@@ -65,10 +65,8 @@
       />
       <div class="text-sm leading-6">
         <p class="font-semibold text-gray-900">
-          <a href="#">
-            <span class="absolute inset-0" />
-            {post.author.name}
-          </a>
+          <span class="absolute inset-0" />
+          {post.author.name}
         </p>
         <p class="text-gray-600">{post.author.role}</p>
       </div>
