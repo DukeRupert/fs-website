@@ -181,7 +181,8 @@
   <span slot="intro">
     <PageIntro {eyebrow} {title}>
       <p>
-        {description}
+        Firefly Software specializes in website development services that prioritize
+    lightning-fast load times and mobile-first design.
       </p>
     </PageIntro>
   </span>
