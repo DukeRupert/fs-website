@@ -5,6 +5,8 @@
   import Img from "@zerodevx/svelte-img";
   import small_logo from "$lib/assets/images/logo/logo_small.jpg?as=run";
   import large_logo from "$lib/assets/images/logo/logo_two_full.jpg?as=run";
+  import Socials from "$lib/components/Socials.svelte";
+  import { socials } from "$lib/fs";
 
   // Toggle mobile menu
   let is_mobile_open = false;
@@ -157,7 +159,6 @@
                 class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >Posts</a
               >
-
               <div class="py-6 border-t-2">
                 <a
                   on:click={close}
@@ -165,6 +166,9 @@
                   class="rounded-md bg-primary-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600"
                   >Contact us</a
                 >
+              </div>
+              <div class="py-6 flex w-full justify-center gap-4">
+                <Socials {...socials} />
               </div>
             </div>
           </div>

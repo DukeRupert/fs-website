@@ -1,6 +1,8 @@
 <script lang="ts">
   import logo from "$lib/assets/images/logo/logo_two_full.jpg?as=run";
   import Img from "@zerodevx/svelte-img";
+  import { socials } from "$lib/fs";
+  import Socials from "./Socials.svelte";
 </script>
 
 <footer class="bg-white" aria-labelledby="footer-heading">
@@ -12,6 +14,9 @@
         <p class="text-sm leading-6 text-gray-600">
           Creating a better online experience through meticulous craftsmanship.
         </p>
+        <div class="flex space-x-6">
+          <Socials {...socials} />
+        </div>
       </div>
       <div class="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
         <div class="md:grid md:grid-cols-2 md:gap-8">

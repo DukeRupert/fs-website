@@ -1,3 +1,3 @@
 export const socials = {
-    facebook: ""
-}
+  facebook: "https://www.facebook.com/profile.php?id=61550128786201",
+};
