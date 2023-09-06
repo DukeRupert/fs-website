@@ -5,7 +5,7 @@
 </script>
 
 <section id="pricing" class="bg-white py-24 sm:py-32">
-  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+  <div class="mx-auto max-w-5xl px-6 lg:px-8">
     <FadeIn>
       <div class="mx-auto max-w-2xl lg:text-center">
         <h2 class="text-base font-semibold leading-7 text-primary-600">
@@ -21,6 +21,6 @@
         </p> -->
       </div>
     </FadeIn>
+    <CaseStudies projects={PROJECTS} />
   </div>
-  <CaseStudies projects={PROJECTS} />
 </section>
