@@ -1,29 +1,24 @@
 <script lang="ts">
+  import type { PageLink } from "./pageLink";
   import Border from "$lib/components/Border.svelte";
   import { formatDate } from "$lib/utils/formatDate";
-  export let page = {
-    href: "#",
-    title: "Title",
-    date: "2022-06",
-    description:
-      "The description goes here to briefly describe what the project is about.",
-  };
+  export let p: PageLink
 </script>
 
 <!-- PageLink -->
-<article id={page.href}>
+<article id={p.href}>
   <Border position="left" cls="relative flex flex-col items-start pl-8">
     <h3 class="mt-6 text-base font-semibold text-neutral-950">
-      {page.title}
+      {p.title}
     </h3>
-    <time dateTime={page.date} class="order-first text-sm text-neutral-600">
-      {formatDate(page.date)}
+    <time dateTime={p.date} class="order-first text-sm text-neutral-600">
+      {formatDate(p.date)}
     </time>
-    <p class="mt-2.5 text-base text-neutral-600">{page.description}</p>
+    <p class="mt-2.5 text-base text-neutral-600">{p.description}</p>
     <a
-      href={page.href}
+      href={p.href}
       class="mt-6 flex gap-x-3 text-base font-semibold text-neutral-950 transition hover:text-neutral-700"
-      aria-label={`Read more: ${page.title}`}
+      aria-label={`Read more: ${p.title}`}
     >
       Read more
       <!-- Arrow Icon -->

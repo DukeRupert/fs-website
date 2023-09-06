@@ -1,13 +1,28 @@
 <script lang="ts">
   import firefly_jar from "$lib/assets/images/firefly_jar.jpeg?as=run";
   import Img from "@zerodevx/svelte-img";
-  import FadeIn from "$lib/components/FadeIn.svelte";
+  import Seo from "$lib/components/SEO.svelte";
+
+  const seoData = {
+    title: "Contact Us | Firefly Software",
+    description:
+      "Excited to leave behind tedious page builders and create the handcrafted web experience your small business deserves? We are!",
+    url: "https://www.fireflysoftware.dev/contact-us",
+    og: {
+      src: "https://www.fireflysoftware.dev/images/facebook_link_image.png",
+      alt: "Firefly Software landing page",
+      mimeType: "image/png",
+      width: 1200,
+      height: 648,
+    },
+  };
 </script>
 
 <svelte:head>
   <script src="https://web3forms.com/client/script.js" async defer></script>
 </svelte:head>
 
+<Seo data={seoData} />
 <section id="contact-us" class="relative bg-white">
   <div class="mt-24 lg:mt-0 lg:absolute lg:inset-0 lg:left-1/2">
     <Img

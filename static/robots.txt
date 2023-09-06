@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /success
+Disallow: /error
+Disallow: /portfolio/creation

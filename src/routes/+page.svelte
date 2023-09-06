@@ -6,7 +6,6 @@
   import Pricing from "$lib/components/Pricing.svelte";
   import Testimonial from "$lib/components/Testimonial.svelte";
   import Cta from "$lib/components/Cta.svelte";
-  import ContactForm from "$lib/components/ContactForm.svelte";
   import Portfolio from "$lib/components/Portfolio.svelte";
 
   const seoData = {
@@ -67,9 +66,9 @@
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Web Design",
+            "name": "Website Development",
             "description": "We handcraft a clean and beautiful design tailored to your business that loads fast, really fast.",
-            "url": "https://www.fireflysoftware.dev/#services"
+            "url": "https://www.fireflysoftware.dev/website-development"
           }
         },
         {

@@ -1,16 +1,16 @@
 <script lang="ts">
-  import Container from "$lib/components/Container.svelte";
+  import type { CaseStudy } from "$lib/types/caseStudy";
+  import type { PageLink } from "$lib/components/pagelinks/pageLink";
+  import Seo from "$lib/components/SEO.svelte";
+  import PageContainer from "$lib/components/PageContainer.svelte";
   import PageIntro from "$lib/components/PageIntro.svelte";
-  import Blockquote from "$lib/components/Blockquote.svelte";
-  import PageLinks from "$lib/components/pagelinks/PageLinks.svelte";
-  import Cta from "$lib/components/Cta.svelte";
-  import eandi_splash from "$lib/assets/images/ebony_and_ivory/splash_mobile.png?as=run";
+  import ProjectShowcase from "../ProjectShowcase.svelte";
   import eandi_logo from "$lib/assets/images/ebony_and_ivory/logo.png?as=run";
   import eandi_chante from "$lib/assets/images/ebony_and_ivory/chante.png?as=run";
-  import Img from "@zerodevx/svelte-img";
-  import GrayscaleTransitionImage from "$lib/components/GrayscaleTransitionImage.svelte";
+  import eandi_splash from "$lib/assets/images/ebony_and_ivory/splash_mobile.png?as=run";
+  import PageLinks from "$lib/components/pagelinks/PageLinks.svelte";
 
-  const caseStudy = {
+  const caseStudy: CaseStudy = {
     client: "Ebony and Ivory",
     title: "A passion for music in Montana",
     description:
@@ -33,15 +33,19 @@
       src: eandi_chante,
       content: `As a business owner, I'm all about efficiency, and Firefly Software totally delivered. Thanks to their work, our online presence has blown up, and we've got more students than ever.`,
     },
+    splash: {
+      src: eandi_splash,
+      alt: "A mobile view of Ebony and Ivory website",
+    },
   };
 
-  const pages = [
+  const pages: PageLink[] = [
     {
       href: "/portfolio/kagen-coffee-and-crepes",
       client: "Kagen Coffee and Crepes",
       title: "Crepes, coffee, and community",
       description:
-        "A vacation led to love, which led to a dream, which became Kagen Coffee and Crepes in Richland, WA",
+        "A vacation sparked a love that kindled a dream, ultimately giving birth to Kagen Coffee and Crepes in Richland, WA.",
       date: "2022-06",
     },
     {
@@ -54,96 +58,36 @@
       date: "2021-08",
     },
   ];
+
+  const eyebrow = "Case Study"
+  const seoData = {
+    title: `${caseStudy.title} | Firefly Software`,
+    description: caseStudy.description,
+    url: `https://www.fireflysoftware.dev${caseStudy.href}`,
+    og: {
+      src: "https://www.fireflysoftware.dev/images/facebook_link_image.png",
+      alt: "Firefly Software landing page",
+      mimeType: "image/png",
+      width: 1200,
+      height: 648,
+    },
+  };
 </script>
 
-<svelte:head>
-  <title>Firefly Software | Our Work | Ebony and Ivory</title>
-</svelte:head>
-
-<article class="mt-24 sm:mt-32 lg:mt-40">
-  <header>
-    <!-- Page Intro -->
-    <PageIntro eyebrow="Case Study" title={caseStudy.title} centered>
-      <p
-        class="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600"
-      >
+<Seo data={seoData} />
+<PageContainer centered={true}>
+  <span slot="intro">
+    <PageIntro {eyebrow} title={caseStudy.title} centered={true}>
+      <p>
         {caseStudy.description}
       </p>
     </PageIntro>
+  </span>
 
-    <div
-      class="mt-24 border-t border-neutral-200 bg-white/50 sm:mt-32 lg:mt-40"
-    >
-      <Container>
-        <div class="mx-auto max-w-5xl">
-          <dl
-            class="-mx-6 grid grid-cols-1 text-sm text-neutral-950 sm:mx-0 sm:grid-cols-3"
-          >
-            <div
-              class="border-t border-neutral-200 px-6 py-4 first:border-t-0 sm:border-l sm:border-t-0"
-            >
-              <dt class="font-semibold">Client</dt>
-              <dd>{caseStudy.client}</dd>
-            </div>
-            <div
-              class="border-t border-neutral-200 px-6 py-4 first:border-t-0 sm:border-l sm:border-t-0"
-            >
-              <dt class="font-semibold">Year</dt>
-              <dd>
-                <time dateTime={caseStudy.date.split("-")[0]}>
-                  {caseStudy.date.split("-")[0]}
-                </time>
-              </dd>
-            </div>
-            <div
-              class="border-t border-neutral-200 px-6 py-4 first:border-t-0 sm:border-l sm:border-t-0"
-            >
-              <dt class="font-semibold">Service</dt>
-              <dd>{caseStudy.service}</dd>
-            </div>
-          </dl>
-        </div>
-      </Container>
+  <span slot="body">
+    <div class="mx-auto max-w-5xl">
+      <ProjectShowcase {caseStudy} />
     </div>
-
-    <div class="border-y border-neutral-200 bg-neutral-100">
-      <div class="-my-px mx-auto max-w-[76rem] bg-neutral-200">
-        <a href={caseStudy.link} target="_blank" referrerpolicy="no-referrer">
-          <GrayscaleTransitionImage>
-            <Img
-              src={eandi_splash}
-              alt="Ebony and Ivory mobile website views"
-              class="w-full filter grayscale-[0]"
-              loading="eager"
-            />
-          </GrayscaleTransitionImage>
-        </a>
-      </div>
-    </div>
-  </header>
-  <Container cls="mt-24 sm:mt-32 lg:mt-40">
-    <article class="mx-auto max-w-prose text-left">
-      <div class="prose prose-lg">
-        <h2>Overview</h2>
-        {#each caseStudy.summary as item}
-          <p>{item}</p>
-        {/each}
-
-        <h2>What we did</h2>
-        <ul role="list" class="list-none my-6 flex flex-wrap gap-4">
-          {#each caseStudy.skills as skill}
-            <li
-              class="rounded-full bg-neutral-100 px-4 py-1.5 text-base text-neutral-600"
-            >
-              {skill}
-            </li>
-          {/each}
-        </ul>
-      </div>
-
-      <Blockquote testimonial={caseStudy.testimonial} />
-    </article>
-  </Container>
-  <PageLinks title="More case studies" cls="mt-24 sm:mt-32 lg:mt-40" {pages} />
-  <Cta />
-</article>
+    <PageLinks title="More case studies" cls="mt-24 sm:mt-32 lg:mt-40" {pages} />
+  </span>
+</PageContainer>
