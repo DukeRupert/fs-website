@@ -74,7 +74,7 @@
           >
         </h1>
         <p class="mt-6 text-lg leading-8 text-gray-600">
-          No do-it-yourself page builders like Wordpress, Wix and Squarespace.
+          Proudly made in Montana! No do-it-yourself page builders like Wordpress, Wix and Squarespace.
           We offer handcrafted websites that produce superior results starting
           at <span class="text-primary-500">$150/mo.</span>
         </p>

@@ -34,13 +34,6 @@
               </li>
               <li>
                 <a
-                  href="/website-development"
-                  class="text-sm leading-6 text-gray-600 hover:text-gray-900"
-                  >Website development</a
-                >
-              </li>
-              <li>
-                <a
                   href="/portfolio"
                   class="text-sm leading-6 text-gray-600 hover:text-gray-900"
                   >Portfolio</a
@@ -83,7 +76,7 @@
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/website-maintenance"
                   class="text-sm leading-6 text-gray-600 hover:text-gray-900"
                   >Website Maintenance</a
                 >
