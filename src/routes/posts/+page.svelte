@@ -36,6 +36,6 @@
     </PageIntro>
   </span>
   <span slot="body">
-    <PostGrid {posts} />
+    <PostGrid {posts} {count} pagination />
   </span>
 </PageContainer>
