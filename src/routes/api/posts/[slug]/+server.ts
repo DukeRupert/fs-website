@@ -4,11 +4,11 @@ import type { Post } from "$lib/types/sanity";
 
 export async function GET({ params }) {
   const { slug } = params;
-  const filter = `*[_type == "post" && publishedAt < now() && slug.current == "${slug}"] | order(publishedAt desc)[0]`;
+  const filter = `*[_type == "post" && slug.current == "${slug}"] | order(publishedAt desc)[0]`;
   const projection = `
 		{ 
 			...,
-      author->{name, role, image},
+            author->{name, role, image},
 			categories[]->{...},
 			mainImage{..., asset->},
 	  	}`;

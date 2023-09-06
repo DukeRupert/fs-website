@@ -7,7 +7,11 @@
   export let image: MainImage;
 </script>
 
-<div class="mx-auto max-w-3xl text-base leading-7 text-gray-700">
+<div
+  class="mx-auto max-w-3xl text-base leading-7 text-gray-700 {centered
+    ? 'text-center'
+    : ''}"
+>
   <p>
     <span class="text-base font-semibold leading-7 text-primary-600"
       >{eyebrow}</span

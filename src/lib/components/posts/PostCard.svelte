@@ -1,14 +1,23 @@
 <script lang="ts">
   import type { Post } from "$lib/types/sanity";
+  import { urlFor } from "$lib/db";
   export let post: Post;
   console.log(post);
+  // request a weekday along with a long date
+  const options: Intl.DateTimeFormatOptions = {
+    weekday: undefined,
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  };
+  $: date = new Date(post.publishedAt);
 </script>
 
 <article class="flex flex-col items-start justify-between">
   <div class="relative w-full">
     <img
-      src="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80"
-      alt=""
+      src={urlFor(post.mainImage.asset).width(340).format("webp").toString()}
+      alt={post.mainImage.alt}
       class="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
     />
     <div
@@ -17,12 +26,19 @@
   </div>
   <div class="max-w-xl">
     <div class="mt-8 flex items-center gap-x-4 text-xs">
-      <time datetime="2020-03-16" class="text-gray-500">Mar 16, 2020</time>
-      <a
-        href="#"
-        class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
-        >Marketing</a
+      <time
+        datetime={date.toLocaleDateString("en-US", options)}
+        class="text-gray-500">{date.toLocaleDateString("en-US", options)}</time
       >
+      {#if post.categories}
+        {#each post.categories as c}
+          <a
+            href={`/posts?limit=5&page=0&category=${c.title}`}
+            class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
+            >{c.title}</a
+          >
+        {/each}
+      {/if}
     </div>
     <div class="group relative">
       <h3
@@ -39,18 +55,22 @@
     </div>
     <div class="relative mt-8 flex items-center gap-x-4">
       <img
-        src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-        alt=""
+        src={urlFor(post.author.image)
+          .width(120)
+          .height(120)
+          .format("webp")
+          .toString()}
+        alt={post.author.name}
         class="h-10 w-10 rounded-full bg-gray-100"
       />
       <div class="text-sm leading-6">
         <p class="font-semibold text-gray-900">
           <a href="#">
             <span class="absolute inset-0" />
-            Michael Foster
+            {post.author.name}
           </a>
         </p>
-        <p class="text-gray-600">Co-Founder / CTO</p>
+        <p class="text-gray-600">{post.author.role}</p>
       </div>
     </div>
   </div>

@@ -4,7 +4,6 @@
   import Code from "./Code.svelte";
   import Link from "./Link.svelte";
   import ImageBlock from "./ImageBlock.svelte";
-  import NormalList from "./NormalList.svelte";
 
   export let value: InputValue;
 </script>

@@ -5,8 +5,6 @@
   import Seo from "$lib/components/SEO.svelte";
   import PostHead from "$lib/components/PostHead.svelte";
   import PortableText from "$lib/components/portableText/PortableText.svelte";
-  import PageContainer from "$lib/components/PageContainer.svelte";
-  import PageIntro from "$lib/components/PageIntro.svelte";
   import Cta from "$lib/components/Cta.svelte";
 
   export let data: PageData;
@@ -34,16 +32,21 @@
 </script>
 
 <Seo data={seoData} type="article" />
-<PageContainer centered={true}>
-  <span slot="intro">
-    <PostHead eyebrow="Article" title={post.title} image={post.mainImage} />
-  </span>
 
-  <span slot="body">
-    <article id="services" class="bg-white py-24 sm:py-32">
-      <div class="mx-auto max-w-3xl prose">
+<div class="relative py-24 lg:py-32 overflow-hidden bg-white">
+  <div class="relative px-4 sm:px-6 lg:px-8">
+    <article class="mt-6 prose md:prose-lg dark:prose-light mx-auto">
+      <PostHead
+        eyebrow="Article"
+        title={post.title}
+        image={post.mainImage}
+        centered
+      />
+
+      <div class="prose break-words">
         <PortableText value={post.body} />
       </div>
     </article>
-  </span>
-</PageContainer>
+    <Cta />
+  </div>
+</div>

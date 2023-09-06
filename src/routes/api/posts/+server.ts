@@ -14,7 +14,7 @@ export async function GET({ url }: RequestEvent) {
   const category = url.searchParams.get("category") ?? "";
 
   const projection = `{
-			..., categories[]->{title}, authors[0]{author->{name, image}}, body[]{
+			..., categories[]->{title}, author->{name, role, image}, body[]{
 				..., 
 				image{
 					..., asset->

@@ -66,14 +66,14 @@
         class="text-sm font-semibold leading-6 text-gray-900"
         >Website Development</a
       >
-      <a href="/#features" class="text-sm font-semibold leading-6 text-gray-900"
-        >Features</a
-      >
       <a href="/#pricing" class="text-sm font-semibold leading-6 text-gray-900"
         >Pricing</a
       >
       <a href="/portfolio" class="text-sm font-semibold leading-6 text-gray-900"
         >Portfolio</a
+      >
+      <a href="/posts" class="text-sm font-semibold leading-6 text-gray-900"
+        >Posts</a
       >
       <a
         href="/contact-us"
@@ -140,12 +140,6 @@
               >
               <a
                 on:click={close}
-                href="/#features"
-                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >Features</a
-              >
-              <a
-                on:click={close}
                 href="/#pricing"
                 class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >Pricing</a
@@ -155,6 +149,12 @@
                 href="/portfolio"
                 class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >Portfolio</a
+              >
+              <a
+                on:click={close}
+                href="/posts"
+                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                >Posts</a
               >
               <a
                 on:click={close}
