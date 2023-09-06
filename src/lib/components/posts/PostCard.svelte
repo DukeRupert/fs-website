@@ -16,7 +16,7 @@
 <article class="flex flex-col items-start justify-between">
   <div class="relative w-full">
     <img
-      src={urlFor(post.mainImage.asset).width(340).format("webp").toString()}
+      src={urlFor(post.mainImage.asset).width(600).format("webp").toString()}
       alt={post?.title ?? "A stock image"}
       class="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
     />
