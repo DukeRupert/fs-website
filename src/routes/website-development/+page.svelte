@@ -6,6 +6,7 @@
   import PageIntro from "$lib/components/PageIntro.svelte";
   import type { ProductScreenshotData } from "$lib/components/ProductScreenshot";
   import FeatureProductScreenshot from "$lib/components/ProductScreenshot.svelte";
+  import type { CtaData } from "$lib/components/Cta";
 
   const load_fast: ProductScreenshotData = {
     left: false,
@@ -153,6 +154,7 @@
     ],
   };
 
+  const eyebrow = "Elevate your online presence";
   const title = "Website development";
   const description = `Firefly Software specializes in website development services that prioritize
     lightning-fast load times and mobile-first design. Our commitment to
@@ -177,13 +179,9 @@
 <Seo data={seoData} />
 <PageContainer centered>
   <span slot="intro">
-    <PageIntro
-      eyebrow="Elevate your online presence"
-      title="Website development"
-    >
+    <PageIntro {eyebrow} {title}>
       <p>
-        Our commitment to delivering exceptional user experiences ensures that
-        our clients attract more visitors and converts them into customers.
+        {description}
       </p>
     </PageIntro>
   </span>

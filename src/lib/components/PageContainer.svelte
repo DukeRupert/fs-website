@@ -1,7 +1,18 @@
 <script lang="ts">
+  import type { CtaData } from "./Cta";
   import Cta from "./Cta.svelte";
   export let cls = "";
   export let centered = false;
+  export let CtaData: CtaData = {
+    title: "Let's get started",
+    description:
+      "Find out today how we can improve the performance of your online presence.",
+    primary_action: {
+      name: "Get started",
+      href: "/contact-us",
+    },
+    secondary_action: null,
+  };
 </script>
 
 <!-- Content Container -->
@@ -10,5 +21,5 @@
     <slot name="intro" />
   </div>
   <slot name="body" />
-  <Cta />
+  <Cta {...CtaData} />
 </div>

@@ -6,7 +6,7 @@ interface Post {
 	updatedAt: string;
 }
 
-const pages: string[] = ['website-development', 'pricing', 'posts', 'portfolio', 'contact-us']; //list of pages as a string ex. ["about", "blog", "contact"]
+const pages: string[] = ['website-development', 'website-maintenance', 'pricing', 'posts', 'portfolio', 'contact-us']; //list of pages as a string ex. ["about", "blog", "contact"]
 
 const site = 'https://www.fireflysoftware.dev';
 
