@@ -1,28 +1,29 @@
 <script lang="ts">
   import image_1 from "$lib/assets/images/kcc_ecommerce_coffee.png?as=run";
-  import image_2 from "$lib/assets/images/fts_landing.png?as=run";
   import Seo from "$lib/components/SEO.svelte";
   import PageContainer from "$lib/components/PageContainer.svelte";
   import PageIntro from "$lib/components/PageIntro.svelte";
+  import type { SimpleFeaturesListData } from "$lib/components/SimpleFeaturesList";
+  import SimpleFeaturesList from "$lib/components/SimpleFeaturesList.svelte";
   import type { ProductScreenshotData } from "$lib/components/ProductScreenshot";
   import FeatureProductScreenshot from "$lib/components/ProductScreenshot.svelte";
   import type { CtaData } from "$lib/components/Cta";
 
-  const load_fast: ProductScreenshotData = {
+  const ecommerce: ProductScreenshotData = {
     left: false,
-    eyebrow: "Fast page load",
-    title: "Why loading lightning-fast matters",
+    eyebrow: "Our expertise",
+    title: "Custom e-commerce front-ends",
     description:
-      "At Firefly Software, we don't just build websites; we craft digital experiences that leave a lasting impression. Our secret ingredient? Lightning-fast page load speeds. In a world where every second counts, your website's speed is your competitive edge. Our handcrafted websites are meticulously optimized for speed, ensuring that your visitors don't just browse; they zoom through your content. Why does this matter?",
+      "Our team specializes in crafting bespoke front-end solutions that prioritize enhanced product storytelling, seamless site-navigation, and exceptional site performance. If you're ready to redefine your online store, you've come to the right place.",
     image: {
       src: image_1,
       alt: "Kagen Coffee and Crepes e-commerce mobile view",
     },
     features: [
       {
-        title: "Enhanced User Experience",
+        title: "Enhanced Product Storytelling",
         description:
-          "Extremely fast web page load speeds ensure that visitors to your site have a smooth and enjoyable experience. Quick loading times reduce frustration, keep users engaged, and encourage them to explore your content, contact you or make a purchase.",
+          "Beyond showcasing your products, we're experts at creating narratives that captivate your customers. Our front-end designs infuse each product with a compelling story, engaging your audience on a deeper level and driving sales.",
         icon: `<svg
                     class="absolute left-1 top-1 h-5 w-5 text-primary-600"
                     width="24"
@@ -39,9 +40,9 @@
                 </svg>`,
       },
       {
-        title: "Improved Search Engine Ranking",
+        title: "Intuitive Site Navigation",
         description:
-          "Search engines like Google consider page load speed as a ranking factor. Faster-loading pages are more likely to rank higher in search results, increasing your website's visibility and attracting more organic traffic.",
+          "Navigating your online store should be a breeze. We ensure that your customers can easily find what they're looking for with intuitive menus, filters, and search functionality, making their shopping experience smooth and enjoyable.",
         icon: `<svg
                   class="absolute left-1 top-1 h-5 w-5 text-primary-600"
                   width="24"
@@ -59,9 +60,9 @@
               </svg>`,
       },
       {
-        title: "Higher Conversion Rates",
+        title: "Optimized Site Performance",
         description:
-          "Speedy web pages lead to higher conversion rates. Whether you're selling products, generating leads, or simply providing information, a fast-loading site increases the likelihood that visitors will take the desired action, such as making a purchase or filling out a contact form.",
+          "Slow websites drive customers away. Our front-end solutions are finely tuned for speed, ensuring rapid load times and a responsive browsing experience on all devices. Say goodbye to bounce rates and hello to higher conversion rates.",
         icon: `<svg
                   class="absolute left-1 top-1 h-5 w-5 text-primary-600"
                   width="24"
@@ -80,82 +81,47 @@
     ],
   };
 
-  const support: ProductScreenshotData = {
+  const features: SimpleFeaturesListData = {
     left: true,
-    eyebrow: "Mobile-first design",
-    title: "Why your website design matters",
+    eyebrow: "Better results",
+    title: "Why choose Firefly Software?",
     description:
-      "In today's fast-paced digital landscape, the way your website performs on mobile devices is mission-critical. That's where Firefly Software steps in with our cutting-edge mobile-first design approach.",
-    image: {
-      src: image_2,
-      alt: "Ebony and Ivory landing page mobile view",
-    },
+      "Choosing an experienced web developer means unlocking the power of expertise. Let us handle the technicalities, so you can focus on what you do best – growing your business. Elevate your e-commerce with a seasoned pro today!",
     features: [
       {
-        title: "Google's Favorite",
+        title: "Experience Matters",
         description:
-          "Did you know that Google predominantly uses the mobile version of your site for indexing and ranking? Don't worry; we've got it covered. Our mobile-first approach optimizes your site for SEO, ensuring that potential clients find you easily.",
-        icon: `<svg
-                    class="absolute left-1 top-1 h-5 w-5 text-primary-600"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                >
-                    <path stroke="none" d="M0 0h24v24H0z"/>
-                    <path d="M4 13a8 8 0 0 1 7 7a6 6 0 0 0 3 -5a9 9 0 0 0 6 -8a3 3 0 0 0 -3 -3a9 9 0 0 0 -8 6a6 6 0 0 0 -5 3" />
-                    <path d="M7 14a6 6 0 0 0 -3 6a6 6 0 0 0 6 -3" />
-                    <circle cx="15" cy="9" r="1"  />
-                </svg>`,
+          "Our seasoned web developers bring years of experience and specialized e-commerce knowledge to the table, ensuring your front-end is built with precision.",
       },
       {
-        title: "Consistent Branding",
+        title: "Responsive Support",
         description:
-          "With Firefly Software, you don't have to compromise on design. We maintain a consistent brand image across all devices, so your audience recognizes and trusts your business, no matter how they access your site.",
-        icon: `<svg
-                    class="absolute left-1 top-1 h-5 w-5 text-primary-600"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                >
-                    <path stroke="none" d="M0 0h24v24H0z"/>
-                    <rect x="7" y="4" width="10" height="16" rx="1" />
-                    <line x1="11" y1="5" x2="13" y2="5" />
-                    <line x1="12" y1="17" x2="12" y2="17.01" />
-                </svg>`,
+          "Our dedicated support team is always a message away, ready to address your questions and concerns promptly.",
       },
       {
-        title: "Future-Proofing",
+        title: "Time Savings",
         description:
-          "Mobile-first isn't just a trend; it's the future. We build websites with tomorrow in mind, ensuring your online presence remains relevant and competitive as mobile technology continues to evolve.",
-        icon: `<svg
-                    class="absolute left-1 top-1 h-5 w-5 text-primary-600"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                >
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
-                </svg>`,
+          "Why spend countless hours learning and building when you can have a professional front-end in a fraction of the time?",
       },
+      {
+        title: "Transparent Pricing",
+        description: "No hidden fees or surprises. Our clear, competitive pricing allows you to budget confidently."
+      }
     ],
   };
 
+  const cta: CtaData = {
+    title: "Ready to elevate your e-commerce?",
+    description: "Illuminate your products, streamline your navigation, and supercharge your performance. Contact us today, and let's embark on this journey to redefine your online shopping experience!",
+    primary_action: {
+      name: "Get started",
+      href: "/contact-us"
+    },
+    secondary_action: null
+  }
+
   const eyebrow = "Elevate your storefront";
-  const title = "Custom e-commerce front-ends";
+  const title = "E-commerce";
   const description = `Discover our custom e-commerce front-ends, expertly designed for top-notch performance and captivating product storytelling. Transform your online store with Firefly Software and watch your sales soar.`;
 
   const seoData = {
@@ -173,7 +139,7 @@
 </script>
 
 <Seo data={seoData} />
-<PageContainer centered>
+<PageContainer CtaData={cta} centered>
   <span slot="intro">
     <PageIntro {eyebrow} {title}>
       <p>
@@ -182,7 +148,7 @@
     </PageIntro>
   </span>
   <span slot="body">
-    <FeatureProductScreenshot {...load_fast} />
-    <FeatureProductScreenshot {...support} />
+    <FeatureProductScreenshot {...ecommerce} />
+    <SimpleFeaturesList {...features} />
   </span>
 </PageContainer>
