@@ -1,0 +1,8 @@
+onlyBuiltDependencies:
+  - '@sveltejs/kit'
+  - bufferutil
+  - es5-ext
+  - esbuild
+  - sharp
+  - svelte-preprocess
+  - utf-8-validate
