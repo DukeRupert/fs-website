@@ -1635,7 +1635,7 @@ p:last-child { margin-bottom: 0; }
    Testimonial
    ========================================================================== */
 .testimonial-section {
-  background: var(--pine);
+  background: #1E3620;
   color: var(--snow);
   padding: 88px 0;
 }
@@ -1651,7 +1651,7 @@ p:last-child { margin-bottom: 0; }
   width: 100%;
   aspect-ratio: 1;
   object-fit: cover;
-  /* NO border-radius */
+  border-radius: 6px;
 }
 
 .testimonial-quote {
