@@ -76,7 +76,7 @@ Four fonts only — no Inter, Roboto, Arial, or system-ui anywhere:
 
 ### CSS
 
-Single file at `assets/css/main.css`, processed via Hugo Pipes (`resources.Get | minify`). No CSS frameworks.
+Single file at `assets/css/main.css`, processed via Hugo Pipes (`resources.Get | minify | fingerprint`). No CSS frameworks. Fonts are self-hosted in `static/fonts/` with `@font-face` declarations at the top of `main.css`.
 
 ### JavaScript
 
