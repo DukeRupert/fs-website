@@ -2087,12 +2087,29 @@ p:last-child { margin-bottom: 0; }
   font-size: 14px;
 }
 
-.case-study-splash {
-  overflow: hidden;
-  /* NO border-radius */
+.case-study-mobile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.case-study-splash img {
+.case-study-mobile img {
+  display: block;
+  max-width: 260px;
+  width: 100%;
+  height: auto;
+  border-radius: 32px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.case-study-desktop {
+  margin-top: var(--space-3xl);
+  border: 1px solid var(--granite-dk);
+  overflow: hidden;
+}
+
+.case-study-desktop img {
+  display: block;
   width: 100%;
   height: auto;
 }
@@ -2372,6 +2389,14 @@ p:last-child { margin-bottom: 0; }
   .portfolio-entry,
   .case-study-hero .container {
     grid-template-columns: 1fr;
+  }
+
+  .case-study-mobile {
+    order: -1;
+  }
+
+  .case-study-mobile img {
+    max-width: 200px;
   }
 
   .testimonial-photo {

@@ -7,6 +7,7 @@ projects:
     client: Chris Traver
     summary: A professional website for a sixth-generation Montana flooring contractor, showcasing services across five Montana cities with a project gallery and clear service area coverage.
     splash: /images/portfolio/thf_splash.png
+    mobile: /images/portfolio/thf_mobile.png
     logo: /images/portfolio/thf_logo.png
     clientPhoto: /images/portfolio/thf_chris.jpg
 
@@ -18,6 +19,7 @@ projects:
     client: Christian Brother's Lining Co.
     summary: A clean, credibility-first website for a Northern California pipeline rehabilitation company with 300+ completed projects and over 250,000 linear feet restored.
     splash: /images/portfolio/cbl_splash.png
+    mobile: /images/portfolio/cbl_mobile.png
     logo: /images/portfolio/cbl_logo.png
     clientPhoto: /images/portfolio/cbl_team.jpg
 
@@ -29,6 +31,7 @@ projects:
     client: Kyle Willis
     summary: A bold online presence for a Missoula recording studio, featuring a discography, project-based pricing, and artist showcase.
     splash: /images/portfolio/406_splash.png
+    mobile: /images/portfolio/406_mobile.png
     logo: /images/portfolio/406_logo.png
     clientPhoto: /images/portfolio/406_kyle.jpg
 
@@ -40,5 +43,17 @@ projects:
     client: Cade Maldonado
     summary: A professional web presence for a remote bookkeeping and financial consulting firm, built to convert visitors into consultation calls.
     splash: /images/portfolio/mbs_splash.png
+    mobile: /images/portfolio/mbs_mobile.png
     logo: /images/portfolio/mbs_logo.png
     clientPhoto: /images/portfolio/mbs_cade.jpg
+
+  - slug: nautilus-cleaning
+    name: Nautilus Group Cleaning Services
+    category: Cleaning Services
+    location: Helena, MT
+    date: 2025
+    client: David & WendiSue Nash
+    summary: A professional website for a husband-and-wife cleaning company in Helena, covering residential and commercial services with clear credentials and a direct quote flow.
+    splash: /images/portfolio/nautilus_splash.png
+    mobile: /images/portfolio/nautilus_mobile.png
+    logo: /images/portfolio/nautilus_logo.jpg

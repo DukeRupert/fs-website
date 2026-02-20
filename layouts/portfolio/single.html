@@ -11,69 +11,64 @@
 
 <section class="case-study-hero">
   <div class="container">
+    <nav class="breadcrumb" style="grid-column:1/-1;" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span class="breadcrumb-sep" aria-hidden="true">/</span>
+      <a href="/portfolio/">Portfolio</a>
+      <span class="breadcrumb-sep" aria-hidden="true">/</span>
+      <span aria-current="page">{{ .Title }}</span>
+    </nav>
     <div>
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="/">Home</a>
-        <span class="breadcrumb-sep" aria-hidden="true">/</span>
-        <a href="/portfolio/">Portfolio</a>
-        <span class="breadcrumb-sep" aria-hidden="true">/</span>
-        <span aria-current="page">{{ .Title }}</span>
-      </nav>
-    </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-3xl);align-items:center;">
-      <div>
-        {{ with $project.logo }}
-        <img
-          src="{{ . }}"
-          alt="{{ $project.name }} logo"
-          width="120"
-          height="60"
-          loading="eager"
-          style="max-height:60px;width:auto;object-fit:contain;margin-bottom:var(--space-xl);filter:brightness(0) invert(1);opacity:0.9;"
-        >
-        {{ end }}
-        <h1 style="color:white;">{{ .Title }}</h1>
-        <p style="color:rgba(255,255,255,0.8);font-size:1.1rem;margin-top:var(--space-md);">{{ .Description }}</p>
-        <dl class="case-study-meta">
-          {{ with $project.client }}
-          <div class="case-study-meta-item">
-            <dt>Client</dt>
-            <dd>{{ . }}</dd>
-          </div>
-          {{ end }}
-          {{ with $project.date }}
-          <div class="case-study-meta-item">
-            <dt>Date</dt>
-            <dd>{{ . }}</dd>
-          </div>
-          {{ end }}
-          {{ with $project.category }}
-          <div class="case-study-meta-item">
-            <dt>Industry</dt>
-            <dd>{{ . }}</dd>
-          </div>
-          {{ end }}
-          {{ with $project.location }}
-          <div class="case-study-meta-item">
-            <dt>Location</dt>
-            <dd>{{ . }}</dd>
-          </div>
-          {{ end }}
-        </dl>
-      </div>
-      {{ with $project.splash }}
-      <div class="case-study-splash">
-        <img
-          src="{{ . }}"
-          alt="{{ $project.name }} website screenshot"
-          width="600"
-          height="450"
-          loading="eager"
-          style="width:100%;height:auto;"
-        >
-      </div>
+      {{ with $project.logo }}
+      <img
+        src="{{ . }}"
+        alt="{{ $project.name }} logo"
+        width="120"
+        height="60"
+        loading="eager"
+        style="max-height:60px;width:auto;object-fit:contain;margin-bottom:var(--space-xl);background:var(--granite);padding:var(--space-sm) var(--space-md);border-radius:4px;"
+      >
       {{ end }}
+      <h1 style="color:white;">{{ .Title }}</h1>
+      <p style="color:rgba(255,255,255,0.8);font-size:1.1rem;margin-top:var(--space-md);">{{ .Description }}</p>
+      <dl class="case-study-meta">
+        {{ with $project.client }}
+        <div class="case-study-meta-item">
+          <dt>Client</dt>
+          <dd>{{ . }}</dd>
+        </div>
+        {{ end }}
+        {{ with $project.date }}
+        <div class="case-study-meta-item">
+          <dt>Date</dt>
+          <dd>{{ . }}</dd>
+        </div>
+        {{ end }}
+        {{ with $project.category }}
+        <div class="case-study-meta-item">
+          <dt>Industry</dt>
+          <dd>{{ . }}</dd>
+        </div>
+        {{ end }}
+        {{ with $project.location }}
+        <div class="case-study-meta-item">
+          <dt>Location</dt>
+          <dd>{{ . }}</dd>
+        </div>
+        {{ end }}
+      </dl>
     </div>
+    {{ with $project.mobile }}
+    <div class="case-study-mobile">
+      <img
+        src="{{ . }}"
+        alt="{{ $project.name }} mobile screenshot"
+        width="400"
+        height="600"
+        loading="eager"
+      >
+    </div>
+    {{ end }}
   </div>
 </section>
 
@@ -83,14 +78,24 @@
       {{ .Content }}
     </div>
 
+    {{- /* Desktop screenshot — secondary showcase */}}
+    {{ with $project.splash }}
+    <div class="case-study-desktop">
+      <img
+        src="{{ . }}"
+        alt="{{ $project.name }} desktop screenshot"
+        width="800"
+        height="499"
+        loading="lazy"
+      >
+    </div>
+    {{ end }}
+
     {{- /* Client testimonial from front matter */}}
     {{ with .Params.testimonial }}
     <div class="client-quote" style="margin-top:var(--space-3xl);">
       <blockquote>{{ .quote }}</blockquote>
       <div class="client-quote-author">
-        {{ with $project.clientPhoto }}
-        <img src="{{ . }}" alt="{{ $.Params.testimonial.author }}" width="48" height="48" loading="lazy">
-        {{ end }}
         <div class="client-quote-author-info">
           <strong>{{ .author }}</strong>
           <span>{{ .role }}</span>
