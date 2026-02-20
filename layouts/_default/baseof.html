@@ -34,6 +34,10 @@
   <meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
   <meta name="twitter:image" content="{{ .Site.BaseURL | strings.TrimRight "/" }}{{ .Site.Params.ogImage }}">
 
+  {{- /* Theme color & manifest */}}
+  <meta name="theme-color" content="#0F1628">
+  <link rel="manifest" href="/site.webmanifest">
+
   {{- /* Favicons */}}
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
