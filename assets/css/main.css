@@ -462,14 +462,13 @@ p:last-child { margin-bottom: 0; }
   align-items: center;
   text-decoration: none;
   flex-shrink: 0;
-  background-color: var(--granite);
-  padding: 4px 12px;
 }
 
 .site-logo-full {
   height: 40px;
   width: auto;
   display: block;
+  filter: invert(1);
   transition: opacity 0.2s;
 }
 
@@ -481,6 +480,7 @@ p:last-child { margin-bottom: 0; }
   height: 36px;
   width: auto;
   display: none;
+  filter: invert(1);
 }
 
 @media (max-width: 600px) {
@@ -2114,12 +2114,11 @@ p:last-child { margin-bottom: 0; }
 .footer-brand img {
   height: 32px;
   width: auto;
+  filter: invert(1);
 }
 
 .footer-logo-link {
   display: inline-block;
-  background-color: var(--granite);
-  padding: 4px 12px;
   margin-bottom: var(--space-md);
 }
 
