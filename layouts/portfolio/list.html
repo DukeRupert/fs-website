@@ -11,57 +11,54 @@
   <div class="container">
     <div style="display:flex;flex-direction:column;gap:var(--space-3xl);">
       {{ range .Site.Data.portfolio.projects }}
-      <article class="portfolio-entry">
-        <div>
+      <article class="portfolio-list-entry">
+        <div class="portfolio-list-meta">
           <img
             src="{{ .logo }}"
             alt="{{ .name }} logo"
             width="120"
             height="80"
             loading="lazy"
-            style="max-height:80px;width:auto;object-fit:contain;margin-bottom:var(--space-md);background:var(--granite);padding:var(--space-sm) var(--space-md);border-radius:4px;"
+            class="portfolio-list-logo"
           >
-          <dl style="font-size:0.875rem;line-height:1.8;">
+          <dl class="portfolio-list-dl">
             <div>
-              <dt style="font-family:var(--font-ui);font-weight:600;color:var(--stone);text-transform:uppercase;font-size:0.75rem;letter-spacing:0.06em;">Client</dt>
-              <dd style="color:var(--ink);">{{ .client }}</dd>
+              <dt>Client</dt>
+              <dd>{{ .client }}</dd>
             </div>
-            <div style="margin-top:var(--space-sm);">
-              <dt style="font-family:var(--font-ui);font-weight:600;color:var(--stone);text-transform:uppercase;font-size:0.75rem;letter-spacing:0.06em;">Service</dt>
-              <dd style="color:var(--ink);">Website Development</dd>
+            <div>
+              <dt>Service</dt>
+              <dd>Website Development</dd>
             </div>
-            <div style="margin-top:var(--space-sm);">
-              <dt style="font-family:var(--font-ui);font-weight:600;color:var(--stone);text-transform:uppercase;font-size:0.75rem;letter-spacing:0.06em;">Date</dt>
-              <dd style="color:var(--ink);">{{ .date }}</dd>
+            <div>
+              <dt>Date</dt>
+              <dd>{{ .date }}</dd>
             </div>
-            <div style="margin-top:var(--space-sm);">
-              <dt style="font-family:var(--font-ui);font-weight:600;color:var(--stone);text-transform:uppercase;font-size:0.75rem;letter-spacing:0.06em;">Location</dt>
-              <dd style="color:var(--ink);">{{ .location }}</dd>
+            <div>
+              <dt>Location</dt>
+              <dd>{{ .location }}</dd>
             </div>
           </dl>
         </div>
-        <div>
-          <h2 style="font-size:1.75rem;margin-bottom:var(--space-md);">
-            <a href="/portfolio/{{ .slug }}/" style="color:var(--ink);text-decoration:none;">{{ .name }}</a>
+        <div class="portfolio-list-body">
+          <h2 class="portfolio-list-title">
+            <a href="/portfolio/{{ .slug }}/">{{ .name }}</a>
           </h2>
-          <p style="color:var(--ink-mid);font-size:1.05rem;margin-bottom:var(--space-lg);">{{ .summary }}</p>
-          <div style="display:flex;gap:var(--space-md);align-items:center;flex-wrap:wrap;margin-bottom:var(--space-xl);">
-            <a href="/portfolio/{{ .slug }}/" class="btn btn--sm">Read case study</a>
-          </div>
-          {{ $name := .name }}
-          {{ with .mobile }}
-          <div style="max-width:180px;">
-            <img
-              src="{{ . }}"
-              alt="{{ $name }} mobile screenshot"
-              width="400"
-              height="867"
-              loading="lazy"
-              style="width:100%;height:auto;display:block;border-radius:24px;box-shadow:0 4px 16px rgba(0,0,0,0.15);"
-            >
-          </div>
-          {{ end }}
+          <p class="portfolio-list-summary">{{ .summary }}</p>
+          <a href="/portfolio/{{ .slug }}/" class="btn btn--sm">Read case study</a>
         </div>
+        {{ $name := .name }}
+        {{ with .mobile }}
+        <div class="portfolio-list-mobile">
+          <img
+            src="{{ . }}"
+            alt="{{ $name }} mobile screenshot"
+            width="280"
+            height="607"
+            loading="lazy"
+          >
+        </div>
+        {{ end }}
       </article>
       {{ end }}
     </div>

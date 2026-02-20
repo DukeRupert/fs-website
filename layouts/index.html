@@ -262,6 +262,47 @@
 </div>
 
 {{- /* ====================================================
+     CLIENT LOGOS — trust strip
+     ==================================================== */}}
+<section class="section" id="portfolio" style="padding:var(--space-3xl) 0;">
+  <div class="container">
+    <div class="section-header">
+      <h2>Trusted by businesses<br>across Montana and beyond.</h2>
+      <p>Hand-built websites for real companies. Every site custom-coded, zero templates.</p>
+    </div>
+
+    <div class="logo-bar" id="logo-bar">
+      {{ range .Site.Data.portfolio.projects }}
+      <a href="/portfolio/{{ .slug }}/" class="logo-bar-item" title="{{ .name }}">
+        <img
+          src="{{ .logo }}"
+          alt="{{ .name }} logo"
+          width="140"
+          height="80"
+          loading="lazy"
+        >
+        <span class="logo-bar-label">{{ .name }}</span>
+      </a>
+      {{ end }}
+    </div>
+
+    <script>
+      (function() {
+        var items = document.querySelectorAll('#logo-bar .logo-bar-item');
+        if (!items.length) return;
+        var current = 0;
+        items[0].classList.add('logo-bar-item--active');
+        setInterval(function() {
+          items[current].classList.remove('logo-bar-item--active');
+          current = (current + 1) % items.length;
+          items[current].classList.add('logo-bar-item--active');
+        }, 3000);
+      })();
+    </script>
+  </div>
+</section>
+
+{{- /* ====================================================
      SERVICES — light section, 2px gap card grid
      ==================================================== */}}
 <section class="section section-alt" id="services">
@@ -541,51 +582,11 @@
 </section>
 
 {{- /* ====================================================
-     PORTFOLIO PREVIEW — granite background
-     ==================================================== */}}
-<section class="section" id="portfolio">
-  <div class="container">
-    <div class="section-header">
-      <p class="section-label">06 — Our Work</p>
-      <h2>Real sites. Real businesses.</h2>
-    </div>
-
-    <div style="display:flex;flex-direction:column;gap:var(--space-2xl);">
-      {{ range .Site.Data.portfolio.projects }}
-      <article class="portfolio-entry">
-        <div class="portfolio-entry-meta">
-          <img
-            src="{{ .logo }}"
-            alt="{{ .name }} logo"
-            width="80"
-            height="56"
-            loading="lazy"
-            class="portfolio-entry-logo"
-          >
-          <p class="portfolio-entry-name">{{ .name }}</p>
-          <p class="portfolio-entry-category">{{ .category }}</p>
-          <p class="portfolio-entry-date">{{ .date }}</p>
-        </div>
-        <div>
-          <p class="portfolio-entry-summary">{{ .summary }}</p>
-          <a href="/portfolio/{{ .slug }}/" class="btn btn-primary btn--sm">Read case study</a>
-        </div>
-      </article>
-      {{ end }}
-    </div>
-
-    <div style="text-align:center;margin-top:var(--space-2xl);border-top:1px solid var(--granite-dk);padding-top:var(--space-2xl);">
-      <a href="/portfolio/" class="btn btn-outline">View all case studies</a>
-    </div>
-  </div>
-</section>
-
-{{- /* ====================================================
      CTA STRIP — rust background
      ==================================================== */}}
 <section class="cta-section">
   <div class="container">
-    <p class="section-label" style="justify-content:center;color:rgba(250,250,248,0.4);">07 — Get Started</p>
+    <p class="section-label" style="justify-content:center;color:rgba(250,250,248,0.4);">06 — Get Started</p>
     <h2>Have a project in mind?</h2>
     <p>Send us a message or call the number below. We reply within one business day — no automated responses, no runaround.</p>
     <div style="display:flex;gap:var(--space-md);justify-content:center;flex-wrap:wrap;">

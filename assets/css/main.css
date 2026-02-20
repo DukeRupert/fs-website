@@ -1327,6 +1327,125 @@ p:last-child { margin-bottom: 0; }
   margin-bottom: var(--space-lg);
 }
 
+/* -- Logo bar (landing page section 06) ----------------------------------- */
+.logo-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3xl);
+  flex-wrap: wrap;
+  padding: var(--space-2xl) 0;
+  border-top: 1px solid var(--granite-dk);
+  border-bottom: 1px solid var(--granite-dk);
+}
+
+.logo-bar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  text-decoration: none;
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  opacity: 0.6;
+}
+
+.logo-bar-item img {
+  height: 60px;
+  width: auto;
+  max-width: 140px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  transition: filter 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.logo-bar-item:hover img,
+.logo-bar-item--active img {
+  filter: grayscale(0%);
+}
+
+.logo-bar-item--active,
+.logo-bar-item:hover {
+  opacity: 1;
+}
+
+.logo-bar-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--stone);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* -- Portfolio list page (3-column layout) -------------------------------- */
+.portfolio-list-entry {
+  border-top: 1px solid var(--granite-dk);
+  padding-top: var(--space-2xl);
+  display: grid;
+  grid-template-columns: 200px 1fr 160px;
+  gap: var(--space-2xl);
+  align-items: start;
+}
+
+.portfolio-list-logo {
+  max-height: 80px;
+  width: auto;
+  object-fit: contain;
+  margin-bottom: var(--space-md);
+  background: var(--granite);
+  padding: var(--space-sm) var(--space-md);
+}
+
+.portfolio-list-dl {
+  font-size: 0.875rem;
+  line-height: 1.8;
+}
+
+.portfolio-list-dl div + div {
+  margin-top: var(--space-sm);
+}
+
+.portfolio-list-dl dt {
+  font-family: var(--font-ui);
+  font-weight: 600;
+  color: var(--stone);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+}
+
+.portfolio-list-dl dd {
+  color: var(--ink);
+}
+
+.portfolio-list-title {
+  font-size: 1.75rem;
+  margin-bottom: var(--space-md);
+}
+
+.portfolio-list-title a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.portfolio-list-summary {
+  color: var(--ink-mid);
+  font-size: 1.05rem;
+  margin-bottom: var(--space-lg);
+}
+
+.portfolio-list-mobile {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.portfolio-list-mobile img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 2px solid var(--granite-dk);
+}
+
 /* ==========================================================================
    Hero Section
    ========================================================================== */
@@ -2387,8 +2506,22 @@ p:last-child { margin-bottom: 0; }
   .contact-layout,
   .testimonial-grid,
   .portfolio-entry,
+  .portfolio-list-entry,
   .case-study-hero .container {
     grid-template-columns: 1fr;
+  }
+
+  .portfolio-list-mobile {
+    max-width: 140px;
+  }
+
+  .logo-bar {
+    gap: var(--space-xl);
+  }
+
+  .logo-bar-item img {
+    height: 44px;
+    max-width: 100px;
   }
 
   .case-study-mobile {
