@@ -6,10 +6,10 @@ projects:
     date: 2024
     client: Chris Traver
     summary: A professional website for a sixth-generation Montana flooring contractor, showcasing services across five Montana cities with a project gallery and clear service area coverage.
-    splash: /images/portfolio/thf_splash.png
-    mobile: /images/portfolio/thf_mobile.png
-    logo: /images/portfolio/thf_logo.png
-    clientPhoto: /images/portfolio/thf_chris.jpg
+    splash: /images/portfolio/thf_splash.webp
+    mobile: /images/portfolio/thf_mobile.webp
+    logo: /images/portfolio/thf_logo.webp
+    clientPhoto: /images/portfolio/thf_chris.webp
 
   - slug: cb-lining
     name: Christian Brother's Lining Co.
@@ -18,10 +18,10 @@ projects:
     date: 2024
     client: Christian Brother's Lining Co.
     summary: A clean, credibility-first website for a Northern California pipeline rehabilitation company with 300+ completed projects and over 250,000 linear feet restored.
-    splash: /images/portfolio/cbl_splash.png
-    mobile: /images/portfolio/cbl_mobile.png
-    logo: /images/portfolio/cbl_logo.png
-    clientPhoto: /images/portfolio/cbl_team.jpg
+    splash: /images/portfolio/cbl_splash.webp
+    mobile: /images/portfolio/cbl_mobile.webp
+    logo: /images/portfolio/cbl_logo.webp
+    clientPhoto: /images/portfolio/cbl_team.webp
 
   - slug: 406-records
     name: 406 Records
@@ -30,10 +30,10 @@ projects:
     date: 2024
     client: Kyle Willis
     summary: A bold online presence for a Missoula recording studio, featuring a discography, project-based pricing, and artist showcase.
-    splash: /images/portfolio/406_splash.png
-    mobile: /images/portfolio/406_mobile.png
-    logo: /images/portfolio/406_logo.png
-    clientPhoto: /images/portfolio/406_kyle.jpg
+    splash: /images/portfolio/406_splash.webp
+    mobile: /images/portfolio/406_mobile.webp
+    logo: /images/portfolio/406_logo.webp
+    clientPhoto: /images/portfolio/406_kyle.webp
 
   - slug: momentum-business-solutions
     name: Momentum Business Solutions
@@ -42,10 +42,10 @@ projects:
     date: 2025
     client: Cade Maldonado
     summary: A professional web presence for a remote bookkeeping and financial consulting firm, built to convert visitors into consultation calls.
-    splash: /images/portfolio/mbs_splash.png
-    mobile: /images/portfolio/mbs_mobile.png
-    logo: /images/portfolio/mbs_logo.png
-    clientPhoto: /images/portfolio/mbs_cade.jpg
+    splash: /images/portfolio/mbs_splash.webp
+    mobile: /images/portfolio/mbs_mobile.webp
+    logo: /images/portfolio/mbs_logo.webp
+    clientPhoto: /images/portfolio/mbs_cade.webp
 
   - slug: nautilus-cleaning
     name: Nautilus Group Cleaning Services
@@ -54,9 +54,9 @@ projects:
     date: 2025
     client: David & WendiSue Nash
     summary: A professional website for a husband-and-wife cleaning company in Helena, covering residential and commercial services with clear credentials and a direct quote flow.
-    splash: /images/portfolio/nautilus_splash.png
-    mobile: /images/portfolio/nautilus_mobile.png
-    logo: /images/portfolio/nautilus_logo.png
+    splash: /images/portfolio/nautilus_splash.webp
+    mobile: /images/portfolio/nautilus_mobile.webp
+    logo: /images/portfolio/nautilus_logo.webp
 
   - slug: aestus-guides
     name: Aestus Guides
@@ -65,9 +65,9 @@ projects:
     date: 2025
     client: Aestus Guides
     summary: A content-rich site for a CRPG guide author, featuring in-depth build guides, system analysis, and tactical insights across classic and modern RPG titles.
-    splash: /images/portfolio/aestus_splash.png
-    mobile: /images/portfolio/aestus_mobile.png
-    logo: /images/portfolio/aestus_logo.png
+    splash: /images/portfolio/aestus_splash.webp
+    mobile: /images/portfolio/aestus_mobile.webp
+    logo: /images/portfolio/aestus_logo.webp
 
   - slug: south-hills-coc
     name: South Hills Church of Christ
@@ -76,6 +76,6 @@ projects:
     date: 2025
     client: South Hills Church of Christ
     summary: A welcoming online home for a Helena congregation, with service times, ministry info, and a clear invitation for visitors to connect.
-    splash: /images/portfolio/shcoc_splash.png
-    mobile: /images/portfolio/shcoc_mobile.png
-    logo: /images/portfolio/shcoc_logo.png
+    splash: /images/portfolio/shcoc_splash.webp
+    mobile: /images/portfolio/shcoc_mobile.webp
+    logo: /images/portfolio/shcoc_logo.webp
