@@ -1,0 +1,118 @@
+{{ define "main" }}
+
+<section class="page-hero">
+  <div class="container">
+    <p style="font-size:0.875rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--color-tertiary);margin-bottom:0.5rem;">Keep your website running smoothly</p>
+    <h1>{{ .Title }}</h1>
+    <p>{{ .Description }}</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Everything handled for you</h2>
+      <p>Never worry about hosting, security updates, or technical issues again. We handle it all so you can focus on running your business.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="service-card">
+        <div class="service-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <h3>Security &amp; Updates</h3>
+        <p>We keep your website's software up to date and monitor for security vulnerabilities, protecting your business and customers.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15.5 13l5 2v4a2 2 0 01-2 2A16 16 0 012 5a2 2 0 012-2"/>
+          </svg>
+        </div>
+        <h3>24/7 Support</h3>
+        <p>No phone trees or automated systems. Reach us directly when something needs attention — day or night.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+            <polyline points="17 8 12 3 7 8"/>
+            <line x1="12" y1="3" x2="12" y2="15"/>
+          </svg>
+        </div>
+        <h3>Hosting Included</h3>
+        <p>Fast, reliable hosting is built into your monthly plan. No separate hosting bills or configuration headaches.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/>
+            <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/>
+          </svg>
+        </div>
+        <h3>Unlimited Edits</h3>
+        <p>Need to update your hours, add a new service, or change a photo? Just ask — unlimited edits are included.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="23 4 23 10 17 10"/>
+            <polyline points="1 20 1 14 7 14"/>
+            <path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/>
+          </svg>
+        </div>
+        <h3>Regular Backups</h3>
+        <p>Your site's content and data is backed up regularly, so we can restore it quickly if anything ever goes wrong.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="3 17 9 11 13 15 21 7"/>
+            <polyline points="14 7 21 7 21 14"/>
+          </svg>
+        </div>
+        <h3>Performance Monitoring</h3>
+        <p>We monitor your site's uptime and performance, ensuring it stays fast and available for your customers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-3xl);align-items:center;">
+      <div>
+        <h2>Why maintenance matters</h2>
+        <p style="color:var(--color-text-light);margin-top:var(--space-md);">
+          A website is not a one-time project — it requires ongoing attention to stay secure, fast, and effective.
+          Without regular maintenance, websites become vulnerable to attacks, slow down, and fall behind competitors in search rankings.
+        </p>
+        <p style="color:var(--color-text-light);margin-top:var(--space-md);">
+          Firefly Software's maintenance service gives you peace of mind. You focus on your business, we focus on your website.
+        </p>
+        <a href="/contact-us/" class="btn btn-primary" style="margin-top:var(--space-xl);">Start today</a>
+      </div>
+      <div style="background:var(--color-secondary);border-radius:var(--radius-xl);padding:var(--space-2xl);color:white;">
+        <h3 style="color:var(--color-tertiary);margin-bottom:var(--space-lg);">What our clients say</h3>
+        <blockquote style="font-style:italic;font-size:1.05rem;line-height:1.6;margin-bottom:var(--space-lg);">
+          "Firefly is absolutely the best way to get the most value from your website. Reasonably priced and headache free! I appreciate getting to speak with a real person who responds lightning fast."
+        </blockquote>
+        <cite style="font-style:normal;font-size:0.9rem;color:rgba(255,255,255,0.7);">Frank Sharp, Owner — FtS Excavation</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <h2>Let us handle your website</h2>
+    <p>Maintenance is included in all subscription plans. Get started today.</p>
+    <div style="display:flex;gap:var(--space-md);justify-content:center;flex-wrap:wrap;">
+      <a href="/contact-us/" class="btn" style="background:white;color:var(--color-primary);">Get started</a>
+      <a href="/pricing/" class="btn btn-secondary">View pricing</a>
+    </div>
+  </div>
+</section>
+
+{{ end }}

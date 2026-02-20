@@ -1,0 +1,64 @@
+<header class="site-header" role="banner">
+  <div class="container">
+    <a href="/" class="site-logo" aria-label="{{ .Site.Title }} — Home">
+      <img src="/images/logo/logo_two_full.png" alt="Firefly Software" class="site-logo-full" height="40">
+      <img src="/images/logo/Firefly_Logo_Blue.png" alt="Firefly Software" class="site-logo-small" height="36">
+    </a>
+
+    <button
+      class="nav-toggle"
+      id="nav-toggle"
+      aria-expanded="false"
+      aria-controls="site-nav"
+      aria-label="Open navigation menu"
+    >
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true" focusable="false">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+
+    <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+      <ul class="nav-list" role="menubar">
+        {{- range .Site.Menus.main }}
+          {{- if .HasChildren }}
+            <li class="nav-item nav-item--dropdown" role="none">
+              <button
+                class="nav-dropdown-toggle"
+                aria-expanded="false"
+                aria-haspopup="true"
+                role="menuitem"
+              >
+                {{ .Name }}
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" aria-hidden="true" focusable="false">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </button>
+              <ul class="nav-dropdown" role="menu" aria-label="{{ .Name }} submenu">
+                {{- range .Children }}
+                  <li role="none">
+                    <a
+                      href="{{ .URL }}"
+                      role="menuitem"
+                      {{ if $.IsMenuCurrent "main" . }}aria-current="page"{{ end }}
+                    >{{ .Name }}</a>
+                  </li>
+                {{- end }}
+              </ul>
+            </li>
+          {{- else if not .Parent }}
+            <li class="nav-item" role="none">
+              <a
+                href="{{ .URL }}"
+                class="nav-link{{ with .Params.class }} nav-link--{{ . }}{{ end }}"
+                role="menuitem"
+                {{ if $.IsMenuCurrent "main" . }}aria-current="page"{{ end }}
+              >{{ .Name }}</a>
+            </li>
+          {{- end }}
+        {{- end }}
+      </ul>
+    </nav>
+  </div>
+</header>

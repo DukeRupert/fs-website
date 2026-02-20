@@ -1,0 +1,603 @@
+{{ define "main" }}
+
+{{- /* ====================================================
+     HERO — Night sky, Sleeping Giant SVG landscape
+     ==================================================== */}}
+<section class="hero" id="hero" aria-label="Hero">
+
+  {{- /* SVG Sky + Mountain Landscape */}}
+  <svg class="hero-svg" viewBox="0 0 1440 680" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <defs>
+      {{- /* Night sky gradient — near-black at top, warming amber at the ridge */}}
+      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%"   stop-color="#050810"/>
+        <stop offset="35%"  stop-color="#080D1C"/>
+        <stop offset="65%"  stop-color="#0E1628"/>
+        <stop offset="80%"  stop-color="#1A2030"/>
+        <stop offset="90%"  stop-color="#2A2A18"/>
+        <stop offset="100%" stop-color="#3A2A10"/>
+      </linearGradient>
+
+      {{- /* Horizon glow — warm ember/rust rising from ridge */}}
+      <radialGradient id="horizon-primary" cx="50%" cy="100%" r="65%">
+        <stop offset="0%"   stop-color="#D05818" stop-opacity="0.55"/>
+        <stop offset="100%" stop-color="#D05818" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="horizon-secondary" cx="38%" cy="100%" r="45%">
+        <stop offset="0%"   stop-color="#E07020" stop-opacity="0.4"/>
+        <stop offset="100%" stop-color="#E07020" stop-opacity="0"/>
+      </radialGradient>
+
+      {{- /* Sunrise rim light along the mountain ridge */}}
+      <linearGradient id="sunrise" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%"   stop-color="#8B3A1A" stop-opacity="0.3"/>
+        <stop offset="30%"  stop-color="#C4581A" stop-opacity="0.7"/>
+        <stop offset="60%"  stop-color="#E8922A" stop-opacity="0.85"/>
+        <stop offset="80%"  stop-color="#F0A840" stop-opacity="0.9"/>
+        <stop offset="100%" stop-color="#C4581A" stop-opacity="0.5"/>
+      </linearGradient>
+
+      {{- /* Moon glow filter */}}
+      <filter id="moon-glow">
+        <feGaussianBlur stdDeviation="8" result="blur"/>
+        <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+
+      {{- /* Firefly glow filter */}}
+      <filter id="ff-glow">
+        <feGaussianBlur stdDeviation="2.5" result="blur"/>
+        <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
+
+    {{- /* Sky background */}}
+    <rect width="1440" height="680" fill="url(#sky)"/>
+
+    {{- /* Horizon glows */}}
+    <rect width="1440" height="680" fill="url(#horizon-primary)"/>
+    <rect width="1440" height="680" fill="url(#horizon-secondary)"/>
+
+    {{- /* Moon — upper right */}}
+    <circle cx="1260" cy="90" r="40" fill="#F0E8D0" opacity="0.06" filter="url(#moon-glow)"/>
+    <circle cx="1260" cy="90" r="22" fill="#F0E8D0" opacity="0.92"/>
+    <circle cx="1254" cy="85" r="7" fill="#E8DCC0" opacity="0.3"/>
+
+    {{- /* Stars — bright layer */}}
+    <g fill="#D8E4F0">
+      <circle cx="72"   cy="42"  r="1.6" opacity="0.92"/>
+      <circle cx="189"  cy="28"  r="1.4" opacity="0.88"/>
+      <circle cx="324"  cy="55"  r="1.7" opacity="0.90"/>
+      <circle cx="451"  cy="19"  r="1.5" opacity="0.85"/>
+      <circle cx="538"  cy="67"  r="1.8" opacity="0.93"/>
+      <circle cx="642"  cy="34"  r="1.4" opacity="0.88"/>
+      <circle cx="748"  cy="48"  r="1.6" opacity="0.91"/>
+      <circle cx="856"  cy="22"  r="1.5" opacity="0.87"/>
+      <circle cx="944"  cy="59"  r="1.7" opacity="0.89"/>
+      <circle cx="1044" cy="31"  r="1.4" opacity="0.85"/>
+      <circle cx="1138" cy="72"  r="1.6" opacity="0.92"/>
+      <circle cx="1348" cy="48"  r="1.5" opacity="0.88"/>
+      <circle cx="156"  cy="108" r="1.4" opacity="0.85"/>
+      <circle cx="287"  cy="92"  r="1.6" opacity="0.88"/>
+      <circle cx="412"  cy="118" r="1.3" opacity="0.82"/>
+      <circle cx="567"  cy="96"  r="1.5" opacity="0.87"/>
+      <circle cx="689"  cy="128" r="1.4" opacity="0.85"/>
+      <circle cx="812"  cy="102" r="1.6" opacity="0.90"/>
+      <circle cx="978"  cy="114" r="1.3" opacity="0.83"/>
+      <circle cx="1098" cy="88"  r="1.5" opacity="0.87"/>
+      <circle cx="1198" cy="122" r="1.4" opacity="0.86"/>
+      <circle cx="1392" cy="96"  r="1.6" opacity="0.90"/>
+    </g>
+
+    {{- /* Stars — medium layer */}}
+    <g fill="#D8E4F0">
+      <circle cx="38"   cy="78"  r="1.1" opacity="0.75"/>
+      <circle cx="134"  cy="62"  r="1.0" opacity="0.72"/>
+      <circle cx="228"  cy="144" r="1.2" opacity="0.78"/>
+      <circle cx="370"  cy="82"  r="1.0" opacity="0.70"/>
+      <circle cx="488"  cy="138" r="1.1" opacity="0.74"/>
+      <circle cx="604"  cy="72"  r="1.2" opacity="0.77"/>
+      <circle cx="722"  cy="158" r="1.0" opacity="0.71"/>
+      <circle cx="834"  cy="84"  r="1.1" opacity="0.75"/>
+      <circle cx="924"  cy="142" r="1.2" opacity="0.78"/>
+      <circle cx="1016" cy="68"  r="1.0" opacity="0.73"/>
+      <circle cx="1108" cy="156" r="1.1" opacity="0.76"/>
+      <circle cx="1314" cy="78"  r="1.0" opacity="0.72"/>
+      <circle cx="1412" cy="138" r="1.2" opacity="0.78"/>
+    </g>
+
+    {{- /* Stars — dim depth layer */}}
+    <g fill="#D8E4F0">
+      <circle cx="58"   cy="156" r="0.7" opacity="0.48"/>
+      <circle cx="166"  cy="176" r="0.6" opacity="0.45"/>
+      <circle cx="262"  cy="132" r="0.8" opacity="0.52"/>
+      <circle cx="358"  cy="168" r="0.7" opacity="0.50"/>
+      <circle cx="478"  cy="186" r="0.6" opacity="0.46"/>
+      <circle cx="572"  cy="148" r="0.8" opacity="0.54"/>
+      <circle cx="678"  cy="174" r="0.7" opacity="0.49"/>
+      <circle cx="776"  cy="196" r="0.6" opacity="0.45"/>
+      <circle cx="868"  cy="162" r="0.8" opacity="0.53"/>
+      <circle cx="962"  cy="188" r="0.7" opacity="0.51"/>
+      <circle cx="1058" cy="176" r="0.6" opacity="0.47"/>
+      <circle cx="1152" cy="198" r="0.8" opacity="0.55"/>
+      <circle cx="1252" cy="166" r="0.7" opacity="0.50"/>
+      <circle cx="1352" cy="184" r="0.6" opacity="0.46"/>
+    </g>
+
+    {{- /* Sleeping Giant silhouette — Beartooth range from Helena Valley */}}
+    {{- /* Feet (west/left) → Belly → Chest → Sternum → Nose → Brow → Forehead → Back of head (east/right) */}}
+    <path
+      d="M0,680
+         L0,420
+         L30,400
+         L80,390
+         L140,380
+         L200,370
+         L260,365
+         L318,410
+         L380,420
+         L430,400
+         L480,375
+         L520,360
+         L560,348
+         L595,247
+         L630,242
+         L660,238
+         L706,237
+         L740,230
+         L765,184
+         L780,200
+         L792,220
+         L800,246
+         L815,246
+         L840,230
+         L860,210
+         L883,153
+         L895,168
+         L901,194
+         L915,202
+         L927,210
+         L942,196
+         L959,175
+         L972,182
+         L987,190
+         L1010,210
+         L1035,238
+         L1058,260
+         L1081,281
+         L1120,310
+         L1180,350
+         L1240,380
+         L1320,410
+         L1400,430
+         L1440,440
+         L1440,680
+         Z"
+      fill="#080C08"
+    />
+
+    {{- /* Ridge rim-light — sunrise catching the mountain's top edge */}}
+    <path
+      d="M595,247
+         L630,242 L660,238 L706,237
+         L740,230 L765,184 L780,200
+         L792,220 L800,246 L815,246
+         L840,230 L860,210 L883,153
+         L895,168 L901,194 L915,202
+         L927,210 L942,196 L959,175
+         L972,182 L987,190 L1010,210
+         L1035,238 L1058,260 L1081,281"
+      stroke="url(#sunrise)"
+      stroke-width="2.5"
+      fill="none"
+      opacity="0.65"
+    />
+
+    {{- /* Pine tree silhouettes — left cluster */}}
+    <g fill="#080C08">
+      <polygon points="44,420 56,380 68,420"/>
+      <polygon points="60,420 74,374 88,420"/>
+      <polygon points="78,420 90,384 102,420"/>
+      <polygon points="108,418 118,388 128,418"/>
+      <polygon points="126,420 138,378 150,420"/>
+    </g>
+
+    {{- /* Pine tree silhouettes — center scatter */}}
+    <g fill="#080C08">
+      <polygon points="550,360 558,336 566,360"/>
+      <polygon points="560,362 570,332 580,362"/>
+      <polygon points="572,358 582,338 592,358"/>
+    </g>
+
+    {{- /* Pine tree silhouettes — right cluster */}}
+    <g fill="#080C08">
+      <polygon points="1280,410 1292,374 1304,410"/>
+      <polygon points="1300,412 1314,372 1328,412"/>
+      <polygon points="1318,408 1330,378 1342,408"/>
+      <polygon points="1336,412 1348,376 1360,412"/>
+    </g>
+
+    {{- /* Firefly glows near treeline — valley floor */}}
+    <g filter="url(#ff-glow)">
+      <circle cx="104"  cy="406" r="2.5" fill="#B8E850" opacity="0.88"/>
+      <circle cx="168"  cy="392" r="2.0" fill="#B8E850" opacity="0.75"/>
+      <circle cx="234"  cy="378" r="3.0" fill="#B8E850" opacity="0.90"/>
+      <circle cx="398"  cy="410" r="2.2" fill="#B8E850" opacity="0.78"/>
+      <circle cx="462"  cy="394" r="2.8" fill="#B8E850" opacity="0.85"/>
+      <circle cx="1200" cy="398" r="2.4" fill="#B8E850" opacity="0.82"/>
+      <circle cx="1268" cy="406" r="2.0" fill="#B8E850" opacity="0.76"/>
+      <circle cx="1362" cy="396" r="3.0" fill="#B8E850" opacity="0.88"/>
+    </g>
+  </svg>
+
+  {{- /* Dark overlay — densest at bottom for text readability */}}
+  <div class="hero-overlay" aria-hidden="true"></div>
+
+  {{- /* Hero content */}}
+  <div class="container">
+    <p class="hero-kicker">Helena, Montana · Web Development</p>
+
+    <h1>Built here.<br><em>For businesses like yours.</em></h1>
+
+    <p class="hero-tagline">
+      No page builders. No templates. No overseas teams.
+      Custom-built websites for Montana small businesses, starting at
+      <strong style="color:var(--amber);font-family:var(--font-display);">$35/mo.</strong>
+    </p>
+
+    <div class="hero-actions">
+      <a href="/contact-us/" class="btn btn-primary btn--lg">Start a project</a>
+      <a href="#services" class="btn btn-outline-snow btn--lg">See how it works</a>
+    </div>
+
+    <p class="hero-coords">46.5958°N · 112.0270°W · Firefly Software, LLC</p>
+  </div>
+</section>
+
+{{- /* ====================================================
+     TAGLINE STRIP — between hero and services
+     ==================================================== */}}
+<div class="tagline-strip" aria-hidden="true">
+  <div class="container">
+    <div class="tagline-strip-inner">
+      <p class="tagline-strip-text">"We build websites that bring in customers. That's the job."</p>
+      <p class="tagline-strip-meta">Firefly Software · Helena, MT · Est. 2021</p>
+    </div>
+  </div>
+</div>
+
+{{- /* ====================================================
+     SERVICES — light section, 2px gap card grid
+     ==================================================== */}}
+<section class="section section-alt" id="services">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-label">01 — What We Do</p>
+      <h2>Websites built to<br>bring in customers.</h2>
+      <p>
+        Every line of code is written by hand. No templates, no drag-and-drop shortcuts.
+        Faster load times, better search rankings, more customers finding you.
+      </p>
+    </div>
+
+    {{- /* 2px gap grid — container bg is the visible divider */}}
+    <div class="card-grid card-grid--3">
+      <div class="service-card">
+        <div class="service-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+          </svg>
+        </div>
+        <h3>Optimized for Speed</h3>
+        <p>A slow site costs you customers before they read a word. We target 90+ on Google PageSpeed — on every site we ship.</p>
+        <p class="mt-md"><a href="https://www.thinkwithgoogle.com/marketing-strategies/app-and-mobile/page-load-time-statistics/" rel="noopener noreferrer" target="_blank">Learn more &rarr;</a></p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
+            <rect x="7" y="4" width="10" height="16" rx="0"/>
+            <line x1="11" y1="5" x2="13" y2="5"/>
+            <line x1="12" y1="17" x2="12" y2="17.01"/>
+          </svg>
+        </div>
+        <h3>Mobile-First Design</h3>
+        <p>Google ranks the mobile version of your site first. We build mobile-first by default, so your customers find you before they find your competitors.</p>
+        <p class="mt-md"><a href="https://developers.google.com/search/docs/crawling-indexing/mobile/mobile-sites-mobile-first-indexing" rel="noopener noreferrer" target="_blank">Learn more &rarr;</a></p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
+            <path d="M21 3L14.5 21a.55.55 0 01-1 0L10 14 3 10.5a.55.55 0 010-1L21 3"/>
+          </svg>
+        </div>
+        <h3>Handcrafted, Not Generated</h3>
+        <p>No page builder templates. Every site is written by hand, which means it looks exactly right on every screen — and loads faster because there's no bloat.</p>
+        <p class="mt-md"><a href="/website-development/">Learn more &rarr;</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{- /* ====================================================
+     STATS — dark night-sky section
+     ==================================================== */}}
+<section class="section-dark" id="stats" style="padding:88px 0;">
+  {{- /* Star field layers */}}
+  <div class="stars" aria-hidden="true">
+    <div class="star-layer"></div>
+    <div class="star-layer"></div>
+  </div>
+
+  {{- /* Firefly dots — staggered */}}
+  <div class="firefly" style="left:8%;top:62%;width:4px;height:4px;--d:2.8s;--delay:0s;"    aria-hidden="true"></div>
+  <div class="firefly" style="left:19%;top:71%;width:5px;height:5px;--d:3.6s;--delay:0.8s;" aria-hidden="true"></div>
+  <div class="firefly" style="left:34%;top:78%;width:4px;height:4px;--d:2.4s;--delay:1.4s;" aria-hidden="true"></div>
+  <div class="firefly" style="left:52%;top:68%;width:5px;height:5px;--d:4.1s;--delay:0.3s;" aria-hidden="true"></div>
+  <div class="firefly" style="left:67%;top:74%;width:4px;height:4px;--d:3.2s;--delay:1.9s;" aria-hidden="true"></div>
+  <div class="firefly" style="left:81%;top:65%;width:5px;height:5px;--d:2.6s;--delay:0.6s;" aria-hidden="true"></div>
+  <div class="firefly" style="left:91%;top:72%;width:4px;height:4px;--d:3.8s;--delay:2.2s;" aria-hidden="true"></div>
+
+  <div class="horizon-glow" aria-hidden="true"></div>
+
+  <div class="container" style="position:relative;z-index:2;">
+    <div style="text-align:center;margin-bottom:60px;">
+      <p class="section-label" style="justify-content:center;">02 — By the Numbers</p>
+      <h2 style="color:var(--snow);">Built on results,<br>not promises.</h2>
+    </div>
+
+    <div class="stat-grid stat-grid--4">
+      <div class="stat-card">
+        <div class="stat-card-bar"></div>
+        <div class="stat-value">40<sup>+</sup></div>
+        <div class="stat-label">Hours per site</div>
+        <div class="stat-note">Design, dev & testing</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-bar"></div>
+        <div class="stat-value">$500</div>
+        <div class="stat-label">Build fee from</div>
+        <div class="stat-note">Then $35/mo after</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-bar"></div>
+        <div class="stat-value">100<sup>%</sup></div>
+        <div class="stat-label">Custom code</div>
+        <div class="stat-note">No page builders</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-bar"></div>
+        <div class="stat-value">24/7</div>
+        <div class="stat-label">Developer on call</div>
+        <div class="stat-note">Not a ticket queue</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{- /* ====================================================
+     TESTIMONIAL — pine dark section
+     ==================================================== */}}
+<section class="testimonial-section" id="testimonial">
+  <div class="container">
+    <div class="testimonial-grid">
+      <div>
+        <img
+          src="/images/portfolio/kcc_owner.webp"
+          alt="Kagen Cox, owner of Kagen Coffee and Crepes"
+          width="400"
+          height="400"
+          loading="lazy"
+          class="testimonial-photo"
+        >
+      </div>
+      <figure>
+        <p class="section-label" style="color:rgba(250,250,248,0.3);">03 — Client Story</p>
+        <blockquote>
+          <p class="testimonial-quote">Firefly is an absolutely must have company working for you in your corner! They are super approachable, helpful and friendly! If you are looking to take your company to the next level I highly recommend that you give Firefly a call!</p>
+        </blockquote>
+        <figcaption style="margin-top:var(--space-xl);">
+          <p class="testimonial-name">Kagen Cox</p>
+          <p class="testimonial-role">Owner, Kagen Coffee &amp; Crepes</p>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+{{- /* ====================================================
+     FEATURES / SIMPLE PRICING — light section
+     ==================================================== */}}
+<section class="section" id="features">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 2fr;gap:var(--space-3xl);align-items:start;">
+      <div>
+        <p class="section-label">04 — Simple Pricing</p>
+        <h2>Same price as Wix.<br>Better in every way.</h2>
+        <p style="margin-top:var(--space-lg);color:var(--ink-faded);">
+          Already paying $20–$40/mo for a site you never update? We'll rebuild it properly and host it for the same price — with a real person to call when something needs to change.
+        </p>
+        <div style="margin-top:var(--space-xl);">
+          <a href="/pricing/" class="btn btn-primary">View pricing</a>
+        </div>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
+              <line x1="12" y1="1" x2="12" y2="23"/>
+              <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+            </svg>
+          </div>
+          <div>
+            <p class="feature-title">Hosting Included</p>
+            <p class="feature-body">Hosting, SSL, and DNS are covered in your monthly rate. Nothing to set up, nothing extra to pay.</p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
+              <path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15.5 13l5 2v4a2 2 0 01-2 2A16 16 0 012 5a2 2 0 012-2"/>
+            </svg>
+          </div>
+          <div>
+            <p class="feature-title">Direct Developer Line</p>
+            <p class="feature-body">No phone trees or automated responses. Call us and you get the person who built your site.</p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
+              <path d="M12 20l-3-3a4 4 0 016.5-6 .9.9 0 001 0 4 4 0 016.5 6l-3 3"/>
+              <line x1="15" y1="3" x2="15" y2="7"/>
+              <line x1="9" y1="3" x2="9" y2="7"/>
+            </svg>
+          </div>
+          <div>
+            <p class="feature-title">Unlimited Edits</p>
+            <p class="feature-body">Change anything, at any time, without extra charges. Text, photos, hours, prices — just ask.</p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
+              <polyline points="3 17 9 11 13 15 21 7"/>
+              <polyline points="14 7 21 7 21 14"/>
+            </svg>
+          </div>
+          <div>
+            <p class="feature-title">Traffic Analytics</p>
+            <p class="feature-body">Choose Google, Facebook, or Plausible and we configure your analytics to monitor site traffic.</p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
+              <path d="M4 13a8 8 0 017 7 6 6 0 003-5 9 9 0 006-8 3 3 0 00-3-3 9 9 0 00-8 6 6 6 0 00-5 3"/>
+              <path d="M7 14a6 6 0 00-3 6 6 6 0 006-3"/>
+              <circle cx="15" cy="9" r="1"/>
+            </svg>
+          </div>
+          <div>
+            <p class="feature-title">Fast Page Loads</p>
+            <p class="feature-body">We target 90+ on Google PageSpeed. Faster sites rank higher and keep visitors from leaving before the page opens.</p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
+              <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+            </svg>
+          </div>
+          <div>
+            <p class="feature-title">Built From Scratch</p>
+            <p class="feature-body">Each site includes over 40 hours of design, development, and testing. No templates dropped in and shipped.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{- /* ====================================================
+     PRICING PREVIEW — alt light section
+     ==================================================== */}}
+<section class="section-alt" id="pricing" style="padding:88px 0;">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-label">05 — Pricing</p>
+      <h2>Three tiers. No surprises.</h2>
+      <p>Pick the option that fits your business. Every tier includes hosting, support, and unlimited edits. No hidden fees added later.</p>
+    </div>
+
+    <div class="pricing-grid">
+      {{ range first 3 .Site.Data.pricing.tiers }}
+      <div class="pricing-card{{ if .featured }} pricing-card--featured{{ end }}">
+        {{ if .featured }}<div class="pricing-badge">Most Popular</div>{{ end }}
+        <div class="pricing-name">{{ .name }}</div>
+        <div class="pricing-price">
+          <span class="pricing-currency">$</span>
+          <span class="pricing-amount">{{ .monthlyPrice }}</span>
+          <span class="pricing-period">/mo</span>
+        </div>
+        <div class="pricing-build">${{ .buildPrice }} one-time build fee</div>
+        <p class="pricing-description">{{ .description }}</p>
+        <ul class="pricing-features" aria-label="{{ .name }} features">
+          {{ range .features }}
+          <li>{{ . }}</li>
+          {{ end }}
+        </ul>
+        <a href="/contact-us/" class="btn{{ if .featured }} btn-primary{{ else }} btn-outline{{ end }}" style="width:100%;justify-content:center;">{{ .cta }}</a>
+      </div>
+      {{ end }}
+    </div>
+
+    <div style="text-align:center;margin-top:var(--space-2xl);">
+      <a href="/pricing/" class="btn btn-outline">View all pricing tiers</a>
+    </div>
+  </div>
+</section>
+
+{{- /* ====================================================
+     PORTFOLIO PREVIEW — granite background
+     ==================================================== */}}
+<section class="section" id="portfolio">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-label">06 — Our Work</p>
+      <h2>Real sites. Real businesses.</h2>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:var(--space-2xl);">
+      {{ range .Site.Data.portfolio.projects }}
+      <article class="portfolio-entry">
+        <div class="portfolio-entry-meta">
+          <img
+            src="{{ .logo }}"
+            alt="{{ .name }} logo"
+            width="80"
+            height="56"
+            loading="lazy"
+            class="portfolio-entry-logo"
+          >
+          <p class="portfolio-entry-name">{{ .name }}</p>
+          <p class="portfolio-entry-category">{{ .category }}</p>
+          <p class="portfolio-entry-date">{{ .date }}</p>
+        </div>
+        <div>
+          <p class="portfolio-entry-summary">{{ .summary }}</p>
+          <a href="/portfolio/{{ .slug }}/" class="btn btn-primary btn--sm">Read case study</a>
+        </div>
+      </article>
+      {{ end }}
+    </div>
+
+    <div style="text-align:center;margin-top:var(--space-2xl);border-top:1px solid var(--granite-dk);padding-top:var(--space-2xl);">
+      <a href="/portfolio/" class="btn btn-outline">View all case studies</a>
+    </div>
+  </div>
+</section>
+
+{{- /* ====================================================
+     CTA STRIP — rust background
+     ==================================================== */}}
+<section class="cta-section">
+  <div class="container">
+    <p class="section-label" style="justify-content:center;color:rgba(250,250,248,0.4);">07 — Get Started</p>
+    <h2>Have a project in mind?</h2>
+    <p>Send us a message or call the number below. We reply within one business day — no automated responses, no runaround.</p>
+    <div style="display:flex;gap:var(--space-md);justify-content:center;flex-wrap:wrap;">
+      <a href="/contact-us/" class="btn btn-outline-snow btn--lg">Send a message</a>
+      <a href="tel:{{ .Site.Params.phoneRaw }}" class="btn btn-amber btn--lg">{{ .Site.Params.phone }}</a>
+    </div>
+  </div>
+</section>
+
+{{ end }}
+

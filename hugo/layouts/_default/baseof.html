@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "en" }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  {{- /* Title */}}
+  <title>{{ .Title }}</title>
+
+  {{- /* Primary meta */}}
+  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+  <meta name="author" content="{{ .Site.Params.author }}">
+  <link rel="canonical" href="{{ .Permalink }}">
+
+  {{- /* Geo meta (local business) */}}
+  <meta name="geo.region" content="{{ .Site.Params.addressComponents.region }}">
+  <meta name="geo.placename" content="{{ .Site.Params.addressComponents.city }}">
+  <meta name="geo.position" content="{{ .Site.Params.latitude }};{{ .Site.Params.longitude }}">
+  <meta name="ICBM" content="{{ .Site.Params.latitude }}, {{ .Site.Params.longitude }}">
+
+  {{- /* Open Graph */}}
+  <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:title" content="{{ .Title }}">
+  <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+  <meta property="og:image" content="{{ .Site.BaseURL | strings.TrimRight "/" }}{{ .Site.Params.ogImage }}">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="{{ .Site.Title }}">
+
+  {{- /* Twitter Card */}}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="{{ .Permalink }}">
+  <meta name="twitter:title" content="{{ .Title }}">
+  <meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+  <meta name="twitter:image" content="{{ .Site.BaseURL | strings.TrimRight "/" }}{{ .Site.Params.ogImage }}">
+
+  {{- /* Favicons */}}
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  {{- /* Google Fonts — Firefly Design System */}}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Oswald:wght@400;500;600;700&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+
+  {{- /* CSS via Hugo Pipes */}}
+  {{ $styles := resources.Get "css/main.css" | minify }}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
+
+  {{- /* Structured data */}}
+  {{ partial "schema.html" . }}
+
+  {{- /* Page-specific head content */}}
+  {{ block "head" . }}{{ end }}
+
+  {{- /* Plausible analytics — privacy-respecting, no cookies */}}
+  {{- /* <script defer data-domain="fireflysoftware.dev" src="https://plausible.io/js/script.js"></script> */}}
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
+
+  {{ partial "header.html" . }}
+
+  <main id="main-content" tabindex="-1">
+    {{ block "main" . }}{{ end }}
+  </main>
+
+  {{ partial "footer.html" . }}
+
+  {{- /* Base navigation script */}}
+  <script>
+    (function() {
+      // Mobile nav toggle
+      var toggle = document.getElementById('nav-toggle');
+      var nav = document.getElementById('site-nav');
+      var overlay = document.getElementById('nav-overlay');
+
+      function openNav() {
+        nav.classList.add('is-open');
+        overlay.classList.add('is-open');
+        overlay.removeAttribute('aria-hidden');
+        toggle.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeNav() {
+        nav.classList.remove('is-open');
+        overlay.classList.remove('is-open');
+        overlay.setAttribute('aria-hidden', 'true');
+        toggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+
+      if (toggle) {
+        toggle.addEventListener('click', function() {
+          if (nav.classList.contains('is-open')) {
+            closeNav();
+          } else {
+            openNav();
+          }
+        });
+      }
+
+      if (overlay) {
+        overlay.addEventListener('click', closeNav);
+      }
+
+      // Escape key closes nav
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && nav && nav.classList.contains('is-open')) {
+          closeNav();
+          if (toggle) toggle.focus();
+        }
+      });
+
+      // Dropdown toggles
+      var dropdownToggles = document.querySelectorAll('.nav-dropdown-toggle');
+      dropdownToggles.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var parent = btn.closest('.nav-item--dropdown');
+          var isOpen = parent.classList.contains('is-open');
+          // Close all dropdowns first
+          document.querySelectorAll('.nav-item--dropdown.is-open').forEach(function(el) {
+            el.classList.remove('is-open');
+            el.querySelector('.nav-dropdown-toggle').setAttribute('aria-expanded', 'false');
+          });
+          if (!isOpen) {
+            parent.classList.add('is-open');
+            btn.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+
+      // Close dropdowns when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!e.target.closest('.nav-item--dropdown')) {
+          document.querySelectorAll('.nav-item--dropdown.is-open').forEach(function(el) {
+            el.classList.remove('is-open');
+            el.querySelector('.nav-dropdown-toggle').setAttribute('aria-expanded', 'false');
+          });
+        }
+      });
+    })();
+  </script>
+
+  {{ block "scripts" . }}{{ end }}
+</body>
+</html>

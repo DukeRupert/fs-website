@@ -1,0 +1,36 @@
+{{ define "main" }}
+
+<section class="page-hero">
+  <div class="container">
+    <h1>{{ .Title }}</h1>
+    <p>{{ with .Description }}{{ . }}{{ else }}Web design tips, business insights, and Firefly Software news.{{ end }}</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    {{ if .Pages }}
+    <div class="posts-grid">
+      {{ range .Pages }}
+      <article class="post-card">
+        <div class="post-card-body">
+          <p class="post-card-date">
+            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+          </p>
+          <h2 class="post-card-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+          {{ with .Description }}<p class="post-card-excerpt">{{ . }}</p>{{ end }}
+          <a href="{{ .RelPermalink }}" class="btn btn-outline btn--sm" aria-label="Read: {{ .Title }}">Read more</a>
+        </div>
+      </article>
+      {{ end }}
+    </div>
+    {{ else }}
+    <div style="text-align:center;padding:var(--space-4xl) 0;">
+      <p style="color:var(--color-text-light);font-size:1.1rem;">No posts yet — check back soon!</p>
+      <a href="/" class="btn btn-primary" style="margin-top:var(--space-lg);">Back to Home</a>
+    </div>
+    {{ end }}
+  </div>
+</section>
+
+{{ end }}

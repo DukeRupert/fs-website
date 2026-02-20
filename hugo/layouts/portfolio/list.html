@@ -1,0 +1,76 @@
+{{ define "main" }}
+
+<section class="page-hero">
+  <div class="container">
+    <h1>{{ .Title }}</h1>
+    <p>{{ with .Description }}{{ . }}{{ else }}Real projects for real businesses. Here is a selection of our recent work.{{ end }}</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div style="display:flex;flex-direction:column;gap:var(--space-3xl);">
+      {{ range .Site.Data.portfolio.projects }}
+      <article style="border-top:2px solid var(--color-border);padding-top:var(--space-2xl);display:grid;grid-template-columns:200px 1fr;gap:var(--space-2xl);align-items:start;">
+        <div>
+          <img
+            src="{{ .logo }}"
+            alt="{{ .name }} logo"
+            width="120"
+            height="80"
+            loading="lazy"
+            style="max-height:80px;width:auto;object-fit:contain;margin-bottom:var(--space-md);"
+          >
+          <dl style="font-size:0.875rem;line-height:1.8;">
+            <div>
+              <dt style="font-weight:700;color:var(--color-text-light);text-transform:uppercase;font-size:0.75rem;letter-spacing:0.06em;">Client</dt>
+              <dd style="color:var(--color-secondary);">{{ .client }}</dd>
+            </div>
+            <div style="margin-top:var(--space-sm);">
+              <dt style="font-weight:700;color:var(--color-text-light);text-transform:uppercase;font-size:0.75rem;letter-spacing:0.06em;">Service</dt>
+              <dd style="color:var(--color-secondary);">Website Development</dd>
+            </div>
+            <div style="margin-top:var(--space-sm);">
+              <dt style="font-weight:700;color:var(--color-text-light);text-transform:uppercase;font-size:0.75rem;letter-spacing:0.06em;">Date</dt>
+              <dd style="color:var(--color-secondary);">{{ .date }}</dd>
+            </div>
+            <div style="margin-top:var(--space-sm);">
+              <dt style="font-weight:700;color:var(--color-text-light);text-transform:uppercase;font-size:0.75rem;letter-spacing:0.06em;">Location</dt>
+              <dd style="color:var(--color-secondary);">{{ .location }}</dd>
+            </div>
+          </dl>
+        </div>
+        <div>
+          <h2 style="font-size:1.75rem;margin-bottom:var(--space-md);">
+            <a href="/portfolio/{{ .slug }}/" style="color:var(--color-secondary);text-decoration:none;">{{ .name }}</a>
+          </h2>
+          <p style="color:var(--color-text-light);font-size:1.05rem;margin-bottom:var(--space-lg);">{{ .summary }}</p>
+          <div style="display:flex;gap:var(--space-md);align-items:center;flex-wrap:wrap;margin-bottom:var(--space-xl);">
+            <a href="/portfolio/{{ .slug }}/" class="btn btn-primary btn--sm">Read case study</a>
+          </div>
+          <div style="border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md);max-width:500px;">
+            <img
+              src="{{ .splash }}"
+              alt="{{ .name }} website screenshot"
+              width="500"
+              height="375"
+              loading="lazy"
+              style="width:100%;height:auto;display:block;"
+            >
+          </div>
+        </div>
+      </article>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <h2>Ready to join our portfolio?</h2>
+    <p>Every business deserves a website that works as hard as they do.</p>
+    <a href="/contact-us/" class="btn" style="background:white;color:var(--color-primary);">Start your project</a>
+  </div>
+</section>
+
+{{ end }}

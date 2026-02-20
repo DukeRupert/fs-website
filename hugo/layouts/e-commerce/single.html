@@ -1,0 +1,139 @@
+{{ define "main" }}
+
+<section class="page-hero">
+  <div class="container">
+    <p style="font-size:0.875rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--color-tertiary);margin-bottom:0.5rem;">Sell online with confidence</p>
+    <h1>{{ .Title }}</h1>
+    <p>{{ .Description }}</p>
+  </div>
+</section>
+
+{{- /* Feature block 1 */}}
+<section class="section">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-3xl);align-items:center;">
+      <div>
+        <p style="font-size:0.875rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--color-primary);margin-bottom:0.5rem;">Speed + Storytelling</p>
+        <h2>An online store that converts</h2>
+        <p style="color:var(--color-text-light);margin-top:var(--space-md);margin-bottom:var(--space-xl);">
+          Your e-commerce site needs to do more than list products — it needs to build trust, tell your brand's story,
+          and make buying effortless. We combine blazing-fast performance with compelling design to turn visitors into customers.
+        </p>
+        <ul style="display:flex;flex-direction:column;gap:var(--space-lg);list-style:none;">
+          <li style="padding-left:2rem;position:relative;">
+            <span style="position:absolute;left:0;top:2px;color:var(--color-primary);" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/><path d="M5.45 5.11L2 12v6a2 2 0 002 2h16a2 2 0 002-2v-6l-3.45-6.89A2 2 0 0016.76 4H7.24a2 2 0 00-1.79 1.11z"/></svg>
+            </span>
+            <strong style="display:block;color:var(--color-secondary);">Up to 100 Products</strong>
+            <span style="color:var(--color-text-light);font-size:0.92rem;">Full product catalog management with photos, descriptions, variants, and inventory tracking.</span>
+          </li>
+          <li style="padding-left:2rem;position:relative;">
+            <span style="position:absolute;left:0;top:2px;color:var(--color-primary);" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+            </span>
+            <strong style="display:block;color:var(--color-secondary);">Secure Payment Processing</strong>
+            <span style="color:var(--color-text-light);font-size:0.92rem;">Integrated checkout with Stripe, PayPal, or your preferred payment gateway — fully PCI compliant.</span>
+          </li>
+          <li style="padding-left:2rem;position:relative;">
+            <span style="position:absolute;left:0;top:2px;color:var(--color-primary);" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 00-3-3l-4 9v11h11.28a2 2 0 002-1.7l1.38-9a2 2 0 00-2-2.3H14z"/><path d="M7 22H4a2 2 0 01-2-2v-7a2 2 0 012-2h3"/></svg>
+            </span>
+            <strong style="display:block;color:var(--color-secondary);">Mobile Shopping Experience</strong>
+            <span style="color:var(--color-text-light);font-size:0.92rem;">Over half of all online purchases happen on mobile. Our stores are optimized for mobile-first shopping.</span>
+          </li>
+        </ul>
+      </div>
+      <div style="border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-lg);">
+        <img
+          src="/images/kcc_ecommerce_coffee.png"
+          alt="Kagen Coffee and Crepes e-commerce website — a Firefly Software project"
+          width="600"
+          height="450"
+          loading="lazy"
+          style="width:100%;height:auto;display:block;"
+        >
+      </div>
+    </div>
+  </div>
+</section>
+
+{{- /* Feature block 2 */}}
+<section class="section section-alt">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-3xl);align-items:center;">
+      <div style="border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-lg);">
+        <img
+          src="/images/kcc_specials.png"
+          alt="Kagen Coffee and Crepes specials page — e-commerce example"
+          width="600"
+          height="450"
+          loading="lazy"
+          style="width:100%;height:auto;display:block;"
+        >
+      </div>
+      <div>
+        <p style="font-size:0.875rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--color-primary);margin-bottom:0.5rem;">Built to grow</p>
+        <h2>E-commerce that scales with your business</h2>
+        <p style="color:var(--color-text-light);margin-top:var(--space-md);margin-bottom:var(--space-xl);">
+          We build flexible, scalable e-commerce solutions that grow as your business grows. Start with what you need
+          today and expand your catalog, add integrations, and reach new markets when you're ready.
+        </p>
+        <ul style="display:flex;flex-direction:column;gap:var(--space-lg);list-style:none;">
+          <li style="padding-left:2rem;position:relative;">
+            <span style="position:absolute;left:0;top:2px;color:var(--color-primary);" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="14 7 21 7 21 14"/></svg>
+            </span>
+            <strong style="display:block;color:var(--color-secondary);">Analytics &amp; Reporting</strong>
+            <span style="color:var(--color-text-light);font-size:0.92rem;">Track sales, revenue, and customer behavior with integrated analytics to make smarter business decisions.</span>
+          </li>
+          <li style="padding-left:2rem;position:relative;">
+            <span style="position:absolute;left:0;top:2px;color:var(--color-primary);" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.48 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 013.4 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.91 8.07a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            </span>
+            <strong style="display:block;color:var(--color-secondary);">Order Notifications</strong>
+            <span style="color:var(--color-text-light);font-size:0.92rem;">Automatic email notifications for new orders, shipping updates, and customer confirmations.</span>
+          </li>
+          <li style="padding-left:2rem;position:relative;">
+            <span style="position:absolute;left:0;top:2px;color:var(--color-primary);" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+            </span>
+            <strong style="display:block;color:var(--color-secondary);">Third-Party Integrations</strong>
+            <span style="color:var(--color-text-light);font-size:0.92rem;">Connect with POS systems like Toast, shipping platforms, and marketing tools you already use.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{- /* Pricing highlight */}}
+<section class="section">
+  <div class="container container--narrow" style="text-align:center;">
+    <h2>E-Commerce Pricing</h2>
+    <p style="color:var(--color-text-light);margin-top:var(--space-md);margin-bottom:var(--space-2xl);">One-time build fee plus monthly hosting and support.</p>
+    <div style="max-width:400px;margin:0 auto;">
+      <div class="pricing-card" style="text-align:left;">
+        <div class="pricing-name">Online Store</div>
+        <div class="pricing-price">
+          <span class="pricing-currency">$</span>
+          <span class="pricing-amount">500</span>
+          <span class="pricing-period">/mo</span>
+        </div>
+        <div class="pricing-build">$10,000 one-time build fee</div>
+        <p class="pricing-description">A full-featured online store for businesses ready to sell directly on their website.</p>
+        <a href="/contact-us/" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:var(--space-lg);">Request a Quote</a>
+      </div>
+    </div>
+    <p style="margin-top:var(--space-xl);"><a href="/pricing/">View full pricing comparison &rarr;</a></p>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <h2>Ready to start selling online?</h2>
+    <p>Let's build an e-commerce experience your customers will love.</p>
+    <a href="/contact-us/" class="btn" style="background:white;color:var(--color-primary);">Start your project</a>
+  </div>
+</section>
+
+{{ end }}

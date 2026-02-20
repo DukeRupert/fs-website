@@ -1,0 +1,62 @@
+{
+	# Disable Caddy's admin API in production (no remote config changes)
+	admin off
+
+	# Disable automatic HTTPS — outer Caddy on host handles TLS termination
+	auto_https off
+}
+
+:{$PORT:80} {
+	# Access logs to stdout (captured by Docker)
+	log {
+		output stdout
+		format json
+		level INFO
+	}
+
+	# Compress responses
+	encode zstd gzip
+
+	# Security headers
+	header {
+		X-Content-Type-Options    "nosniff"
+		X-Frame-Options           "SAMEORIGIN"
+		X-XSS-Protection          "1; mode=block"
+		Referrer-Policy           "strict-origin-when-cross-origin"
+		Permissions-Policy        "geolocation=(), camera=(), microphone=()"
+		# Remove Caddy's server header
+		-Server
+	}
+
+	# Proxy /api/* to the Go backend running on localhost
+	handle /api/* {
+		reverse_proxy localhost:{$API_PORT:8080} {
+			header_up Host {host}
+			header_up X-Real-IP {remote_host}
+			header_up X-Forwarded-For {remote_host}
+			header_up X-Forwarded-Proto {scheme}
+		}
+	}
+
+	# Serve Hugo static output from /srv
+	handle {
+		root * /srv
+		try_files {path} {path}/ /404.html
+		file_server {
+			# Cache static assets aggressively
+			hide .git
+		}
+	}
+
+	# Long cache for fingerprinted assets
+	@fingerprinted {
+		path_regexp ^/.+\.[0-9a-f]{8,}\.(css|js|woff2?|png|jpg|jpeg|gif|ico|svg|webp)$
+	}
+	header @fingerprinted Cache-Control "public, max-age=31536000, immutable"
+
+	# Short cache for HTML
+	@html {
+		path_regexp \.html?$
+	}
+	header @html Cache-Control "public, max-age=300, must-revalidate"
+}

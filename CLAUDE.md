@@ -4,75 +4,63 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Firefly Software company website built with SvelteKit 1.x, TypeScript, and TailwindCSS. The site uses Sanity CMS for blog content and Web3Forms for contact form submissions.
+Firefly Software company website built with Hugo + Go API + Docker + Caddy. All site code lives in the `hugo/` directory. See `hugo/CLAUDE.md` for comprehensive documentation.
 
-## Commands
+**Architecture:**
+```
+Internet → Outer Caddy (HTTPS/TLS on host) → Docker Container (HTTP on configurable port)
+                                                  ├── Inner Caddy (/api/* reverse proxy + static files)
+                                                  └── Go API (contact form on localhost:8080)
+```
+
+## Quick Commands
 
 ```bash
-# Development
-pnpm dev              # Start dev server (http://localhost:5173)
+# Hugo dev server
+cd hugo && hugo server -D             # http://localhost:1313
 
-# Build & Preview
-pnpm build            # Production build (outputs to /build)
-pnpm preview          # Preview production build
+# Go API (separate terminal)
+cd hugo/api && go run main.go         # localhost:8080
 
-# Type Checking
-pnpm check            # Run svelte-check once
-pnpm check:watch      # Run svelte-check in watch mode
+# Full stack via Docker
+cd hugo && docker compose up --build  # localhost:3000
+
+# Production build
+cd hugo && hugo --gc --minify         # Output: hugo/public/
 ```
 
-## Architecture
+## Key Directories
 
-### Tech Stack
-- **Framework**: SvelteKit 1.x with adapter-node (SSR deployment)
-- **Styling**: TailwindCSS with custom color palette (primary/secondary/tertiary)
-- **CMS**: Sanity (projectId: vpzagt04, dataset: production) for blog posts
-- **Images**: @zerodevx/svelte-img for optimized image handling with `?as=run` imports
-- **Forms**: Web3Forms (external service, no backend needed)
-
-### Route Structure
 ```
-src/routes/
-├── +layout.svelte          # Root layout (Navigation + Footer)
-├── +page.svelte            # Homepage
-├── api/posts/              # API endpoint for paginated blog posts
-├── contact-us/             # Contact form page
-├── e-commerce/             # E-commerce service page
-├── portfolio/              # Portfolio pages with case studies
-│   ├── projects.ts         # Portfolio data (CaseStudy[])
-│   └── [project]/          # Individual project pages
-├── posts/                  # Blog listing and [slug] pages
-├── pricing/                # Pricing page
-├── website-development/    # Service page
-└── website-maintenance/    # Service page
+hugo/
+├── hugo.toml           # Site config and business data
+├── assets/css/main.css # Single CSS file (no frameworks)
+├── content/            # Page content (markdown)
+├── data/               # Portfolio and pricing YAML data
+├── layouts/            # Hugo templates
+├── static/             # Static assets (images, favicon)
+├── api/                # Go contact form handler
+├── Caddyfile           # Inner Caddy config
+├── Dockerfile          # Three-stage: Hugo + Go + Caddy
+└── docker-compose.yml
 ```
 
-### Key Patterns
+## Key Conventions
 
-**Sanity Integration** (`src/lib/db.ts`):
-- `client` - Configured Sanity client
-- `urlFor(source)` - Image URL builder for Sanity assets
+- **Business data in hugo.toml** — Never hardcode phone, address, email, or hours in templates. Use `.Site.Params.*`.
+- **CSS** — Single file, CSS custom properties for theming. No frameworks.
+- **JavaScript** — Inline only, in `{{ define "scripts" }}` blocks. Zero external JS dependencies.
+- **Portfolio data** — `data/portfolio.yaml` drives listing and case study metadata.
+- **Pricing data** — `data/pricing.yaml` has `subscribe` and `buyout` arrays.
 
-**Portable Text**: Custom components in `src/lib/components/portableText/` for rendering Sanity rich text blocks.
+## Color Reference
 
-**Image Optimization**: Import images with `?as=run` suffix for svelte-img processing:
-```typescript
-import image from "$lib/assets/images/example.jpg?as=run";
-```
-
-**SEO Component** (`src/lib/components/SEO.svelte`): Pass seoData object for meta tags and Open Graph.
-
-### Tailwind Color Palette
-- `primary` - Curious Blue (#1e91d9)
-- `secondary` - Downriver (#091740)
-- `tertiary` - Bright Turquoise (#00cdb0)
+| Custom Property | Value | Use |
+|---|---|---|
+| `--color-primary` | `#1e91d9` | Curious Blue — links, buttons, accents |
+| `--color-secondary` | `#091740` | Downriver — headings, dark backgrounds |
+| `--color-tertiary` | `#00cdb0` | Bright Turquoise — highlights, CTA accents |
 
 ## Deployment
 
-Docker-based deployment using adapter-node:
-```bash
-docker build -t dukerupert/fs-website:latest .
-docker compose up -d
-```
-
-Container exposes port 3000. Requires `ORIGIN` environment variable set to production domain.
+Push to `master` or `main` triggers GitHub Actions (`.github/workflows/deploy.yml` inside `hugo/`). See `hugo/CLAUDE.md` for full deployment docs.

@@ -1,0 +1,45 @@
+{{ define "main" }}
+
+<section class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span class="breadcrumb-sep" aria-hidden="true">/</span>
+      <a href="/posts/">Posts</a>
+      <span class="breadcrumb-sep" aria-hidden="true">/</span>
+      <span aria-current="page">{{ .Title }}</span>
+    </nav>
+    <h1 style="margin-top:var(--space-lg);">{{ .Title }}</h1>
+    <p style="color:rgba(255,255,255,0.7);font-size:0.9rem;margin-top:var(--space-sm);">
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+      {{ with .Params.readingTime }} &middot; {{ . }} min read{{ end }}
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="post-content">
+      {{ .Content }}
+    </div>
+
+    <div style="margin-top:var(--space-3xl);padding-top:var(--space-xl);border-top:1px solid var(--color-border);display:flex;justify-content:space-between;flex-wrap:wrap;gap:var(--space-md);">
+      {{ with .PrevInSection }}
+      <a href="{{ .RelPermalink }}" class="btn btn-outline btn--sm">&larr; {{ .Title }}</a>
+      {{ else }}<span></span>{{ end }}
+      {{ with .NextInSection }}
+      <a href="{{ .RelPermalink }}" class="btn btn-outline btn--sm">{{ .Title }} &rarr;</a>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <h2>Want a website like this?</h2>
+    <p>Firefly Software builds fast, beautiful websites for small businesses starting at $35/mo.</p>
+    <a href="/contact-us/" class="btn" style="background:white;color:var(--color-primary);">Get in touch</a>
+  </div>
+</section>
+
+{{ end }}

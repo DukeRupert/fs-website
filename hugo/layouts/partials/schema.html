@@ -1,0 +1,72 @@
+{{- /* JSON-LD Structured Data */}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "{{ .Site.BaseURL }}#organization",
+      "name": "{{ .Site.Title }}",
+      "legalName": "Firefly Software, LLC",
+      "url": "{{ .Site.BaseURL }}",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ .Site.BaseURL }}images/logo/logo_two_full.jpg"
+      },
+      "image": "{{ .Site.BaseURL }}images/logo/logo_two_full.jpg",
+      "description": "{{ .Site.Params.description }}",
+      "telephone": "{{ .Site.Params.phoneRaw }}",
+      "email": "{{ .Site.Params.email }}",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "{{ .Site.Params.addressComponents.street }}",
+        "addressLocality": "{{ .Site.Params.addressComponents.city }}",
+        "addressRegion": "{{ .Site.Params.addressComponents.region }}",
+        "postalCode": "{{ .Site.Params.addressComponents.postalCode }}",
+        "addressCountry": "{{ .Site.Params.addressComponents.country }}"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": {{ .Site.Params.latitude }},
+        "longitude": {{ .Site.Params.longitude }}
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "17:00"
+        }
+      ],
+      "sameAs": [
+        "{{ .Site.Params.social.facebook }}"
+      ],
+      "priceRange": "$$",
+      "areaServed": {
+        "@type": "State",
+        "name": "Montana"
+      }
+    }
+    {{ if .IsHome }},
+    {
+      "@type": "WebSite",
+      "@id": "{{ .Site.BaseURL }}#website",
+      "name": "{{ .Site.Title }}",
+      "url": "{{ .Site.BaseURL }}",
+      "description": "{{ .Site.Params.description }}",
+      "publisher": {
+        "@id": "{{ .Site.BaseURL }}#organization"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "{{ .Site.BaseURL }}posts/?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+    {{ end }}
+  ]
+}
+</script>

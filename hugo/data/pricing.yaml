@@ -1,0 +1,40 @@
+tiers:
+  - name: Site Revamp
+    buildPrice: "500–750"
+    monthlyPrice: 35
+    description: "Already paying for a Wix or Squarespace site? We'll rebuild it properly and host it for the same price — with a real person to call."
+    features: [Full redesign and rebuild, Mobile-first fast-loading design, Contact form, Google Analytics setup, Hosting included, Unlimited edits, Local Montana support]
+    featured: false
+    cta: Get Started
+
+  - name: Brochure Site
+    buildPrice: "750"
+    monthlyPrice: 35
+    description: "A professional web presence from scratch for your new business."
+    features: [Up to 5 pages, Mobile-first fast-loading design, Contact form, Google/Facebook analytics, Hosting included, Unlimited edits]
+    featured: true
+    cta: Get Started
+
+  - name: Dynamic Site
+    buildPrice: "1,500–2,500"
+    monthlyPrice: "75–100"
+    description: "Want to update your own content without calling us every time? A site you can actually manage."
+    features: [Up to 7 pages, Everything in Brochure Site, Content management system, Custom forms with email notifications, Blog or news section, Booking/scheduling integration, Photo galleries with client-managed uploads]
+    featured: false
+    cta: Get Started
+
+  - name: Online Store
+    buildPrice: "10,000"
+    monthlyPrice: 500
+    description: "A full-featured online store for businesses ready to sell directly on their website."
+    features: [Up to 100 products, Shopping cart and checkout, Payment processing, Inventory management, Order notifications, Mobile-responsive design, Hosting included]
+    featured: false
+    cta: Request a Quote
+
+  - name: Custom Software
+    buildPrice: "5,000–20,000"
+    monthlyPrice: "Custom"
+    description: "Bespoke software solutions tailored to your unique business needs."
+    features: [Custom application development, API integrations, Database design, Ongoing support available, Source code delivered]
+    featured: false
+    cta: Request a Quote

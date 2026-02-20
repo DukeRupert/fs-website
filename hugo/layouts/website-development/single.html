@@ -1,0 +1,153 @@
+{{ define "main" }}
+
+<section class="page-hero">
+  <div class="container">
+    <p style="font-size:0.875rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--color-tertiary);margin-bottom:0.5rem;">Elevate your online presence</p>
+    <h1>{{ .Title }}</h1>
+    <p>{{ .Description }}</p>
+  </div>
+</section>
+
+{{- /* Feature block 1: Fast Page Load */}}
+<section class="section">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-3xl);align-items:center;">
+      <div>
+        <p style="font-size:0.875rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--color-primary);margin-bottom:0.5rem;">Fast page load</p>
+        <h2>Why loading lightning-fast matters</h2>
+        <p style="color:var(--color-text-light);margin-top:var(--space-md);margin-bottom:var(--space-xl);">
+          At Firefly Software, we don't just build websites; we craft digital experiences that leave a lasting impression.
+          Our secret ingredient? Lightning-fast page load speeds. In a world where every second counts, your website's
+          speed is your competitive edge.
+        </p>
+        <ul style="display:flex;flex-direction:column;gap:var(--space-lg);list-style:none;">
+          <li style="padding-left:2rem;position:relative;">
+            <span style="position:absolute;left:0;top:2px;color:var(--color-primary);" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </span>
+            <strong style="display:block;color:var(--color-secondary);">Enhanced User Experience</strong>
+            <span style="color:var(--color-text-light);font-size:0.92rem;">Extremely fast load speeds ensure visitors have a smooth experience, keep them engaged, and encourage them to explore your content.</span>
+          </li>
+          <li style="padding-left:2rem;position:relative;">
+            <span style="position:absolute;left:0;top:2px;color:var(--color-primary);" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+            </span>
+            <strong style="display:block;color:var(--color-secondary);">Improved Search Engine Ranking</strong>
+            <span style="color:var(--color-text-light);font-size:0.92rem;">Google considers page load speed as a ranking factor. Faster pages rank higher in search results, increasing your visibility.</span>
+          </li>
+          <li style="padding-left:2rem;position:relative;">
+            <span style="position:absolute;left:0;top:2px;color:var(--color-primary);" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+            </span>
+            <strong style="display:block;color:var(--color-secondary);">Higher Conversion Rates</strong>
+            <span style="color:var(--color-text-light);font-size:0.92rem;">A fast-loading site increases the likelihood that visitors will take the desired action — contacting you or making a purchase.</span>
+          </li>
+        </ul>
+      </div>
+      <div style="border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-lg);">
+        <img
+          src="/images/kcc_ecommerce_coffee.png"
+          alt="Kagen Coffee and Crepes e-commerce mobile view — a Firefly Software project"
+          width="600"
+          height="450"
+          loading="lazy"
+          style="width:100%;height:auto;display:block;"
+        >
+      </div>
+    </div>
+  </div>
+</section>
+
+{{- /* Feature block 2: Mobile-First */}}
+<section class="section section-alt">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-3xl);align-items:center;">
+      <div style="border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-lg);">
+        <img
+          src="/images/fts_landing.png"
+          alt="FtS Excavation landing page mobile view — a Firefly Software project"
+          width="600"
+          height="450"
+          loading="lazy"
+          style="width:100%;height:auto;display:block;"
+        >
+      </div>
+      <div>
+        <p style="font-size:0.875rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--color-primary);margin-bottom:0.5rem;">Mobile-first design</p>
+        <h2>Why your website design matters</h2>
+        <p style="color:var(--color-text-light);margin-top:var(--space-md);margin-bottom:var(--space-xl);">
+          In today's fast-paced digital landscape, the way your website performs on mobile devices is mission-critical.
+          That's where Firefly Software steps in with our cutting-edge mobile-first design approach.
+        </p>
+        <ul style="display:flex;flex-direction:column;gap:var(--space-lg);list-style:none;">
+          <li style="padding-left:2rem;position:relative;">
+            <span style="position:absolute;left:0;top:2px;color:var(--color-primary);" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13a8 8 0 017 7 6 6 0 003-5 9 9 0 006-8 3 3 0 00-3-3 9 9 0 00-8 6 6 6 0 00-5 3"/><path d="M7 14a6 6 0 00-3 6 6 6 0 006-3"/><circle cx="15" cy="9" r="1"/></svg>
+            </span>
+            <strong style="display:block;color:var(--color-secondary);">Google's Favorite</strong>
+            <span style="color:var(--color-text-light);font-size:0.92rem;">Google uses the mobile version of your site for indexing and ranking. Our mobile-first approach optimizes your site for SEO.</span>
+          </li>
+          <li style="padding-left:2rem;position:relative;">
+            <span style="position:absolute;left:0;top:2px;color:var(--color-primary);" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="4" width="10" height="16" rx="1"/><line x1="11" y1="5" x2="13" y2="5"/><line x1="12" y1="17" x2="12" y2="17.01"/></svg>
+            </span>
+            <strong style="display:block;color:var(--color-secondary);">Consistent Branding</strong>
+            <span style="color:var(--color-text-light);font-size:0.92rem;">We maintain a consistent brand image across all devices, so your audience recognizes and trusts your business everywhere.</span>
+          </li>
+          <li style="padding-left:2rem;position:relative;">
+            <span style="position:absolute;left:0;top:2px;color:var(--color-primary);" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </span>
+            <strong style="display:block;color:var(--color-secondary);">Future-Proofing</strong>
+            <span style="color:var(--color-text-light);font-size:0.92rem;">Mobile-first isn't just a trend; it's the future. We build websites with tomorrow in mind to keep you competitive.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{- /* Process */}}
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Our Development Process</h2>
+      <p>A clear, collaborative process from first conversation to launch day.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="process-step-number" aria-hidden="true">1</div>
+        <h3>Discovery</h3>
+        <p>We learn about your business, goals, and competitors to inform the design direction.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-number" aria-hidden="true">2</div>
+        <h3>Design</h3>
+        <p>We create a custom design tailored to your brand — beautiful, fast, and accessible.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-number" aria-hidden="true">3</div>
+        <h3>Development</h3>
+        <p>Every line of code is handcrafted for performance, SEO, and long-term maintainability.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-number" aria-hidden="true">4</div>
+        <h3>Launch &amp; Support</h3>
+        <p>We deploy your site and stay on hand for edits, questions, and ongoing improvements.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <h2>Ready for a website that works?</h2>
+    <p>Let's talk about your project. Starting at $35/mo.</p>
+    <div style="display:flex;gap:var(--space-md);justify-content:center;flex-wrap:wrap;">
+      <a href="/contact-us/" class="btn" style="background:white;color:var(--color-primary);">Get started</a>
+      <a href="/pricing/" class="btn btn-secondary">View pricing</a>
+    </div>
+  </div>
+</section>
+
+{{ end }}

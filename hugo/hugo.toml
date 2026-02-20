@@ -1,0 +1,103 @@
+baseURL = "https://fireflysoftware.dev"
+languageCode = "en-us"
+title = "Firefly Software"
+enableRobotsTXT = true
+[pagination]
+  pagerSize = 6
+
+[params]
+  description = "Firefly Software builds fast, beautiful websites for small businesses. Handcrafted web design starting at $35/mo — hosting, support, and unlimited edits included."
+  tagline = "We build websites that bring in customers. That's the job."
+  phone = "+1 (406) 871-9875"
+  phoneRaw = "+14068719875"
+  email = "service@fireflysoftware.dev"
+  address = "652 Jena Loop, Helena, MT 59602, US"
+  latitude = "46.5958"
+  longitude = "-112.0270"
+  # Cloudflare Turnstile — use test key for local dev, replace with real key for production
+  # Test keys: sitekey=1x00000000000000000000AA, secret=1x0000000000000000000000000000000AA
+  turnstileSiteKey = "1x00000000000000000000AA"
+  ogImage = "/images/facebook_link_image.png"
+  author = "Firefly Software, LLC"
+
+[params.addressComponents]
+  street = "652 Jena Loop"
+  city = "Helena"
+  region = "MT"
+  postalCode = "59602"
+  country = "US"
+
+[params.hours]
+  monday = "9:00 AM – 5:00 PM"
+  tuesday = "9:00 AM – 5:00 PM"
+  wednesday = "9:00 AM – 5:00 PM"
+  thursday = "9:00 AM – 5:00 PM"
+  friday = "9:00 AM – 5:00 PM"
+  saturday = "Closed"
+  sunday = "Closed"
+
+[params.social]
+  facebook = "https://www.facebook.com/profile.php?id=61550128786201"
+
+[menu]
+  [[menu.main]]
+    name = "Services"
+    identifier = "services"
+    weight = 10
+    url = "#"
+    [menu.main.params]
+      hasDropdown = true
+
+  [[menu.main]]
+    name = "Website Development"
+    parent = "services"
+    weight = 11
+    url = "/website-development/"
+
+  [[menu.main]]
+    name = "Website Maintenance"
+    parent = "services"
+    weight = 12
+    url = "/website-maintenance/"
+
+  [[menu.main]]
+    name = "E-Commerce"
+    parent = "services"
+    weight = 13
+    url = "/e-commerce/"
+
+  [[menu.main]]
+    name = "Pricing"
+    weight = 20
+    url = "/pricing/"
+
+  [[menu.main]]
+    name = "Portfolio"
+    weight = 30
+    url = "/portfolio/"
+
+  [[menu.main]]
+    name = "Posts"
+    weight = 40
+    url = "/posts/"
+
+  [[menu.main]]
+    name = "Contact Us"
+    weight = 50
+    url = "/contact-us/"
+    [menu.main.params]
+      class = "nav-cta"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[sitemap]
+  changefreq = "monthly"
+  priority = 0.5
+  filename = "sitemap.xml"
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
