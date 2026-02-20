@@ -1,10 +1,13 @@
-name: Build and Deploy
+name: Deploy Dev
 
 on:
+  workflow_dispatch:
   push:
     branches:
-      - master
-      - main
+      - dev
+
+env:
+  IMAGE_NAME: dukerupert/fs-website
 
 jobs:
   build-and-deploy:
@@ -25,26 +28,29 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build and push Docker image
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: ./hugo
           push: true
           tags: |
-            dukerupert/fs-website:latest
-            dukerupert/fs-website:${{ github.sha }}
+            ${{ env.IMAGE_NAME }}:dev-${{ github.sha }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
       - name: Deploy to VPS
-        uses: appleboy/ssh-action@v1.0.3
+        uses: appleboy/ssh-action@v1.2.0
         with:
-          host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_USER }}
-          key: ${{ secrets.VPS_SSH_KEY }}
+          host: ${{ secrets.DEV_VPS_HOST }}
+          username: ${{ secrets.DEV_VPS_USER }}
+          key: ${{ secrets.DEV_VPS_SSH_KEY }}
           script: |
             set -e
-            cd /opt/fs-website
+            echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
+            cd ${{ secrets.DEV_VPS_DEPLOY_PATH }}
+            export DOCKER_IMAGE=${{ env.IMAGE_NAME }}:dev-${{ github.sha }}
+            export PORT=${{ secrets.DEV_PORT }}
             docker compose pull
+            docker compose down
             docker compose up -d
             docker image prune -f
-            echo "Deploy complete at $(date)"
+            echo "Dev deploy complete at $(date)"
