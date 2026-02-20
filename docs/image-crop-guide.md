@@ -46,6 +46,8 @@ Use a short lowercase prefix per project:
 | 406 Records                   | `406`      |
 | Momentum Business Solutions   | `mbs`      |
 | Nautilus Group Cleaning       | `nautilus`  |
+| Aestus Guides                 | `aestus`    |
+| South Hills Church of Christ  | `shcoc`     |
 
 Each project gets three image files:
 

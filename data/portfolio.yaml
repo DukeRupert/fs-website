@@ -57,3 +57,25 @@ projects:
     splash: /images/portfolio/nautilus_splash.png
     mobile: /images/portfolio/nautilus_mobile.png
     logo: /images/portfolio/nautilus_logo.png
+
+  - slug: aestus-guides
+    name: Aestus Guides
+    category: Gaming Content
+    location: Montana
+    date: 2025
+    client: Aestus Guides
+    summary: A content-rich site for a CRPG guide author, featuring in-depth build guides, system analysis, and tactical insights across classic and modern RPG titles.
+    splash: /images/portfolio/aestus_splash.png
+    mobile: /images/portfolio/aestus_mobile.png
+    logo: /images/portfolio/aestus_logo.png
+
+  - slug: south-hills-coc
+    name: South Hills Church of Christ
+    category: Church
+    location: Helena, MT
+    date: 2025
+    client: South Hills Church of Christ
+    summary: A welcoming online home for a Helena congregation, with service times, ministry info, and a clear invitation for visitors to connect.
+    splash: /images/portfolio/shcoc_splash.png
+    mobile: /images/portfolio/shcoc_mobile.png
+    logo: /images/portfolio/shcoc_logo.png
