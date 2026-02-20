@@ -121,4 +121,4 @@ Contact form uses Turnstile for bot protection. For local dev, use Cloudflare's 
 
 Push to `master` or `main` triggers GitHub Actions (`.github/workflows/deploy.yml`): builds Docker image, pushes to Docker Hub (`dukerupert/fs-website`), SSHes to VPS, pulls and restarts.
 
-Required GitHub Secrets: `DOCKERHUB_USERNAME`, `DOCKERHUB_TOKEN`, `VPS_HOST`, `VPS_USER`, `VPS_SSH_KEY`
+Required GitHub Secrets: `DOCKERHUB_USERNAME`, `DOCKERHUB_TOKEN`, `PROD_VPS_HOST`, `PROD_VPS_USER`, `PROD_VPS_SSH_KEY`, `PROD_VPS_DEPLOY_PATH`, `PROD_PORT`
