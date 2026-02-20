@@ -20,10 +20,9 @@
         <div class="pricing-name">{{ .name }}</div>
         <div class="pricing-price">
           <span class="pricing-currency">$</span>
-          <span class="pricing-amount">{{ .monthlyPrice }}</span>
-          <span class="pricing-period">/mo</span>
+          <span class="pricing-amount">{{ .buildPrice }}</span>
         </div>
-        <div class="pricing-build">${{ .buildPrice }} one-time build fee</div>
+        <div class="pricing-monthly">+ ${{ .monthlyPrice }}/mo hosting &amp; support</div>
         <p class="pricing-description">{{ .description }}</p>
         <ul class="pricing-features" aria-label="{{ .name }} plan features">
           {{ range .features }}

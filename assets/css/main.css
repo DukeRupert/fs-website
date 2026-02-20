@@ -1258,13 +1258,6 @@ p:last-child { margin-bottom: 0; }
   margin-bottom: 4px;
 }
 
-.pricing-build {
-  font-family: var(--font-ui);
-  font-size: 13px;
-  color: var(--stone);
-  margin-bottom: 12px;
-}
-
 .pricing-amount {
   font-family: var(--font-display);
   font-size: 46px;
@@ -1281,6 +1274,20 @@ p:last-child { margin-bottom: 0; }
   color: var(--ink-faded);
   align-self: flex-start;
   padding-top: 8px;
+}
+
+.pricing-monthly {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  color: var(--stone);
+  margin-bottom: 12px;
+}
+
+.pricing-build {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  color: var(--stone);
+  margin-bottom: 12px;
 }
 
 .pricing-period {
