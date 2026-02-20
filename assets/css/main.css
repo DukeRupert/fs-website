@@ -321,6 +321,39 @@ p:last-child { margin-bottom: 0; }
   50%       { opacity: 0.4; transform: scale(0.85); }
 }
 
+/* Hero SVG fireflies — elliptical drift + flash */
+@keyframes firefly-wander {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(var(--dx), calc(var(--dy) * -0.5)); }
+  50%  { transform: translate(0, var(--dy)); }
+  75%  { transform: translate(calc(var(--dx) * -1), calc(var(--dy) * -0.5)); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes firefly-glow {
+  0%, 100% { opacity: 0; }
+  8%, 18%  { opacity: 0.9; }
+  22%, 48% { opacity: 0; }
+  52%, 62% { opacity: 0.8; }
+  66%      { opacity: 0; }
+}
+
+@keyframes star-twinkle {
+  0%, 100% { opacity: var(--base-o, 0.9); }
+  50%      { opacity: var(--min-o, 0.3); }
+}
+
+.star-twinkle {
+  animation: star-twinkle var(--twinkle, 8s) ease-in-out var(--delay, 0s) infinite;
+}
+
+.hero-firefly {
+  animation:
+    firefly-wander var(--dur, 6s) ease-in-out var(--delay, 0s) infinite,
+    firefly-glow var(--flash, 4s) ease-in-out var(--delay, 0s) infinite;
+  transform-box: fill-box;
+}
+
 @keyframes blink {
   0%, 100% { opacity: 0; transform: scale(0.6); }
   40%, 60%  { opacity: 1; transform: scale(1); }

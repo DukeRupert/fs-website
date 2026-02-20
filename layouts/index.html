@@ -66,20 +66,20 @@
     <g fill="#D8E4F0">
       <circle cx="72"   cy="42"  r="1.6" opacity="0.92"/>
       <circle cx="189"  cy="28"  r="1.4" opacity="0.88"/>
-      <circle cx="324"  cy="55"  r="1.7" opacity="0.90"/>
+      <circle class="star-twinkle" style="--twinkle:10s;--delay:0s;--base-o:0.90;--min-o:0.3" cx="324"  cy="55"  r="1.7"/>
       <circle cx="451"  cy="19"  r="1.5" opacity="0.85"/>
       <circle cx="538"  cy="67"  r="1.8" opacity="0.93"/>
       <circle cx="642"  cy="34"  r="1.4" opacity="0.88"/>
-      <circle cx="748"  cy="48"  r="1.6" opacity="0.91"/>
+      <circle class="star-twinkle" style="--twinkle:14s;--delay:3s;--base-o:0.91;--min-o:0.35" cx="748"  cy="48"  r="1.6"/>
       <circle cx="856"  cy="22"  r="1.5" opacity="0.87"/>
       <circle cx="944"  cy="59"  r="1.7" opacity="0.89"/>
-      <circle cx="1044" cy="31"  r="1.4" opacity="0.85"/>
+      <circle class="star-twinkle" style="--twinkle:12s;--delay:6s;--base-o:0.85;--min-o:0.25" cx="1044" cy="31"  r="1.4"/>
       <circle cx="1138" cy="72"  r="1.6" opacity="0.92"/>
       <circle cx="1348" cy="48"  r="1.5" opacity="0.88"/>
       <circle cx="156"  cy="108" r="1.4" opacity="0.85"/>
       <circle cx="287"  cy="92"  r="1.6" opacity="0.88"/>
       <circle cx="412"  cy="118" r="1.3" opacity="0.82"/>
-      <circle cx="567"  cy="96"  r="1.5" opacity="0.87"/>
+      <circle class="star-twinkle" style="--twinkle:16s;--delay:8s;--base-o:0.87;--min-o:0.3" cx="567"  cy="96"  r="1.5"/>
       <circle cx="689"  cy="128" r="1.4" opacity="0.85"/>
       <circle cx="812"  cy="102" r="1.6" opacity="0.90"/>
       <circle cx="978"  cy="114" r="1.3" opacity="0.83"/>
@@ -123,109 +123,105 @@
       <circle cx="1352" cy="184" r="0.6" opacity="0.46"/>
     </g>
 
-    {{- /* Sleeping Giant silhouette — Beartooth range from Helena Valley */}}
-    {{- /* Feet (west/left) → Belly → Chest → Sternum → Nose → Brow → Forehead → Back of head (east/right) */}}
+    {{- /* Sleeping Giant silhouette — from sleeping-giant.svg reference */}}
+    {{- /* Feet (west/left) → Legs → Chest dome (peak) → Neck dip → Chin → Nose → Forehead → Crown → Back of head (east/right) */}}
     <path
       d="M0,680
-         L0,420
-         L30,400
-         L80,390
-         L140,380
-         L200,370
-         L260,365
-         L318,410
-         L380,420
-         L430,400
-         L480,375
-         L520,360
-         L560,348
-         L595,247
-         L630,242
-         L660,238
-         L706,237
-         L740,230
-         L765,184
-         L780,200
-         L792,220
-         L800,246
-         L815,246
-         L840,230
-         L860,210
-         L883,153
-         L895,168
-         L901,194
-         L915,202
-         L927,210
-         L942,196
-         L959,175
-         L972,182
-         L987,190
-         L1010,210
-         L1035,238
-         L1058,260
-         L1081,281
-         L1120,310
-         L1180,350
-         L1240,380
-         L1320,410
-         L1400,430
-         L1440,440
+         L0,389
+         Q 27,385 54,380
+         Q 108,365 162,346
+         Q 216,327 270,311
+         Q 324,295 378,284
+         Q 432,272 486,267
+         Q 522,263 558,261
+         Q 594,259 630,260
+         Q 666,261 702,265
+         Q 747,270 783,279
+         Q 819,289 846,301
+         Q 873,318 900,337
+         Q 918,349 936,356
+         Q 950,359 963,356
+         Q 981,349 999,341
+         Q 1017,330 1035,320
+         Q 1049,313 1062,308
+         Q 1076,305 1089,308
+         Q 1103,311 1112,315
+         Q 1121,311 1132,308
+         Q 1148,305 1166,309
+         Q 1179,313 1188,317
+         Q 1202,327 1215,339
+         Q 1229,349 1242,353
+         Q 1256,349 1267,361
+         Q 1283,380 1301,399
+         Q 1323,418 1350,430
+         Q 1382,437 1413,442
+         Q 1427,444 1440,445
          L1440,680
          Z"
       fill="#080C08"
     />
 
-    {{- /* Ridge rim-light — sunrise catching the mountain's top edge */}}
+    {{- /* Ridge rim-light — sunrise catching the chest dome and head features */}}
     <path
-      d="M595,247
-         L630,242 L660,238 L706,237
-         L740,230 L765,184 L780,200
-         L792,220 L800,246 L815,246
-         L840,230 L860,210 L883,153
-         L895,168 L901,194 L915,202
-         L927,210 L942,196 L959,175
-         L972,182 L987,190 L1010,210
-         L1035,238 L1058,260 L1081,281"
+      d="M270,311
+         Q 324,295 378,284
+         Q 432,272 486,267
+         Q 522,263 558,261
+         Q 594,259 630,260
+         Q 666,261 702,265
+         Q 747,270 783,279
+         Q 819,289 846,301
+         Q 873,318 900,337
+         Q 918,349 936,356
+         Q 950,359 963,356
+         Q 981,349 999,341
+         Q 1017,330 1035,320
+         Q 1049,313 1062,308
+         Q 1076,305 1089,308
+         Q 1103,311 1112,315
+         Q 1121,311 1132,308
+         Q 1148,305 1166,309
+         Q 1179,313 1188,317"
       stroke="url(#sunrise)"
       stroke-width="2.5"
       fill="none"
       opacity="0.65"
     />
 
-    {{- /* Pine tree silhouettes — left cluster */}}
+    {{- /* Pine tree silhouettes — left cluster (along lower slope) */}}
     <g fill="#080C08">
-      <polygon points="44,420 56,380 68,420"/>
-      <polygon points="60,420 74,374 88,420"/>
-      <polygon points="78,420 90,384 102,420"/>
-      <polygon points="108,418 118,388 128,418"/>
-      <polygon points="126,420 138,378 150,420"/>
+      <polygon points="44,388 56,362 68,388"/>
+      <polygon points="60,384 74,356 88,384"/>
+      <polygon points="78,378 90,358 102,378"/>
+      <polygon points="108,370 118,348 128,370"/>
+      <polygon points="126,362 138,338 150,362"/>
     </g>
 
-    {{- /* Pine tree silhouettes — center scatter */}}
+    {{- /* Pine tree silhouettes — chest dome summit */}}
     <g fill="#080C08">
-      <polygon points="550,360 558,336 566,360"/>
-      <polygon points="560,362 570,332 580,362"/>
-      <polygon points="572,358 582,338 592,358"/>
+      <polygon points="540,268 548,244 556,268"/>
+      <polygon points="555,266 565,240 575,266"/>
+      <polygon points="568,264 578,244 588,264"/>
     </g>
 
-    {{- /* Pine tree silhouettes — right cluster */}}
+    {{- /* Pine tree silhouettes — right descent (bases below ridgeline, tips just breaking it) */}}
     <g fill="#080C08">
-      <polygon points="1280,410 1292,374 1304,410"/>
-      <polygon points="1300,412 1314,372 1328,412"/>
-      <polygon points="1318,408 1330,378 1342,408"/>
-      <polygon points="1336,412 1348,376 1360,412"/>
+      <polygon points="1280,400 1292,382 1304,400"/>
+      <polygon points="1300,420 1314,401 1328,420"/>
+      <polygon points="1318,430 1330,411 1342,430"/>
+      <polygon points="1336,440 1348,421 1360,440"/>
     </g>
 
-    {{- /* Firefly glows near treeline — valley floor */}}
+    {{- /* Firefly glows near treeline — animated drift + flash */}}
     <g filter="url(#ff-glow)">
-      <circle cx="104"  cy="406" r="2.5" fill="#B8E850" opacity="0.88"/>
-      <circle cx="168"  cy="392" r="2.0" fill="#B8E850" opacity="0.75"/>
-      <circle cx="234"  cy="378" r="3.0" fill="#B8E850" opacity="0.90"/>
-      <circle cx="398"  cy="410" r="2.2" fill="#B8E850" opacity="0.78"/>
-      <circle cx="462"  cy="394" r="2.8" fill="#B8E850" opacity="0.85"/>
-      <circle cx="1200" cy="398" r="2.4" fill="#B8E850" opacity="0.82"/>
-      <circle cx="1268" cy="406" r="2.0" fill="#B8E850" opacity="0.76"/>
-      <circle cx="1362" cy="396" r="3.0" fill="#B8E850" opacity="0.88"/>
+      <circle class="hero-firefly" style="--dur:16s;--flash:12s;--delay:0s;--dx:18px;--dy:-12px"    cx="80"   cy="376" r="2.5" fill="#B8E850"/>
+      <circle class="hero-firefly" style="--dur:21s;--flash:14s;--delay:3s;--dx:-14px;--dy:-16px"   cx="150"  cy="348" r="2.0" fill="#B8E850"/>
+      <circle class="hero-firefly" style="--dur:18s;--flash:10s;--delay:1s;--dx:22px;--dy:-10px"    cx="350"  cy="290" r="3.0" fill="#B8E850"/>
+      <circle class="hero-firefly" style="--dur:25s;--flash:16s;--delay:6s;--dx:-18px;--dy:-14px"   cx="780"  cy="272" r="2.2" fill="#B8E850"/>
+      <circle class="hero-firefly" style="--dur:17s;--flash:12s;--delay:2s;--dx:16px;--dy:-20px"    cx="950"  cy="350" r="2.8" fill="#B8E850"/>
+      <circle class="hero-firefly" style="--dur:22s;--flash:11s;--delay:5s;--dx:-20px;--dy:-12px"   cx="1100" cy="308" r="2.4" fill="#B8E850"/>
+      <circle class="hero-firefly" style="--dur:19s;--flash:15s;--delay:8s;--dx:12px;--dy:-18px"    cx="1250" cy="352" r="2.0" fill="#B8E850"/>
+      <circle class="hero-firefly" style="--dur:16s;--flash:10s;--delay:2s;--dx:-16px;--dy:-14px"   cx="1380" cy="410" r="3.0" fill="#B8E850"/>
     </g>
   </svg>
 

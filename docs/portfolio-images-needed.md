@@ -1,6 +1,6 @@
 # Portfolio Images Needed
 
-The following images are referenced in `hugo/data/portfolio.yaml` and need to be added to `hugo/static/images/portfolio/`.
+The following images are referenced in `data/portfolio.yaml` and need to be added to `static/images/portfolio/`.
 
 ## Traver Hardwood Floors
 
@@ -39,4 +39,4 @@ The following images are referenced in `hugo/data/portfolio.yaml` and need to be
 - Splash screenshots can be captured from the live sites using browser dev tools or a screenshot service.
 - Logos should have transparent backgrounds for use on both light and dark sections. The case study hero applies `filter: brightness(0) invert(1)` to logos, so solid single-color logos work best.
 - Client photos are used on the case study detail page next to the testimonial quote (48x48 display size, but provide a larger source).
-- All images go in `hugo/static/images/portfolio/`.
+- All images go in `static/images/portfolio/`.

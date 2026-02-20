@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Firefly Software company website — Hugo static site + Go contact form API + Docker + Caddy. All site code lives in `hugo/`.
+Firefly Software company website — Hugo static site + Go contact form API + Docker + Caddy.
 
 **Architecture:**
 ```
@@ -19,23 +19,23 @@ The Docker image is a three-stage build: Hugo (static site) → Go (API binary) 
 
 ```bash
 # Hugo dev server
-cd hugo && hugo server -D                 # http://localhost:1313
+hugo server -D                            # http://localhost:1313
 
 # Go API (separate terminal, for contact form testing)
-cd hugo/api && go run main.go             # localhost:8080
+cd api && go run main.go                  # localhost:8080
 
 # Full stack via Docker
-cd hugo && docker compose up --build      # localhost:3000
+docker compose up --build                 # localhost:3000
 
 # Production build
-cd hugo && hugo --gc --minify             # Output: hugo/public/
+hugo --gc --minify                        # Output: public/
 ```
 
 ## Key Conventions
 
 ### Business Data
 
-Never hardcode phone numbers, addresses, emails, or hours in templates. All business data lives in `hugo/hugo.toml` under `[params]`. Access via `.Site.Params.*` in templates.
+Never hardcode phone numbers, addresses, emails, or hours in templates. All business data lives in `hugo.toml` under `[params]`. Access via `.Site.Params.*` in templates.
 
 ### Design System — "Montana Utility × Wilderness Wonder"
 
@@ -76,7 +76,7 @@ Four fonts only — no Inter, Roboto, Arial, or system-ui anywhere:
 
 ### CSS
 
-Single file at `hugo/assets/css/main.css`, processed via Hugo Pipes (`resources.Get | minify`). No CSS frameworks.
+Single file at `assets/css/main.css`, processed via Hugo Pipes (`resources.Get | minify`). No CSS frameworks.
 
 ### JavaScript
 
@@ -102,7 +102,7 @@ Contact form uses Turnstile for bot protection. For local dev, use Cloudflare's 
 
 ### Go API
 
-`hugo/api/main.go` — zero external Go dependencies (stdlib only). Handles `POST /api/contact` with honeypot field, Turnstile verification, and Postmark email delivery. Gracefully degrades when `TURNSTILE_SECRET` or `POSTMARK_TOKEN` are unset (logs instead).
+`api/main.go` — zero external Go dependencies (stdlib only). Handles `POST /api/contact` with honeypot field, Turnstile verification, and Postmark email delivery. Gracefully degrades when `TURNSTILE_SECRET` or `POSTMARK_TOKEN` are unset (logs instead).
 
 ## Environment Variables
 
@@ -119,6 +119,6 @@ Contact form uses Turnstile for bot protection. For local dev, use Cloudflare's 
 
 ## Deployment
 
-Push to `master` or `main` triggers GitHub Actions (`hugo/.github/workflows/deploy.yml`): builds Docker image, pushes to Docker Hub (`dukerupert/fs-website`), SSHes to VPS, pulls and restarts.
+Push to `master` or `main` triggers GitHub Actions (`.github/workflows/deploy.yml`): builds Docker image, pushes to Docker Hub (`dukerupert/fs-website`), SSHes to VPS, pulls and restarts.
 
 Required GitHub Secrets: `DOCKERHUB_USERNAME`, `DOCKERHUB_TOKEN`, `VPS_HOST`, `VPS_USER`, `VPS_SSH_KEY`

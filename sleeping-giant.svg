@@ -1,0 +1,253 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 600" preserveAspectRatio="xMidYMax slice">
+  <defs>
+    <!-- Sky gradient - light blue -->
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#87CEEB"/>
+      <stop offset="50%" stop-color="#B0DEF5"/>
+      <stop offset="100%" stop-color="#D4EDFA"/>
+    </linearGradient>
+
+    <!-- Distant mountain - muted forest green -->
+    <linearGradient id="mountainFar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5A7C65"/>
+      <stop offset="100%" stop-color="#6E8E78"/>
+    </linearGradient>
+
+    <!-- Main Sleeping Giant - deep forest green -->
+    <linearGradient id="mountainMain" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2D5E3A"/>
+      <stop offset="100%" stop-color="#3E7A50"/>
+    </linearGradient>
+
+    <!-- Foreground hills - sage green -->
+    <linearGradient id="hillFront" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8B9B5A"/>
+      <stop offset="100%" stop-color="#748040"/>
+    </linearGradient>
+
+    <!-- Atmospheric haze -->
+    <linearGradient id="haze" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#D4EDFA" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#D4EDFA" stop-opacity="0.3"/>
+    </linearGradient>
+
+    <!-- Cloud filter -->
+    <filter id="cloudBlur">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="1600" height="600" fill="url(#sky)"/>
+
+  <!-- Clouds -->
+  <g opacity="0.85">
+    <ellipse cx="300" cy="80" rx="200" ry="50" fill="white" opacity="0.8" filter="url(#cloudBlur)"/>
+    <ellipse cx="450" cy="65" rx="160" ry="45" fill="white" opacity="0.85" filter="url(#cloudBlur)"/>
+    <ellipse cx="200" cy="95" rx="140" ry="35" fill="white" opacity="0.7" filter="url(#cloudBlur)"/>
+    <ellipse cx="900" cy="60" rx="220" ry="55" fill="white" opacity="0.85" filter="url(#cloudBlur)"/>
+    <ellipse cx="1050" cy="50" rx="180" ry="50" fill="white" opacity="0.9" filter="url(#cloudBlur)"/>
+    <ellipse cx="1150" cy="75" rx="150" ry="40" fill="white" opacity="0.75" filter="url(#cloudBlur)"/>
+    <ellipse cx="600" cy="110" rx="80" ry="25" fill="white" opacity="0.6" filter="url(#cloudBlur)"/>
+    <ellipse cx="1350" cy="90" rx="100" ry="30" fill="white" opacity="0.65" filter="url(#cloudBlur)"/>
+  </g>
+
+  <!-- Distant background ridgeline -->
+  <path d="
+    M 0 460
+    L 0 320
+    Q 50 310, 100 300
+    Q 200 280, 280 290
+    Q 350 295, 400 285
+    Q 450 275, 480 280
+    L 480 460
+    Z
+  " fill="url(#mountainFar)" opacity="0.5"/>
+
+  <!-- SLEEPING GIANT - Main mountain silhouette -->
+  <!-- Chest dome peak ~y204 is highest point. Head/nose peaks stay below at ~y225+ -->
+  <path d="
+    M 0 460
+    L 0 340
+    Q 30 335, 60 330
+    Q 120 315, 180 295
+    Q 240 275, 300 258
+    Q 360 242, 420 230
+    Q 480 218, 540 212
+    Q 580 208, 620 206
+    Q 660 204, 700 205
+    Q 740 206, 780 210
+    Q 830 216, 870 225
+    Q 910 235, 940 248
+    Q 970 265, 1000 285
+    Q 1020 298, 1040 305
+    Q 1055 308, 1070 305
+    Q 1090 298, 1110 290
+    Q 1130 278, 1150 268
+    Q 1165 260, 1180 255
+    Q 1195 252, 1210 255
+    Q 1225 258, 1235 262
+    Q 1245 258, 1258 255
+    Q 1275 252, 1295 256
+    Q 1310 260, 1320 265
+    Q 1335 275, 1350 288
+    Q 1365 298, 1380 302
+    Q 1395 298, 1408 310
+    Q 1425 330, 1445 350
+    Q 1470 370, 1500 382
+    Q 1535 390, 1570 395
+    Q 1585 397, 1600 398
+    L 1600 460
+    Z
+  " fill="url(#mountainMain)"/>
+
+  <!-- Atmospheric haze over mountains -->
+  <rect x="0" y="200" width="1600" height="250" fill="url(#haze)"/>
+
+  <!-- Foreground rolling hills -->
+  <path d="
+    M 0 500
+    L 0 440
+    Q 80 430, 160 425
+    Q 280 418, 400 415
+    Q 500 412, 600 418
+    Q 700 425, 800 430
+    Q 900 435, 1000 428
+    Q 1100 420, 1200 415
+    Q 1300 410, 1400 418
+    Q 1500 425, 1600 435
+    L 1600 500
+    Z
+  " fill="url(#hillFront)"/>
+
+  <!-- Second foreground hill layer -->
+  <path d="
+    M 0 520
+    L 0 460
+    Q 100 450, 200 445
+    Q 350 438, 500 442
+    Q 600 446, 700 455
+    Q 800 465, 900 460
+    Q 1000 452, 1100 448
+    Q 1200 445, 1350 450
+    Q 1450 455, 1600 465
+    L 1600 520
+    Z
+  " fill="#627030"/>
+
+  <!-- Foreground trees - triangular pine / christmas tree shapes -->
+  <!-- Each tree: 2-3 stacked triangles (wider at bottom, overlapping) + trunk -->
+  <g>
+    <!-- Tree 1 - left, medium -->
+    <g fill="#1B4D2E">
+      <polygon points="85,370 60,430 110,430"/>
+      <polygon points="85,400 52,465 118,465"/>
+      <polygon points="85,430 48,485 122,485"/>
+    </g>
+    <rect x="81" y="482" width="8" height="16" fill="#4A3520"/>
+
+    <!-- Tree 2 - short -->
+    <g fill="#1A4528">
+      <polygon points="165,405 148,450 182,450"/>
+      <polygon points="165,428 142,472 188,472"/>
+      <polygon points="165,448 138,488 192,488"/>
+    </g>
+    <rect x="161" y="485" width="8" height="14" fill="#4A3520"/>
+
+    <!-- Tree 3 - tall -->
+    <g fill="#16402A">
+      <polygon points="248,338 222,398 274,398"/>
+      <polygon points="248,370 215,432 281,432"/>
+      <polygon points="248,405 208,468 288,468"/>
+      <polygon points="248,435 204,490 292,490"/>
+    </g>
+    <rect x="244" y="487" width="8" height="18" fill="#4A3520"/>
+
+    <!-- Tree 4 - medium -->
+    <g fill="#1E5232">
+      <polygon points="345,378 322,435 368,435"/>
+      <polygon points="345,408 315,462 375,462"/>
+      <polygon points="345,438 310,488 380,488"/>
+    </g>
+    <rect x="341" y="485" width="8" height="16" fill="#4A3520"/>
+
+    <!-- Tree 5 - tall, prominent -->
+    <g fill="#174A2C">
+      <polygon points="440,330 414,392 466,392"/>
+      <polygon points="440,362 406,428 474,428"/>
+      <polygon points="440,398 400,462 480,462"/>
+      <polygon points="440,430 396,490 484,490"/>
+    </g>
+    <rect x="436" y="487" width="8" height="20" fill="#4A3520"/>
+
+    <!-- Tree 6 -->
+    <g fill="#1B4D2E">
+      <polygon points="530,380 510,435 550,435"/>
+      <polygon points="530,410 504,462 556,462"/>
+      <polygon points="530,438 498,488 562,488"/>
+    </g>
+    <rect x="526" y="485" width="8" height="16" fill="#4A3520"/>
+
+    <!-- Tree 7 - shorter, gap area -->
+    <g fill="#205A35">
+      <polygon points="685,418 670,455 700,455"/>
+      <polygon points="685,438 664,472 706,472"/>
+      <polygon points="685,455 660,488 710,488"/>
+    </g>
+    <rect x="681" y="485" width="8" height="12" fill="#4A3520"/>
+
+    <!-- Tree 8 - tall -->
+    <g fill="#174A2C">
+      <polygon points="820,345 795,405 845,405"/>
+      <polygon points="820,378 788,440 852,440"/>
+      <polygon points="820,410 782,468 858,468"/>
+      <polygon points="820,438 778,490 862,490"/>
+    </g>
+    <rect x="816" y="487" width="8" height="18" fill="#4A3520"/>
+
+    <!-- Tree 9 - medium -->
+    <g fill="#1B4D2E">
+      <polygon points="930,392 912,442 948,442"/>
+      <polygon points="930,418 906,465 954,465"/>
+      <polygon points="930,442 900,488 960,488"/>
+    </g>
+    <rect x="926" y="485" width="8" height="15" fill="#4A3520"/>
+
+    <!-- Tree 10 - tall, tips break ridgeline -->
+    <g fill="#16402A">
+      <polygon points="1090,290 1068,355 1112,355"/>
+      <polygon points="1090,335 1060,402 1120,402"/>
+      <polygon points="1090,378 1052,445 1128,445"/>
+      <polygon points="1090,425 1046,490 1134,490"/>
+    </g>
+    <rect x="1086" y="487" width="8" height="18" fill="#4A3520"/>
+
+    <!-- Tree 11 - medium -->
+    <g fill="#1E5232">
+      <polygon points="1210,385 1190,438 1230,438"/>
+      <polygon points="1210,412 1184,462 1236,462"/>
+      <polygon points="1210,438 1178,488 1242,488"/>
+    </g>
+    <rect x="1206" y="485" width="8" height="16" fill="#4A3520"/>
+
+    <!-- Tree 12 - tall, tips break ridgeline -->
+    <g fill="#174A2C">
+      <polygon points="1385,293 1364,358 1406,358"/>
+      <polygon points="1385,337 1356,402 1414,402"/>
+      <polygon points="1385,378 1350,445 1420,445"/>
+      <polygon points="1385,425 1344,490 1426,490"/>
+    </g>
+    <rect x="1381" y="487" width="8" height="18" fill="#4A3520"/>
+
+    <!-- Tree 13 - tips break ridgeline -->
+    <g fill="#1B4D2E">
+      <polygon points="1510,376 1494,425 1526,425"/>
+      <polygon points="1510,408 1488,455 1532,455"/>
+      <polygon points="1510,438 1482,490 1538,490"/>
+    </g>
+    <rect x="1506" y="487" width="8" height="13" fill="#4A3520"/>
+  </g>
+
+  <!-- Bottom ground fill - dark forest floor -->
+  <rect x="0" y="488" width="1600" height="112" fill="#3D5020"/>
+</svg>

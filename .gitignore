@@ -4,12 +4,12 @@
 !.env.example
 
 # Hugo
-hugo/public/
-hugo/resources/_gen/
-hugo/.hugo_build.lock
+public/
+resources/_gen/
+.hugo_build.lock
 
 # Go
-hugo/api/api
+api/api
 
 # Docker
 .docker/
