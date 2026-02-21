@@ -1782,73 +1782,89 @@ p:last-child { margin-bottom: 0; }
 /* ==========================================================================
    Blog / Posts
    ========================================================================== */
-.posts-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2px;
-  background: var(--granite-dk);
+/* Posts feed — editorial / newspaper layout */
+.posts-feed {
+  max-width: var(--max-width-narrow);
+  margin: 0 auto;
 }
 
-.post-card {
-  background: var(--snow);
-  padding: var(--space-xl);
-  position: relative;
-  overflow: hidden;
-  transition: background-color var(--t-base);
+.post-entry {
+  padding: var(--space-2xl) 0;
+  border-bottom: 1px solid var(--granite-dk);
 }
 
-.post-card::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--rust), var(--amber));
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.25s ease;
+.post-entry:first-child {
+  padding-top: 0;
 }
 
-.post-card:hover {
-  background: var(--granite-lt);
+.post-entry:last-child {
+  border-bottom: none;
 }
 
-.post-card:hover::after {
-  transform: scaleX(1);
+/* Lead story — biggest headline */
+.post-entry--lead .post-entry-title {
+  font-size: 36px;
+  line-height: 1.15;
+  margin-bottom: var(--space-md);
 }
 
-.post-card-date {
+.post-entry--lead .post-entry-excerpt {
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+/* Meta line */
+.post-entry-meta {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 11px;
   color: var(--stone);
-  letter-spacing: 0.1em;
-  margin-bottom: 10px;
-}
-
-.post-card-title {
-  font-family: var(--font-ui);
-  font-size: 15px;
-  font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--ink);
-  margin-bottom: 10px;
+  margin-bottom: var(--space-sm);
 }
 
-.post-card-title a {
+.post-entry-sep {
+  margin: 0 6px;
+  opacity: 0.4;
+}
+
+/* Category tag */
+.post-entry-category {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--rust);
+  margin-bottom: var(--space-sm);
+}
+
+/* Headline */
+.post-entry-title {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.2;
+  margin-bottom: var(--space-sm);
+}
+
+.post-entry-title a {
   color: inherit;
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
-.post-card-title a:hover {
+.post-entry-title a:hover {
   color: var(--rust);
 }
 
-.post-card-excerpt {
+/* Excerpt / deck */
+.post-entry-excerpt {
   font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.7;
   color: var(--ink-faded);
-  font-size: 14px;
-  margin-bottom: var(--space-md);
-  line-height: 1.65;
 }
 
 /* Single post */
@@ -1890,18 +1906,6 @@ p:last-child { margin-bottom: 0; }
   text-decoration: underline;
 }
 
-.post-card-body {
-  padding: 0;
-}
-
-.post-card-label {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  color: var(--stone);
-  letter-spacing: 0.1em;
-  margin-bottom: 8px;
-  display: block;
-}
 
 .card-label {
   font-family: var(--font-mono);
@@ -2558,7 +2562,6 @@ p:last-child { margin-bottom: 0; }
   .card-grid--3,
   .card-grid--2,
   .pricing-grid,
-  .posts-grid,
   .footer-grid {
     grid-template-columns: 1fr;
   }
@@ -2570,6 +2573,15 @@ p:last-child { margin-bottom: 0; }
 
   .process-steps {
     grid-template-columns: 1fr 1fr;
+  }
+
+  /* Posts — scale lead headline for mobile */
+  .post-entry--lead .post-entry-title {
+    font-size: 28px;
+  }
+
+  .post-entry-title {
+    font-size: 22px;
   }
 
   .contact-layout,

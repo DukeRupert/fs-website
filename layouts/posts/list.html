@@ -10,17 +10,19 @@
 <section class="section">
   <div class="container">
     {{ if .Pages }}
-    <div class="posts-grid">
-      {{ range .Pages }}
-      <article class="post-card">
-        <div class="post-card-body">
-          <p class="post-card-date">
-            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
-          </p>
-          <h2 class="post-card-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-          {{ with .Description }}<p class="post-card-excerpt">{{ . }}</p>{{ end }}
-          <a href="{{ .RelPermalink }}" class="btn btn-outline btn--sm" aria-label="Read: {{ .Title }}">Read more</a>
+    <div class="posts-feed">
+      {{ range $i, $p := .Pages }}
+      <article class="post-entry{{ if eq $i 0 }} post-entry--lead{{ end }}">
+        <div class="post-entry-meta">
+          <time datetime="{{ $p.Date.Format "2006-01-02" }}">{{ $p.Date.Format "January 2, 2006" }}</time>
+          <span class="post-entry-sep">&bull;</span>
+          <span>{{ $p.ReadingTime }} min read</span>
         </div>
+        {{ with index $p.Params.tags 0 }}
+        <p class="post-entry-category">{{ . }}</p>
+        {{ end }}
+        <h2 class="post-entry-title"><a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a></h2>
+        {{ with $p.Description }}<p class="post-entry-excerpt">{{ . }}</p>{{ end }}
       </article>
       {{ end }}
     </div>
