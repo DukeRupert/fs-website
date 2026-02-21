@@ -14,7 +14,7 @@ services:
       FROM_EMAIL: "${FROM_EMAIL:-noreply@fireflysoftware.dev}"
       TO_EMAIL: "${TO_EMAIL:-service@fireflysoftware.dev}"
     healthcheck:
-      test: ["CMD", "wget", "-qO-", "http://localhost:${PORT:-80}/api/health"]
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:${PORT:-80}/api/health"]
       interval: 30s
       timeout: 5s
       retries: 3

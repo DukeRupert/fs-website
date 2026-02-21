@@ -8,7 +8,7 @@ echo "[entrypoint] Waiting for API to be ready..."
 i=0
 api_ready=false
 while [ $i -lt 10 ]; do
-  if wget -q -O /dev/null "http://localhost:${API_PORT:-8080}/api/health" 2>/dev/null; then
+  if wget -q -O /dev/null "http://127.0.0.1:${API_PORT:-8080}/api/health" 2>/dev/null; then
     echo "[entrypoint] API is ready."
     api_ready=true
     break
