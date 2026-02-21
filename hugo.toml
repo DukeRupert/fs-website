@@ -61,12 +61,6 @@ enableRobotsTXT = true
     url = "/website-maintenance/"
 
   [[menu.main]]
-    name = "E-Commerce"
-    parent = "services"
-    weight = 13
-    url = "/e-commerce/"
-
-  [[menu.main]]
     name = "Pricing"
     weight = 20
     url = "/pricing/"

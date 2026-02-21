@@ -1,5 +1,5 @@
 ---
 title: "Website Development — Firefly Software"
-description: "Firefly Software designs and develops custom websites for small businesses. Fast, mobile-friendly, and built to convert visitors into customers."
+description: "We build custom websites for small businesses — fast, mobile-friendly, and built to turn visitors into customers. No templates. No page builders."
 layout: service
 ---
