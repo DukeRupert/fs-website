@@ -241,7 +241,7 @@
     </p>
 
     <div class="hero-actions">
-      <a href="/contact-us/" class="btn btn-primary btn--lg">Start a project</a>
+      <a href="/contact-us/?service=website-development" class="btn btn-primary btn--lg">Start a project</a>
       <a href="#how-it-works" class="btn btn-outline-snow btn--lg">See how it works</a>
     </div>
 
@@ -725,7 +725,7 @@
           <li>{{ . }}</li>
           {{ end }}
         </ul>
-        <a href="/contact-us/" class="btn{{ if .featured }} btn-primary{{ else }} btn-outline{{ end }}" style="width:100%;justify-content:center;">{{ .cta }}</a>
+        <a href="/contact-us/?service=website-development" class="btn{{ if .featured }} btn-primary{{ else }} btn-outline{{ end }}" style="width:100%;justify-content:center;">{{ .cta }}</a>
       </div>
       {{ end }}
     </div>
