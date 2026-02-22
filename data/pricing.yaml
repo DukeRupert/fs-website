@@ -1,6 +1,6 @@
 tiers:
   - name: Site Revamp
-    buildPrice: "500–750"
+    buildPrice: "500"
     monthlyPrice: 35
     description: "Already paying for a Wix or Squarespace site? We'll rebuild it properly and host it for the same price — with a real person to call."
     features: [Full redesign and rebuild, Mobile-first fast-loading design, Contact form, Google Analytics setup, Hosting included, Unlimited edits, Local Montana support]
@@ -22,6 +22,7 @@ tiers:
     features: [Up to 7 pages, Everything in Brochure Site, Content management system, Custom forms with email notifications, Blog or news section, Booking/scheduling integration, Photo galleries with client-managed uploads]
     featured: false
     cta: Get Started
+    note: "Higher monthly rate covers CMS hosting, database backups, and additional server resources required for dynamic content."
 
   - name: Custom Software
     buildPrice: "5,000–20,000"
