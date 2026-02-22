@@ -1,4 +1,7 @@
+Sitemap: https://fireflysoftware.dev/sitemap.xml
+
 User-agent: *
+Allow: /
 Disallow: /success
 Disallow: /error
 Disallow: /portfolio/creation

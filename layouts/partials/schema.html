@@ -89,6 +89,45 @@
         ]
       }
     }
+    {{ if eq .Layout "pricing" }},
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What's the difference between a revamp and a new site?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A Site Revamp takes your existing website — Wix, Squarespace, WordPress, whatever you're on — and rebuilds it from scratch with better performance and design. A Brochure Site is built from the ground up for businesses that don't have a website yet. Both include hosting and unlimited edits at the same monthly rate."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is included in the monthly price?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hosting, SSL certificate, unlimited content edits, direct support, and ongoing maintenance. Everything you need to keep your site running. No hidden fees."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does it take to build my website?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most websites are done within 2–4 weeks after we receive your content and sign off on the design direction. Larger projects with custom software may take longer — we'll give you a clear timeline upfront."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you need my existing content, or do you write it?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We work with content you provide. If you need help writing or editing copy, we can help — just let us know when you reach out. Photos can be yours or sourced from professional stock libraries."
+          }
+        }
+      ]
+    }
+    {{ end }}
     {{ if .IsHome }},
     {
       "@type": "WebSite",
