@@ -6,8 +6,8 @@ enableRobotsTXT = true
   pagerSize = 6
 
 [params]
-  description = "Firefly Software builds fast, beautiful websites for small businesses. Handcrafted web design starting at $35/mo — hosting, support, and unlimited edits included."
-  tagline = "We build websites that bring in customers. That's the job."
+  description = "Firefly Software builds websites, fixes broken ones, and creates custom software for small businesses. Based in Helena, MT — no templates, no ticket queues, no overseas teams."
+  tagline = "Websites, fixes, and software — built for small businesses."
   phone = "+1 (406) 871-9875"
   phoneRaw = "+14068719875"
   email = "service@fireflysoftware.dev"

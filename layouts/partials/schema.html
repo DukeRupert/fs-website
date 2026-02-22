@@ -45,6 +45,48 @@
       "areaServed": {
         "@type": "State",
         "name": "Montana"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Website Development",
+              "description": "Custom-built websites for small businesses — fast, mobile-friendly, and built to turn visitors into customers.",
+              "url": "{{ .Site.BaseURL }}website-development/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Website Maintenance",
+              "description": "Hosting, security updates, and edits so you can focus on running your business.",
+              "url": "{{ .Site.BaseURL }}website-maintenance/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Site Rescue",
+              "description": "Fix broken websites on any platform. Flat-rate pricing, no retainers.",
+              "url": "{{ .Site.BaseURL }}site-rescue/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Custom Software",
+              "description": "Custom-built business tools that replace spreadsheets and overpriced subscriptions.",
+              "url": "{{ .Site.BaseURL }}custom-software/"
+            }
+          }
+        ]
       }
     }
     {{ if .IsHome }},

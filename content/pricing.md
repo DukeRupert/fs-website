@@ -1,6 +1,6 @@
 ---
 title: "Pricing — Firefly Software"
-description: "Transparent pricing for small business websites. One-time build fee plus a low monthly rate starting at $35/mo — hosting, support, and unlimited edits included."
+description: "Transparent pricing for websites, site fixes, and custom software. Websites from $500 + $35/mo, site rescue from $75, custom software discovery from $250."
 type: page
 layout: pricing
 ---
