@@ -230,19 +230,18 @@
 
   {{- /* Hero content */}}
   <div class="container">
-    <p class="hero-kicker">Montana-Built · Custom Web Development</p>
+    <p class="hero-kicker">Montana-Built · Firefly Software</p>
 
     <h1>Built here.<br><em>For businesses like yours.</em></h1>
 
     <p class="hero-tagline">
-      No page builders. No templates. No overseas teams.
-      Custom-built websites for small businesses — from Montana to wherever you are — starting at
-      <strong style="color:var(--amber);font-family:var(--font-display);">$35/mo.</strong>
+      We build websites, fix broken ones, and write software that actually fits your business.
+      No templates. No ticket queues. No overseas teams.
     </p>
 
     <div class="hero-actions">
-      <a href="/contact-us/?service=website-development" class="btn btn-primary btn--lg">Start a project</a>
-      <a href="#how-it-works" class="btn btn-outline-snow btn--lg">See how it works</a>
+      <a href="/contact-us/" class="btn btn-primary btn--lg">Start a project</a>
+      <a href="#what-brings-you-here" class="btn btn-outline-snow btn--lg">See how it works</a>
     </div>
 
     <p class="hero-coords">46.5958°N · 112.0270°W · Firefly Software, LLC</p>
@@ -260,6 +259,56 @@
     </div>
   </div>
 </div>
+
+{{- /* ====================================================
+     ROUTING — "What brings you here?" self-select cards
+     ==================================================== */}}
+<section class="section section-alt" id="what-brings-you-here">
+  <div class="container">
+    <div class="section-header">
+      <h2>What brings you here?</h2>
+      <p>Pick the path that fits. We'll take it from there.</p>
+    </div>
+
+    <div class="card-grid card-grid--3">
+      <div class="service-card">
+        <div class="service-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
+            <rect x="2" y="3" width="20" height="14"/>
+            <line x1="8" y1="21" x2="16" y2="21"/>
+            <line x1="12" y1="17" x2="12" y2="21"/>
+          </svg>
+        </div>
+        <h3>I need a website.</h3>
+        <p>Custom-built websites that bring in customers. Starting at $35/mo. No page builders, no templates.</p>
+        <p class="mt-md"><a href="/website-development/">See websites &rarr;</a></p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
+            <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>
+          </svg>
+        </div>
+        <h3>My site is broken.</h3>
+        <p>Something's not working and you just need it fixed. Flat-rate quotes, usually within hours.</p>
+        <p class="mt-md"><a href="/site-rescue/">Get it fixed &rarr;</a></p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
+            <polyline points="16 18 22 12 16 6"/>
+            <polyline points="8 6 2 12 8 18"/>
+          </svg>
+        </div>
+        <h3>I'm overpaying for software.</h3>
+        <p>Spreadsheets and subscriptions that don't quite work? We build custom tools your business actually owns. No monthly ransom.</p>
+        <p class="mt-md"><a href="/custom-software/">Learn more &rarr;</a></p>
+      </div>
+    </div>
+  </div>
+</section>
 
 {{- /* ====================================================
      PORTFOLIO SHOWCASE — trust strip with screenshots
@@ -347,10 +396,10 @@
   <div class="container">
     <div class="section-header">
       <p class="section-label">01 — What We Do</p>
-      <h2>Websites built to<br>bring in customers.</h2>
+      <h2>Built by hand.<br>Backed by a real person.</h2>
       <p>
-        Custom-built websites. No shortcuts, no recycled designs.
-        Just fast sites that show up on Google and bring in business.
+        Every project — website, fix, or custom tool — is built from scratch
+        by the developer you'll talk to on the phone.
       </p>
     </div>
 
@@ -359,32 +408,35 @@
       <div class="service-card">
         <div class="service-card-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
+            <polyline points="4 17 10 11 4 5"/>
+            <line x1="12" y1="19" x2="20" y2="19"/>
+          </svg>
+        </div>
+        <h3>Built by hand, not by algorithm.</h3>
+        <p>Every project is written from scratch by a developer who understands your business. No AI slop, no recycled templates, no copy-paste.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
             <path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15.5 13l5 2v4a2 2 0 01-2 2A16 16 0 012 5a2 2 0 012-2"/>
           </svg>
         </div>
-        <h3>Direct Developer Line</h3>
-        <p>No phone trees, no chatbots, no waiting three days for a ticket response. Call us and you get the person who built your site — every time.</p>
+        <h3>One developer, start to finish.</h3>
+        <p>The person who builds it is the person you call when something needs to change. No handoffs, no ticket queues, no explaining your project twice.</p>
       </div>
 
       <div class="service-card">
         <div class="service-card-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
-            <path d="M17 3a2.828 2.828 0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z"/>
+            <rect x="2" y="2" width="20" height="8"/>
+            <rect x="2" y="14" width="20" height="8"/>
+            <line x1="6" y1="6" x2="6" y2="6.01"/>
+            <line x1="6" y1="18" x2="6" y2="18.01"/>
           </svg>
         </div>
-        <h3>Unlimited Edits</h3>
-        <p>Your business changes — your website should keep up. New hours, new photos, new services — just ask and we'll update it. No extra charges, no hassle.</p>
-      </div>
-
-      <div class="service-card">
-        <div class="service-card-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
-            <path d="M21 3L14.5 21a.55.55 0 01-1 0L10 14 3 10.5a.55.55 0 010-1L21 3"/>
-          </svg>
-        </div>
-        <h3>Built From Scratch</h3>
-        <p>Your business isn't a template — your website shouldn't be either. We build every page from the ground up, so it fits your brand exactly and loads without the dead weight.</p>
-        <p class="mt-md"><a href="/website-development/">Learn more &rarr;</a></p>
+        <h3>Your data, your servers.</h3>
+        <p>We don't lock you in. Your website, your code, your customer data — it all stays on infrastructure you control.</p>
       </div>
     </div>
   </div>
@@ -462,9 +514,9 @@
       </div>
       <div class="stat-card">
         <div class="stat-card-bar"></div>
-        <div class="stat-value">$500</div>
-        <div class="stat-label">Build fee from</div>
-        <div class="stat-note">Then $35/mo after</div>
+        <div class="stat-value">3</div>
+        <div class="stat-label">Services</div>
+        <div class="stat-note">Websites, fixes, software</div>
       </div>
       <div class="stat-card">
         <div class="stat-card-bar"></div>
@@ -521,213 +573,38 @@
 </section>
 
 {{- /* ====================================================
-     05 — WHAT YOU GET — reorganized features grid
-     ==================================================== */}}
-<section class="section" id="features">
-  <div class="container">
-    <div class="features-layout">
-      <div>
-        <p class="section-label">05 — What You Get</p>
-        <h2>Everything you need.<br>Nothing you don't.</h2>
-        <p style="margin-top:var(--space-lg);color:var(--ink-faded);">
-          Every site comes with hosting, support, and a real person to call. No hidden fees, no upsells — just a website that works for your business.
-        </p>
-        <div style="margin-top:var(--space-xl);">
-          <a href="/pricing/" class="btn btn-primary">View pricing</a>
-        </div>
-      </div>
-
-      <div class="features-grid">
-        <div class="feature-item">
-          <div class="feature-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
-              <line x1="12" y1="1" x2="12" y2="23"/>
-              <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
-            </svg>
-          </div>
-          <div>
-            <p class="feature-title">Hosting Included</p>
-            <p class="feature-body">Hosting, SSL, and DNS are covered in your monthly rate. Nothing to set up, nothing extra to pay.</p>
-          </div>
-        </div>
-
-        <div class="feature-item">
-          <div class="feature-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
-              <path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15.5 13l5 2v4a2 2 0 01-2 2A16 16 0 012 5a2 2 0 012-2"/>
-            </svg>
-          </div>
-          <div>
-            <p class="feature-title">Direct Developer Line</p>
-            <p class="feature-body">No phone trees or automated responses. Call us and you get the person who built your site.</p>
-          </div>
-        </div>
-
-        <div class="feature-item">
-          <div class="feature-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
-              <path d="M17 3a2.828 2.828 0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z"/>
-            </svg>
-          </div>
-          <div>
-            <p class="feature-title">Unlimited Edits</p>
-            <p class="feature-body">Change anything, at any time, without extra charges. Text, photos, hours, prices — just ask.</p>
-          </div>
-        </div>
-
-        <div class="feature-item">
-          <div class="feature-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
-              <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
-            </svg>
-          </div>
-          <div>
-            <p class="feature-title">Built From Scratch</p>
-            <p class="feature-body">Every site is custom-designed for your business. No recycled templates, no cookie-cutter layouts.</p>
-          </div>
-        </div>
-
-        <div class="feature-item">
-          <div class="feature-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
-              <path d="M4 13a8 8 0 017 7 6 6 0 003-5 9 9 0 006-8 3 3 0 00-3-3 9 9 0 00-8 6 6 6 0 00-5 3"/>
-              <path d="M7 14a6 6 0 00-3 6 6 6 0 006-3"/>
-              <circle cx="15" cy="9" r="1"/>
-            </svg>
-          </div>
-          <div>
-            <p class="feature-title">Fast Page Loads</p>
-            <p class="feature-body">Your pages load in a snap. Faster sites rank higher on Google and keep visitors from hitting the back button.</p>
-          </div>
-        </div>
-
-        <div class="feature-item">
-          <div class="feature-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
-              <rect x="7" y="4" width="10" height="16" rx="0"/>
-              <line x1="11" y1="5" x2="13" y2="5"/>
-              <line x1="12" y1="17" x2="12" y2="17.01"/>
-            </svg>
-          </div>
-          <div>
-            <p class="feature-title">Mobile-First Design</p>
-            <p class="feature-body">Over 60% of web traffic comes from phones. Your site will look just as good on a small screen as it does on a desktop.</p>
-          </div>
-        </div>
-
-        <div class="feature-item">
-          <div class="feature-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
-              <circle cx="12" cy="10" r="3"/>
-              <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 10-16 0c0 3 2.7 7 8 11.7z"/>
-            </svg>
-          </div>
-          <div>
-            <p class="feature-title">Local Search Visibility</p>
-            <p class="feature-body">We structure your site so Google knows where you are and what you do. Show up when locals search for your services.</p>
-          </div>
-        </div>
-
-        <div class="feature-item">
-          <div class="feature-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
-              <polyline points="3 17 9 11 13 15 21 7"/>
-              <polyline points="14 7 21 7 21 14"/>
-            </svg>
-          </div>
-          <div>
-            <p class="feature-title">Traffic Analytics</p>
-            <p class="feature-body">See how many people visit your site and where they come from. Privacy-friendly options that don't track your customers across the web.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-{{- /* ====================================================
-     06 — WIX VS. FIREFLY — comparison table
-     ==================================================== */}}
-<section class="section-dark" id="comparison" style="padding:88px 0;">
-  <div class="stars" aria-hidden="true">
-    <div class="star-layer"></div>
-    <div class="star-layer"></div>
-  </div>
-  <div class="container" style="position:relative;z-index:2;">
-    <div class="section-header">
-      <p class="section-label" style="justify-content:center;">06 — Side by Side</p>
-      <h2 style="color:var(--snow);">Same price as Wix.<br>Better in every way.</h2>
-      <p>Already paying $20–$40/mo for a site you built yourself? Here's what you get when a developer builds it for you instead.</p>
-    </div>
-
-    <table class="comparison-table">
-      <thead>
-        <tr>
-          <th>Feature</th>
-          <th>Wix / Squarespace</th>
-          <th>Firefly Software</th>
-        </tr>
-      </thead>
-      <tbody>
-        {{ range .Site.Data.comparison.features }}
-        <tr>
-          <td>{{ .label }}</td>
-          <td>
-            {{ if eq (printf "%v" .wix) "true" }}
-              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><polyline points="20 6 9 17 4 12"/></svg>
-            {{ else if eq (printf "%v" .wix) "false" }}
-              <svg class="x-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-            {{ else }}
-              <span class="comparison-text">{{ .wix }}</span>
-            {{ end }}
-          </td>
-          <td>
-            {{ if eq (printf "%v" .firefly) "true" }}
-              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><polyline points="20 6 9 17 4 12"/></svg>
-            {{ else if eq (printf "%v" .firefly) "false" }}
-              <svg class="x-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-            {{ else }}
-              <span class="comparison-text comparison-text--highlight">{{ .firefly }}</span>
-            {{ end }}
-          </td>
-        </tr>
-        {{ end }}
-      </tbody>
-    </table>
-  </div>
-</section>
-
-{{- /* ====================================================
-     07 — PRICING PREVIEW — with Dynamic tier note
+     05 — PRICING PREVIEW — simplified 3-service cards
      ==================================================== */}}
 <section class="section-alt" id="pricing" style="padding:88px 0;">
   <div class="container">
     <div class="section-header">
-      <p class="section-label">07 — Pricing</p>
-      <h2>Three tiers. No surprises.</h2>
-      <p>Pick the option that fits your business. Every tier includes hosting, support, and unlimited edits. No hidden fees added later.</p>
+      <p class="section-label">05 — Pricing</p>
+      <h2>Three services. Straight pricing.</h2>
+      <p>Every project gets a real quote up front. No hourly surprises, no hidden fees.</p>
     </div>
 
-    <div class="pricing-grid">
-      {{ range first 3 .Site.Data.pricing.tiers }}
-      <div class="pricing-card{{ if .featured }} pricing-card--featured{{ end }}">
-        {{ if .featured }}<div class="pricing-badge">Most Popular</div>{{ end }}
-        <div class="pricing-name">{{ .name }}</div>
-        <div class="pricing-price">
-          <span class="pricing-currency">$</span>
-          <span class="pricing-amount">{{ .buildPrice }}</span>
-        </div>
-        <div class="pricing-monthly">+ ${{ .monthlyPrice }}/mo hosting &amp; support</div>
-        <p class="pricing-description">{{ .description }}</p>
-        {{ if .note }}<p class="pricing-note">{{ .note }}</p>{{ end }}
-        <ul class="pricing-features" aria-label="{{ .name }} features">
-          {{ range .features }}
-          <li>{{ . }}</li>
-          {{ end }}
-        </ul>
-        <a href="/contact-us/?service=website-development" class="btn{{ if .featured }} btn-primary{{ else }} btn-outline{{ end }}" style="width:100%;justify-content:center;">{{ .cta }}</a>
+    <div class="pricing-preview-grid">
+      <div class="pricing-preview-card">
+        <p class="pricing-preview-name">Websites</p>
+        <p class="pricing-preview-price">$500 + $35/mo</p>
+        <p class="pricing-preview-note">Build fee + hosting &amp; support</p>
+        <p class="pricing-preview-desc">Custom-built websites with hosting, SSL, unlimited edits, and a real developer on call.</p>
+        <a href="/website-development/">See websites &rarr;</a>
       </div>
-      {{ end }}
+      <div class="pricing-preview-card">
+        <p class="pricing-preview-name">Site Fixes</p>
+        <p class="pricing-preview-price">From $75</p>
+        <p class="pricing-preview-note">Flat-rate quotes</p>
+        <p class="pricing-preview-desc">Broken forms, security warnings, speed problems, mobile issues. Flat rate, no retainers.</p>
+        <a href="/site-rescue/">Get a quote &rarr;</a>
+      </div>
+      <div class="pricing-preview-card">
+        <p class="pricing-preview-name">Custom Software</p>
+        <p class="pricing-preview-price">Discovery from $250</p>
+        <p class="pricing-preview-note">Scoped after discovery</p>
+        <p class="pricing-preview-desc">Custom tools, integrations, and applications your business actually owns. No monthly ransom.</p>
+        <a href="/custom-software/">Learn more &rarr;</a>
+      </div>
     </div>
 
     <div style="text-align:center;margin-top:var(--space-2xl);">
@@ -737,54 +614,12 @@
 </section>
 
 {{- /* ====================================================
-     SITE RESCUE CALLOUT — after pricing, catches the
-     "I already have a site" visitor
-     ==================================================== */}}
-<section class="section-pine" style="padding:72px 0;">
-  <div class="container">
-    <div style="text-align:center;margin-bottom:var(--space-2xl);">
-      <p class="section-label" style="justify-content:center;color:rgba(250,250,248,0.3);">Already have a site?</p>
-      <h2 style="color:var(--snow);">You don't need a full rebuild.<br>You just need it fixed.</h2>
-      <p style="font-family:var(--font-body);color:rgba(250,250,248,0.75);font-size:15px;max-width:520px;margin:var(--space-md) auto 0;line-height:1.75;">
-        Broken forms, security warnings, pages that won't load on phones — we fix these problems every day. Flat-rate pricing, no retainers.
-      </p>
-    </div>
-
-    {{- /* Compact 3-column tier preview */}}
-    <div class="rescue-tier-grid">
-      <div class="rescue-tier">
-        <p class="rescue-tier-name">Quick Fix</p>
-        <p class="rescue-tier-price">$75–150</p>
-        <p class="rescue-tier-turn">1–2 business days</p>
-        <p class="rescue-tier-desc">Broken links, form issues, text updates, SSL fixes, minor styling problems.</p>
-      </div>
-      <div class="rescue-tier">
-        <p class="rescue-tier-name">Feature Add</p>
-        <p class="rescue-tier-price">$150–400</p>
-        <p class="rescue-tier-turn">3–5 business days</p>
-        <p class="rescue-tier-desc">Add a contact form, embed a booking tool, new page, analytics setup.</p>
-      </div>
-      <div class="rescue-tier">
-        <p class="rescue-tier-name">Rescue</p>
-        <p class="rescue-tier-price">$400–800</p>
-        <p class="rescue-tier-turn">5–7 business days</p>
-        <p class="rescue-tier-desc">Site audit, mobile overhaul, speed fixes, security resolution.</p>
-      </div>
-    </div>
-
-    <div style="text-align:center;margin-top:var(--space-2xl);">
-      <a href="/contact-us/?service=site-rescue" class="btn btn-outline-snow btn--lg">Get a fix quote &rarr;</a>
-    </div>
-  </div>
-</section>
-
-{{- /* ====================================================
-     08 — FROM THE BLOG — latest 3 posts
+     06 — FROM THE BLOG — latest 3 posts
      ==================================================== */}}
 <section class="section" id="blog">
   <div class="container">
     <div class="section-header">
-      <p class="section-label">08 — From the Blog</p>
+      <p class="section-label">06 — From the Blog</p>
       <h2>Tips, insights, and<br>straight talk.</h2>
       <p>Practical advice for small business owners who want their website to actually work for them.</p>
     </div>
@@ -807,11 +642,11 @@
 </section>
 
 {{- /* ====================================================
-     09 — GET STARTED — CTA strip
+     07 — GET STARTED — CTA strip
      ==================================================== */}}
 <section class="cta-section">
   <div class="container">
-    <p class="section-label" style="justify-content:center;color:rgba(250,250,248,0.4);">09 — Get Started</p>
+    <p class="section-label" style="justify-content:center;color:rgba(250,250,248,0.4);">07 — Get Started</p>
     <h2>Have a project in mind?</h2>
     <p>Send us a message or call the number below. We reply within one business day — no automated responses, no runaround.</p>
     <div style="display:flex;gap:var(--space-md);justify-content:center;flex-wrap:wrap;">

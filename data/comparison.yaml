@@ -1,0 +1,28 @@
+features:
+  - label: Custom-designed for your business
+    wix: false
+    firefly: true
+  - label: Built and managed by a developer
+    wix: false
+    firefly: true
+  - label: Direct phone access to your developer
+    wix: false
+    firefly: true
+  - label: Unlimited content edits included
+    wix: false
+    firefly: true
+  - label: Hosting and SSL included
+    wix: true
+    firefly: true
+  - label: Fast page loads (no page-builder bloat)
+    wix: false
+    firefly: true
+  - label: No contracts or lock-in
+    wix: true
+    firefly: true
+  - label: Monthly cost
+    wix: "$17–36/mo"
+    firefly: "$35/mo"
+  - label: Who builds it
+    wix: "You (DIY)"
+    firefly: "Us (done for you)"

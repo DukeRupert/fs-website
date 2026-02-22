@@ -2745,6 +2745,81 @@ p:last-child { margin-bottom: 0; }
 }
 
 /* ==========================================================================
+   Pricing Preview — simplified 3-service cards (light background)
+   ========================================================================== */
+.pricing-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: var(--granite-dk);
+}
+
+.pricing-preview-card {
+  background: var(--snow);
+  padding: var(--space-xl);
+  transition: background-color var(--t-base);
+}
+
+.pricing-preview-card:hover {
+  background: var(--granite-lt);
+}
+
+.pricing-preview-name {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--stone);
+  margin-bottom: 8px;
+}
+
+.pricing-preview-price {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--ink);
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+
+.pricing-preview-note {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--stone);
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-md);
+}
+
+.pricing-preview-desc {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--ink-faded);
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+.pricing-preview-card a {
+  display: inline-block;
+  margin-top: 0;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--rust);
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+  transition: color var(--t-base), border-color var(--t-base);
+}
+
+.pricing-preview-card a:hover {
+  border-bottom-color: var(--rust);
+  color: var(--ember);
+}
+
+/* ==========================================================================
    Pricing Note — explains tier price difference
    ========================================================================== */
 .pricing-note {
@@ -2892,6 +2967,10 @@ p:last-child { margin-bottom: 0; }
   }
 
   .rescue-tier-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-preview-grid {
     grid-template-columns: 1fr;
   }
 
