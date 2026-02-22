@@ -17,8 +17,9 @@ type ContactRequest struct {
 	Name              string `json:"name"`
 	Email             string `json:"email"`
 	Phone             string `json:"phone"`
+	Service           string `json:"service"`
 	Message           string `json:"message"`
-	Website           string `json:"website"`           // Honeypot field
+	Website           string `json:"website"`              // Honeypot field
 	TurnstileResponse string `json:"cf-turnstile-response"` // Cloudflare Turnstile token
 }
 
@@ -201,22 +202,36 @@ func handleContact(w http.ResponseWriter, r *http.Request) {
 		toEmail = "service@fireflysoftware.dev"
 	}
 
-	subject := fmt.Sprintf("New contact from %s via fireflysoftware.dev", req.Name)
+	req.Service = strings.TrimSpace(req.Service)
 
+	subject := fmt.Sprintf("New contact from %s via fireflysoftware.dev", req.Name)
+	if req.Service != "" {
+		subject = fmt.Sprintf("[%s] New contact from %s via fireflysoftware.dev", req.Service, req.Name)
+	}
+
+	serviceLine := ""
+	if req.Service != "" {
+		serviceLine = fmt.Sprintf("Service: %s\n", req.Service)
+	}
 	textBody := fmt.Sprintf(
-		"New contact form submission\n\nName: %s\nEmail: %s\nPhone: %s\n\nMessage:\n%s",
-		req.Name, req.Email, req.Phone, req.Message,
+		"New contact form submission\n\nName: %s\nEmail: %s\nPhone: %s\n%s\nMessage:\n%s",
+		req.Name, req.Email, req.Phone, serviceLine, req.Message,
 	)
 
+	serviceRow := ""
+	if req.Service != "" {
+		serviceRow = fmt.Sprintf(`<tr><th style="text-align:left;padding-right:16px;">Service</th><td>%s</td></tr>`, req.Service)
+	}
 	htmlBody := fmt.Sprintf(`<h2>New contact form submission</h2>
 <table>
   <tr><th style="text-align:left;padding-right:16px;">Name</th><td>%s</td></tr>
   <tr><th style="text-align:left;padding-right:16px;">Email</th><td><a href="mailto:%s">%s</a></td></tr>
   <tr><th style="text-align:left;padding-right:16px;">Phone</th><td>%s</td></tr>
+  %s
 </table>
 <h3>Message</h3>
 <p style="white-space:pre-wrap;">%s</p>`,
-		req.Name, req.Email, req.Email, req.Phone, req.Message,
+		req.Name, req.Email, req.Email, req.Phone, serviceRow, req.Message,
 	)
 
 	if err := sendEmail(fromEmail, toEmail, subject, textBody, htmlBody); err != nil {

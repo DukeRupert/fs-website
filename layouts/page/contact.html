@@ -129,6 +129,17 @@
           </div>
 
           <div class="form-group">
+            <label class="form-label" for="service">Service</label>
+            <select class="form-select" id="service" name="service">
+              <option value="">Select a service...</option>
+              <option value="Website Development">Website Development</option>
+              <option value="Website Maintenance">Website Maintenance</option>
+              <option value="Site Rescue">Site Rescue</option>
+              <option value="Other">Something Else</option>
+            </select>
+          </div>
+
+          <div class="form-group">
             <label class="form-label" for="message">
               Message <span class="required" aria-hidden="true">*</span>
             </label>
@@ -196,6 +207,19 @@
 
   if (!form) return;
 
+  // Pre-select service from ?service= query param
+  var params = new URLSearchParams(window.location.search);
+  var serviceParam = params.get('service');
+  if (serviceParam && form.service) {
+    var opts = form.service.options;
+    for (var i = 0; i < opts.length; i++) {
+      if (opts[i].value.toLowerCase().replace(/\s+/g, '-') === serviceParam.toLowerCase()) {
+        form.service.selectedIndex = i;
+        break;
+      }
+    }
+  }
+
   function showStatus(msg, type) {
     statusEl.textContent = msg;
     statusEl.className = 'form-status is-' + type;
@@ -215,6 +239,7 @@
       name:     form.name.value.trim(),
       email:    form.email.value.trim(),
       phone:    form.phone.value.trim(),
+      service:  form.service.value,
       message:  form.message.value.trim(),
       website:  form.website.value.trim()
     };

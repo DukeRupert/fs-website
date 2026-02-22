@@ -230,19 +230,19 @@
 
   {{- /* Hero content */}}
   <div class="container">
-    <p class="hero-kicker">Helena, Montana · Web Development</p>
+    <p class="hero-kicker">Montana-Built · Custom Web Development</p>
 
     <h1>Built here.<br><em>For businesses like yours.</em></h1>
 
     <p class="hero-tagline">
       No page builders. No templates. No overseas teams.
-      Custom-built websites for Montana small businesses, starting at
+      Custom-built websites for small businesses — from Montana to wherever you are — starting at
       <strong style="color:var(--amber);font-family:var(--font-display);">$35/mo.</strong>
     </p>
 
     <div class="hero-actions">
       <a href="/contact-us/" class="btn btn-primary btn--lg">Start a project</a>
-      <a href="#services" class="btn btn-outline-snow btn--lg">See how it works</a>
+      <a href="#how-it-works" class="btn btn-outline-snow btn--lg">See how it works</a>
     </div>
 
     <p class="hero-coords">46.5958°N · 112.0270°W · Firefly Software, LLC</p>
@@ -262,7 +262,7 @@
 </div>
 
 {{- /* ====================================================
-     CLIENT LOGOS — trust strip
+     PORTFOLIO SHOWCASE — trust strip with screenshots
      ==================================================== */}}
 <section class="section" id="portfolio" style="padding:var(--space-3xl) 0;">
   <div class="container">
@@ -271,9 +271,22 @@
       <p>Hand-built websites for real companies. Every site custom-coded, zero templates.</p>
     </div>
 
+    {{- /* Screenshot showcase — swaps with active logo */}}
+    {{ $first := index .Site.Data.portfolio.projects 0 }}
+    <div class="portfolio-showcase">
+      <div class="portfolio-showcase-screens">
+        <div class="portfolio-showcase-desktop">
+          <img id="showcase-desktop" src="{{ $first.splash }}" alt="{{ $first.name }} desktop screenshot" width="800" height="450" loading="lazy">
+        </div>
+        <div class="portfolio-showcase-mobile">
+          <img id="showcase-mobile" src="{{ $first.mobile }}" alt="{{ $first.name }} mobile screenshot" width="200" height="400" loading="lazy">
+        </div>
+      </div>
+    </div>
+
     <div class="logo-bar" id="logo-bar">
       {{ range .Site.Data.portfolio.projects }}
-      <a href="/portfolio/{{ .slug }}/" class="logo-bar-item" title="{{ .name }}">
+      <a href="/portfolio/{{ .slug }}/" class="logo-bar-item" title="{{ .name }}" data-splash="{{ .splash }}" data-mobile="{{ .mobile }}">
         <img
           src="{{ .logo }}"
           alt="{{ .name }} logo"
@@ -289,21 +302,46 @@
     <script>
       (function() {
         var items = document.querySelectorAll('#logo-bar .logo-bar-item');
-        if (!items.length) return;
+        var desktopImg = document.getElementById('showcase-desktop');
+        var mobileImg = document.getElementById('showcase-mobile');
+        if (!items.length || !desktopImg || !mobileImg) return;
+
         var current = 0;
         items[0].classList.add('logo-bar-item--active');
-        setInterval(function() {
+
+        function showProject(index) {
           items[current].classList.remove('logo-bar-item--active');
-          current = (current + 1) % items.length;
+          current = index;
           items[current].classList.add('logo-bar-item--active');
+          var splash = items[current].getAttribute('data-splash');
+          var mobile = items[current].getAttribute('data-mobile');
+          if (splash) desktopImg.src = splash;
+          if (mobile) mobileImg.src = mobile;
+          desktopImg.alt = items[current].title + ' desktop screenshot';
+          mobileImg.alt = items[current].title + ' mobile screenshot';
+        }
+
+        var timer = setInterval(function() {
+          showProject((current + 1) % items.length);
         }, 3000);
+
+        items.forEach(function(item, i) {
+          item.addEventListener('click', function(e) {
+            e.preventDefault();
+            clearInterval(timer);
+            showProject(i);
+            timer = setInterval(function() {
+              showProject((current + 1) % items.length);
+            }, 3000);
+          });
+        });
       })();
     </script>
   </div>
 </section>
 
 {{- /* ====================================================
-     SERVICES — light section, 2px gap card grid
+     01 — WHAT WE DO — reordered value props
      ==================================================== */}}
 <section class="section section-alt" id="services">
   <div class="container">
@@ -321,25 +359,21 @@
       <div class="service-card">
         <div class="service-card-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
-            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+            <path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15.5 13l5 2v4a2 2 0 01-2 2A16 16 0 012 5a2 2 0 012-2"/>
           </svg>
         </div>
-        <h3>Built for Speed</h3>
-        <p>Half of visitors leave if a page takes more than three seconds. Our sites load fast enough to keep them — and fast enough to outrank slower competitors on Google.</p>
-        <p class="mt-md"><a href="/posts/why-speed-matters/">Learn more &rarr;</a></p>
+        <h3>Direct Developer Line</h3>
+        <p>No phone trees, no chatbots, no waiting three days for a ticket response. Call us and you get the person who built your site — every time.</p>
       </div>
 
       <div class="service-card">
         <div class="service-card-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
-            <rect x="7" y="4" width="10" height="16" rx="0"/>
-            <line x1="11" y1="5" x2="13" y2="5"/>
-            <line x1="12" y1="17" x2="12" y2="17.01"/>
+            <path d="M17 3a2.828 2.828 0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z"/>
           </svg>
         </div>
-        <h3>Perfect on Any Screen</h3>
-        <p>Over 60% of web traffic comes from phones. We make sure your site looks just as good on a small screen as it does on a desktop — because that's where your next customer is browsing.</p>
-        <p class="mt-md"><a href="/posts/mobile-traffic/">Learn more &rarr;</a></p>
+        <h3>Unlimited Edits</h3>
+        <p>Your business changes — your website should keep up. New hours, new photos, new services — just ask and we'll update it. No extra charges, no hassle.</p>
       </div>
 
       <div class="service-card">
@@ -357,7 +391,43 @@
 </section>
 
 {{- /* ====================================================
-     STATS — dark night-sky section
+     02 — HOW IT WORKS — 4-step process
+     ==================================================== */}}
+<section class="section" id="how-it-works">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-label">02 — How It Works</p>
+      <h2>Four steps. No surprises.</h2>
+      <p>From first call to launch day, here's exactly what to expect.</p>
+    </div>
+
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="process-step-number">01</div>
+        <h3>Talk</h3>
+        <p>We hop on a call — no sales pitch, no pressure. Tell us about your business, what you need, and we'll tell you honestly if we're the right fit.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-number">02</div>
+        <h3>Build</h3>
+        <p>We design and code your site from scratch. You'll see real progress along the way — not just a big reveal at the end.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-number">03</div>
+        <h3>Review</h3>
+        <p>You review everything and we make changes until it's exactly right. No revision limits, no extra charges at this stage.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-number">04</div>
+        <h3>Launch</h3>
+        <p>We handle hosting, DNS, SSL — all the technical details. Your site goes live and we stick around for whatever comes next.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{- /* ====================================================
+     03 — BY THE NUMBERS — dark night-sky section
      ==================================================== */}}
 <section class="section-dark" id="stats" style="padding:88px 0;">
   {{- /* Star field layers */}}
@@ -379,16 +449,16 @@
 
   <div class="container" style="position:relative;z-index:2;">
     <div style="text-align:center;margin-bottom:60px;">
-      <p class="section-label" style="justify-content:center;">02 — By the Numbers</p>
+      <p class="section-label" style="justify-content:center;">03 — By the Numbers</p>
       <h2 style="color:var(--snow);">Built on results,<br>not promises.</h2>
     </div>
 
     <div class="stat-grid stat-grid--4">
       <div class="stat-card">
         <div class="stat-card-bar"></div>
-        <div class="stat-value">7<sup>+</sup></div>
-        <div class="stat-label">Clients served</div>
-        <div class="stat-note">And counting</div>
+        <div class="stat-value">5<sup>+</sup></div>
+        <div class="stat-label">Years Running</div>
+        <div class="stat-note">Est. 2021 · Helena, MT</div>
       </div>
       <div class="stat-card">
         <div class="stat-card-bar"></div>
@@ -413,46 +483,54 @@
 </section>
 
 {{- /* ====================================================
-     TESTIMONIAL — pine dark section
+     04 — CLIENT STORIES — multiple testimonials from data
      ==================================================== */}}
-<section class="testimonial-section" id="testimonial">
+<section class="testimonial-section" id="testimonials">
   <div class="container">
-    <div class="testimonial-grid">
-      <div>
-        <img
-          src="/images/portfolio/kcc_owner.webp"
-          alt="Kagen Cox, owner of Rockabilly Roasting"
-          width="400"
-          height="400"
-          loading="lazy"
-          class="testimonial-photo"
-        >
+    <p class="section-label" style="color:rgba(250,250,248,0.3);">04 — Client Stories</p>
+    <h2 style="color:var(--snow);margin-bottom:var(--space-3xl);">Don't take our word for it.</h2>
+
+    <div class="testimonials-stack">
+      {{ range .Site.Data.testimonials.testimonials }}
+      <div class="testimonial-entry">
+        {{ if .photo }}
+        <div>
+          <img
+            src="{{ .photo }}"
+            alt="{{ .name }}"
+            width="400"
+            height="400"
+            loading="lazy"
+            class="testimonial-entry-photo"
+          >
+        </div>
+        {{ end }}
+        <figure>
+          <blockquote>
+            <p class="testimonial-quote">{{ .quote }}</p>
+          </blockquote>
+          <figcaption>
+            <p class="testimonial-name">{{ .name }}</p>
+            <p class="testimonial-role">{{ .role }}</p>
+          </figcaption>
+        </figure>
       </div>
-      <figure>
-        <p class="section-label" style="color:rgba(250,250,248,0.3);">03 — Client Story</p>
-        <blockquote>
-          <p class="testimonial-quote">Firefly is an absolutely must have company working for you in your corner! They are super approachable, helpful and friendly! If you are looking to take your company to the next level I highly recommend that you give Firefly a call!</p>
-        </blockquote>
-        <figcaption style="margin-top:var(--space-xl);">
-          <p class="testimonial-name">Kagen Cox</p>
-          <p class="testimonial-role">Owner, Rockabilly Roasting</p>
-        </figcaption>
-      </figure>
+      {{ end }}
     </div>
   </div>
 </section>
 
 {{- /* ====================================================
-     FEATURES / SIMPLE PRICING — light section
+     05 — WHAT YOU GET — reorganized features grid
      ==================================================== */}}
 <section class="section" id="features">
   <div class="container">
     <div class="features-layout">
       <div>
-        <p class="section-label">04 — Simple Pricing</p>
-        <h2>Same price as Wix.<br>Better in every way.</h2>
+        <p class="section-label">05 — What You Get</p>
+        <h2>Everything you need.<br>Nothing you don't.</h2>
         <p style="margin-top:var(--space-lg);color:var(--ink-faded);">
-          Already paying $20–$40/mo for a site you never update? We'll rebuild it properly and host it for the same price — with a real person to call when something needs to change.
+          Every site comes with hosting, support, and a real person to call. No hidden fees, no upsells — just a website that works for your business.
         </p>
         <div style="margin-top:var(--space-xl);">
           <a href="/pricing/" class="btn btn-primary">View pricing</a>
@@ -488,9 +566,7 @@
         <div class="feature-item">
           <div class="feature-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
-              <path d="M12 20l-3-3a4 4 0 016.5-6 .9.9 0 001 0 4 4 0 016.5 6l-3 3"/>
-              <line x1="15" y1="3" x2="15" y2="7"/>
-              <line x1="9" y1="3" x2="9" y2="7"/>
+              <path d="M17 3a2.828 2.828 0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z"/>
             </svg>
           </div>
           <div>
@@ -521,7 +597,34 @@
           </div>
           <div>
             <p class="feature-title">Fast Page Loads</p>
-            <p class="feature-body">Your pages will load in a snap. Faster sites rank higher on Google and keep visitors from hitting the back button.</p>
+            <p class="feature-body">Your pages load in a snap. Faster sites rank higher on Google and keep visitors from hitting the back button.</p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
+              <rect x="7" y="4" width="10" height="16" rx="0"/>
+              <line x1="11" y1="5" x2="13" y2="5"/>
+              <line x1="12" y1="17" x2="12" y2="17.01"/>
+            </svg>
+          </div>
+          <div>
+            <p class="feature-title">Mobile-First Design</p>
+            <p class="feature-body">Over 60% of web traffic comes from phones. Your site will look just as good on a small screen as it does on a desktop.</p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
+              <circle cx="12" cy="10" r="3"/>
+              <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 10-16 0c0 3 2.7 7 8 11.7z"/>
+            </svg>
+          </div>
+          <div>
+            <p class="feature-title">Local Search Visibility</p>
+            <p class="feature-body">We structure your site so Google knows where you are and what you do. Show up when locals search for your services.</p>
           </div>
         </div>
 
@@ -534,7 +637,7 @@
           </div>
           <div>
             <p class="feature-title">Traffic Analytics</p>
-            <p class="feature-body">See how many people visit your site and where they come from. We set everything up — and offer privacy-friendly options that don't track your customers across the web.</p>
+            <p class="feature-body">See how many people visit your site and where they come from. Privacy-friendly options that don't track your customers across the web.</p>
           </div>
         </div>
       </div>
@@ -543,12 +646,64 @@
 </section>
 
 {{- /* ====================================================
-     PRICING PREVIEW — alt light section
+     06 — WIX VS. FIREFLY — comparison table
+     ==================================================== */}}
+<section class="section-dark" id="comparison" style="padding:88px 0;">
+  <div class="stars" aria-hidden="true">
+    <div class="star-layer"></div>
+    <div class="star-layer"></div>
+  </div>
+  <div class="container" style="position:relative;z-index:2;">
+    <div class="section-header">
+      <p class="section-label" style="justify-content:center;">06 — Side by Side</p>
+      <h2 style="color:var(--snow);">Same price as Wix.<br>Better in every way.</h2>
+      <p>Already paying $20–$40/mo for a site you built yourself? Here's what you get when a developer builds it for you instead.</p>
+    </div>
+
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Wix / Squarespace</th>
+          <th>Firefly Software</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{ range .Site.Data.comparison.features }}
+        <tr>
+          <td>{{ .label }}</td>
+          <td>
+            {{ if eq (printf "%v" .wix) "true" }}
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><polyline points="20 6 9 17 4 12"/></svg>
+            {{ else if eq (printf "%v" .wix) "false" }}
+              <svg class="x-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            {{ else }}
+              <span class="comparison-text">{{ .wix }}</span>
+            {{ end }}
+          </td>
+          <td>
+            {{ if eq (printf "%v" .firefly) "true" }}
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><polyline points="20 6 9 17 4 12"/></svg>
+            {{ else if eq (printf "%v" .firefly) "false" }}
+              <svg class="x-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            {{ else }}
+              <span class="comparison-text comparison-text--highlight">{{ .firefly }}</span>
+            {{ end }}
+          </td>
+        </tr>
+        {{ end }}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+{{- /* ====================================================
+     07 — PRICING PREVIEW — with Dynamic tier note
      ==================================================== */}}
 <section class="section-alt" id="pricing" style="padding:88px 0;">
   <div class="container">
     <div class="section-header">
-      <p class="section-label">05 — Pricing</p>
+      <p class="section-label">07 — Pricing</p>
       <h2>Three tiers. No surprises.</h2>
       <p>Pick the option that fits your business. Every tier includes hosting, support, and unlimited edits. No hidden fees added later.</p>
     </div>
@@ -564,6 +719,7 @@
         </div>
         <div class="pricing-monthly">+ ${{ .monthlyPrice }}/mo hosting &amp; support</div>
         <p class="pricing-description">{{ .description }}</p>
+        {{ if .note }}<p class="pricing-note">{{ .note }}</p>{{ end }}
         <ul class="pricing-features" aria-label="{{ .name }} features">
           {{ range .features }}
           <li>{{ . }}</li>
@@ -581,11 +737,81 @@
 </section>
 
 {{- /* ====================================================
-     CTA STRIP — rust background
+     SITE RESCUE CALLOUT — after pricing, catches the
+     "I already have a site" visitor
+     ==================================================== */}}
+<section class="section-pine" style="padding:72px 0;">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:var(--space-2xl);">
+      <p class="section-label" style="justify-content:center;color:rgba(250,250,248,0.3);">Already have a site?</p>
+      <h2 style="color:var(--snow);">You don't need a full rebuild.<br>You just need it fixed.</h2>
+      <p style="font-family:var(--font-body);color:rgba(250,250,248,0.75);font-size:15px;max-width:520px;margin:var(--space-md) auto 0;line-height:1.75;">
+        Broken forms, security warnings, pages that won't load on phones — we fix these problems every day. Flat-rate pricing, no retainers.
+      </p>
+    </div>
+
+    {{- /* Compact 3-column tier preview */}}
+    <div class="rescue-tier-grid">
+      <div class="rescue-tier">
+        <p class="rescue-tier-name">Quick Fix</p>
+        <p class="rescue-tier-price">$75–150</p>
+        <p class="rescue-tier-turn">1–2 business days</p>
+        <p class="rescue-tier-desc">Broken links, form issues, text updates, SSL fixes, minor styling problems.</p>
+      </div>
+      <div class="rescue-tier">
+        <p class="rescue-tier-name">Feature Add</p>
+        <p class="rescue-tier-price">$150–400</p>
+        <p class="rescue-tier-turn">3–5 business days</p>
+        <p class="rescue-tier-desc">Add a contact form, embed a booking tool, new page, analytics setup.</p>
+      </div>
+      <div class="rescue-tier">
+        <p class="rescue-tier-name">Rescue</p>
+        <p class="rescue-tier-price">$400–800</p>
+        <p class="rescue-tier-turn">5–7 business days</p>
+        <p class="rescue-tier-desc">Site audit, mobile overhaul, speed fixes, security resolution.</p>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:var(--space-2xl);">
+      <a href="/contact-us/?service=site-rescue" class="btn btn-outline-snow btn--lg">Get a fix quote &rarr;</a>
+    </div>
+  </div>
+</section>
+
+{{- /* ====================================================
+     08 — FROM THE BLOG — latest 3 posts
+     ==================================================== */}}
+<section class="section" id="blog">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-label">08 — From the Blog</p>
+      <h2>Tips, insights, and<br>straight talk.</h2>
+      <p>Practical advice for small business owners who want their website to actually work for them.</p>
+    </div>
+
+    <div class="card-grid card-grid--3">
+      {{ range first 3 (where .Site.RegularPages "Section" "posts") }}
+      <div class="blog-card">
+        <p class="blog-card-meta">{{ .Date.Format "Jan 2, 2006" }}</p>
+        <h3 class="blog-card-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+        <p class="blog-card-excerpt">{{ .Description }}</p>
+        <a href="{{ .Permalink }}" class="blog-card-link">Read more &rarr;</a>
+      </div>
+      {{ end }}
+    </div>
+
+    <div style="text-align:center;margin-top:var(--space-2xl);">
+      <a href="/posts/" class="btn btn-outline">View all posts</a>
+    </div>
+  </div>
+</section>
+
+{{- /* ====================================================
+     09 — GET STARTED — CTA strip
      ==================================================== */}}
 <section class="cta-section">
   <div class="container">
-    <p class="section-label" style="justify-content:center;color:rgba(250,250,248,0.4);">06 — Get Started</p>
+    <p class="section-label" style="justify-content:center;color:rgba(250,250,248,0.4);">09 — Get Started</p>
     <h2>Have a project in mind?</h2>
     <p>Send us a message or call the number below. We reply within one business day — no automated responses, no runaround.</p>
     <div style="display:flex;gap:var(--space-md);justify-content:center;flex-wrap:wrap;">
@@ -596,4 +822,3 @@
 </section>
 
 {{ end }}
-
