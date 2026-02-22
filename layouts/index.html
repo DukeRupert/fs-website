@@ -364,10 +364,25 @@
           items[current].classList.add('logo-bar-item--active');
           var splash = items[current].getAttribute('data-splash');
           var mobile = items[current].getAttribute('data-mobile');
-          if (splash) desktopImg.src = splash;
-          if (mobile) mobileImg.src = mobile;
-          desktopImg.alt = items[current].title + ' desktop screenshot';
-          mobileImg.alt = items[current].title + ' mobile screenshot';
+
+          desktopImg.style.opacity = '0';
+          mobileImg.style.opacity = '0';
+
+          setTimeout(function() {
+            var loaded = 0;
+            function fadeIn() {
+              loaded++;
+              if (loaded < 2) return;
+              desktopImg.style.opacity = '1';
+              mobileImg.style.opacity = '1';
+            }
+            desktopImg.onload = fadeIn;
+            mobileImg.onload = fadeIn;
+            desktopImg.alt = items[current].title + ' desktop screenshot';
+            mobileImg.alt = items[current].title + ' mobile screenshot';
+            if (splash) desktopImg.src = splash;
+            if (mobile) mobileImg.src = mobile;
+          }, 400);
         }
 
         var timer = setInterval(function() {
