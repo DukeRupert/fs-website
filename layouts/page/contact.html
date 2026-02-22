@@ -278,6 +278,7 @@
         showStatus('Thank you! Your message has been sent. We will be in touch shortly.', 'success');
         form.reset();
         if (window.turnstile) window.turnstile.reset();
+        if (window.plausible) window.plausible('Contact Form Submission', { props: { service: data.service || 'Not specified' } });
       } else {
         showStatus(result.body.error || 'Something went wrong. Please try again or call us directly.', 'error');
       }
