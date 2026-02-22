@@ -1,0 +1,308 @@
+{{ define "main" }}
+
+<section class="page-hero">
+  <div class="container">
+    <p style="font-size:0.875rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--amber);margin-bottom:0.5rem;">Custom Software &middot; Helena, Montana</p>
+    <h1 style="max-width:680px;">Your business isn't generic.<br>Why is your software?</h1>
+    <p>We build tools that fit how you actually work — not how a software company thinks you should. Your data stays yours. Your processes stay yours. No subscription fees for features you'll never touch.</p>
+    <div style="display:flex;gap:var(--space-md);flex-wrap:wrap;margin-top:var(--space-xl);">
+      <a href="/contact-us/?service=custom-software" class="btn btn-primary">Let's talk about your business</a>
+      <a href="#how-it-works" class="btn btn-outline-snow">See how it works</a>
+    </div>
+  </div>
+</section>
+
+{{- /* ====================================================
+     01 — THE PROBLEM — SaaS pain
+     ==================================================== */}}
+<section class="section" id="problem">
+  <div class="container container--narrow">
+    <div class="section-header" style="text-align:left;">
+      <p class="section-label">01 — The Problem</p>
+      <h2>You're paying too much for software that doesn't fit.</h2>
+    </div>
+
+    <p style="color:var(--ink-mid);font-size:15px;line-height:1.75;">
+      You signed up for the tool everyone recommended. It does a hundred things, and you use maybe ten. You're paying $100, $200, $300 a month for features designed for someone else's business.
+    </p>
+    <p style="color:var(--ink-mid);font-size:15px;line-height:1.75;margin-top:var(--space-md);">
+      Meanwhile, the one thing you actually need it to do? It can't.
+    </p>
+    <p style="color:var(--ink-mid);font-size:15px;line-height:1.75;margin-top:var(--space-md);">
+      So you're back to the spreadsheet. Back to the whiteboard. Back to the paper forms in a binder.
+    </p>
+    <p style="color:var(--ink);font-size:15px;line-height:1.75;margin-top:var(--space-lg);">
+      <strong>We build the tool the spreadsheet was trying to be.</strong>
+    </p>
+  </div>
+</section>
+
+{{- /* ====================================================
+     02 — WHAT WE BUILD — Four value props
+     ==================================================== */}}
+<section class="section section-alt" id="what-we-build">
+  <div class="container container--narrow">
+    <div class="section-header" style="text-align:left;">
+      <p class="section-label">02 — What We Build</p>
+      <h2>Software that does exactly what you need.<br>Nothing more, nothing less.</h2>
+      <p style="margin-left:0;">We sit down with you, learn how your business runs, and build a tool that fits. Not a product designed to serve a thousand companies — a tool designed to serve yours.</p>
+    </div>
+
+    {{- /* Value prop 1: Built Around Your Process */}}
+    <div style="border-left:3px solid var(--rust);padding-left:var(--space-xl);margin-bottom:var(--space-3xl);">
+      <p style="font-family:var(--font-mono);font-size:10px;color:var(--stone);letter-spacing:0.1em;margin-bottom:var(--space-sm);">01</p>
+      <h3 style="font-family:var(--font-ui);font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:var(--space-md);">Built Around Your Process</h3>
+      <p style="color:var(--ink-mid);font-size:15px;line-height:1.75;">
+        We don't ask you to change how you work. We watch how you work and build something that matches. If your process is a little unconventional — good. That's probably what makes your business work.
+      </p>
+    </div>
+
+    {{- /* Value prop 2: Your Data Stays Yours */}}
+    <div style="border-left:3px solid var(--ember);padding-left:var(--space-xl);margin-bottom:var(--space-3xl);">
+      <p style="font-family:var(--font-mono);font-size:10px;color:var(--stone);letter-spacing:0.1em;margin-bottom:var(--space-sm);">02</p>
+      <h3 style="font-family:var(--font-ui);font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:var(--space-md);">Your Data Stays Yours</h3>
+      <p style="color:var(--ink-mid);font-size:15px;line-height:1.75;">
+        Your customer list, your pricing, your job history — that's the most valuable thing your business owns. We build tools that keep that information on servers you control. No third-party data mining. No terms of service that let someone else use your information. No wondering what happens when the company you're renting from disappears.
+      </p>
+    </div>
+
+    {{- /* Value prop 3: No Monthly Ransom */}}
+    <div style="border-left:3px solid var(--amber);padding-left:var(--space-xl);margin-bottom:var(--space-3xl);">
+      <p style="font-family:var(--font-mono);font-size:10px;color:var(--stone);letter-spacing:0.1em;margin-bottom:var(--space-sm);">03</p>
+      <h3 style="font-family:var(--font-ui);font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:var(--space-md);">No Monthly Ransom</h3>
+      <p style="color:var(--ink-mid);font-size:15px;line-height:1.75;">
+        SaaS companies are designed to make leaving painful. Your data gets locked in, exports are incomplete, and prices go up once you're dependent. A tool we build for you is yours — the code, the data, the infrastructure. If you ever want to take it somewhere else, you can.
+      </p>
+    </div>
+
+    {{- /* Value prop 4: One Developer, One Phone Number */}}
+    <div style="border-left:3px solid var(--pine);padding-left:var(--space-xl);">
+      <p style="font-family:var(--font-mono);font-size:10px;color:var(--stone);letter-spacing:0.1em;margin-bottom:var(--space-sm);">04</p>
+      <h3 style="font-family:var(--font-ui);font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:var(--space-md);">One Developer, One Phone Number</h3>
+      <p style="color:var(--ink-mid);font-size:15px;line-height:1.75;">
+        When something needs to change, you call the person who built it. No support tickets. No chatbots. No waiting three days for someone in another time zone to misunderstand your question.
+      </p>
+    </div>
+  </div>
+</section>
+
+{{- /* ====================================================
+     03 — EXAMPLES — Illustrative project cards
+     NOTE: These are illustrative placeholders. Swap for
+     real client stories as they become available.
+     ==================================================== */}}
+<section class="section" id="examples">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-label">03 — Examples</p>
+      <h2>The kind of problems we solve.</h2>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--granite-dk);">
+      {{- /* Example 1: Contractor */}}
+      <div style="background:var(--snow);padding:var(--space-2xl);">
+        <h3 style="font-family:var(--font-ui);font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--rust);margin-bottom:var(--space-lg);">A contractor who needed better quotes</h3>
+        <p style="color:var(--ink-mid);font-size:14px;line-height:1.7;margin-bottom:var(--space-lg);">
+          <strong style="color:var(--ink);">The problem:</strong> Tracking bids in a spreadsheet, retyping the same line items into every quote, no way to see win/loss rates or compare estimates to actual costs.
+        </p>
+        <p style="color:var(--ink-mid);font-size:14px;line-height:1.7;">
+          <strong style="color:var(--ink);">What we built:</strong> A quoting tool with saved templates, one-click PDF generation, and a dashboard showing which job types are most profitable. Replaced a $250/mo construction management subscription the owner used for quoting and nothing else.
+        </p>
+      </div>
+
+      {{- /* Example 2: Roaster */}}
+      <div style="background:var(--snow);padding:var(--space-2xl);">
+        <h3 style="font-family:var(--font-ui);font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--rust);margin-bottom:var(--space-lg);">A roaster who outgrew the notebook</h3>
+        <p style="color:var(--ink-mid);font-size:14px;line-height:1.7;margin-bottom:var(--space-lg);">
+          <strong style="color:var(--ink);">The problem:</strong> Roast profiles tracked on paper, wholesale orders managed in email, no connection between inventory, production, and sales.
+        </p>
+        <p style="color:var(--ink-mid);font-size:14px;line-height:1.7;">
+          <strong style="color:var(--ink);">What we built:</strong> A lightweight production and order management system tying roast logs to inventory to customer orders. The owner sees at a glance what needs roasting this week and what's running low.
+        </p>
+      </div>
+
+      {{- /* Example 3: Church */}}
+      <div style="background:var(--snow);padding:var(--space-2xl);">
+        <h3 style="font-family:var(--font-ui);font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--rust);margin-bottom:var(--space-lg);">A church that wanted to own its data</h3>
+        <p style="color:var(--ink-mid);font-size:14px;line-height:1.7;margin-bottom:var(--space-lg);">
+          <strong style="color:var(--ink);">The problem:</strong> Member directories, event signups, and volunteer scheduling spread across three platforms — all owned by companies that could change pricing or access at any time.
+        </p>
+        <p style="color:var(--ink-mid);font-size:14px;line-height:1.7;">
+          <strong style="color:var(--ink);">What we built:</strong> A single, self-hosted tool for member management, event coordination, and communications. The congregation's personal information stays on infrastructure the church controls.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{- /* ====================================================
+     04 — HOW IT WORKS — 3-step process
+     ==================================================== */}}
+<section class="section section-alt" id="how-it-works">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-label">04 — How It Works</p>
+      <h2>From conversation to working software<br>in weeks, not months.</h2>
+    </div>
+
+    <div class="process-steps process-steps--3">
+      <div class="process-step">
+        <div class="process-step-number">01</div>
+        <h3>We Talk</h3>
+        <p>We sit down — in person when possible — and learn how your business actually runs. Not how you think it should run. How it does run. We look at the spreadsheets, the paper forms, the workarounds. Then we put together a plain-language proposal: here's what we'd build, here's what it costs, here's how long it takes.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-number">02</div>
+        <h3>We Build in the Open</h3>
+        <p>You'll see working software within the first week or two — not a mockup, not a slide deck, but something you can actually use. We build in small steps so you can give feedback early, before we've gone too far in any direction.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-number">03</div>
+        <h3>We Launch and Support</h3>
+        <p>Once it's ready, we deploy it and make sure everything runs. After launch, we're still here — same phone number, same person. As your business changes, your software can change with it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{- /* ====================================================
+     05 — PRICING — 3 tiers
+     ==================================================== */}}
+<section class="section" id="pricing">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-label">05 — Pricing</p>
+      <h2>Flat project pricing.<br>No hourly surprises.</h2>
+      <p>Every project gets a fixed price before we start. You'll know exactly what it costs before any work begins. No hourly billing, no scope surprises, no invoices that look different from what you were told.</p>
+    </div>
+
+    <div class="pricing-grid">
+      {{- /* Discovery */}}
+      <div class="pricing-card">
+        <div class="pricing-name">Discovery</div>
+        <div class="pricing-price">
+          <span class="pricing-currency">$</span>
+          <span class="pricing-amount">250–500</span>
+        </div>
+        <div class="pricing-monthly">1–2 meetings</div>
+        <p class="pricing-description">We learn your business and give you a clear plan.</p>
+        <ul class="pricing-features" aria-label="Discovery includes">
+          <li>In-person or video meeting</li>
+          <li>Process walkthrough and pain point review</li>
+          <li>One-page proposal with scope and cost</li>
+          <li>Timeline estimate</li>
+          <li>No obligation to proceed</li>
+        </ul>
+        <p class="pricing-note">Applied as credit toward the build if you move forward.</p>
+        <a href="/contact-us/?service=custom-software" class="btn btn-outline" style="width:100%;justify-content:center;">Start a conversation</a>
+      </div>
+
+      {{- /* Build — Featured */}}
+      <div class="pricing-card pricing-card--featured">
+        <div class="pricing-badge">The Build</div>
+        <div class="pricing-name">Build</div>
+        <div class="pricing-price">
+          <span class="pricing-currency">$</span>
+          <span class="pricing-amount">2,000–10,000</span>
+        </div>
+        <div class="pricing-monthly">Weeks, not months</div>
+        <p class="pricing-description">Your custom tool, built and deployed.</p>
+        <ul class="pricing-features" aria-label="Build includes">
+          <li>Iterative development with regular check-ins</li>
+          <li>Working software within the first two weeks</li>
+          <li>Fixed price agreed before work begins</li>
+          <li>You own the code and data outright</li>
+          <li>Deployment to infrastructure you control</li>
+        </ul>
+        <p class="pricing-note">Price depends on complexity. Most small business tools fall in the $3,000–6,000 range.</p>
+        <a href="/contact-us/?service=custom-software" class="btn btn-primary" style="width:100%;justify-content:center;">Get a quote</a>
+      </div>
+
+      {{- /* Ongoing Support */}}
+      <div class="pricing-card">
+        <div class="pricing-name">Ongoing Support</div>
+        <div class="pricing-price">
+          <span class="pricing-currency">$</span>
+          <span class="pricing-amount">50–150</span>
+          <span class="pricing-period">/mo</span>
+        </div>
+        <div class="pricing-monthly">Same developer, always</div>
+        <p class="pricing-description">We keep it running and evolve it with you.</p>
+        <ul class="pricing-features" aria-label="Ongoing Support includes">
+          <li>Hosting and backups</li>
+          <li>Monitoring and uptime checks</li>
+          <li>Ongoing adjustments as your business evolves</li>
+          <li>Direct line to the developer who built it</li>
+          <li>No long-term contract required</li>
+        </ul>
+        <p class="pricing-note">Optional. Your software works without us — but we're here if you want us.</p>
+        <a href="/contact-us/?service=custom-software" class="btn btn-outline" style="width:100%;justify-content:center;">Learn more</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{- /* ====================================================
+     06 — YOUR DATA, YOUR RULES — Dark atmospheric section
+     ==================================================== */}}
+<section class="section-dark" id="your-data" style="padding:88px 0;">
+  <div class="stars" aria-hidden="true">
+    <div class="star-layer"></div>
+    <div class="star-layer"></div>
+  </div>
+
+  <div class="firefly" style="left:12%;top:55%;width:4px;height:4px;--d:3.2s;--delay:0s;" aria-hidden="true"></div>
+  <div class="firefly" style="left:38%;top:72%;width:5px;height:5px;--d:2.6s;--delay:1.1s;" aria-hidden="true"></div>
+  <div class="firefly" style="left:65%;top:48%;width:4px;height:4px;--d:3.8s;--delay:0.5s;" aria-hidden="true"></div>
+  <div class="firefly" style="left:85%;top:65%;width:5px;height:5px;--d:2.9s;--delay:1.8s;" aria-hidden="true"></div>
+
+  <div class="horizon-glow" aria-hidden="true"></div>
+
+  <div class="container" style="position:relative;z-index:2;">
+    <div style="max-width:640px;margin:0 auto;">
+      <p class="section-label" style="justify-content:center;">06 — Your Data, Your Rules</p>
+      <h2 style="color:var(--snow);text-align:center;">Your business data is the most valuable thing you own.</h2>
+      <p style="color:rgba(250,250,248,0.65);font-size:15px;line-height:1.75;margin-top:var(--space-lg);text-align:center;">
+        When you put your customer list, your pricing, and your processes into someone else's software, you're handing over control.
+      </p>
+
+      <ul style="list-style:none;margin-top:var(--space-2xl);display:flex;flex-direction:column;gap:var(--space-lg);">
+        <li style="color:rgba(250,250,248,0.65);font-size:15px;line-height:1.75;padding-left:var(--space-lg);border-left:2px solid var(--amber);">
+          SaaS companies can raise prices after you're locked in. <strong style="color:var(--amber);">You can't leave.</strong>
+        </li>
+        <li style="color:rgba(250,250,248,0.65);font-size:15px;line-height:1.75;padding-left:var(--space-lg);border-left:2px solid var(--amber);">
+          SaaS companies can change their terms of service. <strong style="color:var(--amber);">You already agreed to that.</strong>
+        </li>
+        <li style="color:rgba(250,250,248,0.65);font-size:15px;line-height:1.75;padding-left:var(--space-lg);border-left:2px solid var(--amber);">
+          SaaS companies can get acquired, shut down, or pivot. <strong style="color:var(--amber);">Your data goes with them.</strong>
+        </li>
+        <li style="color:rgba(250,250,248,0.65);font-size:15px;line-height:1.75;padding-left:var(--space-lg);border-left:2px solid var(--amber);">
+          SaaS companies can share your information with partners. <strong style="color:var(--amber);">Read the fine print.</strong>
+        </li>
+      </ul>
+
+      <p style="color:var(--snow);font-size:15px;line-height:1.75;margin-top:var(--space-2xl);text-align:center;">
+        Software we build for you is <strong>owned by you</strong>. The code, the data, the infrastructure. If you ever want to take it somewhere else, you can.
+      </p>
+      <p style="color:rgba(250,250,248,0.45);font-size:14px;font-style:italic;margin-top:var(--space-md);text-align:center;">
+        Try doing that with Salesforce.
+      </p>
+    </div>
+  </div>
+</section>
+
+{{- /* ====================================================
+     CTA — Contact
+     ==================================================== */}}
+<section class="cta-section">
+  <div class="container">
+    <h2>Let's talk about what you need.</h2>
+    <p>Every project starts with a conversation. Tell us what's not working — the tool that's too expensive, the spreadsheet that's falling apart, the process that lives in someone's head. We'll tell you honestly whether we can help.</p>
+    <div style="display:flex;gap:var(--space-md);justify-content:center;flex-wrap:wrap;">
+      <a href="/contact-us/?service=custom-software" class="btn" style="background:var(--snow);color:var(--rust);">Start a conversation</a>
+      <a href="tel:{{ .Site.Params.phoneRaw }}" class="btn btn-amber">{{ .Site.Params.phone }}</a>
+    </div>
+  </div>
+</section>
+
+{{ end }}

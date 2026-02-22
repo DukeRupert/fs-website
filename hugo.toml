@@ -67,6 +67,12 @@ enableRobotsTXT = true
     url = "/site-rescue/"
 
   [[menu.main]]
+    name = "Custom Software"
+    parent = "services"
+    weight = 14
+    url = "/custom-software/"
+
+  [[menu.main]]
     name = "Pricing"
     weight = 20
     url = "/pricing/"
