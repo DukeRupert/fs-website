@@ -1217,6 +1217,18 @@ p:last-child { margin-bottom: 0; }
   background: var(--granite-dk);
 }
 
+.examples-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: var(--granite-dk);
+}
+
+.examples-grid > div {
+  background: var(--snow);
+  padding: var(--space-2xl);
+}
+
 .pricing-card {
   background: var(--snow);
   padding: var(--space-xl);
@@ -2949,6 +2961,7 @@ p:last-child { margin-bottom: 0; }
   .card-grid--3,
   .card-grid--2,
   .pricing-grid,
+  .examples-grid,
   .footer-grid {
     grid-template-columns: 1fr;
   }
