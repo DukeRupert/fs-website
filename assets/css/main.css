@@ -1700,6 +1700,13 @@ p:last-child { margin-bottom: 0; }
 /* ==========================================================================
    Features Grid (Icon + copy)
    ========================================================================== */
+.features-layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--space-3xl);
+  align-items: start;
+}
+
 .features-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -2625,6 +2632,10 @@ p:last-child { margin-bottom: 0; }
     flex-direction: column;
     gap: var(--space-sm);
     text-align: center;
+  }
+
+  .features-layout {
+    grid-template-columns: 1fr;
   }
 
   .features-grid {
