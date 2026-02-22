@@ -11,17 +11,16 @@ projects:
     logo: /images/portfolio/thf_logo.webp
     clientPhoto: /images/portfolio/thf_chris.webp
 
-  - slug: cb-lining
-    name: Christian Brother's Lining Co.
-    category: Pipeline Rehabilitation
-    location: Fairfield, CA
-    date: 2024
-    client: Christian Brother's Lining Co.
-    summary: A clean, credibility-first website for a Northern California pipeline rehabilitation company with 300+ completed projects and over 250,000 linear feet restored.
-    splash: /images/portfolio/cbl_splash.webp
-    mobile: /images/portfolio/cbl_mobile.webp
-    logo: /images/portfolio/cbl_logo.webp
-    clientPhoto: /images/portfolio/cbl_team.webp
+  - slug: nautilus-cleaning
+    name: Nautilus Group Cleaning Services
+    category: Cleaning Services
+    location: Helena, MT
+    date: 2025
+    client: David & WendiSue Nash
+    summary: A professional website for a husband-and-wife cleaning company in Helena, covering residential and commercial services with clear credentials and a direct quote flow.
+    splash: /images/portfolio/nautilus_splash.webp
+    mobile: /images/portfolio/nautilus_mobile.webp
+    logo: /images/portfolio/nautilus_logo.webp
 
   - slug: 406-records
     name: 406 Records
@@ -35,6 +34,29 @@ projects:
     logo: /images/portfolio/406_logo.webp
     clientPhoto: /images/portfolio/406_kyle.webp
 
+  - slug: south-hills-coc
+    name: South Hills Church of Christ
+    category: Church
+    location: Helena, MT
+    date: 2025
+    client: South Hills Church of Christ
+    summary: A welcoming online home for a Helena congregation, with service times, ministry info, and a clear invitation for visitors to connect.
+    splash: /images/portfolio/shcoc_splash.webp
+    mobile: /images/portfolio/shcoc_mobile.webp
+    logo: /images/portfolio/shcoc_logo.webp
+
+  - slug: cb-lining
+    name: Christian Brother's Lining Co.
+    category: Pipeline Rehabilitation
+    location: Fairfield, CA
+    date: 2024
+    client: Christian Brother's Lining Co.
+    summary: A clean, credibility-first website for a Northern California pipeline rehabilitation company with 300+ completed projects and over 250,000 linear feet restored.
+    splash: /images/portfolio/cbl_splash.webp
+    mobile: /images/portfolio/cbl_mobile.webp
+    logo: /images/portfolio/cbl_logo.webp
+    clientPhoto: /images/portfolio/cbl_team.webp
+
   - slug: momentum-business-solutions
     name: Momentum Business Solutions
     category: Financial Services
@@ -47,17 +69,6 @@ projects:
     logo: /images/portfolio/mbs_logo.webp
     clientPhoto: /images/portfolio/mbs_cade.webp
 
-  - slug: nautilus-cleaning
-    name: Nautilus Group Cleaning Services
-    category: Cleaning Services
-    location: Helena, MT
-    date: 2025
-    client: David & WendiSue Nash
-    summary: A professional website for a husband-and-wife cleaning company in Helena, covering residential and commercial services with clear credentials and a direct quote flow.
-    splash: /images/portfolio/nautilus_splash.webp
-    mobile: /images/portfolio/nautilus_mobile.webp
-    logo: /images/portfolio/nautilus_logo.webp
-
   - slug: aestus-guides
     name: Aestus Guides
     category: Gaming Content
@@ -68,14 +79,3 @@ projects:
     splash: /images/portfolio/aestus_splash.webp
     mobile: /images/portfolio/aestus_mobile.webp
     logo: /images/portfolio/aestus_logo.webp
-
-  - slug: south-hills-coc
-    name: South Hills Church of Christ
-    category: Church
-    location: Helena, MT
-    date: 2025
-    client: South Hills Church of Christ
-    summary: A welcoming online home for a Helena congregation, with service times, ministry info, and a clear invitation for visitors to connect.
-    splash: /images/portfolio/shcoc_splash.webp
-    mobile: /images/portfolio/shcoc_mobile.webp
-    logo: /images/portfolio/shcoc_logo.webp
