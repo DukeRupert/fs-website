@@ -2060,8 +2060,8 @@ p:last-child { margin-bottom: 0; }
 }
 
 .contact-form {
-  background: var(--color-background-alt);
-  border: 1px solid var(--color-border-light);
+  background: var(--granite);
+  border: 1px solid var(--granite-dk);
   padding: var(--space-2xl);
 }
 
