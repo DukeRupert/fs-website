@@ -6,7 +6,7 @@ enableRobotsTXT = true
   pagerSize = 6
 
 [params]
-  description = "Firefly Software builds websites, fixes broken ones, and creates custom software for small businesses. Based in Helena, MT — no templates, no ticket queues, no overseas teams."
+  description = "Helena, Montana web development company. You work directly with your developer — no call centers, no ticket queues, no overseas teams. Websites from $500, hosting from $35/mo."
   tagline = "Websites, fixes, and software — built for small businesses."
   phone = "+1 (406) 871-9875"
   phoneRaw = "+14068719875"
@@ -16,7 +16,7 @@ enableRobotsTXT = true
   longitude = "-112.0270"
   # Cloudflare Turnstile — use test key for local dev, replace with real key for production
   # Test keys: sitekey=1x00000000000000000000AA, secret=1x0000000000000000000000000000000AA
-  turnstileSiteKey = "1x00000000000000000000AA"
+  turnstileSiteKey = "0x4AAAAAACNEZHtGHIkcNePc"
   ogImage = "/images/facebook_link_image.png"
   author = "Firefly Software, LLC"
 
