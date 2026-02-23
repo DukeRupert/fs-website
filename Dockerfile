@@ -11,7 +11,7 @@ RUN hugo --gc --minify --environment production
 # =============================================================================
 # Stage 2: Build Go API binary
 # =============================================================================
-FROM golang:1.21-alpine AS go-builder
+FROM golang:1.23-alpine AS go-builder
 
 WORKDIR /build
 COPY api/go.mod api/go.sum* ./
