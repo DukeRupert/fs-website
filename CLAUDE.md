@@ -102,7 +102,7 @@ Contact form uses Turnstile for bot protection. For local dev, use Cloudflare's 
 
 ### Go API
 
-`api/main.go` — zero external Go dependencies (stdlib only). Handles `POST /api/contact` with honeypot field, Turnstile verification, and Postmark email delivery. Gracefully degrades when `TURNSTILE_SECRET` or `POSTMARK_TOKEN` are unset (logs instead).
+`api/main.go` — single external dependency (`sentry-go` for Bugsink error reporting). Handles `POST /api/contact` with honeypot field, Turnstile verification, and Postmark email delivery. Gracefully degrades when `TURNSTILE_SECRET`, `POSTMARK_TOKEN`, or `SENTRY_DSN` are unset (logs instead).
 
 ## Environment Variables
 
@@ -113,6 +113,8 @@ Contact form uses Turnstile for bot protection. For local dev, use Cloudflare's 
 | `ALLOWED_ORIGIN` | `https://fireflysoftware.dev` | CORS allowed origin |
 | `TURNSTILE_SECRET` | _(empty — skip)_ | Cloudflare Turnstile secret |
 | `POSTMARK_TOKEN` | _(empty — log only)_ | Postmark API token |
+| `SENTRY_DSN` | _(empty — skip)_ | Bugsink/Sentry DSN for error reporting |
+| `SENTRY_ENVIRONMENT` | `production` | Environment tag for error reports |
 | `FROM_EMAIL` | `noreply@fireflysoftware.dev` | Email sender |
 | `TO_EMAIL` | `service@fireflysoftware.dev` | Email recipient |
 | `LISTEN_PORT` | `3000` | Host port (docker-compose.yml) |

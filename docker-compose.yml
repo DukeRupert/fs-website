@@ -11,6 +11,8 @@ services:
       ALLOWED_ORIGIN: "${ALLOWED_ORIGIN:-https://fireflysoftware.dev}"
       TURNSTILE_SECRET: "${TURNSTILE_SECRET:-}"
       POSTMARK_TOKEN: "${POSTMARK_TOKEN:-}"
+      SENTRY_DSN: "${SENTRY_DSN:-}"
+      SENTRY_ENVIRONMENT: "${SENTRY_ENVIRONMENT:-production}"
       FROM_EMAIL: "${FROM_EMAIL:-noreply@fireflysoftware.dev}"
       TO_EMAIL: "${TO_EMAIL:-service@fireflysoftware.dev}"
     healthcheck:

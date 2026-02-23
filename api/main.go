@@ -10,7 +10,14 @@ import (
 	"os"
 	"strings"
 	"time"
+
+	"github.com/getsentry/sentry-go"
 )
+
+// captureError sends an error to Sentry if it has been initialized.
+func captureError(err error) {
+	sentry.CaptureException(err)
+}
 
 // ContactRequest mirrors the JSON body sent by the frontend.
 type ContactRequest struct {
@@ -82,7 +89,9 @@ func verifyTurnstile(token string) (bool, error) {
 		body,
 	)
 	if err != nil {
-		return false, fmt.Errorf("turnstile request failed: %w", err)
+		wrappedErr := fmt.Errorf("turnstile request failed: %w", err)
+		captureError(wrappedErr)
+		return false, wrappedErr
 	}
 	defer resp.Body.Close()
 
@@ -91,7 +100,9 @@ func verifyTurnstile(token string) (bool, error) {
 		Errors  []string `json:"error-codes"`
 	}
 	if err := json.NewDecoder(resp.Body).Decode(&result); err != nil {
-		return false, fmt.Errorf("turnstile decode failed: %w", err)
+		wrappedErr := fmt.Errorf("turnstile decode failed: %w", err)
+		captureError(wrappedErr)
+		return false, wrappedErr
 	}
 	return result.Success, nil
 }
@@ -127,13 +138,17 @@ func sendEmail(from, to, subject, textBody, htmlBody string) error {
 	client := &http.Client{Timeout: 15 * time.Second}
 	resp, err := client.Do(req)
 	if err != nil {
-		return fmt.Errorf("postmark request: %w", err)
+		wrappedErr := fmt.Errorf("postmark request: %w", err)
+		captureError(wrappedErr)
+		return wrappedErr
 	}
 	defer resp.Body.Close()
 
 	if resp.StatusCode >= 400 {
 		body, _ := io.ReadAll(resp.Body)
-		return fmt.Errorf("postmark error %d: %s", resp.StatusCode, string(body))
+		wrappedErr := fmt.Errorf("postmark error %d: %s", resp.StatusCode, string(body))
+		captureError(wrappedErr)
+		return wrappedErr
 	}
 	return nil
 }
@@ -251,7 +266,44 @@ func handleHealth(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, `{"status":"ok"}`)
 }
 
+// recoveryMiddleware catches panics, reports them to Sentry, and returns 500.
+func recoveryMiddleware(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		defer func() {
+			if err := recover(); err != nil {
+				sentry.CurrentHub().Recover(err)
+				sentry.Flush(2 * time.Second)
+				jsonResponse(w, http.StatusInternalServerError, "error", "internal server error")
+			}
+		}()
+		next.ServeHTTP(w, r)
+	})
+}
+
 func main() {
+	// Initialize Sentry (Bugsink-compatible via DSN)
+	sentryDSN := os.Getenv("SENTRY_DSN")
+	if sentryDSN != "" {
+		env := os.Getenv("SENTRY_ENVIRONMENT")
+		if env == "" {
+			env = "production"
+		}
+		err := sentry.Init(sentry.ClientOptions{
+			Dsn:              sentryDSN,
+			Environment:      env,
+			EnableTracing:    false,
+			TracesSampleRate: 0,
+		})
+		if err != nil {
+			log.Printf("[sentry] init failed: %v", err)
+		} else {
+			log.Printf("[sentry] initialized (env=%s)", env)
+		}
+		defer sentry.Flush(2 * time.Second)
+	} else {
+		log.Println("[sentry] SENTRY_DSN not set — error reporting disabled")
+	}
+
 	port := os.Getenv("API_PORT")
 	if port == "" {
 		port = "8080"
@@ -267,7 +319,7 @@ func main() {
 
 	addr := "127.0.0.1:" + port
 	log.Printf("[api] listening on %s (ALLOWED_ORIGIN=%s)", addr, allowedOrigin)
-	if err := http.ListenAndServe(addr, mux); err != nil {
+	if err := http.ListenAndServe(addr, recoveryMiddleware(mux)); err != nil {
 		log.Fatalf("[api] fatal: %v", err)
 	}
 }
