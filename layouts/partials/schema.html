@@ -128,6 +128,80 @@
       ]
     }
     {{ end }}
+    {{ if eq .Layout "location" }},
+    {
+      "@type": "WebPage",
+      "@id": "{{ .Permalink }}",
+      "name": "{{ .Title }}",
+      "description": "{{ .Description }}",
+      "url": "{{ .Permalink }}",
+      "isPartOf": {
+        "@id": "{{ .Site.BaseURL }}#website"
+      },
+      "about": {
+        "@type": "LocalBusiness",
+        "@id": "{{ .Site.BaseURL }}#organization",
+        "name": "{{ .Site.Title }}",
+        "telephone": "{{ .Site.Params.phoneRaw }}",
+        "email": "{{ .Site.Params.email }}",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "{{ .Site.Params.addressComponents.street }}",
+          "addressLocality": "{{ .Site.Params.addressComponents.city }}",
+          "addressRegion": "{{ .Site.Params.addressComponents.region }}",
+          "postalCode": "{{ .Site.Params.addressComponents.postalCode }}",
+          "addressCountry": "{{ .Site.Params.addressComponents.country }}"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": {{ .Site.Params.latitude }},
+          "longitude": {{ .Site.Params.longitude }}
+        }
+      },
+      "mainEntity": {
+        "@type": "Service",
+        "name": "Web Development",
+        "description": "{{ .Description }}",
+        "provider": {
+          "@id": "{{ .Site.BaseURL }}#organization"
+        },
+        "areaServed": {
+          "@type": "AdministrativeArea",
+          "name": "Montana"
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Web Development Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Website Development",
+                "url": "{{ .Site.BaseURL }}website-development/"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Site Rescue",
+                "url": "{{ .Site.BaseURL }}site-rescue/"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Custom Software",
+                "url": "{{ .Site.BaseURL }}custom-software/"
+              }
+            }
+          ]
+        }
+      }
+    }
+    {{ end }}
     {{ if .IsHome }},
     {
       "@type": "WebSite",

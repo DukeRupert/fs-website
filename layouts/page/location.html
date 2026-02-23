@@ -1,0 +1,128 @@
+{{ define "main" }}
+
+{{- /* ====================================================
+     HERO — page-hero matching service pages
+     ==================================================== */}}
+<section class="page-hero">
+  <div class="container">
+    {{ with .Params.kicker }}
+    <p style="font-size:0.875rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--amber);margin-bottom:0.5rem;">{{ . }}</p>
+    {{ end }}
+    <h1>{{ .Title }}</h1>
+    <p>{{ .Description }}</p>
+  </div>
+</section>
+
+{{- /* ====================================================
+     CONTENT BODY — unique copy from the markdown file
+     ==================================================== */}}
+<section class="section">
+  <div class="container">
+    <div class="content-body">
+      {{ .Content }}
+    </div>
+  </div>
+</section>
+
+{{- /* ====================================================
+     SERVICES SUMMARY — 3-card grid linking to service pages
+     ==================================================== */}}
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <h2>What we build</h2>
+      <p>Custom websites, fast fixes, and software that fits your business.</p>
+    </div>
+
+    <div class="card-grid card-grid--3">
+      <div class="service-card">
+        <div class="service-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
+            <rect x="2" y="3" width="20" height="14"/>
+            <line x1="8" y1="21" x2="16" y2="21"/>
+            <line x1="12" y1="17" x2="12" y2="21"/>
+          </svg>
+        </div>
+        <h3>Website Development</h3>
+        <p>Custom-built websites that bring in customers. Starting at $35/mo. No page builders, no templates.</p>
+        <p class="mt-md"><a href="/website-development/">See websites &rarr;</a></p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
+            <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>
+          </svg>
+        </div>
+        <h3>Site Rescue</h3>
+        <p>Something's not working and you just need it fixed. Flat-rate quotes, usually within hours.</p>
+        <p class="mt-md"><a href="/site-rescue/">Get it fixed &rarr;</a></p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
+            <polyline points="16 18 22 12 16 6"/>
+            <polyline points="8 6 2 12 8 18"/>
+          </svg>
+        </div>
+        <h3>Custom Software</h3>
+        <p>Spreadsheets and subscriptions that don't quite work? We build custom tools your business actually owns.</p>
+        <p class="mt-md"><a href="/custom-software/">Learn more &rarr;</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{- /* ====================================================
+     TESTIMONIALS — from data/testimonials.yaml
+     ==================================================== */}}
+<section class="testimonial-section">
+  <div class="container">
+    <h2 style="color:var(--snow);margin-bottom:var(--space-3xl);">What our clients say</h2>
+
+    <div class="testimonials-stack">
+      {{ range .Site.Data.testimonials.testimonials }}
+      <div class="testimonial-entry">
+        {{ if .photo }}
+        <div>
+          <img
+            src="{{ .photo }}"
+            alt="{{ .name }}"
+            width="400"
+            height="400"
+            loading="lazy"
+            class="testimonial-entry-photo"
+          >
+        </div>
+        {{ end }}
+        <figure>
+          <blockquote>
+            <p class="testimonial-quote">{{ .quote }}</p>
+          </blockquote>
+          <figcaption>
+            <p class="testimonial-name">{{ .name }}</p>
+            <p class="testimonial-role">{{ .role }}</p>
+          </figcaption>
+        </figure>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+{{- /* ====================================================
+     CTA — contact + phone
+     ==================================================== */}}
+<section class="cta-section">
+  <div class="container">
+    <h2>Ready to get started?</h2>
+    <p>Send us a message or call the number below. We reply within one business day — no automated responses, no runaround.</p>
+    <div style="display:flex;gap:var(--space-md);justify-content:center;flex-wrap:wrap;">
+      <a href="/contact-us/" class="btn btn-outline-snow btn--lg">Send a message</a>
+      <a href="tel:{{ .Site.Params.phoneRaw }}" class="btn btn-amber btn--lg">{{ .Site.Params.phone }}</a>
+    </div>
+  </div>
+</section>
+
+{{ end }}

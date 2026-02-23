@@ -2154,7 +2154,7 @@ p:last-child { margin-bottom: 0; }
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr;
   gap: var(--space-2xl);
   margin-bottom: var(--space-3xl);
 }
