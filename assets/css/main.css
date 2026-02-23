@@ -342,6 +342,7 @@ p:last-child { margin-bottom: 0; }
   background: var(--granite-dk);
 }
 
+.card-grid--4 { grid-template-columns: repeat(4, 1fr); }
 .card-grid--3 { grid-template-columns: repeat(3, 1fr); }
 .card-grid--2 { grid-template-columns: repeat(2, 1fr); }
 
@@ -2947,6 +2948,13 @@ p:last-child { margin-bottom: 0; }
 }
 
 /* ==========================================================================
+   Responsive — 960px (4-col grid intermediate)
+   ========================================================================== */
+@media (max-width: 960px) {
+  .card-grid--4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ==========================================================================
    Responsive — 768px
    ========================================================================== */
 @media (max-width: 768px) {
@@ -3028,6 +3036,7 @@ p:last-child { margin-bottom: 0; }
   /* Grids */
   .grid-2,
   .grid-3,
+  .card-grid--4,
   .card-grid--3,
   .card-grid--2,
   .pricing-grid,
