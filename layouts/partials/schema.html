@@ -202,6 +202,34 @@
       }
     }
     {{ end }}
+    {{ if eq .Layout "about" }},
+    {
+      "@type": "Person",
+      "name": "Logan Williams",
+      "jobTitle": "Founder & Developer",
+      "worksFor": {
+        "@id": "{{ .Site.BaseURL }}#organization"
+      },
+      "url": "{{ .Permalink }}",
+      "sameAs": [
+        "https://www.linkedin.com/in/loganpwilliams/",
+        "https://www.facebook.com/logan.williams.atc/"
+      ],
+      "knowsAbout": ["Web Development", "Software Engineering", "Air Traffic Control"],
+      "alumniOf": [
+        {
+          "@type": "EducationalOrganization",
+          "name": "Southern New Hampshire University"
+        }
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "{{ .Site.Params.addressComponents.city }}",
+        "addressRegion": "{{ .Site.Params.addressComponents.region }}",
+        "addressCountry": "{{ .Site.Params.addressComponents.country }}"
+      }
+    }
+    {{ end }}
     {{ if .IsHome }},
     {
       "@type": "WebSite",
