@@ -2,6 +2,8 @@ name: Deploy Prod
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: "0 10 * * *" # Daily at 10:00 UTC (3:00 AM MT)
   push:
     tags: ["v*"]
     branches: [master]
