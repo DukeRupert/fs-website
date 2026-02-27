@@ -1,3 +1,62 @@
+{{ define "head" }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is this a template?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Every Packstring site is custom-built — same process we use for every Firefly client. Your site won't look like anyone else's."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to know anything technical?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. We build it, we host it, we maintain it. You send us photos and trip info — by text, email, or a quick phone call — and we handle the rest. That's what the $35/mo covers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I update the site myself?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The availability calendar has an admin panel you can use from your phone. For everything else — trip descriptions, photos, pricing changes — just tell us and we'll update it. Usually same-day."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What about my current site?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We'll migrate any content worth keeping — photos, testimonials, trip descriptions, gear lists. If you have a domain you want to keep, we'll handle the DNS transfer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you work with outfitters outside Montana?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Packstring is designed for Montana outfitters, but the approach works for any guide service. If you're out of state and interested, reach out — we'll talk."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if I already use FishingBooker / The Flybook / FareHarbor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can keep using those alongside your Packstring site. But most guides find that once they have a real website with an inquiry form and availability calendar, they don't need the marketplace anymore — and they stop paying the commissions."
+      }
+    }
+  ]
+}
+</script>
+{{ end }}
+
 {{ define "main" }}
 
 <section class="page-hero">
