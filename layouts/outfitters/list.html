@@ -1,0 +1,214 @@
+{{ define "main" }}
+
+<section class="page-hero">
+  <div class="container">
+    <p style="font-family:var(--font-ui);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.42em;color:var(--amber);margin-bottom:0.5rem;">New from Firefly</p>
+    <h1>Websites for Montana Outfitters &amp; Guides</h1>
+    <p>Custom-built, mobile-first sites that turn browsers into booked trips. No templates. No commissions. No WordPress.</p>
+    <div style="display:flex;gap:var(--space-md);margin-top:var(--space-xl);flex-wrap:wrap;">
+      <a href="https://packstring.dev" class="btn btn-primary" target="_blank" rel="noopener noreferrer">See Packstring &rarr;</a>
+      <a href="#signup" class="btn btn-outline-snow">Get Notified</a>
+    </div>
+  </div>
+</section>
+
+{{- /* Intro */}}
+<section class="section">
+  <div class="container container--narrow">
+    <p style="color:var(--ink-faded);margin-bottom:var(--space-lg);">Montana outfitters and guides run premium experiences — $400 fishing trips, $5,000 elk hunts, $3,500 multi-day packages. Their websites don't match. Most are WordPress builds from 2015 with broken mobile layouts, buried pricing, and no way to inquire online.</p>
+    <p style="color:var(--ink-faded);">We built Packstring to fix that. It's a custom website package designed specifically for outfitters — the same handcrafted approach we use for every Firefly client, shaped around how guide services actually operate.</p>
+  </div>
+</section>
+
+{{- /* Feature Cards */}}
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <h2>Built for how you operate</h2>
+    </div>
+    <div class="outfitter-features-grid">
+      <div class="feature-item">
+        <div class="feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
+            <path d="M4 19.5A2.5 2.5 0 016.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/>
+            <line x1="9" y1="7" x2="16" y2="7"/>
+            <line x1="9" y1="11" x2="14" y2="11"/>
+          </svg>
+        </div>
+        <div>
+          <p class="feature-title">Built to Book</p>
+          <p class="feature-body">Trip pages with real pricing, an inquiry form that captures trip type and dates, and an auto-reply that sends your gear list. Your clients can find what they need and reach you at midnight — no phone tag required.</p>
+        </div>
+      </div>
+
+      <div class="feature-item">
+        <div class="feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
+            <rect x="3" y="4" width="18" height="18" rx="0"/>
+            <line x1="16" y1="2" x2="16" y2="6"/>
+            <line x1="8" y1="2" x2="8" y2="6"/>
+            <line x1="3" y1="10" x2="21" y2="10"/>
+            <line x1="8" y1="14" x2="8" y2="14.01"/>
+            <line x1="12" y1="14" x2="12" y2="14.01"/>
+            <line x1="16" y1="14" x2="16" y2="14.01"/>
+            <line x1="8" y1="18" x2="8" y2="18.01"/>
+            <line x1="12" y1="18" x2="12" y2="18.01"/>
+          </svg>
+        </div>
+        <div>
+          <p class="feature-title">Availability Calendar</p>
+          <p class="feature-body">A seasonal calendar that shows what's open, what's limited, and what's booked — by trip type, by day. Click an open date and the inquiry form pre-fills. No outfitter website in Montana has this. Yours will.</p>
+        </div>
+      </div>
+
+      <div class="feature-item">
+        <div class="feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
+            <line x1="12" y1="1" x2="12" y2="23"/>
+            <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+          </svg>
+        </div>
+        <div>
+          <p class="feature-title">No Middleman</p>
+          <p class="feature-body">No FishingBooker commissions. No marketplace fees. No platform that owns your client relationships. Your site, your brand, your data, your bookings. Stripe deposit collection with zero commission — you keep every dollar.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{- /* The Pitch — dark section */}}
+<section class="section-dark" style="padding:88px 0;">
+  <div class="stars" aria-hidden="true">
+    <div class="star-layer"></div>
+    <div class="star-layer"></div>
+  </div>
+  <div class="container container--narrow" style="position:relative;z-index:2;">
+    <div class="section-header">
+      <h2 style="color:var(--snow);">One extra booking pays for the whole year.</h2>
+      <p>$500 to build. $35 a month. Hosting, SSL, DNS, unlimited content updates, and direct developer access included. Add Stripe deposits for +$250 and the availability calendar for +$250 — both one-time, no additional monthly.</p>
+      <p style="margin-top:var(--space-lg);">That's less than one day's guide fee per month. If the site generates even one extra booking per season that you wouldn't have gotten otherwise, it's paid for itself ten times over.</p>
+    </div>
+  </div>
+</section>
+
+{{- /* What's Included */}}
+<section class="section">
+  <div class="container container--narrow">
+    <div class="section-header">
+      <h2>What's included</h2>
+    </div>
+
+    <div style="margin-bottom:var(--space-2xl);">
+      <p style="font-family:var(--font-ui);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:var(--rust);margin-bottom:var(--space-md);">Standard Packstring Build</p>
+      <p class="included-list">
+        <span>Custom-built website — not a template</span>
+        <span>Trip and service pages with pricing and photos</span>
+        <span>Trip inquiry form that pre-fills from your calendar</span>
+        <span>Fast-loading photo gallery</span>
+        <span>Looks great on every phone</span>
+        <span>Google Business Profile setup</span>
+        <span>Built to show up in local search</span>
+        <span>Hosting and security included</span>
+        <span>Unlimited content updates</span>
+        <span>Direct developer access</span>
+      </p>
+    </div>
+
+    <div>
+      <p style="font-family:var(--font-ui);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:var(--pine);margin-bottom:var(--space-md);">Available Add-ons</p>
+      <p class="included-list included-list--addon">
+        <span>Collect deposits online (+$250 build)</span>
+        <span>Seasonal availability calendar (+$250 build)</span>
+        <span>Trip report blog — you text us, we post it</span>
+        <span>Google Reviews on your site</span>
+        <span>Email capture with seasonal follow-up</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+{{- /* Demo Teaser */}}
+<section class="section section-alt">
+  <div class="container container--narrow" style="text-align:center;">
+    <h2>See it in action.</h2>
+    <p style="color:var(--ink-faded);margin-top:var(--space-md);margin-bottom:var(--space-xl);max-width:560px;margin-left:auto;margin-right:auto;">We built a demo for a Helena fishing and hunting outfitter to show the difference. Pull up any outfitter's current site on your phone, then pull up the demo. The conversation sells itself.</p>
+    <div style="display:flex;gap:var(--space-md);justify-content:center;flex-wrap:wrap;">
+      <a href="https://packstring.dev" class="btn btn-primary" target="_blank" rel="noopener noreferrer">View the Demo &rarr;</a>
+      <a href="tel:{{ .Site.Params.phoneRaw }}" class="btn btn-outline">Or just call: {{ .Site.Params.phone }}</a>
+    </div>
+  </div>
+</section>
+
+{{- /* Email Signup */}}
+<section class="cta-section" id="signup">
+  <div class="container">
+    <h2>We're onboarding the first batch now.</h2>
+    <p>Drop your email to get notified when Packstring is live — or to set up a no-pressure conversation about your operation.</p>
+    <form action="#" method="POST" class="signup-form" onsubmit="return false;">
+      <input type="email" name="email" placeholder="you@example.com" required aria-label="Email address" class="signup-input">
+      <button type="submit" class="btn btn-snow">Keep Me Posted</button>
+    </form>
+  </div>
+</section>
+
+{{- /* FAQ */}}
+<section class="section section-alt">
+  <div class="container container--narrow">
+    <div class="section-header">
+      <h2>Common Questions</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:var(--space-lg);">
+      <details style="background:var(--snow);border:1px solid var(--granite-dk);padding:var(--space-lg);cursor:pointer;">
+        <summary style="font-family:var(--font-ui);font-weight:600;color:var(--ink);list-style:none;display:flex;justify-content:space-between;align-items:center;">
+          Is this a template?
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <p style="margin-top:var(--space-md);color:var(--ink-faded);">No. Every Packstring site is custom-built — same process we use for every Firefly client. Your site won't look like anyone else's.</p>
+      </details>
+
+      <details style="background:var(--snow);border:1px solid var(--granite-dk);padding:var(--space-lg);cursor:pointer;">
+        <summary style="font-family:var(--font-ui);font-weight:600;color:var(--ink);list-style:none;display:flex;justify-content:space-between;align-items:center;">
+          Do I need to know anything technical?
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <p style="margin-top:var(--space-md);color:var(--ink-faded);">No. We build it, we host it, we maintain it. You send us photos and trip info — by text, email, or a quick phone call — and we handle the rest. That's what the $35/mo covers.</p>
+      </details>
+
+      <details style="background:var(--snow);border:1px solid var(--granite-dk);padding:var(--space-lg);cursor:pointer;">
+        <summary style="font-family:var(--font-ui);font-weight:600;color:var(--ink);list-style:none;display:flex;justify-content:space-between;align-items:center;">
+          Can I update the site myself?
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <p style="margin-top:var(--space-md);color:var(--ink-faded);">The availability calendar has an admin panel you can use from your phone. For everything else — trip descriptions, photos, pricing changes — just tell us and we'll update it. Usually same-day.</p>
+      </details>
+
+      <details style="background:var(--snow);border:1px solid var(--granite-dk);padding:var(--space-lg);cursor:pointer;">
+        <summary style="font-family:var(--font-ui);font-weight:600;color:var(--ink);list-style:none;display:flex;justify-content:space-between;align-items:center;">
+          What about my current site?
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <p style="margin-top:var(--space-md);color:var(--ink-faded);">We'll migrate any content worth keeping — photos, testimonials, trip descriptions, gear lists. If you have a domain you want to keep, we'll handle the DNS transfer.</p>
+      </details>
+
+      <details style="background:var(--snow);border:1px solid var(--granite-dk);padding:var(--space-lg);cursor:pointer;">
+        <summary style="font-family:var(--font-ui);font-weight:600;color:var(--ink);list-style:none;display:flex;justify-content:space-between;align-items:center;">
+          Do you work with outfitters outside Montana?
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <p style="margin-top:var(--space-md);color:var(--ink-faded);">Packstring is designed for Montana outfitters, but the approach works for any guide service. If you're out of state and interested, reach out — we'll talk.</p>
+      </details>
+
+      <details style="background:var(--snow);border:1px solid var(--granite-dk);padding:var(--space-lg);cursor:pointer;">
+        <summary style="font-family:var(--font-ui);font-weight:600;color:var(--ink);list-style:none;display:flex;justify-content:space-between;align-items:center;">
+          What if I already use FishingBooker / The Flybook / FareHarbor?
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <p style="margin-top:var(--space-md);color:var(--ink-faded);">You can keep using those alongside your Packstring site. But most guides find that once they have a real website with an inquiry form and availability calendar, they don't need the marketplace anymore — and they stop paying the commissions.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+{{ end }}

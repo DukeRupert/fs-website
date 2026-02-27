@@ -73,8 +73,14 @@ enableRobotsTXT = true
     url = "/custom-software/"
 
   [[menu.main]]
-    name = "About"
+    name = "Outfitters"
+    parent = "services"
     weight = 15
+    url = "/outfitters/"
+
+  [[menu.main]]
+    name = "About"
+    weight = 16
     url = "/about/"
 
   [[menu.main]]
