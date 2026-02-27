@@ -20,6 +20,11 @@ enableRobotsTXT = true
   ogImage = "/images/facebook_link_image.png"
   author = "Firefly Software, LLC"
 
+[params.broadwave]
+  endpoint = "https://broadwave.fireflysoftware.dev/api/subscribe"
+  list = "packstring-update"
+  apiKey = "bw_68e2a457e5c06d9efefe13debb682579"
+
 [params.addressComponents]
   street = "652 Jena Loop"
   city = "Helena"
