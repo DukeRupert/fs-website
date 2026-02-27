@@ -280,8 +280,7 @@
   <div class="container">
     <h2>We're onboarding the first batch now.</h2>
     <p>Drop your email to get notified when Packstring is live — or to set up a no-pressure conversation about your operation.</p>
-    <iframe name="broadwave-frame" id="broadwave-frame" style="display:none;" aria-hidden="true"></iframe>
-    <form id="broadwave-signup" method="POST" action="{{ .Site.Params.broadwave.endpoint }}" target="broadwave-frame" class="signup-form">
+    <form id="broadwave-signup" method="POST" action="{{ .Site.Params.broadwave.endpoint }}" class="signup-form">
       <input type="hidden" name="list" value="{{ .Site.Params.broadwave.list }}">
       <input type="hidden" name="api_key" value="{{ .Site.Params.broadwave.apiKey }}">
       <div class="form-honeypot">
@@ -369,25 +368,43 @@
   var form = document.getElementById('broadwave-signup');
   var btn = document.getElementById('signup-btn');
   var status = document.getElementById('signup-status');
-  var frame = document.getElementById('broadwave-frame');
-  var submitted = false;
 
-  form.addEventListener('submit', function () {
-    submitted = true;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
     btn.disabled = true;
     btn.textContent = 'Sending…';
     status.style.display = 'none';
-  });
 
-  frame.addEventListener('load', function () {
-    if (!submitted) return;
-    submitted = false;
-    status.textContent = 'Check your inbox — we sent a confirmation link.';
-    status.style.color = 'rgba(250,250,248,0.9)';
-    status.style.display = 'block';
-    form.reset();
-    btn.disabled = false;
-    btn.textContent = 'Keep Me Posted';
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form)
+    })
+      .then(function (res) {
+        return res.json().then(function (data) {
+          return { ok: res.ok, data: data };
+        });
+      })
+      .then(function (result) {
+        if (result.ok) {
+          status.textContent = 'Check your inbox — we sent a confirmation link.';
+          status.style.color = 'rgba(250,250,248,0.9)';
+          form.reset();
+        } else {
+          status.textContent = result.data.error || 'Something went wrong. Try again or email us directly.';
+          status.style.color = 'var(--amber)';
+        }
+        status.style.display = 'block';
+      })
+      .catch(function () {
+        status.textContent = 'Something went wrong. Try again or email us directly.';
+        status.style.color = 'var(--amber)';
+        status.style.display = 'block';
+      })
+      .finally(function () {
+        btn.disabled = false;
+        btn.textContent = 'Keep Me Posted';
+      });
   });
 })();
 </script>
