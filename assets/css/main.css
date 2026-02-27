@@ -2765,6 +2765,69 @@ p:last-child { margin-bottom: 0; }
 }
 
 /* ==========================================================================
+   Packstring Cost Comparison Table — light background variant
+   ========================================================================== */
+.packstring-cost-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.packstring-cost-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-body);
+  font-size: 15px;
+}
+
+.packstring-cost-table thead th {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--ink-faded);
+  padding: var(--space-md) var(--space-lg);
+  text-align: center;
+  border-bottom: 2px solid var(--granite-dk);
+}
+
+.packstring-cost-table thead th:first-child {
+  text-align: left;
+}
+
+.packstring-cost-table tbody td {
+  padding: var(--space-md) var(--space-lg);
+  border-bottom: 1px solid var(--granite-dk);
+  color: var(--ink-faded);
+  text-align: center;
+  vertical-align: middle;
+  font-size: 14px;
+}
+
+.packstring-cost-table tbody td:first-child {
+  text-align: left;
+  color: var(--ink);
+  font-size: 14px;
+}
+
+.packstring-cost-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.packstring-cost-table-highlight {
+  background: var(--pine);
+}
+
+.packstring-cost-table-highlight td {
+  color: var(--snow) !important;
+  font-weight: 600;
+}
+
+.packstring-cost-table-highlight td strong {
+  color: var(--amber);
+}
+
+/* ==========================================================================
    Blog Cards — Homepage latest posts
    ========================================================================== */
 .blog-card {
@@ -3180,6 +3243,16 @@ p:last-child { margin-bottom: 0; }
 
   .comparison-table thead th,
   .comparison-table tbody td {
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  /* Packstring cost table */
+  .packstring-cost-table {
+    font-size: 13px;
+  }
+
+  .packstring-cost-table thead th,
+  .packstring-cost-table tbody td {
     padding: var(--space-sm) var(--space-md);
   }
 
