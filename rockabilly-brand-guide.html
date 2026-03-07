@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rockabilly Roasting — Brand Guide & UI Library</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Boogaloo&family=Bebas+Neue&family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          /* Core palette */
+          'rr-black':   '#1A1008',
+          'rr-espresso':'#2C1810',
+          'rr-mahogany':'#5C2D1E',
+          'rr-copper':  '#B8621A',
+          'rr-amber':   '#D4892A',
+          'rr-cream':   '#F5EDD8',
+          'rr-parchment':'#EDE0C4',
+          'rr-white':   '#FBF6ED',
+          /* Accent */
+          'rr-red':     '#C0392B',
+          'rr-red-dark':'#8B1A12',
+          'rr-teal':    '#1A6B6B',
+          'rr-teal-lt': '#2A9D8F',
+        },
+        fontFamily: {
+          display:  ['Bebas Neue', 'sans-serif'],
+          heading:  ['Boogaloo', 'sans-serif'],
+          serif:    ['Playfair Display', 'serif'],
+          body:     ['Barlow', 'sans-serif'],
+        },
+        letterSpacing: {
+          'display': '0.08em',
+          'wide-xl': '0.25em',
+        },
+        backgroundImage: {
+          'halftone': "radial-gradient(circle, #00000018 1px, transparent 1px)",
+          'grain': "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E\")",
+        },
+      }
+    }
+  }
+</script>
+<style>
+  /* Global resets */
+  *, *::before, *::after { box-sizing: border-box; }
+  body { background-color: #1A1008; color: #F5EDD8; font-family: 'Barlow', sans-serif; }
+
+  /* ── Scrollbar ── */
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: #2C1810; }
+  ::-webkit-scrollbar-thumb { background: #B8621A; border-radius: 4px; }
+
+  /* ── Section divider ── */
+  .section-rule {
+    border: none;
+    height: 3px;
+    background: repeating-linear-gradient(90deg, #B8621A 0, #B8621A 12px, transparent 12px, transparent 20px);
+    margin: 3rem 0;
+  }
+
+  /* ── Halftone overlay ── */
+  .halftone {
+    background-image: radial-gradient(circle, #00000028 1px, transparent 1px);
+    background-size: 6px 6px;
+  }
+
+  /* ── Worn texture on cards ── */
+  .worn::after {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    border-radius: inherit;
+  }
+
+  /* ── Flame divider SVG ── */
+  .flame-divider {
+    width: 100%;
+    height: 28px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 20' preserveAspectRatio='none'%3E%3Cpath d='M0,10 Q5,2 10,10 Q15,18 20,10 Q25,2 30,10 Q35,18 40,10 Q45,2 50,10 Q55,18 60,10 Q65,2 70,10 Q75,18 80,10 Q85,2 90,10 Q95,18 100,10' fill='none' stroke='%23B8621A' stroke-width='1.5'/%3E%3C/svg%3E");
+    background-size: 200px 28px;
+    opacity: 0.6;
+  }
+
+  /* ── Label / badge font ── */
+  .label-font { font-family: 'Barlow', sans-serif; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; font-size: 0.7rem; }
+
+  /* ── Sticker badge ── */
+  .sticker {
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  }
+
+  /* ── Component demo bg ── */
+  .demo-bg { background: #2C1810; border: 1px solid #5C2D1E; border-radius: 8px; padding: 2rem; position: relative; overflow: hidden; }
+
+  /* ── Pin stripe ── */
+  .pinstripe {
+    background-image: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(184,98,26,0.12) 3px, rgba(184,98,26,0.12) 4px);
+  }
+
+  /* ── Btn base transitions ── */
+  .btn-base { transition: transform 80ms ease, box-shadow 80ms ease, background 120ms ease; }
+  .btn-base:active { transform: translateY(2px); }
+
+  /* nav underline effect */
+  .nav-link { position: relative; }
+  .nav-link::after {
+    content: '';
+    position: absolute; left: 0; right: 0; bottom: -3px; height: 2px;
+    background: #B8621A;
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 200ms ease;
+  }
+  .nav-link:hover::after { transform: scaleX(1); }
+
+  /* Product card hover */
+  .product-card { transition: transform 200ms ease, box-shadow 200ms ease; }
+  .product-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.5); }
+
+  /* Input focus ring */
+  .rr-input:focus { outline: none; border-color: #B8621A; box-shadow: 0 0 0 3px rgba(184,98,26,0.25); }
+
+  /* Badge pulse */
+  @keyframes badge-pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.7; } }
+  .badge-live { animation: badge-pulse 2s ease-in-out infinite; }
+
+  /* Marquee */
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .marquee-inner { animation: marquee 18s linear infinite; white-space: nowrap; display: flex; }
+  .marquee-inner:hover { animation-play-state: paused; }
+</style>
+</head>
+<body class="min-h-screen">
+
+<!-- ══════════════════════════════════════════
+     HERO / TITLE
+══════════════════════════════════════════ -->
+<header class="relative overflow-hidden" style="background: #1A1008;">
+  <div class="halftone absolute inset-0 opacity-40"></div>
+  <!-- diagonal stripe accent -->
+  <div class="absolute inset-0" style="background: repeating-linear-gradient(-45deg, transparent, transparent 30px, rgba(184,98,26,0.04) 30px, rgba(184,98,26,0.04) 32px);"></div>
+
+  <div class="relative max-w-5xl mx-auto px-6 py-20 text-center">
+    <!-- Badge -->
+    <span class="label-font text-rr-amber tracking-wide-xl">Brand Guide & UI Library</span>
+
+    <!-- Logotype treatment -->
+    <div class="mt-4 mb-2">
+      <h1 class="font-display text-rr-cream leading-none" style="font-size: clamp(4rem, 12vw, 8rem); letter-spacing: 0.06em;">
+        ROCKABILLY
+      </h1>
+      <div class="flex items-center justify-center gap-4 my-1">
+        <div class="flex-1 h-px bg-gradient-to-r from-transparent to-rr-copper"></div>
+        <span class="font-display text-rr-copper" style="font-size: clamp(1rem, 3vw, 1.75rem); letter-spacing: 0.35em;">ROASTING CO.</span>
+        <div class="flex-1 h-px bg-gradient-to-l from-transparent to-rr-copper"></div>
+      </div>
+    </div>
+
+    <p class="font-body text-rr-parchment/70 text-sm mt-6 max-w-lg mx-auto leading-relaxed">
+      A visual reference for building the Hiri-powered storefront. All colors, typography, spacing, and components documented below as Tailwind-compatible tokens and patterns.
+    </p>
+
+    <!-- Scroll anchor nav -->
+    <nav class="mt-10 flex flex-wrap justify-center gap-x-6 gap-y-2 label-font text-rr-amber/70">
+      <a href="#colors" class="nav-link hover:text-rr-amber">Colors</a>
+      <a href="#typography" class="nav-link hover:text-rr-amber">Typography</a>
+      <a href="#buttons" class="nav-link hover:text-rr-amber">Buttons</a>
+      <a href="#forms" class="nav-link hover:text-rr-amber">Forms</a>
+      <a href="#badges" class="nav-link hover:text-rr-amber">Badges</a>
+      <a href="#cards" class="nav-link hover:text-rr-amber">Cards</a>
+      <a href="#nav" class="nav-link hover:text-rr-amber">Navigation</a>
+      <a href="#marquee" class="nav-link hover:text-rr-amber">Marquee</a>
+      <a href="#layout" class="nav-link hover:text-rr-amber">Layout</a>
+    </nav>
+  </div>
+
+  <!-- Bottom flame divider -->
+  <div class="flame-divider mt-2 mb-0"></div>
+</header>
+
+
+<!-- ══════════════════════════════════════════
+     BRAND VOICE BLOCK
+══════════════════════════════════════════ -->
+<section class="max-w-5xl mx-auto px-6 py-12">
+  <div class="grid md:grid-cols-3 gap-6">
+    <div class="demo-bg worn">
+      <p class="label-font text-rr-copper mb-3">Personality</p>
+      <ul class="font-body text-rr-cream/80 text-sm space-y-2 leading-relaxed">
+        <li>🎸 <strong>Rebellious</strong> — anti-corporate, proud outsider</li>
+        <li>🔥 <strong>Bold</strong> — no apologies, no half measures</li>
+        <li>🎶 <strong>Rhythmic</strong> — energy, groove, forward motion</li>
+        <li>🤘 <strong>Welcoming</strong> — rough edges, warm heart</li>
+        <li>☕ <strong>Craft-first</strong> — serious about the roast</li>
+      </ul>
+    </div>
+    <div class="demo-bg worn">
+      <p class="label-font text-rr-copper mb-3">Voice</p>
+      <ul class="font-body text-rr-cream/80 text-sm space-y-2 leading-relaxed">
+        <li>✓ Direct, punchy sentences</li>
+        <li>✓ Music & hot rod metaphors</li>
+        <li>✓ Second-person ("you," "your cup")</li>
+        <li>✗ Corporate buzzwords</li>
+        <li>✗ Passive voice</li>
+        <li>✗ Over-explaining</li>
+      </ul>
+    </div>
+    <div class="demo-bg worn">
+      <p class="label-font text-rr-copper mb-3">Aesthetic References</p>
+      <ul class="font-body text-rr-cream/80 text-sm space-y-2 leading-relaxed">
+        <li>🏎️ 1950s hot rod pinstripe</li>
+        <li>🎵 Vintage concert poster</li>
+        <li>📜 Letterpress grain & texture</li>
+        <li>☕ Specialty roastery craft</li>
+        <li>⚡ Electric signage & neon glow</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="section-rule mx-6" />
+
+
+<!-- ══════════════════════════════════════════
+     COLOR PALETTE
+══════════════════════════════════════════ -->
+<section id="colors" class="max-w-5xl mx-auto px-6 py-4">
+  <h2 class="font-display text-rr-cream text-5xl tracking-display mb-1">COLOR PALETTE</h2>
+  <p class="font-body text-rr-cream/50 text-sm mb-8">Tailwind config key → hex. All tokens available via <code class="text-rr-amber">text-rr-*</code>, <code class="text-rr-amber">bg-rr-*</code>, <code class="text-rr-amber">border-rr-*</code>.</p>
+
+  <!-- Core -->
+  <p class="label-font text-rr-copper mb-4">Core — Darks & Neutrals</p>
+  <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
+    <div>
+      <div class="h-20 rounded-md border border-white/10" style="background:#1A1008;"></div>
+      <p class="label-font text-rr-cream/60 mt-2">rr-black</p>
+      <p class="font-body text-rr-cream/40 text-xs">#1A1008</p>
+      <p class="font-body text-rr-cream/40 text-xs mt-0.5">Page background</p>
+    </div>
+    <div>
+      <div class="h-20 rounded-md border border-white/10" style="background:#2C1810;"></div>
+      <p class="label-font text-rr-cream/60 mt-2">rr-espresso</p>
+      <p class="font-body text-rr-cream/40 text-xs">#2C1810</p>
+      <p class="font-body text-rr-cream/40 text-xs mt-0.5">Card backgrounds</p>
+    </div>
+    <div>
+      <div class="h-20 rounded-md border border-white/10" style="background:#5C2D1E;"></div>
+      <p class="label-font text-rr-cream/60 mt-2">rr-mahogany</p>
+      <p class="font-body text-rr-cream/40 text-xs">#5C2D1E</p>
+      <p class="font-body text-rr-cream/40 text-xs mt-0.5">Borders, dividers</p>
+    </div>
+    <div>
+      <div class="h-20 rounded-md border border-white/10" style="background:#EDE0C4;"></div>
+      <p class="label-font text-rr-black/80 mt-2">rr-parchment</p>
+      <p class="font-body text-rr-black/50 text-xs">#EDE0C4</p>
+      <p class="font-body text-rr-black/40 text-xs mt-0.5">Muted text on light</p>
+    </div>
+  </div>
+
+  <!-- Brand -->
+  <p class="label-font text-rr-copper mb-4">Brand — Coppers & Ambers</p>
+  <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
+    <div>
+      <div class="h-20 rounded-md" style="background:#B8621A;"></div>
+      <p class="label-font text-rr-cream/60 mt-2">rr-copper</p>
+      <p class="font-body text-rr-cream/40 text-xs">#B8621A</p>
+      <p class="font-body text-rr-cream/40 text-xs mt-0.5">Primary action</p>
+    </div>
+    <div>
+      <div class="h-20 rounded-md" style="background:#D4892A;"></div>
+      <p class="label-font text-rr-cream/60 mt-2">rr-amber</p>
+      <p class="font-body text-rr-cream/40 text-xs">#D4892A</p>
+      <p class="font-body text-rr-cream/40 text-xs mt-0.5">Hover states, highlights</p>
+    </div>
+    <div>
+      <div class="h-20 rounded-md" style="background:#F5EDD8;"></div>
+      <p class="label-font text-rr-black/80 mt-2">rr-cream</p>
+      <p class="font-body text-rr-black/50 text-xs">#F5EDD8</p>
+      <p class="font-body text-rr-black/40 text-xs mt-0.5">Primary text</p>
+    </div>
+    <div>
+      <div class="h-20 rounded-md" style="background:#FBF6ED;"></div>
+      <p class="label-font text-rr-black/80 mt-2">rr-white</p>
+      <p class="font-body text-rr-black/50 text-xs">#FBF6ED</p>
+      <p class="font-body text-rr-black/40 text-xs mt-0.5">Headlines on light bg</p>
+    </div>
+  </div>
+
+  <!-- Accent -->
+  <p class="label-font text-rr-copper mb-4">Accent — Rebel Red & Cool Teal</p>
+  <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+    <div>
+      <div class="h-20 rounded-md" style="background:#C0392B;"></div>
+      <p class="label-font text-rr-cream/60 mt-2">rr-red</p>
+      <p class="font-body text-rr-cream/40 text-xs">#C0392B</p>
+      <p class="font-body text-rr-cream/40 text-xs mt-0.5">Danger, sale, hot</p>
+    </div>
+    <div>
+      <div class="h-20 rounded-md" style="background:#8B1A12;"></div>
+      <p class="label-font text-rr-cream/60 mt-2">rr-red-dark</p>
+      <p class="font-body text-rr-cream/40 text-xs">#8B1A12</p>
+      <p class="font-body text-rr-cream/40 text-xs mt-0.5">Red hover</p>
+    </div>
+    <div>
+      <div class="h-20 rounded-md" style="background:#1A6B6B;"></div>
+      <p class="label-font text-rr-cream/60 mt-2">rr-teal</p>
+      <p class="font-body text-rr-cream/40 text-xs">#1A6B6B</p>
+      <p class="font-body text-rr-cream/40 text-xs mt-0.5">Secondary / alt accent</p>
+    </div>
+    <div>
+      <div class="h-20 rounded-md" style="background:#2A9D8F;"></div>
+      <p class="label-font text-rr-cream/60 mt-2">rr-teal-lt</p>
+      <p class="font-body text-rr-cream/40 text-xs">#2A9D8F</p>
+      <p class="font-body text-rr-cream/40 text-xs mt-0.5">Teal hover</p>
+    </div>
+  </div>
+</section>
+
+<hr class="section-rule mx-6" />
+
+
+<!-- ══════════════════════════════════════════
+     TYPOGRAPHY
+══════════════════════════════════════════ -->
+<section id="typography" class="max-w-5xl mx-auto px-6 py-4">
+  <h2 class="font-display text-rr-cream text-5xl tracking-display mb-1">TYPOGRAPHY</h2>
+  <p class="font-body text-rr-cream/50 text-sm mb-10">Four-font system. All loaded from Google Fonts.</p>
+
+  <!-- Display -->
+  <div class="demo-bg worn mb-6 relative">
+    <span class="label-font text-rr-copper/60 absolute top-4 right-5">font-display / Bebas Neue</span>
+    <p class="font-display text-rr-cream leading-none" style="font-size: 5rem; letter-spacing: 0.08em;">BOLD BREW</p>
+    <p class="font-display text-rr-copper leading-none" style="font-size: 2.5rem; letter-spacing: 0.12em;">SECTION HEADERS</p>
+    <p class="font-body text-rr-cream/40 text-xs mt-4">Usage: hero headlines, section labels, product name overlays. All-caps only. Letter-spacing: 0.06–0.12em.</p>
+  </div>
+
+  <!-- Heading -->
+  <div class="demo-bg worn mb-6 relative">
+    <span class="label-font text-rr-copper/60 absolute top-4 right-5">font-heading / Boogaloo</span>
+    <p class="font-heading text-rr-cream" style="font-size: 3rem;">Cloud 9 Espresso</p>
+    <p class="font-heading text-rr-amber" style="font-size: 1.75rem;">Chop Top Dark Roast</p>
+    <p class="font-body text-rr-cream/40 text-xs mt-4">Usage: product names, card titles, nav items. Feels hand-lettered without being illegible.</p>
+  </div>
+
+  <!-- Serif -->
+  <div class="demo-bg worn mb-6 relative">
+    <span class="label-font text-rr-copper/60 absolute top-4 right-5">font-serif / Playfair Display</span>
+    <p class="font-serif text-rr-cream font-bold" style="font-size: 2rem;">"This ain't your grandpa's coffee."</p>
+    <p class="font-serif italic text-rr-cream/70" style="font-size: 1.125rem;">A harmonious rebellion of beans from three continents.</p>
+    <p class="font-body text-rr-cream/40 text-xs mt-4">Usage: pull quotes, testimonials, hero subheads, editorial copy. Use italic sparingly for contrast.</p>
+  </div>
+
+  <!-- Body -->
+  <div class="demo-bg worn mb-6 relative">
+    <span class="label-font text-rr-copper/60 absolute top-4 right-5">font-body / Barlow</span>
+    <p class="font-body text-rr-cream/90 text-base leading-relaxed max-w-xl">Vibrant berry notes and a zesty citrus kick, followed by a velvety smooth finish that lingers like a sweet dream. Break free from the mundane and ascend to Cloud 9. Order now and experience the difference.</p>
+    <p class="font-body text-rr-cream/40 text-xs mt-4">Usage: all body copy, descriptions, UI labels. Weight 400–700. Pairs cleanly with all three display styles.</p>
+  </div>
+
+  <!-- Type scale -->
+  <p class="label-font text-rr-copper mb-4 mt-8">Type Scale Reference</p>
+  <div class="demo-bg overflow-x-auto">
+    <table class="w-full font-body text-sm text-rr-cream/80">
+      <thead>
+        <tr class="border-b border-rr-mahogany label-font text-rr-copper/70 text-xs">
+          <th class="text-left pb-2 pr-4">Role</th>
+          <th class="text-left pb-2 pr-4">Font</th>
+          <th class="text-left pb-2 pr-4">Size</th>
+          <th class="text-left pb-2">Tailwind Class</th>
+        </tr>
+      </thead>
+      <tbody class="space-y-1">
+        <tr class="border-b border-rr-mahogany/40"><td class="py-2 pr-4">Hero</td><td class="pr-4">Bebas Neue</td><td class="pr-4">80–128px</td><td><code class="text-rr-amber text-xs">font-display text-[5rem]</code></td></tr>
+        <tr class="border-b border-rr-mahogany/40"><td class="py-2 pr-4">Section H2</td><td class="pr-4">Bebas Neue</td><td class="pr-4">48px</td><td><code class="text-rr-amber text-xs">font-display text-5xl tracking-display</code></td></tr>
+        <tr class="border-b border-rr-mahogany/40"><td class="py-2 pr-4">Product Title</td><td class="pr-4">Boogaloo</td><td class="pr-4">28–36px</td><td><code class="text-rr-amber text-xs">font-heading text-3xl</code></td></tr>
+        <tr class="border-b border-rr-mahogany/40"><td class="py-2 pr-4">Card Title</td><td class="pr-4">Boogaloo</td><td class="pr-4">20–24px</td><td><code class="text-rr-amber text-xs">font-heading text-xl</code></td></tr>
+        <tr class="border-b border-rr-mahogany/40"><td class="py-2 pr-4">Pull Quote</td><td class="pr-4">Playfair Display</td><td class="pr-4">20–24px</td><td><code class="text-rr-amber text-xs">font-serif italic text-xl</code></td></tr>
+        <tr class="border-b border-rr-mahogany/40"><td class="py-2 pr-4">Body</td><td class="pr-4">Barlow</td><td class="pr-4">16px</td><td><code class="text-rr-amber text-xs">font-body text-base</code></td></tr>
+        <tr class="border-b border-rr-mahogany/40"><td class="py-2 pr-4">Small / Meta</td><td class="pr-4">Barlow</td><td class="pr-4">14px</td><td><code class="text-rr-amber text-xs">font-body text-sm</code></td></tr>
+        <tr><td class="py-2 pr-4">Label / Badge</td><td class="pr-4">Barlow 700</td><td class="pr-4">11px</td><td><code class="text-rr-amber text-xs">label-font</code> (utility class)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<hr class="section-rule mx-6" />
+
+
+<!-- ══════════════════════════════════════════
+     BUTTONS
+══════════════════════════════════════════ -->
+<section id="buttons" class="max-w-5xl mx-auto px-6 py-4">
+  <h2 class="font-display text-rr-cream text-5xl tracking-display mb-1">BUTTONS</h2>
+  <p class="font-body text-rr-cream/50 text-sm mb-8">All buttons use <code class="text-rr-amber">btn-base</code> for micro-interaction. Sizes: <code class="text-rr-amber">sm</code>, <code class="text-rr-amber">md</code> (default), <code class="text-rr-amber">lg</code>.</p>
+
+  <div class="demo-bg">
+    <div class="flex flex-wrap gap-4 items-end">
+
+      <!-- Primary -->
+      <div class="text-center">
+        <button class="btn-base font-body font-700 label-font bg-rr-copper text-rr-white px-6 py-3 rounded-sm hover:bg-rr-amber shadow-lg shadow-rr-copper/30">
+          ORDER NOW
+        </button>
+        <p class="label-font text-rr-cream/40 mt-2">Primary</p>
+      </div>
+
+      <!-- Primary lg -->
+      <div class="text-center">
+        <button class="btn-base font-body font-700 label-font bg-rr-copper text-rr-white px-8 py-4 text-sm rounded-sm hover:bg-rr-amber shadow-lg shadow-rr-copper/30" style="letter-spacing:0.2em; font-size:0.85rem;">
+          ADD TO CART
+        </button>
+        <p class="label-font text-rr-cream/40 mt-2">Primary LG</p>
+      </div>
+
+      <!-- Secondary outline -->
+      <div class="text-center">
+        <button class="btn-base label-font bg-transparent text-rr-copper border-2 border-rr-copper px-6 py-3 rounded-sm hover:bg-rr-copper hover:text-rr-white">
+          VIEW ALL
+        </button>
+        <p class="label-font text-rr-cream/40 mt-2">Outline</p>
+      </div>
+
+      <!-- Ghost -->
+      <div class="text-center">
+        <button class="btn-base label-font bg-transparent text-rr-cream/70 border border-rr-cream/20 px-6 py-3 rounded-sm hover:border-rr-cream/60 hover:text-rr-cream">
+          LEARN MORE
+        </button>
+        <p class="label-font text-rr-cream/40 mt-2">Ghost</p>
+      </div>
+
+      <!-- Destructive -->
+      <div class="text-center">
+        <button class="btn-base label-font bg-rr-red text-rr-white px-6 py-3 rounded-sm hover:bg-rr-red-dark shadow-lg shadow-rr-red/30">
+          REMOVE
+        </button>
+        <p class="label-font text-rr-cream/40 mt-2">Danger</p>
+      </div>
+
+      <!-- Teal secondary -->
+      <div class="text-center">
+        <button class="btn-base label-font bg-rr-teal text-rr-cream px-6 py-3 rounded-sm hover:bg-rr-teal-lt">
+          SUBSCRIBE
+        </button>
+        <p class="label-font text-rr-cream/40 mt-2">Teal</p>
+      </div>
+
+      <!-- Icon + text -->
+      <div class="text-center">
+        <button class="btn-base label-font bg-rr-copper text-rr-white px-5 py-3 rounded-sm hover:bg-rr-amber flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+          ADD TO CART
+        </button>
+        <p class="label-font text-rr-cream/40 mt-2">With Icon</p>
+      </div>
+
+      <!-- Sm -->
+      <div class="text-center">
+        <button class="btn-base label-font bg-rr-copper text-rr-white px-4 py-2 rounded-sm hover:bg-rr-amber text-xs">
+          QUICK ADD
+        </button>
+        <p class="label-font text-rr-cream/40 mt-2">SM</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Button code note -->
+  <div class="mt-4 demo-bg text-xs font-body text-rr-cream/50 leading-relaxed">
+    <span class="text-rr-amber font-semibold">Base classes for all buttons: </span>
+    <code>btn-base label-font rounded-sm</code> — then apply variant color classes. The <code>rounded-sm</code> (2px) intentionally avoids the rounded pill look, keeping the utilitarian/stamp aesthetic.
+  </div>
+</section>
+
+<hr class="section-rule mx-6" />
+
+
+<!-- ══════════════════════════════════════════
+     FORMS
+══════════════════════════════════════════ -->
+<section id="forms" class="max-w-5xl mx-auto px-6 py-4">
+  <h2 class="font-display text-rr-cream text-5xl tracking-display mb-1">FORMS</h2>
+  <p class="font-body text-rr-cream/50 text-sm mb-8">All inputs: dark fill, copper focus ring, cream text.</p>
+
+  <div class="demo-bg grid sm:grid-cols-2 gap-6">
+
+    <!-- Text input -->
+    <div>
+      <label class="label-font text-rr-copper/80 block mb-2">Email Address</label>
+      <input type="email" placeholder="name@example.com"
+        class="rr-input w-full bg-rr-black border border-rr-mahogany text-rr-cream font-body text-sm px-4 py-3 rounded-sm placeholder-rr-cream/25" />
+    </div>
+
+    <!-- Select -->
+    <div>
+      <label class="label-font text-rr-copper/80 block mb-2">Grind Size</label>
+      <select class="rr-input w-full bg-rr-black border border-rr-mahogany text-rr-cream font-body text-sm px-4 py-3 rounded-sm appearance-none" style="background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23B8621A' stroke-width='2' fill='none'/%3E%3C/svg%3E\"); background-repeat: no-repeat; background-position: right 1rem center;">
+        <option>Whole Bean</option>
+        <option>Coarse (French Press)</option>
+        <option>Medium (Drip)</option>
+        <option>Fine (Espresso)</option>
+      </select>
+    </div>
+
+    <!-- Quantity stepper -->
+    <div>
+      <label class="label-font text-rr-copper/80 block mb-2">Quantity</label>
+      <div class="flex items-center gap-0">
+        <button class="btn-base bg-rr-mahogany hover:bg-rr-copper text-rr-cream font-body font-bold px-4 py-3 rounded-l-sm text-lg leading-none">−</button>
+        <input type="number" value="1" min="1"
+          class="rr-input w-16 bg-rr-black border-y border-rr-mahogany text-rr-cream font-body text-sm text-center py-3" style="border-left: none; border-right: none;" />
+        <button class="btn-base bg-rr-mahogany hover:bg-rr-copper text-rr-cream font-body font-bold px-4 py-3 rounded-r-sm text-lg leading-none">+</button>
+      </div>
+    </div>
+
+    <!-- Search -->
+    <div>
+      <label class="label-font text-rr-copper/80 block mb-2">Search</label>
+      <div class="relative">
+        <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-rr-copper" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="search" placeholder="Search roasts..."
+          class="rr-input w-full bg-rr-black border border-rr-mahogany text-rr-cream font-body text-sm pl-10 pr-4 py-3 rounded-sm placeholder-rr-cream/25" />
+      </div>
+    </div>
+
+    <!-- Textarea -->
+    <div class="sm:col-span-2">
+      <label class="label-font text-rr-copper/80 block mb-2">Order Notes</label>
+      <textarea rows="3" placeholder="Special instructions, gift messages..."
+        class="rr-input w-full bg-rr-black border border-rr-mahogany text-rr-cream font-body text-sm px-4 py-3 rounded-sm placeholder-rr-cream/25 resize-none"></textarea>
+    </div>
+
+    <!-- Radio group -->
+    <div>
+      <label class="label-font text-rr-copper/80 block mb-3">Bag Size</label>
+      <div class="flex flex-wrap gap-3">
+        <label class="flex items-center gap-2 cursor-pointer group">
+          <input type="radio" name="size" class="accent-rr-copper w-4 h-4" checked />
+          <span class="font-body text-sm text-rr-cream/80 group-hover:text-rr-cream">12oz — $18</span>
+        </label>
+        <label class="flex items-center gap-2 cursor-pointer group">
+          <input type="radio" name="size" class="accent-rr-copper w-4 h-4" />
+          <span class="font-body text-sm text-rr-cream/80 group-hover:text-rr-cream">2lb — $48</span>
+        </label>
+        <label class="flex items-center gap-2 cursor-pointer group">
+          <input type="radio" name="size" class="accent-rr-copper w-4 h-4" />
+          <span class="font-body text-sm text-rr-cream/80 group-hover:text-rr-cream">5lb — $96</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Checkbox -->
+    <div>
+      <label class="label-font text-rr-copper/80 block mb-3">Options</label>
+      <div class="space-y-2">
+        <label class="flex items-center gap-2 cursor-pointer group">
+          <input type="checkbox" class="accent-rr-copper w-4 h-4" checked />
+          <span class="font-body text-sm text-rr-cream/80 group-hover:text-rr-cream">Subscribe & save 10%</span>
+        </label>
+        <label class="flex items-center gap-2 cursor-pointer group">
+          <input type="checkbox" class="accent-rr-copper w-4 h-4" />
+          <span class="font-body text-sm text-rr-cream/80 group-hover:text-rr-cream">Add gift wrapping</span>
+        </label>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="section-rule mx-6" />
+
+
+<!-- ══════════════════════════════════════════
+     BADGES & LABELS
+══════════════════════════════════════════ -->
+<section id="badges" class="max-w-5xl mx-auto px-6 py-4">
+  <h2 class="font-display text-rr-cream text-5xl tracking-display mb-1">BADGES & LABELS</h2>
+  <p class="font-body text-rr-cream/50 text-sm mb-8">Status indicators, product tags, and roast markers.</p>
+
+  <div class="demo-bg">
+    <div class="flex flex-wrap gap-4 items-center">
+
+      <!-- Roast level -->
+      <span class="label-font bg-rr-red text-rr-white px-3 py-1 rounded-sm">DARK ROAST</span>
+      <span class="label-font bg-rr-copper text-rr-white px-3 py-1 rounded-sm">MEDIUM ROAST</span>
+      <span class="label-font bg-rr-amber text-rr-black px-3 py-1 rounded-sm">LIGHT ROAST</span>
+
+      <!-- Status -->
+      <span class="label-font bg-rr-teal text-rr-cream px-3 py-1 rounded-sm">IN STOCK</span>
+      <span class="label-font bg-rr-red text-rr-white px-3 py-1 rounded-sm">SOLD OUT</span>
+      <span class="badge-live label-font bg-rr-copper/20 border border-rr-copper text-rr-amber px-3 py-1 rounded-sm">● NEW</span>
+
+      <!-- Promo -->
+      <span class="label-font bg-rr-mahogany text-rr-amber border border-rr-copper px-3 py-1 rounded-sm">SAVE 10%</span>
+      <span class="label-font bg-transparent text-rr-copper border border-rr-copper px-3 py-1 rounded-sm">SEASONAL</span>
+
+      <!-- Flavor tags -->
+      <span class="font-body text-xs font-semibold bg-rr-espresso text-rr-cream/70 border border-rr-mahogany px-2.5 py-1 rounded-full">Berry</span>
+      <span class="font-body text-xs font-semibold bg-rr-espresso text-rr-cream/70 border border-rr-mahogany px-2.5 py-1 rounded-full">Citrus</span>
+      <span class="font-body text-xs font-semibold bg-rr-espresso text-rr-cream/70 border border-rr-mahogany px-2.5 py-1 rounded-full">Chocolate</span>
+      <span class="font-body text-xs font-semibold bg-rr-espresso text-rr-cream/70 border border-rr-mahogany px-2.5 py-1 rounded-full">Caramel</span>
+
+    </div>
+
+    <!-- Roast intensity bar -->
+    <div class="mt-8">
+      <p class="label-font text-rr-copper/80 mb-3">Roast Intensity Indicator</p>
+      <div class="flex items-center gap-4 max-w-xs">
+        <span class="label-font text-rr-cream/40 text-xs w-12 text-right">LIGHT</span>
+        <div class="flex-1 h-3 rounded-full bg-rr-black border border-rr-mahogany overflow-hidden">
+          <div class="h-full rounded-full" style="width: 72%; background: linear-gradient(90deg, #D4892A, #B8621A, #5C2D1E);"></div>
+        </div>
+        <span class="label-font text-rr-cream/40 text-xs w-12">DARK</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-rule mx-6" />
+
+
+<!-- ══════════════════════════════════════════
+     PRODUCT CARDS
+══════════════════════════════════════════ -->
+<section id="cards" class="max-w-5xl mx-auto px-6 py-4">
+  <h2 class="font-display text-rr-cream text-5xl tracking-display mb-1">PRODUCT CARDS</h2>
+  <p class="font-body text-rr-cream/50 text-sm mb-8">Three card variants for different grid densities.</p>
+
+  <div class="grid sm:grid-cols-3 gap-5">
+
+    <!-- Standard card -->
+    <div class="product-card relative bg-rr-espresso border border-rr-mahogany rounded-sm overflow-hidden worn cursor-pointer">
+      <!-- Image placeholder -->
+      <div class="relative aspect-square bg-rr-black halftone overflow-hidden">
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="text-center">
+            <div class="w-24 h-24 rounded-full bg-rr-mahogany mx-auto flex items-center justify-center border-4 border-rr-copper/40">
+              <span class="font-display text-rr-amber text-2xl tracking-wide">C9</span>
+            </div>
+          </div>
+        </div>
+        <!-- Badge overlay -->
+        <div class="absolute top-3 left-3">
+          <span class="label-font bg-rr-red text-rr-white px-2 py-1 rounded-sm text-xs">FEATURED</span>
+        </div>
+      </div>
+      <!-- Card body -->
+      <div class="p-4">
+        <h3 class="font-heading text-rr-cream text-xl leading-tight">Cloud 9 Espresso</h3>
+        <p class="font-body text-rr-cream/50 text-xs mt-1 mb-3 leading-relaxed">Berry notes · citrus kick · velvety finish</p>
+        <!-- Roast bar -->
+        <div class="flex items-center gap-2 mb-3">
+          <span class="label-font text-rr-cream/30 text-xs">LIGHT</span>
+          <div class="flex-1 h-1.5 bg-rr-black rounded-full overflow-hidden">
+            <div class="h-full rounded-full" style="width: 65%; background: linear-gradient(90deg, #D4892A, #B8621A);"></div>
+          </div>
+          <span class="label-font text-rr-cream/30 text-xs">DARK</span>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="font-heading text-rr-amber text-xl">$18.00</span>
+          <button class="btn-base label-font bg-rr-copper text-rr-white px-3 py-1.5 rounded-sm hover:bg-rr-amber text-xs">ADD</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Subscription card -->
+    <div class="product-card relative bg-rr-espresso border border-rr-copper rounded-sm overflow-hidden cursor-pointer" style="box-shadow: 0 0 0 1px #B8621A40, inset 0 0 40px rgba(184,98,26,0.06);">
+      <div class="relative aspect-square bg-rr-black halftone overflow-hidden">
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="w-24 h-24 rounded-full bg-rr-mahogany mx-auto flex items-center justify-center border-4 border-rr-copper/60">
+            <span class="font-display text-rr-amber text-2xl tracking-wide">CT</span>
+          </div>
+        </div>
+        <div class="absolute top-3 left-3">
+          <span class="label-font bg-rr-copper text-rr-white px-2 py-1 rounded-sm text-xs">SUBSCRIBE</span>
+        </div>
+      </div>
+      <div class="p-4">
+        <h3 class="font-heading text-rr-cream text-xl leading-tight">Chop Top</h3>
+        <p class="font-body text-rr-cream/50 text-xs mt-1 mb-3 leading-relaxed">Dark chocolate · smoky finish · full body</p>
+        <div class="flex items-center gap-2 mb-3">
+          <span class="label-font text-rr-cream/30 text-xs">LIGHT</span>
+          <div class="flex-1 h-1.5 bg-rr-black rounded-full overflow-hidden">
+            <div class="h-full rounded-full" style="width: 88%; background: linear-gradient(90deg, #B8621A, #5C2D1E);"></div>
+          </div>
+          <span class="label-font text-rr-cream/30 text-xs">DARK</span>
+        </div>
+        <div class="flex items-center justify-between">
+          <div>
+            <span class="font-heading text-rr-amber text-xl">$16.20</span>
+            <span class="font-body text-rr-cream/40 text-xs ml-1 line-through">$18</span>
+          </div>
+          <button class="btn-base label-font bg-rr-copper text-rr-white px-3 py-1.5 rounded-sm hover:bg-rr-amber text-xs">ADD</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Out of stock -->
+    <div class="product-card relative bg-rr-espresso border border-rr-mahogany rounded-sm overflow-hidden opacity-70 cursor-not-allowed">
+      <div class="relative aspect-square bg-rr-black halftone overflow-hidden">
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="w-24 h-24 rounded-full bg-rr-mahogany mx-auto flex items-center justify-center border-4 border-rr-mahogany">
+            <span class="font-display text-rr-cream/30 text-2xl tracking-wide">BB</span>
+          </div>
+        </div>
+        <div class="absolute top-3 left-3">
+          <span class="label-font bg-rr-black/80 text-rr-cream/50 border border-rr-mahogany px-2 py-1 rounded-sm text-xs">SOLD OUT</span>
+        </div>
+        <!-- Diagonal sold out overlay -->
+        <div class="absolute inset-0 flex items-center justify-center" style="transform: rotate(-20deg);">
+          <span class="font-display text-rr-cream/10 text-5xl tracking-widest">SOLD OUT</span>
+        </div>
+      </div>
+      <div class="p-4">
+        <h3 class="font-heading text-rr-cream/50 text-xl leading-tight">Bike Blend</h3>
+        <p class="font-body text-rr-cream/30 text-xs mt-1 mb-3 leading-relaxed">Hazelnut · caramel · smooth ride</p>
+        <div class="flex items-center justify-between">
+          <span class="font-heading text-rr-cream/30 text-xl">$18.00</span>
+          <button disabled class="label-font bg-rr-black text-rr-cream/30 border border-rr-mahogany px-3 py-1.5 rounded-sm text-xs cursor-not-allowed">NOTIFY ME</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="section-rule mx-6" />
+
+
+<!-- ══════════════════════════════════════════
+     NAVIGATION
+══════════════════════════════════════════ -->
+<section id="nav" class="max-w-5xl mx-auto px-6 py-4">
+  <h2 class="font-display text-rr-cream text-5xl tracking-display mb-1">NAVIGATION</h2>
+  <p class="font-body text-rr-cream/50 text-sm mb-8">Site header and mobile nav patterns.</p>
+
+  <!-- Desktop nav -->
+  <p class="label-font text-rr-copper/60 mb-3">Desktop Header</p>
+  <div class="demo-bg p-0 overflow-hidden mb-6">
+    <nav class="bg-rr-black border-b border-rr-mahogany px-6 py-4 flex items-center justify-between">
+      <!-- Logo -->
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-rr-mahogany border-2 border-rr-copper flex items-center justify-center">
+          <span class="font-display text-rr-amber text-sm">RR</span>
+        </div>
+        <div>
+          <p class="font-display text-rr-cream text-xl leading-none tracking-display">ROCKABILLY</p>
+          <p class="label-font text-rr-copper text-xs">ROASTING CO.</p>
+        </div>
+      </div>
+      <!-- Links -->
+      <div class="hidden md:flex items-center gap-7">
+        <a href="#" class="nav-link font-body text-sm font-semibold text-rr-cream hover:text-rr-amber transition-colors">Shop</a>
+        <a href="#" class="nav-link font-body text-sm font-semibold text-rr-cream/60 hover:text-rr-amber transition-colors">Wholesale</a>
+        <a href="#" class="nav-link font-body text-sm font-semibold text-rr-cream/60 hover:text-rr-amber transition-colors">Rhythm & Brews</a>
+        <a href="#" class="nav-link font-body text-sm font-semibold text-rr-cream/60 hover:text-rr-amber transition-colors">About</a>
+      </div>
+      <!-- Actions -->
+      <div class="flex items-center gap-3">
+        <button class="text-rr-cream/60 hover:text-rr-amber transition-colors p-2">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </button>
+        <button class="relative text-rr-cream/60 hover:text-rr-amber transition-colors p-2">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+          <span class="absolute top-1 right-1 w-4 h-4 bg-rr-red rounded-full label-font text-rr-white text-xs flex items-center justify-center" style="font-size:9px;">2</span>
+        </button>
+        <button class="btn-base label-font bg-rr-copper text-rr-white px-4 py-2 rounded-sm hover:bg-rr-amber text-xs">SUBSCRIBE</button>
+      </div>
+    </nav>
+    <!-- Sub-nav / category strip -->
+    <div class="bg-rr-espresso border-b border-rr-mahogany px-6 py-2 flex gap-6 overflow-x-auto">
+      <a href="#" class="label-font text-rr-amber text-xs whitespace-nowrap border-b-2 border-rr-copper pb-1">Coffee</a>
+      <a href="#" class="label-font text-rr-cream/50 text-xs whitespace-nowrap hover:text-rr-amber pb-1">Equipment</a>
+      <a href="#" class="label-font text-rr-cream/50 text-xs whitespace-nowrap hover:text-rr-amber pb-1">Clothing</a>
+      <a href="#" class="label-font text-rr-cream/50 text-xs whitespace-nowrap hover:text-rr-amber pb-1">Drinkware</a>
+      <a href="#" class="label-font text-rr-cream/50 text-xs whitespace-nowrap hover:text-rr-amber pb-1">Gifts</a>
+    </div>
+  </div>
+
+  <!-- Breadcrumb -->
+  <p class="label-font text-rr-copper/60 mb-3">Breadcrumb</p>
+  <div class="demo-bg mb-6">
+    <nav class="flex items-center gap-2 font-body text-sm">
+      <a href="#" class="text-rr-cream/50 hover:text-rr-amber transition-colors">Home</a>
+      <span class="text-rr-mahogany">›</span>
+      <a href="#" class="text-rr-cream/50 hover:text-rr-amber transition-colors">Shop</a>
+      <span class="text-rr-mahogany">›</span>
+      <a href="#" class="text-rr-cream/50 hover:text-rr-amber transition-colors">Coffee</a>
+      <span class="text-rr-mahogany">›</span>
+      <span class="text-rr-cream">Cloud 9 Espresso</span>
+    </nav>
+  </div>
+
+  <!-- Pagination -->
+  <p class="label-font text-rr-copper/60 mb-3">Pagination</p>
+  <div class="demo-bg">
+    <div class="flex items-center gap-1">
+      <button class="btn-base label-font text-rr-cream/40 border border-rr-mahogany px-3 py-2 rounded-sm hover:border-rr-copper hover:text-rr-cream text-xs">‹ PREV</button>
+      <button class="btn-base label-font bg-rr-copper text-rr-white w-9 h-9 rounded-sm hover:bg-rr-amber text-xs">1</button>
+      <button class="btn-base label-font text-rr-cream/60 border border-rr-mahogany w-9 h-9 rounded-sm hover:border-rr-copper hover:text-rr-cream text-xs">2</button>
+      <button class="btn-base label-font text-rr-cream/60 border border-rr-mahogany w-9 h-9 rounded-sm hover:border-rr-copper hover:text-rr-cream text-xs">3</button>
+      <span class="text-rr-cream/30 px-1">…</span>
+      <button class="btn-base label-font text-rr-cream/60 border border-rr-mahogany w-9 h-9 rounded-sm hover:border-rr-copper hover:text-rr-cream text-xs">8</button>
+      <button class="btn-base label-font text-rr-cream/60 border border-rr-mahogany px-3 py-2 rounded-sm hover:border-rr-copper hover:text-rr-cream text-xs">NEXT ›</button>
+    </div>
+  </div>
+</section>
+
+<hr class="section-rule mx-6" />
+
+
+<!-- ══════════════════════════════════════════
+     MARQUEE / TICKER
+══════════════════════════════════════════ -->
+<section id="marquee" class="max-w-5xl mx-auto px-6 py-4">
+  <h2 class="font-display text-rr-cream text-5xl tracking-display mb-1">MARQUEE TICKER</h2>
+  <p class="font-body text-rr-cream/50 text-sm mb-8">Promo strip and announcement banner patterns.</p>
+
+  <!-- Copper promo strip -->
+  <div class="bg-rr-copper overflow-hidden py-2.5 mb-4">
+    <div class="marquee-inner">
+      <span class="label-font text-rr-white px-8">☕ FREE SHIPPING ON ORDERS OVER $40</span>
+      <span class="label-font text-rr-white/60 px-8">✦</span>
+      <span class="label-font text-rr-white px-8">🎸 SUBSCRIBE & SAVE 10%</span>
+      <span class="label-font text-rr-white/60 px-8">✦</span>
+      <span class="label-font text-rr-white px-8">📦 ROASTED FRESH TO ORDER</span>
+      <span class="label-font text-rr-white/60 px-8">✦</span>
+      <!-- duplicate for seamless loop -->
+      <span class="label-font text-rr-white px-8">☕ FREE SHIPPING ON ORDERS OVER $40</span>
+      <span class="label-font text-rr-white/60 px-8">✦</span>
+      <span class="label-font text-rr-white px-8">🎸 SUBSCRIBE & SAVE 10%</span>
+      <span class="label-font text-rr-white/60 px-8">✦</span>
+      <span class="label-font text-rr-white px-8">📦 ROASTED FRESH TO ORDER</span>
+      <span class="label-font text-rr-white/60 px-8">✦</span>
+    </div>
+  </div>
+
+  <!-- Red alert strip -->
+  <div class="bg-rr-red overflow-hidden py-2">
+    <div class="marquee-inner" style="animation-duration: 12s;">
+      <span class="label-font text-rr-white px-8">🔥 SALE: BIKE BLEND 20% OFF THIS WEEK ONLY</span>
+      <span class="label-font text-rr-white/50 px-4">—</span>
+      <span class="label-font text-rr-white px-8">🔥 SALE: BIKE BLEND 20% OFF THIS WEEK ONLY</span>
+      <span class="label-font text-rr-white/50 px-4">—</span>
+      <span class="label-font text-rr-white px-8">🔥 SALE: BIKE BLEND 20% OFF THIS WEEK ONLY</span>
+      <span class="label-font text-rr-white/50 px-4">—</span>
+    </div>
+  </div>
+</section>
+
+<hr class="section-rule mx-6" />
+
+
+<!-- ══════════════════════════════════════════
+     LAYOUT PATTERNS
+══════════════════════════════════════════ -->
+<section id="layout" class="max-w-5xl mx-auto px-6 py-4">
+  <h2 class="font-display text-rr-cream text-5xl tracking-display mb-1">LAYOUT PATTERNS</h2>
+  <p class="font-body text-rr-cream/50 text-sm mb-8">Common page section compositions.</p>
+
+  <!-- Hero layout sketch -->
+  <p class="label-font text-rr-copper/60 mb-3">Hero Section Pattern</p>
+  <div class="demo-bg mb-6 relative overflow-hidden" style="min-height: 240px;">
+    <div class="halftone absolute inset-0 opacity-30"></div>
+    <div class="pinstripe absolute inset-0"></div>
+    <div class="relative flex flex-col md:flex-row items-center gap-8 py-4">
+      <!-- Text side -->
+      <div class="flex-1">
+        <span class="label-font text-rr-copper tracking-wide-xl">FEATURED ROAST</span>
+        <h2 class="font-display text-rr-cream mt-2 leading-none" style="font-size: 3.5rem; letter-spacing: 0.06em;">CLOUD 9<br/>ESPRESSO</h2>
+        <p class="font-serif italic text-rr-cream/70 mt-3 text-lg max-w-sm">"A revolution in every cup."</p>
+        <div class="flex gap-3 mt-5">
+          <button class="btn-base label-font bg-rr-copper text-rr-white px-6 py-3 rounded-sm hover:bg-rr-amber shadow-lg shadow-rr-copper/30">ORDER NOW</button>
+          <button class="btn-base label-font border border-rr-cream/20 text-rr-cream/70 px-6 py-3 rounded-sm hover:border-rr-cream/50">LEARN MORE</button>
+        </div>
+      </div>
+      <!-- Image side -->
+      <div class="flex-shrink-0">
+        <div class="w-40 h-40 rounded-full bg-rr-mahogany border-4 border-rr-copper flex items-center justify-center relative">
+          <span class="font-display text-rr-amber text-4xl tracking-widest">C9</span>
+          <div class="absolute -top-2 -right-2 w-10 h-10 bg-rr-red rounded-full flex items-center justify-center">
+            <span class="label-font text-rr-white text-xs">NEW</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Testimonial -->
+  <p class="label-font text-rr-copper/60 mb-3">Testimonial / Pull Quote</p>
+  <div class="demo-bg mb-6 relative overflow-hidden">
+    <div class="absolute left-0 top-0 bottom-0 w-1 bg-rr-copper"></div>
+    <div class="pl-6">
+      <p class="font-serif italic text-rr-cream text-xl leading-relaxed max-w-2xl">
+        "Best coffee service ever! Received in mail 3 days after ordering and a special message!"
+      </p>
+      <div class="flex items-center gap-3 mt-4">
+        <div class="w-8 h-8 rounded-full bg-rr-mahogany border border-rr-copper flex items-center justify-center">
+          <span class="font-display text-rr-amber text-sm">T</span>
+        </div>
+        <div>
+          <p class="font-body font-semibold text-rr-amber text-sm">Tristen</p>
+          <p class="label-font text-rr-cream/30 text-xs">Verified Customer</p>
+        </div>
+        <div class="ml-auto flex gap-0.5">
+          <span class="text-rr-amber text-sm">★★★★★</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer sketch -->
+  <p class="label-font text-rr-copper/60 mb-3">Footer Pattern</p>
+  <div class="demo-bg p-0 overflow-hidden">
+    <div class="flame-divider"></div>
+    <div class="bg-rr-black px-6 py-8 grid sm:grid-cols-3 gap-8">
+      <div>
+        <p class="font-display text-rr-cream text-2xl tracking-display mb-1">ROCKABILLY</p>
+        <p class="label-font text-rr-copper text-xs mb-3">ROASTING CO.</p>
+        <p class="font-body text-rr-cream/40 text-xs leading-relaxed">101 W. Kennewick Ave.<br/>Kennewick, WA<br/>509-585-2320</p>
+      </div>
+      <div>
+        <p class="label-font text-rr-copper mb-3">SHOP</p>
+        <div class="space-y-1.5">
+          <a href="#" class="block font-body text-sm text-rr-cream/50 hover:text-rr-cream transition-colors">Coffee</a>
+          <a href="#" class="block font-body text-sm text-rr-cream/50 hover:text-rr-cream transition-colors">Equipment</a>
+          <a href="#" class="block font-body text-sm text-rr-cream/50 hover:text-rr-cream transition-colors">Clothing</a>
+          <a href="#" class="block font-body text-sm text-rr-cream/50 hover:text-rr-cream transition-colors">Gifts</a>
+        </div>
+      </div>
+      <div>
+        <p class="label-font text-rr-copper mb-3">CAFÉ HOURS</p>
+        <div class="space-y-1 font-body text-rr-cream/50 text-xs">
+          <p>Mon–Thurs: 7am – 2pm</p>
+          <p>Friday: 7am – 4pm</p>
+          <p>Saturday: 8am – 4pm</p>
+          <p class="text-rr-cream/25">Sunday: Closed</p>
+        </div>
+        <div class="flex gap-3 mt-4">
+          <a href="#" class="label-font text-rr-cream/40 hover:text-rr-amber text-xs transition-colors">FACEBOOK</a>
+          <span class="text-rr-mahogany">·</span>
+          <a href="#" class="label-font text-rr-cream/40 hover:text-rr-amber text-xs transition-colors">INSTAGRAM</a>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-rr-mahogany px-6 py-3 flex justify-between">
+      <p class="font-body text-rr-cream/20 text-xs">© 2025 Rockabilly Roasting Co.</p>
+      <p class="font-body text-rr-cream/20 text-xs">Powered by Hiri</p>
+    </div>
+  </div>
+</section>
+
+<hr class="section-rule mx-6" />
+
+
+<!-- ══════════════════════════════════════════
+     SPACING & BORDER RADIUS
+══════════════════════════════════════════ -->
+<section class="max-w-5xl mx-auto px-6 py-4 pb-20">
+  <h2 class="font-display text-rr-cream text-5xl tracking-display mb-1">SPACING & RADIUS</h2>
+  <p class="font-body text-rr-cream/50 text-sm mb-8">Design decisions for consistent feel across the UI.</p>
+
+  <div class="demo-bg grid sm:grid-cols-2 gap-8">
+    <div>
+      <p class="label-font text-rr-copper/80 mb-4">Border Radius Convention</p>
+      <div class="space-y-3 font-body text-sm text-rr-cream/70">
+        <div class="flex items-center gap-3">
+          <div class="w-16 h-8 bg-rr-copper rounded-sm"></div>
+          <span><code class="text-rr-amber">rounded-sm</code> — buttons, inputs, cards (primary)</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="w-16 h-8 bg-rr-copper rounded-md"></div>
+          <span><code class="text-rr-amber">rounded-md</code> — modals, large panels</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="w-16 h-8 bg-rr-copper rounded-full"></div>
+          <span><code class="text-rr-amber">rounded-full</code> — flavor tags, avatars only</span>
+        </div>
+        <p class="text-rr-cream/30 text-xs mt-2">Avoid <code>rounded-lg</code> and <code>rounded-xl</code> — too soft for this aesthetic.</p>
+      </div>
+    </div>
+    <div>
+      <p class="label-font text-rr-copper/80 mb-4">Spacing Scale in Use</p>
+      <div class="space-y-2 font-body text-sm text-rr-cream/70">
+        <div class="flex justify-between"><span><code class="text-rr-amber">p-3 / py-2 px-4</code></span><span class="text-rr-cream/40">Small buttons, tags</span></div>
+        <div class="flex justify-between"><span><code class="text-rr-amber">p-4</code></span><span class="text-rr-cream/40">Card body padding</span></div>
+        <div class="flex justify-between"><span><code class="text-rr-amber">p-6</code></span><span class="text-rr-cream/40">Section content</span></div>
+        <div class="flex justify-between"><span><code class="text-rr-amber">py-12 / py-20</code></span><span class="text-rr-cream/40">Section vertical rhythm</span></div>
+        <div class="flex justify-between"><span><code class="text-rr-amber">gap-5 / gap-6</code></span><span class="text-rr-cream/40">Card grids</span></div>
+        <div class="flex justify-between"><span><code class="text-rr-amber">max-w-5xl mx-auto</code></span><span class="text-rr-cream/40">Page content max-width</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Final bottom brand strip -->
+<div class="flame-divider mb-0"></div>
+<div class="bg-rr-black py-6 text-center">
+  <p class="font-display text-rr-copper/30 tracking-display text-sm">ROCKABILLY ROASTING CO. — HIRI STOREFRONT BRAND GUIDE</p>
+</div>
+
+</body>
+</html>
