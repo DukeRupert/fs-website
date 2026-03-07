@@ -14,5 +14,8 @@ api/api
 # Docker
 .docker/
 
+# Source brand guide HTML files (deployed copies live in static/brand/)
+rockabilly-brand-guide*.html
+
 # Claude Code
 .claude/
