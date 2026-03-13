@@ -20,27 +20,25 @@
     </button>
 
     <nav class="site-nav" id="site-nav" aria-label="Main navigation">
-      <ul class="nav-list" role="menubar">
+      <ul class="nav-list">
         {{- range .Site.Menus.main }}
           {{- if .HasChildren }}
-            <li class="nav-item nav-item--dropdown" role="none">
+            <li class="nav-item nav-item--dropdown">
               <button
                 class="nav-dropdown-toggle"
                 aria-expanded="false"
                 aria-haspopup="true"
-                role="menuitem"
               >
                 {{ .Name }}
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" aria-hidden="true" focusable="false">
                   <polyline points="6 9 12 15 18 9"/>
                 </svg>
               </button>
-              <ul class="nav-dropdown" role="menu" aria-label="{{ .Name }} submenu">
+              <ul class="nav-dropdown" aria-label="{{ .Name }} submenu">
                 {{- range .Children }}
-                  <li role="none">
+                  <li>
                     <a
                       href="{{ .URL }}"
-                      role="menuitem"
                       {{ if $.IsMenuCurrent "main" . }}aria-current="page"{{ end }}
                     >{{ .Name }}</a>
                   </li>
@@ -48,11 +46,10 @@
               </ul>
             </li>
           {{- else if not .Parent }}
-            <li class="nav-item" role="none">
+            <li class="nav-item">
               <a
                 href="{{ .URL }}"
                 class="nav-link{{ with .Params.class }} nav-link--{{ . }}{{ end }}"
-                role="menuitem"
                 {{ if $.IsMenuCurrent "main" . }}aria-current="page"{{ end }}
               >{{ .Name }}</a>
             </li>

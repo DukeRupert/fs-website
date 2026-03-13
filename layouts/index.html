@@ -251,7 +251,7 @@
 {{- /* ====================================================
      TAGLINE STRIP — between hero and services
      ==================================================== */}}
-<div class="tagline-strip" aria-hidden="true">
+<div class="tagline-strip">
   <div class="container">
     <div class="tagline-strip-inner">
       <p class="tagline-strip-text">"We build websites that bring in customers. That's the job."</p>
@@ -281,7 +281,7 @@
         </div>
         <h3>I need a website.</h3>
         <p>Custom-built websites that bring in customers. Starting at $35/mo. No page builders, no templates.</p>
-        <p class="mt-md"><a href="/website-development/">See websites &rarr;</a></p>
+        <p class="mt-md"><a href="/website-development/" aria-label="See websites">See websites &rarr;</a></p>
       </div>
 
       <div class="service-card">
@@ -292,7 +292,7 @@
         </div>
         <h3>My site is broken.</h3>
         <p>Something's not working and you just need it fixed. Flat-rate quotes, usually within hours.</p>
-        <p class="mt-md"><a href="/site-rescue/">Get it fixed &rarr;</a></p>
+        <p class="mt-md"><a href="/site-rescue/" aria-label="Get it fixed">Get it fixed &rarr;</a></p>
       </div>
 
       <div class="service-card">
@@ -304,7 +304,7 @@
         </div>
         <h3>I'm overpaying for software.</h3>
         <p>Spreadsheets and subscriptions that don't quite work? We build custom tools your business actually owns. No monthly ransom.</p>
-        <p class="mt-md"><a href="/custom-software/">Learn more &rarr;</a></p>
+        <p class="mt-md"><a href="/custom-software/" aria-label="Learn more about custom software">Learn more &rarr;</a></p>
       </div>
 
       <div class="service-card">
@@ -316,7 +316,7 @@
         </div>
         <h3>I need someone to manage my site.</h3>
         <p>Hosting, security, updates, and edits — handled. Starting at $35/mo.</p>
-        <p class="mt-md"><a href="/website-maintenance/">Learn more &rarr;</a></p>
+        <p class="mt-md"><a href="/website-maintenance/" aria-label="Learn more about website maintenance">Learn more &rarr;</a></p>
       </div>
     </div>
   </div>
@@ -360,14 +360,31 @@
       {{ end }}
     </div>
 
+    <div style="text-align:center;margin-top:var(--space-md);">
+      <button
+        id="showcase-pause"
+        class="carousel-pause"
+        aria-label="Pause portfolio slideshow"
+        type="button"
+      >
+        <svg id="pause-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+        <svg id="play-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" style="display:none;"><polygon points="6,4 20,12 6,20"/></svg>
+      </button>
+    </div>
+
     <script>
       (function() {
         var items = document.querySelectorAll('#logo-bar .logo-bar-item');
         var desktopImg = document.getElementById('showcase-desktop');
         var mobileImg = document.getElementById('showcase-mobile');
+        var pauseBtn = document.getElementById('showcase-pause');
+        var pauseIcon = document.getElementById('pause-icon');
+        var playIcon = document.getElementById('play-icon');
         if (!items.length || !desktopImg || !mobileImg) return;
 
         var current = 0;
+        var timer = null;
+        var paused = false;
         items[0].classList.add('logo-bar-item--active');
 
         function showProject(index) {
@@ -397,18 +414,57 @@
           }, 400);
         }
 
-        var timer = setInterval(function() {
-          showProject((current + 1) % items.length);
-        }, 3000);
+        function startTimer() {
+          timer = setInterval(function() {
+            showProject((current + 1) % items.length);
+          }, 3000);
+        }
+
+        function stopTimer() {
+          clearInterval(timer);
+          timer = null;
+        }
+
+        function updatePauseBtn() {
+          if (paused) {
+            pauseIcon.style.display = 'none';
+            playIcon.style.display = '';
+            pauseBtn.setAttribute('aria-label', 'Play portfolio slideshow');
+          } else {
+            pauseIcon.style.display = '';
+            playIcon.style.display = 'none';
+            pauseBtn.setAttribute('aria-label', 'Pause portfolio slideshow');
+          }
+        }
+
+        // Skip auto-rotation if user prefers reduced motion
+        var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!prefersReduced) {
+          startTimer();
+        } else {
+          paused = true;
+          updatePauseBtn();
+        }
+
+        if (pauseBtn) {
+          pauseBtn.addEventListener('click', function() {
+            paused = !paused;
+            if (paused) {
+              stopTimer();
+            } else {
+              startTimer();
+            }
+            updatePauseBtn();
+          });
+        }
 
         items.forEach(function(item, i) {
           item.addEventListener('click', function(e) {
             e.preventDefault();
-            clearInterval(timer);
+            stopTimer();
+            paused = true;
+            updatePauseBtn();
             showProject(i);
-            timer = setInterval(function() {
-              showProject((current + 1) % items.length);
-            }, 3000);
           });
         });
       })();
@@ -535,7 +591,7 @@
     <div class="stat-grid stat-grid--4">
       <div class="stat-card">
         <div class="stat-card-bar"></div>
-        <div class="stat-value">5<sup>+</sup></div>
+        <div class="stat-value" aria-label="5 plus">5<sup>+</sup></div>
         <div class="stat-label">Years Running</div>
         <div class="stat-note">Est. 2021 · Helena, MT</div>
       </div>
@@ -547,7 +603,7 @@
       </div>
       <div class="stat-card">
         <div class="stat-card-bar"></div>
-        <div class="stat-value">100<sup>%</sup></div>
+        <div class="stat-value" aria-label="100 percent">100<sup>%</sup></div>
         <div class="stat-label">Custom code</div>
         <div class="stat-note">No page builders</div>
       </div>

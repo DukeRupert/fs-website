@@ -1468,6 +1468,25 @@ p:last-child { margin-bottom: 0; }
   text-transform: uppercase;
 }
 
+/* -- Carousel pause button ------------------------------------------------ */
+.carousel-pause {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: 1px solid var(--granite-dk);
+  color: var(--stone);
+  cursor: pointer;
+  transition: color var(--t-fast), border-color var(--t-fast);
+}
+
+.carousel-pause:hover {
+  color: var(--ink);
+  border-color: var(--ink-faded);
+}
+
 /* -- Portfolio list page (3-column layout) -------------------------------- */
 .portfolio-list-entry {
   border-top: 1px solid var(--granite-dk);
@@ -1846,8 +1865,16 @@ p:last-child { margin-bottom: 0; }
 }
 
 .signup-input:focus {
-  outline: none;
   border-color: var(--snow);
+}
+
+.signup-input:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
+}
+
+.signup-input:focus:not(:focus-visible) {
+  outline: none;
 }
 
 /* ==========================================================================
@@ -2066,9 +2093,21 @@ p:last-child { margin-bottom: 0; }
 .form-input:focus,
 .form-textarea:focus,
 .form-select:focus {
-  outline: none;
   border-bottom-color: var(--ember);
   background-color: var(--granite-lt);
+}
+
+.form-input:focus-visible,
+.form-textarea:focus-visible,
+.form-select:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
+}
+
+.form-input:focus:not(:focus-visible),
+.form-textarea:focus:not(:focus-visible),
+.form-select:focus:not(:focus-visible) {
+  outline: none;
 }
 
 .form-input::placeholder,
@@ -3052,7 +3091,7 @@ p:last-child { margin-bottom: 0; }
   font-family: var(--font-body);
   font-size: 12px;
   font-style: italic;
-  color: var(--stone);
+  color: var(--ink-faded);
   margin-top: var(--space-sm);
   margin-bottom: var(--space-lg);
   padding-left: var(--space-md);
