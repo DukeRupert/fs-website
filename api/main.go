@@ -214,7 +214,7 @@ func handleContact(w http.ResponseWriter, r *http.Request) {
 		fromEmail = "noreply@fireflysoftware.dev"
 	}
 	if toEmail == "" {
-		toEmail = "service@fireflysoftware.dev"
+		toEmail = "logan@fireflysoftware.dev"
 	}
 
 	req.Service = strings.TrimSpace(req.Service)

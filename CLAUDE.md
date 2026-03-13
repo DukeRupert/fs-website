@@ -116,7 +116,7 @@ Contact form uses Turnstile for bot protection. For local dev, use Cloudflare's 
 | `SENTRY_DSN` | _(empty — skip)_ | Bugsink/Sentry DSN for error reporting |
 | `SENTRY_ENVIRONMENT` | `production` | Environment tag for error reports |
 | `FROM_EMAIL` | `noreply@fireflysoftware.dev` | Email sender |
-| `TO_EMAIL` | `service@fireflysoftware.dev` | Email recipient |
+| `TO_EMAIL` | `logan@fireflysoftware.dev` | Email recipient |
 | `LISTEN_PORT` | `3000` | Host port (docker-compose.yml) |
 
 ## Deployment

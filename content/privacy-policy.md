@@ -98,4 +98,4 @@ If you have questions about this privacy policy, please contact us at:
 **Firefly Software, LLC**<br>
 Helena, Montana<br>
 Phone: [+1 (406) 871-9875](tel:+14068719875)<br>
-Email: [service@fireflysoftware.dev](mailto:service@fireflysoftware.dev)
+Email: [logan@fireflysoftware.dev](mailto:logan@fireflysoftware.dev)

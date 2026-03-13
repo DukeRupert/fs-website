@@ -14,7 +14,7 @@ services:
       SENTRY_DSN: "${SENTRY_DSN:-}"
       SENTRY_ENVIRONMENT: "${SENTRY_ENVIRONMENT:-production}"
       FROM_EMAIL: "${FROM_EMAIL:-noreply@fireflysoftware.dev}"
-      TO_EMAIL: "${TO_EMAIL:-service@fireflysoftware.dev}"
+      TO_EMAIL: "${TO_EMAIL:-logan@fireflysoftware.dev}"
     healthcheck:
       test: ["CMD", "wget", "-qO-", "http://127.0.0.1:${PORT:-80}/api/health"]
       interval: 30s
