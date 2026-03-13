@@ -374,7 +374,8 @@ p:last-child { margin-bottom: 0; }
   color: rgba(250, 250, 248, 0.35);
 }
 
-.section-dark .section-label::after {
+.section-dark .section-label::after,
+.testimonial-section .section-label::after {
   background: rgba(255, 255, 255, 0.08);
 }
 
@@ -3085,6 +3086,75 @@ p:last-child { margin-bottom: 0; }
   color: rgba(250, 250, 248, 0.55);
   line-height: 1.6;
   margin-bottom: 0;
+}
+
+/* ==========================================================================
+   Routing Cards — homepage self-select funnel (visually distinct from
+   generic service cards to signal "pick your path")
+   ========================================================================== */
+.routing-card {
+  background: var(--snow);
+  position: relative;
+  overflow: hidden;
+  padding: var(--space-2xl) var(--space-xl);
+  border-left: 3px solid var(--ember);
+  transition: background-color var(--t-base), border-left-color var(--t-base);
+}
+
+.routing-card:hover {
+  background: var(--granite-lt);
+  border-left-color: var(--amber);
+}
+
+.routing-card-icon {
+  width: 32px;
+  height: 32px;
+  color: var(--ember);
+  margin-bottom: var(--space-lg);
+}
+
+.routing-card-icon svg {
+  width: 32px;
+  height: 32px;
+  stroke: var(--ember);
+}
+
+.routing-card h3 {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 2.2vw, 24px);
+  font-weight: 900;
+  color: var(--ink);
+  margin-bottom: 10px;
+  line-height: 1.15;
+}
+
+.routing-card p {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--ink-faded);
+  line-height: 1.65;
+}
+
+.routing-card .routing-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: var(--space-lg);
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--rust);
+  text-decoration: none;
+  padding: 8px 0;
+  border-bottom: 2px solid var(--rust);
+  transition: color var(--t-fast), border-color var(--t-fast);
+}
+
+.routing-card .routing-cta:hover {
+  color: var(--ember);
+  border-bottom-color: var(--ember);
 }
 
 /* ==========================================================================

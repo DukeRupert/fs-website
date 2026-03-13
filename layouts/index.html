@@ -271,8 +271,8 @@
     </div>
 
     <div class="card-grid card-grid--4">
-      <div class="service-card">
-        <div class="service-card-icon" aria-hidden="true">
+      <div class="routing-card">
+        <div class="routing-card-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
             <rect x="2" y="3" width="20" height="14"/>
             <line x1="8" y1="21" x2="16" y2="21"/>
@@ -281,22 +281,22 @@
         </div>
         <h3>I need a website.</h3>
         <p>Custom-built websites that bring in customers. Starting at $35/mo. No page builders, no templates.</p>
-        <p class="mt-md"><a href="/website-development/" aria-label="See websites">See websites &rarr;</a></p>
+        <a href="/website-development/" class="routing-cta" aria-label="See websites">See websites &rarr;</a>
       </div>
 
-      <div class="service-card">
-        <div class="service-card-icon" aria-hidden="true">
+      <div class="routing-card">
+        <div class="routing-card-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
             <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>
           </svg>
         </div>
         <h3>My site is broken.</h3>
         <p>Something's not working and you just need it fixed. Flat-rate quotes, usually within hours.</p>
-        <p class="mt-md"><a href="/site-rescue/" aria-label="Get it fixed">Get it fixed &rarr;</a></p>
+        <a href="/site-rescue/" class="routing-cta" aria-label="Get it fixed">Get it fixed &rarr;</a>
       </div>
 
-      <div class="service-card">
-        <div class="service-card-icon" aria-hidden="true">
+      <div class="routing-card">
+        <div class="routing-card-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
             <polyline points="16 18 22 12 16 6"/>
             <polyline points="8 6 2 12 8 18"/>
@@ -304,11 +304,11 @@
         </div>
         <h3>I'm overpaying for software.</h3>
         <p>Spreadsheets and subscriptions that don't quite work? We build custom tools your business actually owns. No monthly ransom.</p>
-        <p class="mt-md"><a href="/custom-software/" aria-label="Learn more about custom software">Learn more &rarr;</a></p>
+        <a href="/custom-software/" class="routing-cta" aria-label="Learn more about custom software">Learn more &rarr;</a>
       </div>
 
-      <div class="service-card">
-        <div class="service-card-icon" aria-hidden="true">
+      <div class="routing-card">
+        <div class="routing-card-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
             <path d="M9 12l2 2 4-4"/>
@@ -316,7 +316,7 @@
         </div>
         <h3>I need someone to manage my site.</h3>
         <p>Hosting, security, updates, and edits — handled. Starting at $35/mo.</p>
-        <p class="mt-md"><a href="/website-maintenance/" aria-label="Learn more about website maintenance">Learn more &rarr;</a></p>
+        <a href="/website-maintenance/" class="routing-cta" aria-label="Learn more about website maintenance">Learn more &rarr;</a>
       </div>
     </div>
   </div>
@@ -494,8 +494,8 @@
   <div class="horizon-glow" aria-hidden="true"></div>
 
   <div class="container" style="position:relative;z-index:2;">
-    <div style="text-align:center;margin-bottom:60px;">
-      <p class="section-label" style="justify-content:center;">01 — By the Numbers</p>
+    <div style="margin-bottom:60px;">
+      <p class="section-label">01 — By the Numbers</p>
       <h2 style="color:var(--snow);">Built on results,<br>not promises.</h2>
     </div>
 
@@ -571,10 +571,10 @@
      ==================================================== */}}
 <section class="section-alt" id="pricing" style="padding:88px 0;">
   <div class="container">
-    <div class="section-header">
+    <div style="margin-bottom:var(--space-3xl);">
       <p class="section-label">03 — Pricing</p>
       <h2>Three services. Straight pricing.</h2>
-      <p>Every project gets a real quote up front. No hourly surprises, no hidden fees.</p>
+      <p style="font-size:15px;color:var(--ink-faded);max-width:560px;margin-top:var(--space-md);line-height:1.75;">Every project gets a real quote up front. No hourly surprises, no hidden fees.</p>
     </div>
 
     <div class="pricing-preview-grid">
@@ -612,10 +612,10 @@
      ==================================================== */}}
 <section class="section" id="blog">
   <div class="container">
-    <div class="section-header">
+    <div style="margin-bottom:var(--space-3xl);">
       <p class="section-label">04 — From the Blog</p>
       <h2>Tips, insights, and<br>straight talk.</h2>
-      <p>Practical advice for small business owners who want their website to actually work for them.</p>
+      <p style="font-size:15px;color:var(--ink-faded);max-width:560px;margin-top:var(--space-md);line-height:1.75;">Practical advice for small business owners who want their website to actually work for them.</p>
     </div>
 
     <div class="card-grid card-grid--3">
@@ -644,8 +644,8 @@
     <h2>Have a project in mind?</h2>
     <p>Send us a message or call the number below. We reply within one business day — no automated responses, no runaround.</p>
     <div class="btn-group">
-      <a href="/contact-us/" class="btn btn-outline-snow btn--lg">Send a message</a>
-      <a href="tel:{{ .Site.Params.phoneRaw }}" class="btn btn-amber btn--lg">{{ .Site.Params.phone }}</a>
+      <a href="/contact-us/" class="btn btn-snow btn--lg">Send a message</a>
+      <a href="tel:{{ .Site.Params.phoneRaw }}" class="btn btn-outline-snow btn--lg">{{ .Site.Params.phone }}</a>
     </div>
   </div>
 </section>
