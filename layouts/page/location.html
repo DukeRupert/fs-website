@@ -6,7 +6,7 @@
 <section class="page-hero">
   <div class="container">
     {{ with .Params.kicker }}
-    <p style="font-size:0.875rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--amber);margin-bottom:0.5rem;">{{ . }}</p>
+    <p class="kicker">{{ . }}</p>
     {{ end }}
     <h1>{{ .Title }}</h1>
     <p>{{ .Description }}</p>
@@ -118,7 +118,7 @@
   <div class="container">
     <h2>Ready to get started?</h2>
     <p>Send us a message or call the number below. We reply within one business day — no automated responses, no runaround.</p>
-    <div style="display:flex;gap:var(--space-md);justify-content:center;flex-wrap:wrap;">
+    <div class="btn-group">
       <a href="/contact-us/" class="btn btn-outline-snow btn--lg">Send a message</a>
       <a href="tel:{{ .Site.Params.phoneRaw }}" class="btn btn-amber btn--lg">{{ .Site.Params.phone }}</a>
     </div>

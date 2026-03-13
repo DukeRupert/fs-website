@@ -378,6 +378,81 @@ p:last-child { margin-bottom: 0; }
 }
 
 /* ==========================================================================
+   Kicker — inline eyebrow above headings (no rule line)
+   ========================================================================== */
+.kicker {
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--amber);
+  margin-bottom: 0.5rem;
+}
+
+.kicker--rust {
+  color: var(--rust);
+}
+
+/* ==========================================================================
+   Button Group — centered flex-wrap container for CTA rows
+   ========================================================================== */
+.btn-group {
+  display: flex;
+  gap: var(--space-md);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   Section Action — centered link below a section grid
+   ========================================================================== */
+.section-action {
+  text-align: center;
+  margin-top: var(--space-2xl);
+}
+
+/* ==========================================================================
+   Check List — icon + title + description rows
+   ========================================================================== */
+.check-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  list-style: none;
+}
+
+.check-list-item {
+  padding-left: 2rem;
+  position: relative;
+}
+
+.check-list-icon {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  color: var(--rust);
+}
+
+.check-list-icon--pine {
+  color: var(--pine);
+}
+
+.check-list-icon--stone {
+  color: var(--stone);
+  top: 4px;
+}
+
+.check-list-title {
+  display: block;
+  color: var(--ink);
+}
+
+.check-list-text {
+  color: var(--ink-faded);
+  font-size: 0.92rem;
+}
+
+/* ==========================================================================
    Animations & Keyframes
    ========================================================================== */
 @keyframes firefly-pulse {
