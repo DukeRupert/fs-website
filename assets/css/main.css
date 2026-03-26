@@ -1379,6 +1379,17 @@ p:last-child { margin-bottom: 0; }
   padding-top: 8px;
 }
 
+.pricing-prefix {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--stone);
+  align-self: flex-end;
+  padding-bottom: 6px;
+}
+
 .pricing-monthly {
   font-family: var(--font-ui);
   font-size: 13px;
@@ -1438,6 +1449,32 @@ p:last-child { margin-bottom: 0; }
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%238B3A1A' fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-size: contain;
+}
+
+/* ==========================================================================
+   Custom Software — pricing page dark section layout
+   ========================================================================== */
+.custom-software-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3xl);
+  align-items: start;
+  margin-top: var(--space-xl);
+}
+
+.custom-software-pitch {
+  /* left column: headline, description, price, CTA */
+}
+
+.custom-software-price {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  margin-bottom: 4px;
+}
+
+.custom-software-features {
+  padding-top: var(--space-md);
 }
 
 /* ==========================================================================
@@ -3371,7 +3408,8 @@ p:last-child { margin-bottom: 0; }
   .card-grid--2,
   .pricing-grid,
   .examples-grid,
-  .footer-grid {
+  .footer-grid,
+  .custom-software-layout {
     grid-template-columns: 1fr;
   }
 

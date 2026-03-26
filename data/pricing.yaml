@@ -1,17 +1,19 @@
 tiers:
   - name: Site Revamp
     buildPrice: "500"
+    pricePrefix: "From"
     monthlyPrice: 35
     description: "Already paying for a Wix or Squarespace site? We'll rebuild it properly and host it for the same price — with a real person to call."
-    features: [Full redesign and rebuild, Mobile-first fast-loading design, Contact form, Google Analytics setup, Hosting included, Unlimited edits, Local Montana support]
+    features: [Full redesign and rebuild, Mobile-first fast-loading design, Contact form, Google Analytics setup, Hosting included, "Unlimited edits*", Local Montana support]
     featured: false
     cta: Get Started
+    note: "Up to 6 pages. Sites over 6 pages quoted individually."
 
   - name: Brochure Site
     buildPrice: "750"
     monthlyPrice: 35
     description: "Starting a business? We'll build your website from scratch — fast, clean, and ready to bring in customers."
-    features: [Up to 5 pages, Mobile-first fast-loading design, Contact form, Google/Facebook analytics, Hosting included, Unlimited edits]
+    features: [Up to 5 pages, Mobile-first fast-loading design, Contact form, Google/Facebook analytics, Hosting included, "Unlimited edits*"]
     featured: true
     cta: Get Started
 
@@ -24,10 +26,18 @@ tiers:
     cta: Get Started
     note: "Higher monthly rate covers CMS hosting, database backups, and additional server resources required for dynamic content."
 
-  - name: Custom Software
-    buildPrice: "5,000–20,000"
-    monthlyPrice: "Custom"
-    description: "Need something that doesn't exist off the shelf? We'll build it."
-    features: [Custom application development, API integrations, Database design, Ongoing support available, Source code delivered]
-    featured: false
-    cta: Request a Quote
+custom:
+  name: Custom Software
+  buildPrice: "5,000–20,000"
+  monthlyPrice: "Custom"
+  headline: "Need something that doesn't exist off the shelf?"
+  description: "Off-the-shelf software makes you work around its limitations. Custom software works around yours. We'll build exactly what your business needs — and you'll own every line of code."
+  features: [Custom application development, API integrations, Database design, Ongoing support available, Source code delivered]
+  cta: Request a Quote
+
+addons:
+  - name: Local Presence Setup
+    price: "+$150"
+    description: "Get found where customers are actually looking. We'll set up and verify your business across Google and Facebook so your site isn't the only place people can find you."
+    features: ["Google Business Profile — verified and complete", "Facebook Business Page — configured and linked", "Google Search Console — site submitted and indexed"]
+    note: "Available as an add-on to any package."

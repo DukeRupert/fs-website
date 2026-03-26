@@ -8,7 +8,7 @@ features:
   - label: Direct phone access to your developer
     wix: false
     firefly: true
-  - label: Unlimited content edits included
+  - label: "Unlimited content edits included*"
     wix: false
     firefly: true
   - label: Hosting and SSL included

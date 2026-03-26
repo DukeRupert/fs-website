@@ -1,4 +1,15 @@
 projects:
+  - slug: a-team-asphalt
+    name: A-Team Asphalt Co.
+    category: Asphalt Paving
+    location: Auburn, WA
+    date: 2026
+    client: Don Lee & Gary Jorgensen
+    summary: A bold, no-nonsense website for a 30-year family-owned asphalt company in the Puget Sound region, built from scratch in 7 days to put their reputation online.
+    splash: /images/portfolio/ateam_splash.webp
+    mobile: /images/portfolio/ateam_mobile.webp
+    logo: /images/portfolio/ateam_logo.webp
+
   - slug: traver-hardwood-floors
     name: Traver Hardwood Floors
     category: Hardwood Flooring

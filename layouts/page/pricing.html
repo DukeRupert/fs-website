@@ -7,11 +7,15 @@
   </div>
 </section>
 
+{{- /* ====================================================
+     Website Packages — 3 tiers in the signature 2px-gap grid
+     ==================================================== */}}
 <section class="section">
   <div class="container">
-    <div class="section-header" style="margin-bottom:var(--space-2xl);">
-      <h2>Straightforward pricing. No surprises.</h2>
-      <p>One build fee, one monthly rate. Hosting, support, and unlimited edits included in every tier.</p>
+    <p class="section-label">Website Packages</p>
+    <div class="section-header" style="text-align:left;margin-bottom:var(--space-2xl);">
+      <h2>One build fee. One monthly rate. No surprises.</h2>
+      <p style="margin-left:0;">Hosting, support, and unlimited edits* included in every tier.</p>
     </div>
     <div class="pricing-grid">
       {{ range .Site.Data.pricing.tiers }}
@@ -19,7 +23,7 @@
         {{ if .featured }}<div class="pricing-badge">Most Popular</div>{{ end }}
         <div class="pricing-name">{{ .name }}</div>
         <div class="pricing-price">
-          <span class="pricing-currency">$</span>
+          {{ with .pricePrefix }}<span class="pricing-prefix">{{ . }}</span> {{ end }}<span class="pricing-currency">$</span>
           <span class="pricing-amount">{{ .buildPrice }}</span>
         </div>
         <div class="pricing-monthly">+ ${{ .monthlyPrice }}/mo hosting &amp; support</div>
@@ -29,6 +33,7 @@
           <li>{{ . }}</li>
           {{ end }}
         </ul>
+        {{ with .note }}<p class="pricing-note">{{ . }}</p>{{ end }}
         <a href="/contact-us/?service=website-development" class="btn{{ if .featured }} btn-primary{{ else }} btn-outline{{ end }}" style="width:100%;justify-content:center;">{{ .cta }}</a>
       </div>
       {{ end }}
@@ -36,7 +41,94 @@
   </div>
 </section>
 
-{{- /* FAQ Section */}}
+{{- /* ====================================================
+     Add-ons
+     ==================================================== */}}
+{{ with .Site.Data.pricing.addons }}
+<section class="section section-alt">
+  <div class="container">
+    <p class="section-label">Add-ons</p>
+    <div class="section-header" style="text-align:left;margin-bottom:var(--space-2xl);">
+      <h2>Extend your reach.</h2>
+      <p style="margin-left:0;">Pair with any website package above.</p>
+    </div>
+    <div style="max-width:480px;">
+      {{ range . }}
+      <div class="pricing-card" style="border:1px solid var(--granite-dk);">
+        <div class="pricing-name">{{ .name }}</div>
+        <div class="pricing-price">
+          <span class="pricing-amount">{{ .price }}</span>
+        </div>
+        <p class="pricing-description">{{ .description }}</p>
+        <ul class="pricing-features" aria-label="{{ .name }} features">
+          {{ range .features }}
+          <li>{{ . }}</li>
+          {{ end }}
+        </ul>
+        {{ with .note }}<p class="pricing-note">{{ . }}</p>{{ end }}
+        <a href="/contact-us/?service=website-development" class="btn btn-outline" style="width:100%;justify-content:center;">Add to My Package</a>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{- /* ====================================================
+     Custom Software — atmospheric dark section, standalone
+     ==================================================== */}}
+{{ with .Site.Data.pricing.custom }}
+<section class="section-dark" style="padding:88px 0;">
+  <div class="stars" aria-hidden="true">
+    <div class="star-layer"></div>
+    <div class="star-layer"></div>
+  </div>
+
+  <div class="firefly" style="left:15%;top:40%;width:4px;height:4px;--d:3.2s;--delay:0s;" aria-hidden="true"></div>
+  <div class="firefly" style="left:72%;top:60%;width:5px;height:5px;--d:2.8s;--delay:1.2s;" aria-hidden="true"></div>
+  <div class="firefly" style="left:88%;top:35%;width:4px;height:4px;--d:3.6s;--delay:0.6s;" aria-hidden="true"></div>
+
+  <div class="horizon-glow" aria-hidden="true"></div>
+
+  <div class="container" style="position:relative;z-index:2;">
+    <p class="section-label" style="justify-content:flex-start;">Something Bigger</p>
+
+    <div class="custom-software-layout">
+      <div class="custom-software-pitch">
+        <h2 style="color:var(--snow);font-size:clamp(28px, 3.5vw, 42px);line-height:1.15;margin-bottom:var(--space-lg);">{{ .headline }}</h2>
+        <p style="color:rgba(250,250,248,0.65);font-size:15px;line-height:1.75;margin-bottom:var(--space-xl);">{{ .description }}</p>
+        <div class="custom-software-price">
+          <span class="pricing-currency" style="color:rgba(250,250,248,0.4);">$</span>
+          <span class="pricing-amount" style="color:var(--snow);">{{ .buildPrice }}</span>
+        </div>
+        <div class="pricing-monthly" style="color:rgba(250,250,248,0.45);margin-bottom:var(--space-2xl);">+ ${{ .monthlyPrice }}/mo if ongoing support needed</div>
+        <a href="/contact-us/?service=custom-software" class="btn btn-amber" style="justify-content:center;">{{ .cta }}</a>
+      </div>
+
+      <div class="custom-software-features">
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:var(--space-lg);">
+          {{ range .features }}
+          <li style="color:rgba(250,250,248,0.65);font-size:15px;line-height:1.75;padding-left:var(--space-lg);border-left:2px solid var(--amber);">{{ . }}</li>
+          {{ end }}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{- /* ====================================================
+     Fine Print
+     ==================================================== */}}
+<section class="section" style="padding:var(--space-2xl) 0;">
+  <div class="container container--narrow">
+    <p class="pricing-note" style="text-align:center;border-left:none;padding-left:0;">*Unlimited edits covers text updates, image swaps, and minor layout adjustments. New pages, structural redesigns, and third-party integrations are quoted separately.</p>
+  </div>
+</section>
+
+{{- /* ====================================================
+     FAQ
+     ==================================================== */}}
 <section class="section section-alt">
   <div class="container container--narrow">
     <div class="section-header">
