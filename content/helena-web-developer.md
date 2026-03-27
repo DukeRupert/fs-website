@@ -1,6 +1,6 @@
 ---
 title: "Web Developer in Helena, MT — Firefly Software"
-description: "Helena's local web developer. Custom websites for small businesses — $500 build + $35/mo hosting. No templates, no overseas teams. Call (406) 871-9875."
+description: "Helena's local web developer. Custom websites for small businesses — hosting and support included. No templates, no overseas teams. Call (406) 871-9875."
 type: page
 layout: location
 kicker: "Helena, Montana"
@@ -43,11 +43,11 @@ Every website we build comes with everything you need to get online and stay onl
 
 ## Straightforward Pricing
 
-We keep it simple. A new website starts at **$500 for the build** and **$35/mo for hosting, support, and unlimited edits**. That's less than most businesses pay for Wix or Squarespace — and you get a site that's actually built for you.
+We keep it simple. Every project gets a real quote up front — no hourly surprises, no hidden fees. Hosting, support, and unlimited edits are included with every website.
 
-Already have a website that needs work? Our [Site Rescue](/site-rescue/) service handles fixes starting at $75 with flat-rate quotes.
+Already have a website that needs work? Our [Site Rescue](/site-rescue/) service handles fixes with flat-rate quotes.
 
-Need something more complex — a booking system, a custom dashboard, an internal tool? Our [Custom Software](/custom-software/) service starts with a $250 discovery session to scope the project.
+Need something more complex — a booking system, a custom dashboard, an internal tool? Our [Custom Software](/custom-software/) service starts with a discovery session to scope the project.
 
 ## Let's Talk
 

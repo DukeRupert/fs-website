@@ -32,7 +32,7 @@ Here's the simplest way to think about website ROI. Ask yourself: what's one new
 
 If you're a contractor, one new kitchen remodel might be $15,000-40,000. A plumber, one new service call might be $200-500. A music teacher, one new student might be $150/month for a year — $1,800. A landscaping company, one new weekly maintenance contract might be $200/month for eight months — $1,600.
 
-Now compare that to what you're paying for your website. A professionally built site might cost $500-2,000 to build and $35/month to maintain. That's roughly $400-900 for the first year, and $420 each year after that.
+Now compare that to what you're paying for your website. A professionally built site costs a fraction of what one new customer is worth — and it keeps working for you month after month.
 
 If your website brings in one extra customer per month — just one — you're looking at returns that would make any investment advisor jealous. A contractor's website pays for itself with a fraction of one job. A music teacher's site pays for itself in two months of one new student.
 

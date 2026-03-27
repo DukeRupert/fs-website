@@ -14,19 +14,14 @@
   <div class="container">
     <p class="section-label">Website Packages</p>
     <div class="section-header" style="text-align:left;margin-bottom:var(--space-2xl);">
-      <h2>One build fee. One monthly rate. No surprises.</h2>
-      <p style="margin-left:0;">Hosting, support, and unlimited edits* included in every tier.</p>
+      <h2>Simple plans. Honest pricing.</h2>
+      <p style="margin-left:0;">Hosting, support, and unlimited edits* included in every tier. Contact us for a quote tailored to your project.</p>
     </div>
     <div class="pricing-grid">
       {{ range .Site.Data.pricing.tiers }}
       <div class="pricing-card{{ if .featured }} pricing-card--featured{{ end }}">
         {{ if .featured }}<div class="pricing-badge">Most Popular</div>{{ end }}
         <div class="pricing-name">{{ .name }}</div>
-        <div class="pricing-price">
-          {{ with .pricePrefix }}<span class="pricing-prefix">{{ . }}</span> {{ end }}<span class="pricing-currency">$</span>
-          <span class="pricing-amount">{{ .buildPrice }}</span>
-        </div>
-        <div class="pricing-monthly">+ ${{ .monthlyPrice }}/mo hosting &amp; support</div>
         <p class="pricing-description">{{ .description }}</p>
         <ul class="pricing-features" aria-label="{{ .name }} plan features">
           {{ range .features }}
@@ -56,9 +51,6 @@
       {{ range . }}
       <div class="pricing-card" style="border:1px solid var(--granite-dk);">
         <div class="pricing-name">{{ .name }}</div>
-        <div class="pricing-price">
-          <span class="pricing-amount">{{ .price }}</span>
-        </div>
         <p class="pricing-description">{{ .description }}</p>
         <ul class="pricing-features" aria-label="{{ .name }} features">
           {{ range .features }}
@@ -97,12 +89,7 @@
       <div class="custom-software-pitch">
         <h2 style="color:var(--snow);font-size:clamp(28px, 3.5vw, 42px);line-height:1.15;margin-bottom:var(--space-lg);">{{ .headline }}</h2>
         <p style="color:rgba(250,250,248,0.65);font-size:15px;line-height:1.75;margin-bottom:var(--space-xl);">{{ .description }}</p>
-        <div class="custom-software-price">
-          <span class="pricing-currency" style="color:rgba(250,250,248,0.4);">$</span>
-          <span class="pricing-amount" style="color:var(--snow);">{{ .buildPrice }}</span>
-        </div>
-        <div class="pricing-monthly" style="color:rgba(250,250,248,0.45);margin-bottom:var(--space-2xl);">+ ${{ .monthlyPrice }}/mo if ongoing support needed</div>
-        <a href="/contact-us/?service=custom-software" class="btn btn-amber" style="justify-content:center;">{{ .cta }}</a>
+        <a href="/contact-us/?service=custom-software" class="btn btn-amber" style="justify-content:center;margin-top:var(--space-xl);">{{ .cta }}</a>
       </div>
 
       <div class="custom-software-features">
@@ -144,10 +131,10 @@
       </details>
       <details style="background:var(--snow);border:1px solid var(--granite-dk);padding:var(--space-lg);cursor:pointer;">
         <summary style="font-weight:600;color:var(--ink);list-style:none;display:flex;justify-content:space-between;align-items:center;">
-          What is included in the monthly price?
+          What is included in the monthly rate?
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
-        <p style="margin-top:var(--space-md);color:var(--ink-faded);">Hosting, SSL certificate, unlimited content edits, direct support, and ongoing maintenance. Everything you need to keep your site running. No hidden fees.</p>
+        <p style="margin-top:var(--space-md);color:var(--ink-faded);">Hosting, SSL certificate, unlimited content edits, direct support, and ongoing maintenance. Everything you need to keep your site running. We'll walk through the details when we talk about your project.</p>
       </details>
       <details style="background:var(--snow);border:1px solid var(--granite-dk);padding:var(--space-lg);cursor:pointer;">
         <summary style="font-weight:600;color:var(--ink);list-style:none;display:flex;justify-content:space-between;align-items:center;">

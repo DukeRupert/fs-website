@@ -1,6 +1,6 @@
 ---
 title: "Montana Web Design — Firefly Software"
-description: "Montana-based web developer serving small businesses statewide. Custom websites from $500, hosting from $35/mo. Based in Helena, building for businesses across Montana."
+description: "Montana-based web developer serving small businesses statewide. Custom websites with hosting and support included. Based in Helena, building for businesses across Montana."
 type: page
 layout: location
 kicker: "Statewide Service"
@@ -48,13 +48,13 @@ Every website we build comes standard with:
 
 ## Pricing That Makes Sense
 
-A new custom website starts at **$500 for the build** and **$35/mo for hosting, support, and unlimited edits**. That's comparable to what you'd pay for a DIY builder like Wix — except you get a site that's actually custom-built for your business.
+Every project gets a real quote up front — no hourly surprises, no hidden fees. Hosting, support, and unlimited edits are included with every website.
 
-Need a fix on an existing site? Our [Site Rescue](/site-rescue/) service starts at $75 with flat-rate pricing.
+Need a fix on an existing site? Our [Site Rescue](/site-rescue/) service offers flat-rate quotes.
 
-Have something bigger in mind — an internal tool, a booking system, a custom dashboard? Our [Custom Software](/custom-software/) service begins with a $250 discovery session.
+Have something bigger in mind — an internal tool, a booking system, a custom dashboard? Check out our [Custom Software](/custom-software/) service.
 
-View all options on our [pricing page](/pricing/).
+[Get in touch](/contact-us/) and we'll walk you through the details.
 
 ## Let's Build Something
 

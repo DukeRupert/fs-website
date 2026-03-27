@@ -1,6 +1,6 @@
 ---
 title: "Pricing — Firefly Software"
-description: "Transparent pricing for websites, site fixes, and custom software. Websites from $500 + $35/mo, site rescue from $75, custom software discovery from $250."
+description: "Transparent pricing for websites, site fixes, and custom software. Every project gets a real quote up front — no hourly surprises, no hidden fees."
 type: page
 layout: pricing
 ---
