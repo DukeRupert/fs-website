@@ -1556,13 +1556,36 @@ p:last-child { margin-bottom: 0; }
   max-width: 130px;
   object-fit: contain;
   filter: grayscale(100%);
-  opacity: 0.5;
+  opacity: 0.4;
   transition: filter 0.4s ease, opacity 0.4s ease;
+  animation: logo-glow 24s ease-in-out infinite;
+}
+
+/* Stagger out of order — glow jumps around the grid like fireflies */
+.logo-cloud-item:nth-child(1) img { animation-delay: 0s; }    /* top-left     */
+.logo-cloud-item:nth-child(2) img { animation-delay: 8s; }    /* top-mid-left */
+.logo-cloud-item:nth-child(3) img { animation-delay: 16s; }   /* top-mid-right*/
+.logo-cloud-item:nth-child(4) img { animation-delay: 4s; }    /* top-right    */
+.logo-cloud-item:nth-child(5) img { animation-delay: 12s; }   /* bot-left     */
+.logo-cloud-item:nth-child(6) img { animation-delay: 2.5s; }  /* bot-mid-left */
+.logo-cloud-item:nth-child(7) img { animation-delay: 10.5s; } /* bot-mid-right*/
+.logo-cloud-item:nth-child(8) img { animation-delay: 6s; }    /* bot-right    */
+
+@keyframes logo-glow {
+  0%, 6%   { filter: grayscale(100%); opacity: 0.4; }
+  9%       { filter: grayscale(0%);   opacity: 1;   }
+  15%      { filter: grayscale(100%); opacity: 0.4; }
+  100%     { filter: grayscale(100%); opacity: 0.4; }
 }
 
 .logo-cloud-item:hover img {
   filter: grayscale(0%);
   opacity: 1;
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-cloud-item img { animation: none; }
 }
 
 /* -- Portfolio list page (3-column layout) -------------------------------- */
