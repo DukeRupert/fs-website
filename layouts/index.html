@@ -323,152 +323,21 @@
 </section>
 
 {{- /* ====================================================
-     PORTFOLIO SHOWCASE — trust strip with screenshots
+     LOGO CLOUD — static trust strip
      ==================================================== */}}
-<section class="section" id="portfolio" style="padding:var(--space-3xl) 0;">
+<section class="section" id="portfolio" style="padding:var(--space-2xl) 0;">
   <div class="container">
-    <div class="section-header">
-      <h2>Trusted by businesses<br>across Montana and beyond.</h2>
-      <p>Hand-built websites for real companies. Every site custom-coded, zero templates.</p>
-    </div>
-
-    {{- /* Screenshot showcase — swaps with active logo */}}
-    {{ $first := index .Site.Data.portfolio.projects 0 }}
-    <div class="portfolio-showcase">
-      <div class="portfolio-showcase-screens">
-        <div class="portfolio-showcase-desktop">
-          <img id="showcase-desktop" src="{{ $first.splash }}" alt="{{ $first.name }} desktop screenshot" width="800" height="450" loading="lazy">
-        </div>
-        <div class="portfolio-showcase-mobile">
-          <img id="showcase-mobile" src="{{ $first.mobile }}" alt="{{ $first.name }} mobile screenshot" width="200" height="400" loading="lazy">
-        </div>
-      </div>
-    </div>
-
-    <div class="logo-bar" id="logo-bar">
+    <p class="section-label">Built for</p>
+    <div class="logo-cloud">
       {{ range .Site.Data.portfolio.projects }}
-      <a href="/portfolio/{{ .slug }}/" class="logo-bar-item" title="{{ .name }}" data-splash="{{ .splash }}" data-mobile="{{ .mobile }}">
-        <img
-          src="{{ .logo }}"
-          alt="{{ .name }} logo"
-          width="140"
-          height="80"
-          loading="lazy"
-        >
-        <span class="logo-bar-label">{{ .name }}</span>
+      <a href="/portfolio/{{ .slug }}/" class="logo-cloud-item" title="{{ .name }}">
+        <img src="{{ .logo }}" alt="{{ .name }}" width="140" height="60" loading="lazy">
       </a>
       {{ end }}
     </div>
-
-    <div style="text-align:center;margin-top:var(--space-md);">
-      <button
-        id="showcase-pause"
-        class="carousel-pause"
-        aria-label="Pause portfolio slideshow"
-        type="button"
-      >
-        <svg id="pause-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
-        <svg id="play-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" style="display:none;"><polygon points="6,4 20,12 6,20"/></svg>
-      </button>
+    <div style="text-align:center;margin-top:var(--space-xl);">
+      <a href="/portfolio/" class="btn btn-outline">See our work</a>
     </div>
-
-    <script>
-      (function() {
-        var items = document.querySelectorAll('#logo-bar .logo-bar-item');
-        var desktopImg = document.getElementById('showcase-desktop');
-        var mobileImg = document.getElementById('showcase-mobile');
-        var pauseBtn = document.getElementById('showcase-pause');
-        var pauseIcon = document.getElementById('pause-icon');
-        var playIcon = document.getElementById('play-icon');
-        if (!items.length || !desktopImg || !mobileImg) return;
-
-        var current = 0;
-        var timer = null;
-        var paused = false;
-        items[0].classList.add('logo-bar-item--active');
-
-        function showProject(index) {
-          items[current].classList.remove('logo-bar-item--active');
-          current = index;
-          items[current].classList.add('logo-bar-item--active');
-          var splash = items[current].getAttribute('data-splash');
-          var mobile = items[current].getAttribute('data-mobile');
-
-          desktopImg.style.opacity = '0';
-          mobileImg.style.opacity = '0';
-
-          setTimeout(function() {
-            var loaded = 0;
-            function fadeIn() {
-              loaded++;
-              if (loaded < 2) return;
-              desktopImg.style.opacity = '1';
-              mobileImg.style.opacity = '1';
-            }
-            desktopImg.onload = fadeIn;
-            mobileImg.onload = fadeIn;
-            desktopImg.alt = items[current].title + ' desktop screenshot';
-            mobileImg.alt = items[current].title + ' mobile screenshot';
-            if (splash) desktopImg.src = splash;
-            if (mobile) mobileImg.src = mobile;
-          }, 400);
-        }
-
-        function startTimer() {
-          timer = setInterval(function() {
-            showProject((current + 1) % items.length);
-          }, 3000);
-        }
-
-        function stopTimer() {
-          clearInterval(timer);
-          timer = null;
-        }
-
-        function updatePauseBtn() {
-          if (paused) {
-            pauseIcon.style.display = 'none';
-            playIcon.style.display = '';
-            pauseBtn.setAttribute('aria-label', 'Play portfolio slideshow');
-          } else {
-            pauseIcon.style.display = '';
-            playIcon.style.display = 'none';
-            pauseBtn.setAttribute('aria-label', 'Pause portfolio slideshow');
-          }
-        }
-
-        // Skip auto-rotation if user prefers reduced motion
-        var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if (!prefersReduced) {
-          startTimer();
-        } else {
-          paused = true;
-          updatePauseBtn();
-        }
-
-        if (pauseBtn) {
-          pauseBtn.addEventListener('click', function() {
-            paused = !paused;
-            if (paused) {
-              stopTimer();
-            } else {
-              startTimer();
-            }
-            updatePauseBtn();
-          });
-        }
-
-        items.forEach(function(item, i) {
-          item.addEventListener('click', function(e) {
-            e.preventDefault();
-            stopTimer();
-            paused = true;
-            updatePauseBtn();
-            showProject(i);
-          });
-        });
-      })();
-    </script>
   </div>
 </section>
 

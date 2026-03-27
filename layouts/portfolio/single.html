@@ -24,9 +24,9 @@
         src="{{ . }}"
         alt="{{ $project.name }} logo"
         width="120"
-        height="60"
+        height="{{ if $project.logoRound }}120{{ else }}60{{ end }}"
         loading="eager"
-        style="max-height:60px;width:auto;object-fit:contain;margin-bottom:var(--space-xl);background:var(--granite);padding:var(--space-sm) var(--space-md);"
+        style="max-height:{{ if $project.logoRound }}80px;width:80px{{ else }}60px;width:auto{{ end }};object-fit:contain;margin-bottom:var(--space-xl);background:var(--granite);padding:var(--space-sm){{ if not $project.logoRound }} var(--space-md){{ end }};{{ if $project.logoRound }}border-radius:50%;{{ end }}"
       >
       {{ end }}
       <h1 style="color:white;">{{ .Title }}</h1>

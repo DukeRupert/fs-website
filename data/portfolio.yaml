@@ -32,6 +32,7 @@ projects:
     splash: /images/portfolio/nautilus_splash.webp
     mobile: /images/portfolio/nautilus_mobile.webp
     logo: /images/portfolio/nautilus_logo.webp
+    logoRound: true
 
   - slug: 406-records
     name: 406 Records
