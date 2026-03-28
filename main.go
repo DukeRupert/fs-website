@@ -122,6 +122,14 @@ func main() {
 	mux.HandleFunc("GET /portfolio", handlers.Redirect301("/work"))
 	mux.HandleFunc("GET /contact-us/", handlers.Redirect301("/contact"))
 	mux.HandleFunc("GET /contact-us", handlers.Redirect301("/contact"))
+	mux.HandleFunc("GET /website-development/", handlers.Redirect301("/services/websites"))
+	mux.HandleFunc("GET /website-development", handlers.Redirect301("/services/websites"))
+	mux.HandleFunc("GET /custom-software/", handlers.Redirect301("/services/software"))
+	mux.HandleFunc("GET /custom-software", handlers.Redirect301("/services/software"))
+	mux.HandleFunc("GET /helena-web-developer/", handlers.Redirect301("/"))
+	mux.HandleFunc("GET /helena-web-developer", handlers.Redirect301("/"))
+	mux.HandleFunc("GET /montana-web-design/", handlers.Redirect301("/"))
+	mux.HandleFunc("GET /montana-web-design", handlers.Redirect301("/"))
 
 	// Middleware stack: logging → recovery → mux
 	var handler http.Handler = mux

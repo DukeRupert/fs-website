@@ -76,7 +76,7 @@ func (ph *PostHandler) HandlePost(w http.ResponseWriter, r *http.Request) {
 	}
 
 	data := PostData{
-		PageData: NewPageData(post.Title, post.Description, ph.site),
+		PageData: NewPageData(post.Title+" — Firefly Software", post.Description, ph.site),
 		Post:     post,
 	}
 	ph.renderer.Render(w, r, "post", data)
@@ -92,7 +92,7 @@ func (ph *PostHandler) HandlePostList(w http.ResponseWriter, r *http.Request) {
 	}
 
 	data := PostListData{
-		PageData: NewPageData("Posts", "Articles about web development, small business, and technology.", ph.site),
+		PageData: NewPageData("Posts — Firefly Software", "Articles about web development, small business, and technology.", ph.site),
 		Posts:    posts,
 	}
 	ph.renderer.Render(w, r, "posts", data)
