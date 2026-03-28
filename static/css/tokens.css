@@ -267,6 +267,22 @@ body {
   opacity: 1;
 }
 
+/* Home page — three-card grid */
+.home-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+/* Home page — testimonials grid */
+.home-testimonials {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
 /* Form fields */
 .form-field {
   display: block;
@@ -651,5 +667,14 @@ body {
   .footer__bottom {
     flex-direction: column;
     text-align: center;
+  }
+
+  /* Home page: stack cards and testimonials */
+  .home-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .home-testimonials {
+    grid-template-columns: 1fr;
   }
 }
