@@ -1,9 +1,9 @@
 .PHONY: dev dev-css dev-server build build-css clean
 
 # Run Tailwind watcher and Go server in parallel
-dev:
-	@echo "Starting dev server..."
-	@make dev-css &
+dev: build-css
+	@echo "Starting Tailwind watcher + Go server..."
+	@npx @tailwindcss/cli -i static/css/input.css -o static/css/output.css --watch &
 	@DEV_MODE=true API_PORT=8080 go run .
 
 # Tailwind CSS watcher
