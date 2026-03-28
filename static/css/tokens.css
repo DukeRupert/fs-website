@@ -91,3 +91,284 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* ============================================================
+   Reusable Components
+   ============================================================ */
+
+/* Primary Button — accent border, transparent fill */
+.btn-primary {
+  display: inline-block;
+  border: 1px solid var(--color-accent);
+  color: var(--color-accent);
+  background: transparent;
+  padding: 0.75rem 1.75rem;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  letter-spacing: 0.02em;
+  border-radius: var(--border-radius-card);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.btn-primary:hover {
+  background: var(--color-accent);
+  color: var(--color-dark-bg);
+}
+
+/* Secondary Button / Link — plain text with arrow */
+.btn-secondary {
+  display: inline-block;
+  color: var(--color-light-text);
+  background: none;
+  border: none;
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.btn-secondary:hover {
+  color: var(--color-accent);
+}
+
+/* Secondary on dark backgrounds */
+.btn-secondary--dark {
+  color: var(--color-dark-text);
+}
+
+.btn-secondary--dark:hover {
+  color: var(--color-accent);
+}
+
+/* Section Label — small Bebas Neue all-caps */
+.section-label {
+  font-family: var(--font-display);
+  font-size: 0.8125rem;
+  color: var(--color-accent);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+/* Dark Card — elevated card on dark surface */
+.card-dark {
+  background: var(--color-dark-surface);
+  border: 1px solid var(--color-dark-border);
+  border-radius: var(--border-radius-card);
+  padding: 2.5rem;
+  color: var(--color-dark-text);
+}
+
+/* Light Card — white surface with warm border */
+.card-light {
+  background: var(--color-light-surface);
+  border: 1px solid var(--color-light-border);
+  border-radius: var(--border-radius-card);
+  transition: border-color 0.15s, transform 0.15s;
+}
+
+.card-light:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+/* Accent Aside — left border accent block */
+.aside-accent {
+  border-left: 3px solid var(--color-accent);
+  padding-left: 1.5rem;
+  margin: 2.5rem 0;
+}
+
+/* Testimonial Card */
+.card-testimonial {
+  background: var(--color-light-surface);
+  border-left: 3px solid var(--color-accent);
+  border-radius: var(--border-radius-card);
+  padding: 1.5rem;
+}
+
+/* Content wrapper — consistent max-width + padding */
+.content-wrap {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Narrow content column for body text */
+.content-narrow {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Section spacing */
+.section {
+  padding: var(--section-padding-y) 0;
+}
+
+.section--dark {
+  background: var(--color-dark-bg);
+  color: var(--color-dark-text);
+}
+
+.section--light {
+  background: var(--color-light-bg);
+  color: var(--color-light-text);
+}
+
+/* Hero section base */
+.hero {
+  background: var(--color-dark-bg);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero--short {
+  min-height: 50vh;
+}
+
+/* Hero headline fade-up animation */
+.hero-headline {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: hero-fade-up 0.6s ease-out forwards;
+}
+
+@keyframes hero-fade-up {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Dark-to-light gradient transition */
+.gradient-transition {
+  height: 80px;
+  background: linear-gradient(to bottom, var(--color-dark-bg), var(--color-light-bg));
+}
+
+/* Logo strip — grayscale with hover color */
+.logo-strip img {
+  filter: grayscale(1);
+  opacity: 0.5;
+  transition: filter 0.2s, opacity 0.2s;
+}
+
+.logo-strip img:hover {
+  filter: grayscale(0);
+  opacity: 1;
+}
+
+/* Form fields */
+.form-field {
+  display: block;
+  width: 100%;
+  background: var(--color-light-surface);
+  border: 1px solid var(--color-light-border);
+  border-radius: var(--border-radius-card);
+  padding: 0.75rem 1rem;
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  color: var(--color-light-text);
+  transition: border-color 0.15s;
+}
+
+.form-field:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+.form-label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
+  color: var(--color-light-muted);
+  margin-bottom: 0.375rem;
+}
+
+/* Blog post content styles */
+.post-content h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-h2);
+  color: var(--color-light-text);
+  margin: 2rem 0 0.75rem;
+}
+
+.post-content h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--color-light-text);
+  margin: 1.5rem 0 0.5rem;
+}
+
+.post-content p {
+  margin-bottom: 1rem;
+}
+
+.post-content ul,
+.post-content ol {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+.post-content li {
+  margin-bottom: 0.375rem;
+}
+
+.post-content a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.post-content a:hover {
+  color: var(--color-light-text);
+}
+
+.post-content blockquote {
+  border-left: 3px solid var(--color-accent);
+  padding-left: 1.5rem;
+  margin: 1.5rem 0;
+  color: var(--color-light-muted);
+  font-style: italic;
+}
+
+.post-content code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  background: var(--color-light-surface);
+  border: 1px solid var(--color-light-border);
+  border-radius: 2px;
+  padding: 0.125em 0.375em;
+}
+
+.post-content pre {
+  background: var(--color-dark-bg);
+  color: var(--color-dark-text);
+  border-radius: var(--border-radius-card);
+  padding: 1.5rem;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+}
+
+.post-content pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+}
+
+/* Responsive section padding */
+@media (max-width: 768px) {
+  :root {
+    --section-padding-y: 4.5rem;
+  }
+}
