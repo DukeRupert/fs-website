@@ -7,7 +7,7 @@
     --color-dark-surface:   #161810;
     --color-dark-border:    #2A2D26;
     --color-dark-text:      #F0EDE6;
-    --color-dark-muted:     #8A8C82;
+    --color-dark-muted:     #A3A59B;
 
     /* Light palette */
     --color-light-bg:       #F7F5F0;
@@ -134,24 +134,34 @@ body {
   color: var(--color-accent);
 }
 
-/* Secondary on dark backgrounds */
+/* Secondary on dark backgrounds — underline for affordance */
 .btn-secondary--dark {
   color: var(--color-dark-text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--color-dark-border);
+  transition: color 0.15s, text-decoration-color 0.15s;
 }
 
 .btn-secondary--dark:hover {
   color: var(--color-accent);
+  text-decoration-color: var(--color-accent);
 }
 
 /* Section Label — small Bebas Neue all-caps */
 .section-label {
   font-family: var(--font-display);
   font-size: 0.8125rem;
-  color: var(--color-accent);
+  color: var(--color-light-muted);
   letter-spacing: 0.15em;
   text-transform: uppercase;
   display: block;
   margin-bottom: 0.75rem;
+}
+
+/* Accent label — on dark backgrounds or for emphasis */
+.section-label--accent {
+  color: var(--color-accent);
 }
 
 /* Dark Card — elevated card on dark surface */
@@ -183,12 +193,17 @@ body {
   margin: 2.5rem 0;
 }
 
-/* Testimonial Card */
+/* Testimonial Card — grey border, accent on hover */
 .card-testimonial {
   background: var(--color-light-surface);
-  border-left: 3px solid var(--color-accent);
+  border-left: 3px solid var(--color-light-border);
   border-radius: var(--border-radius-card);
   padding: 1.5rem;
+  transition: border-color 0.15s;
+}
+
+.card-testimonial:hover {
+  border-color: var(--color-accent);
 }
 
 /* Content wrapper — consistent max-width + padding */
@@ -220,10 +235,66 @@ body {
   color: var(--color-light-text);
 }
 
-/* Hero section base */
+/* Extracted component classes — replace inline styles */
+
+.heading-card {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--color-light-text);
+  margin: 0 0 0.75rem;
+  text-transform: uppercase;
+}
+
+.heading-section {
+  font-family: var(--font-display);
+  font-size: var(--text-h1);
+  color: var(--color-dark-text);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.heading-section--light {
+  color: var(--color-light-text);
+}
+
+.text-subhead {
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  color: var(--color-dark-muted);
+  max-width: 560px;
+}
+
+.text-subhead--light {
+  color: var(--color-light-muted);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  color: var(--color-accent);
+  letter-spacing: 0.2em;
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+.coordinates {
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  color: var(--color-dark-muted);
+}
+
+.cta-group {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Hero section base — account for fixed nav offset */
 .hero {
   background: var(--color-dark-bg);
-  min-height: 100vh;
+  min-height: calc(100vh - 4rem);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -255,8 +326,21 @@ body {
   background: linear-gradient(to bottom, var(--color-dark-bg), var(--color-light-bg));
 }
 
-/* Logo strip — grayscale with hover color */
+/* Logo strip — grayscale with hover color, normalized sizing */
+.logo-strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
 .logo-strip img {
+  max-height: 36px;
+  min-width: 48px;
+  width: auto;
+  object-fit: contain;
   filter: grayscale(1);
   opacity: 0.5;
   transition: filter 0.2s, opacity 0.2s;
@@ -357,12 +441,29 @@ body {
   margin-top: 1.5rem;
 }
 
-/* Home page — testimonials grid */
+/* Home page — featured testimonial layout */
 .home-testimonials {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   gap: 1.5rem;
   margin-top: 1.5rem;
+}
+
+/* Featured (first) testimonial — larger, more prominent */
+.card-testimonial--featured {
+  padding: 2.5rem;
+}
+
+.card-testimonial--featured .testimonial-quote {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+/* Supporting testimonials side by side below the featured one */
+.home-testimonials__supporting {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
 }
 
 /* Form fields */
@@ -777,7 +878,54 @@ body {
     grid-template-columns: 1fr;
   }
 
-  .home-testimonials {
+  .home-testimonials__supporting {
     grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   Focus-visible — keyboard navigation affordance
+   ============================================================ */
+
+.btn-primary:focus-visible,
+.btn-secondary:focus-visible,
+.btn-secondary--dark:focus-visible,
+.nav__link:focus-visible,
+.nav__dropdown-item:focus-visible,
+.nav__overlay-link:focus-visible,
+.footer__link:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.form-field:focus-visible {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 1px var(--color-accent);
+}
+
+/* ============================================================
+   Reduced motion — respect user preference
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .hero-headline {
+    opacity: 1;
+    transform: none;
+    animation: none;
   }
 }

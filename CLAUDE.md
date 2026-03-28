@@ -4,112 +4,157 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Firefly Software company website — Hugo static site + Go contact form API + Docker + Caddy.
+Firefly Software company website — Go server with `html/template` + Tailwind CSS v4 + Alpine.js + Docker + Caddy.
 
 **Architecture:**
 ```
 Internet → Outer Caddy (HTTPS/TLS on VPS) → Docker Container (HTTP on configurable port)
-                                                ├── Inner Caddy (/api/* reverse proxy + static files)
-                                                └── Go API (contact form on localhost:8080)
+                                                ├── Caddy (port 80, reverse proxy + compression + headers)
+                                                └── Go Server (port 8080)
+                                                    ├── html/template page rendering
+                                                    ├── Static file serving (/static/*)
+                                                    ├── Contact form API (POST /api/contact)
+                                                    ├── Blog post rendering (goldmark markdown)
+                                                    └── 301 redirects for old routes
 ```
 
-The Docker image is a three-stage build: Hugo (static site) → Go (API binary) → Caddy (runtime). The entrypoint script starts the Go API in the background, waits for its health check, then runs Caddy.
+The Docker image is a three-stage build: Tailwind CSS (Node) → Go (server binary) → Caddy (runtime). The entrypoint script starts the Go server in the background, waits for its health check, then runs Caddy.
 
 ## Commands
 
 ```bash
-# Hugo dev server
-hugo server -D                            # http://localhost:1313
+# Dev server (Tailwind watcher + Go server)
+make dev                                  # http://localhost:8080
 
-# Go API (separate terminal, for contact form testing)
-cd api && go run main.go                  # localhost:8080
+# Go server only (no CSS watcher)
+make dev-server                           # localhost:8080
+
+# Tailwind CSS watcher only
+make dev-css
+
+# Production CSS build
+make build-css
+
+# Production binary
+make build                                # Outputs: ./fs-website
 
 # Full stack via Docker
 docker compose up --build                 # localhost:3000
-
-# Production build
-hugo --gc --minify                        # Output: public/
 ```
 
 ## Key Conventions
 
 ### Business Data
 
-Never hardcode phone numbers, addresses, emails, or hours in templates. All business data lives in `hugo.toml` under `[params]`. Access via `.Site.Params.*` in templates.
+Phone number, email, and site metadata are defined in `handlers/middleware.go` via `NewSiteData()`. Access via `.Site.*` or `.Phone` / `.Email` in templates.
 
-### Design System — "Montana Utility × Wilderness Wonder"
+### Design System — "Precision Instrument"
 
-The visual language uses sharp corners, warm earth tones, and night-sky atmosphere. Key rules:
+The visual language is restrained, technically confident, and warm without being rustic. Think "well-made tool" — everything is exactly where it needs to be and nothing is there for decoration. The one decorative exception: the firefly glow accent (`#C8F060`), which should feel earned when it appears.
 
-- **Zero `border-radius` everywhere** — no rounded corners on cards, buttons, inputs, badges, or any UI element. The only exception is circles (firefly dots, progress pips).
-- **Never use `#000000` or `#ffffff`** — use `--midnight`/`--navy` for darks, `--snow`/`--granite` for lights.
-- **2px gap grid pattern** — signature detail. Set `gap: 2px` on grid containers with background color matching the divider color (`--granite-dk` on light, `--midnight` on dark). Cards fill the cells.
-- **Inline SVG only** — no icon font libraries, no external icon CDNs. Icons are stroke-only (`stroke-width: 1.5`, `fill: none`).
-- **No heavy animations** — motion is limited to fades, 1-2px translates, and scaleX for hover bars. No bounce, spring, or slide-in effects.
+Key rules:
+
+- **Max `4px` border-radius** — only on cards and form fields. No large rounded corners.
+- **No drop shadows** — shadows make things look like web templates.
+- **No stock photography** — typography does the work.
+- **Accent color is never a background fill** — only text, borders, underlines, hover states.
+- **One accent moment per section maximum** — restraint makes the glow impactful.
+- **Inline SVG only** — no icon font libraries, no external icon CDNs.
 
 ### Color Tokens
 
-All colors are CSS custom properties on `:root` in `assets/css/main.css`. Primary accent colors:
+All colors are CSS custom properties on `:root` in `static/css/tokens.css`:
+
+**Dark palette (hero, nav, footer, CTA sections):**
 
 | Token | Hex | Use |
 |---|---|---|
-| `--rust` | `#8B3A1A` | Primary actions, buttons, links |
-| `--ember` | `#C4581A` | Hover states, warm sunrise accent |
-| `--amber` | `#E8922A` | Highlights, warm glow, dark section accents |
-| `--pine` | `#2C4A2E` | Secondary actions, success states |
-| `--midnight` | `#0A0E18` | Deepest dark backgrounds |
-| `--navy` | `#0F1628` | Nav, footer, dark sections |
-| `--granite` | `#F0EDE8` | Page background |
-| `--snow` | `#FAFAF8` | Card surfaces |
-| `--ink` | `#1A1A18` | Body text, headings |
+| `--color-dark-bg` | `#0E0F0D` | Near-black with warm undertone |
+| `--color-dark-surface` | `#161810` | Cards, nav, elevated elements |
+| `--color-dark-border` | `#2A2D26` | Subtle dividers |
+| `--color-dark-text` | `#F0EDE6` | Warm off-white primary text |
+| `--color-dark-muted` | `#8A8C82` | Secondary/muted text |
+
+**Light palette (body sections):**
+
+| Token | Hex | Use |
+|---|---|---|
+| `--color-light-bg` | `#F7F5F0` | Warm parchment background |
+| `--color-light-surface` | `#FFFFFF` | Cards and elevated elements |
+| `--color-light-border` | `#E2DDD6` | Warm grey borders |
+| `--color-light-text` | `#1A1C18` | Near-black body text |
+| `--color-light-muted` | `#6B6D63` | Secondary/muted text |
+
+**Accent (same in both modes):**
+
+| Token | Hex | Use |
+|---|---|---|
+| `--color-accent` | `#C8F060` | Firefly glow — CTAs, hovers, labels, borders |
 
 ### Typography
 
-Four fonts only — no Inter, Roboto, Arial, or system-ui anywhere:
+Three fonts only — no Inter, Roboto, Arial, or system-ui anywhere:
 
 | Variable | Font | Use |
 |---|---|---|
-| `--font-display` | Playfair Display | Hero titles, section headings |
-| `--font-body` | Libre Baskerville | All body copy |
-| `--font-ui` | Oswald | Buttons, nav, labels, badges |
-| `--font-mono` | Source Code Pro | Metadata, coordinates |
+| `--font-display` | Bebas Neue | Hero titles, section headings, section labels (all caps) |
+| `--font-body` | Instrument Sans | All body copy, buttons, nav links |
+| `--font-mono` | IBM Plex Mono | Coordinates, metadata, code snippets |
+
+Fonts are self-hosted in `static/fonts/` as woff2.
 
 ### CSS
 
-Single file at `assets/css/main.css`, processed via Hugo Pipes (`resources.Get | minify | fingerprint`). No CSS frameworks. Fonts are self-hosted in `static/fonts/` with `@font-face` declarations at the top of `main.css`.
+Tailwind CSS v4 with design tokens in `static/css/tokens.css`. Entry point is `static/css/input.css` which imports Tailwind and tokens. Output goes to `static/css/output.css` (gitignored, built by `make build-css` or the watcher).
+
+Reusable component classes are defined in `tokens.css`: `.btn-primary`, `.btn-secondary`, `.section-label`, `.card-dark`, `.card-light`, `.card-testimonial`, `.aside-accent`, `.hero`, `.hero--short`, `.hero-headline`, `.gradient-transition`, `.logo-strip`, `.form-field`, `.form-label`, `.content-wrap`, `.content-narrow`, `.section`, `.reveal`.
 
 ### JavaScript
 
-Inline only, placed in `{{ define "scripts" }}` blocks at the bottom of page templates. Zero external JS dependencies.
+Alpine.js vendored at `static/js/alpine.min.js`. Used for:
+- Mobile nav open/close and scroll detection
+- Services dropdown
+- Scroll reveal (IntersectionObserver on body element)
+- Contact form state management (idle → loading → success/error)
+
+Page-specific scripts go in `{{ define "scripts" }}` blocks.
 
 ### Templates & Layouts
 
-- **Base template**: `layouts/_default/baseof.html` — defines `head`, `main`, and `scripts` blocks
-- **Page type layouts**: selected via front matter `layout` field (e.g., `layout: contact` maps to `layouts/page/contact.html`)
-- **Service pages**: section pages using `_index.md` with layout in `layouts/[section]/list.html`
+- **Base template**: `templates/base.html` — defines `head`, `nav`, `content`, `footer`, and `scripts` blocks
+- **Partials**: `templates/nav.html`, `templates/footer.html`
+- **Page templates**: `templates/home.html`, `templates/work.html`, `templates/process.html`, `templates/about.html`, `templates/contact.html`, `templates/services-websites.html`, `templates/services-software.html`
+- **Blog**: `templates/post.html` (single), `templates/posts.html` (listing)
 - **Go template tags**: preserve `{{ }}` blocks exactly including interior whitespace — never alter them
 
-### Data Files
+### Go Server
 
-- `data/portfolio.yaml` — portfolio project entries with `slug`, `name`, `category`, `splash`, `logo`, etc. Content body in `content/portfolio/[slug].md`
-- `data/pricing.yaml` — `tiers` array with `name`, `buildPrice`, `monthlyPrice`, `features`, `featured`, `cta`
+`main.go` at repo root — routes, template parsing, Sentry init, middleware stack. `handlers/` package contains:
+- `contact.go` — POST /api/contact with honeypot, Turnstile verification, Postmark email
+- `middleware.go` — CORS, recovery, logging, redirect helpers, PageData/SiteData types
+- `pages.go` — TemplateRenderer with dev-mode hot reload
+- `posts.go` — Blog post markdown rendering with goldmark
 
-### Cloudflare Turnstile
+### Blog Posts
 
-Contact form uses Turnstile for bot protection. For local dev, use Cloudflare's test keys (already set in `hugo.toml`):
-- Site key: `1x00000000000000000000AA` (always passes)
-- Secret: `1x0000000000000000000000000000000AA` (always passes)
+Markdown files in `content/posts/` with YAML front matter. Rendered via goldmark at request time. All internal links point to `/contact-us/` which 301-redirects to `/contact`.
 
-### Go API
+### Motion
 
-`api/main.go` — single external dependency (`sentry-go` for Bugsink error reporting). Handles `POST /api/contact` with honeypot field, Turnstile verification, and Postmark email delivery. Gracefully degrades when `TURNSTILE_SECRET`, `POSTMARK_TOKEN`, or `SENTRY_DSN` are unset (logs instead).
+Restrained. The site should feel fast and deliberate, not animated.
+
+- **Hero headline:** Single fade-up on load, `0.6s ease-out`. Nothing else animates on load.
+- **Scroll reveals:** `.reveal` → `.is-visible` via IntersectionObserver. `opacity 0→1`, `translateY 16px→0`, `0.4s ease-out`. Staggered for card grids.
+- **Hover states:** `0.15s` transition. Fast enough to feel responsive.
+- **No parallax. No looping animations. No cursor effects.**
 
 ## Environment Variables
 
 | Variable | Default | Description |
 |---|---|---|
 | `PORT` | `80` | Caddy listen port inside container |
-| `API_PORT` | `8080` | Go API port (localhost only) |
+| `API_PORT` | `8080` | Go server port |
+| `DEV_MODE` | `false` | Enable template hot reload |
 | `ALLOWED_ORIGIN` | `https://fireflysoftware.dev` | CORS allowed origin |
 | `TURNSTILE_SECRET` | _(empty — skip)_ | Cloudflare Turnstile secret |
 | `POSTMARK_TOKEN` | _(empty — log only)_ | Postmark API token |
@@ -121,6 +166,48 @@ Contact form uses Turnstile for bot protection. For local dev, use Cloudflare's 
 
 ## Deployment
 
-Push to `master` or `main` triggers GitHub Actions (`.github/workflows/deploy.yml`): builds Docker image, pushes to Docker Hub (`dukerupert/fs-website`), SSHes to VPS, pulls and restarts.
+Push to `master` triggers GitHub Actions (`.github/workflows/deploy-prod.yml`): builds Docker image, pushes to Docker Hub (`dukerupert/fs-website`), SSHes to VPS, pulls and restarts.
 
-Required GitHub Secrets: `DOCKERHUB_USERNAME`, `DOCKERHUB_TOKEN`, `PROD_VPS_HOST`, `PROD_VPS_USER`, `PROD_VPS_SSH_KEY`, `PROD_VPS_DEPLOY_PATH`, `PROD_PORT`
+Required GitHub Secrets: `DOCKERHUB_USERNAME`, `DOCKERHUB_TOKEN`, `VPS_HOST`, `PROD_VPS_USER`, `PROD_VPS_SSH_KEY`, `PROD_VPS_DEPLOY_PATH`
+
+## Design Context
+
+### Users
+
+Small business owners evaluating a custom development studio — often arriving cold from search or a referral. Many are coastal (California, Florida, Pacific Northwest) and are comparing Firefly against local agencies or freelancers. They're pragmatic buyers: they want to know what they'll get, what it costs, and whether the people behind the studio can be trusted. They don't want a sales pitch. They want a straight answer.
+
+### Brand Personality
+
+**Precise. Warm. Direct.**
+
+Firefly speaks with quiet confidence — technically excellent but never showy. The tone is first-person plural ("we"), conversational but never casual, and specific rather than aspirational. It reads like a letter from someone who builds things for a living, not a marketing team.
+
+### Aesthetic Direction
+
+**"Precision instrument"** — the visual language of a well-made tool. Dark above the fold (late Montana night sky), warm parchment below. The single decorative moment is the `#C8F060` firefly glow accent against near-black — bioluminescence in a dark field. Everything else exists to not compete with that moment.
+
+**References:** Pared-back product pages (Stripe's developer docs, Linear's marketing site) — confident typography, generous whitespace, zero decoration.
+
+**Anti-references:** Creative agency sites with parallax, animated counters, gradient buttons, purple/teal accents, stock photography hero sections, or mega-menu navigation.
+
+**Theme:** Dark hero → gradient transition → warm light body. Both halves share the same accent color as a thread.
+
+### Emotional Goals
+
+A cold visitor should feel **curiosity and respect** ("this isn't what I expected from a Montana studio") layered with **confidence and calm** ("these people know what they're doing and I can trust them"). The design earns trust through restraint, not through volume.
+
+### Accessibility
+
+Target **WCAG AAA where feasible**. Enhanced contrast ratios, `prefers-reduced-motion` support, keyboard navigation, semantic HTML landmarks, descriptive alt text, associated form labels. Color is never the sole indicator of state.
+
+### Design Principles
+
+1. **Restraint is the design.** Every element earns its place. If it doesn't serve clarity or trust, it doesn't belong. One accent moment per section maximum.
+
+2. **Typography does the work.** No hero images, no stock photography, no illustration beyond the Sleeping Giant texture. Bebas Neue at display size, generous whitespace, and the firefly glow are the entire visual vocabulary.
+
+3. **Warm, not sterile.** Colors have undertones (warm off-white, not clinical white; warm near-black, not blue-black). The site should feel handmade in the best sense — considered, not generated.
+
+4. **Motion is earned.** One fade-up on load. Scroll reveals at 0.4s. Hover states at 0.15s. Nothing bounces, springs, loops, or parallaxes. Speed signals competence.
+
+5. **Accessibility is structural, not decorative.** Semantic HTML, landmark roles, AAA contrast where feasible, reduced-motion support. These aren't features — they're how the site is built.

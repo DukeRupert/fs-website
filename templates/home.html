@@ -9,23 +9,18 @@
        style="position: absolute; bottom: 0; right: 0; opacity: 0.06; pointer-events: none; max-width: 60%; height: auto;">
 
   <div style="max-width: 780px; text-align: center; padding: 0 1.5rem; position: relative; z-index: 1;">
-    <!-- Eyebrow -->
-    <span style="font-family: var(--font-mono); font-size: var(--text-small); color: var(--color-accent); letter-spacing: 0.2em; display: block; margin-bottom: 1.5rem;">FIREFLY SOFTWARE</span>
+    <span class="eyebrow">FIREFLY SOFTWARE</span>
 
-    <!-- Headline -->
     <h1 class="hero-headline" style="font-family: var(--font-display); font-size: var(--text-display); color: var(--color-dark-text); line-height: 0.95; margin: 0 0 1.5rem; text-transform: uppercase;">Your business deserves a website that was actually built for it.</h1>
 
-    <!-- Subhead -->
-    <p style="font-family: var(--font-body); font-size: 1.2rem; color: var(--color-dark-muted); max-width: 560px; margin: 0 auto 2.5rem;">Most aren't. They're assembled from templates, handed off to support teams, and forgotten. We build from scratch — custom code, no page builders — and we stay accountable for what we ship.</p>
+    <p class="text-subhead" style="margin: 0 auto 2.5rem;">Most aren't. They're assembled from templates, handed off to support teams, and forgotten. We build from scratch — custom code, no page builders — and we stay accountable for what we ship.</p>
 
-    <!-- CTAs -->
-    <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+    <div class="cta-group">
       <a href="/contact" class="btn-primary">Start a project</a>
       <a href="/work" class="btn-secondary btn-secondary--dark" style="padding: 0.75rem 0;">See our work &rarr;</a>
     </div>
 
-    <!-- Coordinates -->
-    <p style="font-family: var(--font-mono); font-size: var(--text-small); color: var(--color-dark-muted); margin-top: 5rem;">46.5958&deg;N &middot; 112.0270&deg;W</p>
+    <p class="coordinates" style="margin-top: 5rem;">46.5958&deg;N &middot; 112.0270&deg;W</p>
   </div>
 </section>
 
@@ -54,24 +49,24 @@
   <div class="content-wrap">
     <span class="section-label reveal">WHAT WE BUILD</span>
 
-    <div class="home-cards reveal">
+    <div class="home-cards">
       <!-- Card 1: Websites -->
-      <div class="card-light" style="padding: 2rem;">
-        <h3 style="font-family: var(--font-display); font-size: 1.6rem; color: var(--color-light-text); margin: 0 0 0.75rem; text-transform: uppercase;">A website your business can grow into.</h3>
+      <div class="card-light reveal" style="padding: 2rem;">
+        <h3 class="heading-card">A website your business can grow into.</h3>
         <p style="margin-bottom: 1.5rem;">Custom-built from scratch. Fast, secure, and yours — no platform lock-in, no monthly ransom to a page builder. We handle hosting, maintenance, and edits after launch. If your current site is broken or on a platform you've outgrown, we can fix or replace it.</p>
         <a href="/work" class="btn-secondary">See our website work &rarr;</a>
       </div>
 
       <!-- Card 2: Software -->
-      <div class="card-light" style="padding: 2rem; transition-delay: 0.1s;">
-        <h3 style="font-family: var(--font-display); font-size: 1.6rem; color: var(--color-light-text); margin: 0 0 0.75rem; text-transform: uppercase;">Software that fits the way you actually work.</h3>
+      <div class="card-light reveal" style="padding: 2rem; transition-delay: 0.1s;">
+        <h3 class="heading-card">Software that fits the way you actually work.</h3>
         <p style="margin-bottom: 1.5rem;">Most off-the-shelf tools almost fit. You end up working around the parts that don't — spreadsheets, workarounds, subscriptions that add up. We build custom tools your business owns outright. No recurring fees, no feature you'll never use.</p>
         <a href="/work" class="btn-secondary">See our software work &rarr;</a>
       </div>
 
       <!-- Card 3: Support -->
-      <div class="card-light" style="padding: 2rem; transition-delay: 0.2s;">
-        <h3 style="font-family: var(--font-display); font-size: 1.6rem; color: var(--color-light-text); margin: 0 0 0.75rem; text-transform: uppercase;">Someone to call when something needs attention.</h3>
+      <div class="card-light reveal" style="padding: 2rem; transition-delay: 0.2s;">
+        <h3 class="heading-card">Someone to call when something needs attention.</h3>
         <p style="margin-bottom: 1.5rem;">Hosting, security, updates, and edits — handled. One monthly rate, no surprises. For businesses that want a developer on call without hiring one.</p>
         <a href="/contact" class="btn-secondary">Ask about support &rarr;</a>
       </div>
@@ -86,39 +81,42 @@
   <div class="content-wrap">
     <span class="section-label reveal">WHAT CLIENTS SAY</span>
 
-    <!-- Testimonials -->
-    <div class="home-testimonials reveal">
-      <div class="card-testimonial">
-        <p style="font-style: italic; margin-bottom: 1rem;">&ldquo;As an accountant, I know value when I see it. Firefly built us a site that looks like we spent ten times what we paid. Professional, responsive, and they actually pick up the phone when you call. That kind of service is rare.&rdquo;</p>
-        <p style="font-variant: small-caps; color: var(--color-light-muted); font-size: var(--text-small);"><strong>Cade Maldonado</strong> &middot; Owner, Momentum Business Solutions</p>
+    <div class="home-testimonials">
+      <!-- Featured testimonial — Maldonado (most specific, most credible) -->
+      <div class="card-testimonial card-testimonial--featured reveal">
+        <p class="testimonial-quote" style="font-style: italic; margin-bottom: 1rem;">&ldquo;As an accountant, I know value when I see it. Firefly built us a site that looks like we spent ten times what we paid. Professional, responsive, and they actually pick up the phone when you call. That kind of service is rare.&rdquo;</p>
+        <p style="text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-light-muted); font-size: 0.7rem;"><strong>Cade Maldonado</strong> &middot; Owner, Momentum Business Solutions</p>
       </div>
 
-      <div class="card-testimonial" style="transition-delay: 0.1s;">
-        <p style="font-style: italic; margin-bottom: 1rem;">&ldquo;No runaround, no upsells, no waiting around for weeks. I told them what I needed and they just handled it. That's how it should be.&rdquo;</p>
-        <p style="font-variant: small-caps; color: var(--color-light-muted); font-size: var(--text-small);"><strong>Kyle Willis</strong> &middot; Owner, 406 Records</p>
-      </div>
+      <!-- Supporting testimonials — smaller, side by side -->
+      <div class="home-testimonials__supporting">
+        <div class="card-testimonial reveal" style="transition-delay: 0.1s;">
+          <p style="font-style: italic; margin-bottom: 1rem;">&ldquo;No runaround, no upsells, no waiting around for weeks. I told them what I needed and they just handled it. That's how it should be.&rdquo;</p>
+          <p style="text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-light-muted); font-size: 0.7rem;"><strong>Kyle Willis</strong> &middot; Owner, 406 Records</p>
+        </div>
 
-      <div class="card-testimonial" style="transition-delay: 0.2s;">
-        <p style="font-style: italic; margin-bottom: 1rem;">&ldquo;Reasonably priced and headache free. I appreciate getting to speak with a real person who responds lightning fast, listens to what I want, and can create anything — and do it better than anyone.&rdquo;</p>
-        <p style="font-variant: small-caps; color: var(--color-light-muted); font-size: var(--text-small);"><strong>Beverly Sharp</strong> &middot; Owner, FTS Excavation</p>
+        <div class="card-testimonial reveal" style="transition-delay: 0.2s;">
+          <p style="font-style: italic; margin-bottom: 1rem;">&ldquo;Reasonably priced and headache free. I appreciate getting to speak with a real person who responds lightning fast, listens to what I want, and can create anything — and do it better than anyone.&rdquo;</p>
+          <p style="text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-light-muted); font-size: 0.7rem;"><strong>Beverly Sharp</strong> &middot; Owner, FTS Excavation</p>
+        </div>
       </div>
     </div>
 
     <!-- Logo strip -->
-    <div class="logo-strip reveal" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 2.5rem; margin-top: 3rem;">
-      <img src="/static/images/portfolio/ateam_logo.webp" alt="A-Team Asphalt" style="height: 36px; width: auto;">
-      <img src="/static/images/portfolio/thf_logo.webp" alt="Traver Hardwood Floors" style="height: 36px; width: auto;">
-      <img src="/static/images/portfolio/nautilus_logo.webp" alt="Nautilus Group" style="height: 36px; width: auto;">
-      <img src="/static/images/portfolio/406_logo.webp" alt="406 Records" style="height: 36px; width: auto;">
-      <img src="/static/images/portfolio/shcoc_logo.webp" alt="South Hills Church of Christ" style="height: 36px; width: auto;">
-      <img src="/static/images/portfolio/cbl_logo.webp" alt="Christian Brother's Lining" style="height: 36px; width: auto;">
-      <img src="/static/images/portfolio/mbs_logo.webp" alt="Momentum Business Solutions" style="height: 36px; width: auto;">
-      <img src="/static/images/portfolio/aestus_logo.webp" alt="Aestus Guides" style="height: 36px; width: auto;">
+    <div class="logo-strip reveal">
+      <img src="/static/images/portfolio/ateam_logo.webp" alt="A-Team Asphalt">
+      <img src="/static/images/portfolio/thf_logo.webp" alt="Traver Hardwood Floors">
+      <img src="/static/images/portfolio/nautilus_logo.webp" alt="Nautilus Group">
+      <img src="/static/images/portfolio/406_logo.webp" alt="406 Records">
+      <img src="/static/images/portfolio/shcoc_logo.webp" alt="South Hills Church of Christ">
+      <img src="/static/images/portfolio/cbl_logo.webp" alt="Christian Brother's Lining">
+      <img src="/static/images/portfolio/mbs_logo.webp" alt="Momentum Business Solutions">
+      <img src="/static/images/portfolio/aestus_logo.webp" alt="Aestus Guides">
     </div>
 
     <!-- Guarantee block -->
     <div class="reveal" style="max-width: 680px; margin: 3.5rem auto 0; text-align: center; padding: 2rem 0;">
-      <p style="font-size: 1.1rem; color: var(--color-light-muted); font-weight: 600; margin-bottom: 0.75rem;">Every project is different. A few things never change.</p>
+      <p style="font-size: 1.1rem; color: var(--color-light-muted); margin-bottom: 0.75rem;"><strong>Every project is different. A few things never change.</strong></p>
       <p style="font-size: 1.1rem; color: var(--color-light-muted);">We quote before we start. Scope is agreed in writing. You own everything we build — code, domain, content. We don't disappear after launch.</p>
     </div>
   </div>
@@ -129,7 +127,7 @@
      ============================================================ -->
 <section class="section section--dark" style="padding: 6rem 0;">
   <div style="max-width: 620px; margin: 0 auto; padding: 0 1.5rem; text-align: center;">
-    <span class="section-label">LET'S TALK</span>
+    <span class="section-label section-label--accent">LET'S TALK</span>
 
     <h2 style="font-family: var(--font-display); font-size: var(--text-h1); color: var(--color-dark-text); margin: 0.5rem 0 1.5rem; text-transform: uppercase;">Let's Talk About Your Project</h2>
 
@@ -137,7 +135,7 @@
 
     <p style="color: var(--color-dark-muted); margin-bottom: 2.5rem;">We reply within one business day. No automated responses, no sales funnel. Just a real reply from a real person in Helena, Montana.</p>
 
-    <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; align-items: center;">
+    <div class="cta-group">
       <a href="/contact" class="btn-primary">Send a message</a>
       <a href="tel:+14068719875" class="btn-secondary btn-secondary--dark">+1 (406) 871-9875</a>
     </div>
