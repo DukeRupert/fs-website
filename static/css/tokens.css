@@ -299,6 +299,44 @@ body {
   color: var(--color-light-text);
 }
 
+/* About page — team layout */
+.about-team {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-top: 1.5rem;
+}
+
+.about-member__photo {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--border-radius-card);
+  display: block;
+}
+
+.about-member__monogram {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: var(--color-dark-surface);
+  border: 1px solid var(--color-dark-border);
+  border-radius: var(--border-radius-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-member__monogram span {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  color: var(--color-accent);
+  letter-spacing: 0.05em;
+}
+
+.about-member__bio {
+  margin-top: 1rem;
+}
+
 /* Work page — project card grids */
 .work-cards {
   display: grid;
@@ -711,6 +749,12 @@ body {
   .footer__bottom {
     flex-direction: column;
     text-align: center;
+  }
+
+  /* About page: stack team */
+  .about-team {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
   }
 
   /* Work page: stack cards */
