@@ -1,15 +1,77 @@
 {{ define "nav" }}
-<nav style="background: var(--color-dark-bg); color: var(--color-dark-text);">
-  <div style="max-width: var(--content-max-width); margin: 0 auto; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center;">
-    <a href="/">
-      <img src="/static/images/logo/logo_two_full.png" alt="Firefly Software" style="height: 32px;">
+<nav x-data="{ open: false, scrolled: false, servicesOpen: false }"
+     x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 60 })"
+     :class="scrolled ? 'nav--scrolled' : ''"
+     class="nav">
+  <div class="nav__inner content-wrap">
+    <!-- Logo -->
+    <a href="/" class="nav__logo">
+      <img src="/static/images/logo/logo_two_full.png" alt="Firefly Software" width="140" height="32">
     </a>
-    <div style="display: flex; gap: 2rem; font-family: var(--font-body); font-size: 0.9375rem;">
-      <a href="/work" style="color: var(--color-dark-muted); text-decoration: none;">Work</a>
-      <a href="/services/websites" style="color: var(--color-dark-muted); text-decoration: none;">Services</a>
-      <a href="/process" style="color: var(--color-dark-muted); text-decoration: none;">Process</a>
-      <a href="/about" style="color: var(--color-dark-muted); text-decoration: none;">About</a>
-      <a href="/contact" style="color: var(--color-dark-muted); text-decoration: none;">Contact</a>
+
+    <!-- Desktop nav links -->
+    <div class="nav__links">
+      <a href="/work" class="nav__link">Work</a>
+
+      <!-- Services dropdown -->
+      <div class="nav__dropdown"
+           @mouseenter="servicesOpen = true"
+           @mouseleave="servicesOpen = false">
+        <button class="nav__link nav__link--dropdown"
+                @click="servicesOpen = !servicesOpen"
+                :aria-expanded="servicesOpen">
+          Services
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 4px; transition: transform 0.15s;" :style="servicesOpen ? 'transform: rotate(180deg)' : ''">
+            <path d="M3 5l3 3 3-3"/>
+          </svg>
+        </button>
+        <div class="nav__dropdown-menu"
+             x-show="servicesOpen"
+             x-transition:enter="transition-dropdown"
+             x-transition:enter-start="dropdown-hidden"
+             x-transition:enter-end="dropdown-visible"
+             x-transition:leave="transition-dropdown"
+             x-transition:leave-start="dropdown-visible"
+             x-transition:leave-end="dropdown-hidden"
+             @click.outside="servicesOpen = false">
+          <a href="/services/websites" class="nav__dropdown-item">Websites</a>
+          <a href="/services/software" class="nav__dropdown-item">Software</a>
+        </div>
+      </div>
+
+      <a href="/process" class="nav__link">Process</a>
+      <a href="/about" class="nav__link">About</a>
+      <a href="/contact" class="nav__link">Contact</a>
+    </div>
+
+    <!-- Mobile hamburger -->
+    <button class="nav__hamburger"
+            @click="open = !open"
+            :aria-expanded="open"
+            aria-label="Toggle navigation">
+      <span class="nav__hamburger-line" :class="open ? 'nav__hamburger-line--top-open' : ''"></span>
+      <span class="nav__hamburger-line" :class="open ? 'nav__hamburger-line--mid-open' : ''"></span>
+      <span class="nav__hamburger-line" :class="open ? 'nav__hamburger-line--bot-open' : ''"></span>
+    </button>
+  </div>
+
+  <!-- Mobile overlay -->
+  <div class="nav__overlay"
+       x-show="open"
+       x-transition:enter="transition-overlay"
+       x-transition:enter-start="overlay-hidden"
+       x-transition:enter-end="overlay-visible"
+       x-transition:leave="transition-overlay"
+       x-transition:leave-start="overlay-visible"
+       x-transition:leave-end="overlay-hidden"
+       x-cloak>
+    <div class="nav__overlay-links">
+      <a href="/work" class="nav__overlay-link" @click="open = false">Work</a>
+      <a href="/services/websites" class="nav__overlay-link" @click="open = false">Websites</a>
+      <a href="/services/software" class="nav__overlay-link" @click="open = false">Software</a>
+      <a href="/process" class="nav__overlay-link" @click="open = false">Process</a>
+      <a href="/about" class="nav__overlay-link" @click="open = false">About</a>
+      <a href="/contact" class="nav__overlay-link" @click="open = false">Contact</a>
     </div>
   </div>
 </nav>
