@@ -267,6 +267,38 @@ body {
   opacity: 1;
 }
 
+/* Process page — step layout */
+.process-step {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 2rem;
+  margin-bottom: 40px;
+}
+
+.process-step__header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.process-step__number {
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  color: var(--color-accent);
+}
+
+.process-step__name {
+  font-family: var(--font-display);
+  font-size: var(--text-h2);
+  color: var(--color-light-text);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.process-step__body {
+  color: var(--color-light-text);
+}
+
 /* Home page — three-card grid */
 .home-cards {
   display: grid;
@@ -667,6 +699,12 @@ body {
   .footer__bottom {
     flex-direction: column;
     text-align: center;
+  }
+
+  /* Process page: stack steps */
+  .process-step {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
   }
 
   /* Home page: stack cards and testimonials */
