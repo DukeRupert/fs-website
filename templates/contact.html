@@ -1,8 +1,125 @@
 {{ define "content" }}
-<section style="background: var(--color-dark-bg); padding: var(--section-padding-y) 1.5rem; min-height: 50vh; display: flex; align-items: center;">
-  <div style="max-width: var(--content-max-width); margin: 0 auto;">
-    <h1 style="font-family: var(--font-display); font-size: var(--text-h1); color: var(--color-dark-text);">Let's talk.</h1>
+
+<!-- ============================================================
+     Hero — Short dark hero
+     ============================================================ -->
+<section class="hero hero--short">
+  <div class="content-wrap" style="position: relative; z-index: 1;">
+    <h1 style="font-family: var(--font-display); font-size: var(--text-h1); color: var(--color-dark-text); text-transform: uppercase; margin: 0;">Let's talk.</h1>
   </div>
 </section>
-<!-- Full content built in Phase 8 -->
+
+<!-- Dark-to-light gradient transition -->
+<div class="gradient-transition"></div>
+
+<!-- ============================================================
+     Opening + Form
+     ============================================================ -->
+<section class="section section--light">
+  <div style="max-width: 620px; margin: 0 auto; padding: 0 1.5rem;">
+
+    <!-- Opening copy -->
+    <p class="reveal" style="margin-bottom: 1.25rem;">You don't need a fully formed project to get in touch. A problem you're trying to solve, a site that isn't working, a tool your business has outgrown — that's enough to start. We'll figure out the rest together on a call.</p>
+
+    <p class="reveal" style="margin-bottom: 2.5rem;">When you write in, we'll reply within one business day to schedule a conversation. No intake forms, no automated sequences, no sales deck. Just a call with the people who would actually build your project.</p>
+
+    <!-- One Thing Worth Knowing -->
+    <div class="aside-accent reveal" style="margin-bottom: 3rem;">
+      <h3 style="font-family: var(--font-display); font-size: var(--text-h2); color: var(--color-light-text); text-transform: uppercase; margin: 0 0 0.5rem;">One Thing Worth Knowing</h3>
+      <p>We build from scratch. If you have an existing WordPress or Wix site that needs ongoing management, we're not the right fit — we don't inherit and maintain sites we didn't build. If you want to replace it with something better, that's a different conversation and we're happy to have it.</p>
+    </div>
+
+    <!-- Contact Form -->
+    <div x-data="contactForm()" class="reveal">
+      <!-- Success state -->
+      <div x-show="state === 'success'" x-cloak style="text-align: center; padding: 3rem 0;">
+        <h3 style="font-family: var(--font-display); font-size: var(--text-h2); color: var(--color-light-text); text-transform: uppercase; margin: 0 0 0.75rem;">Message sent.</h3>
+        <p style="color: var(--color-light-muted);">Thank you. We'll be in touch within one business day.</p>
+      </div>
+
+      <!-- Form -->
+      <form x-show="state !== 'success'" @submit.prevent="submit" novalidate>
+        <!-- Honeypot — hidden from users -->
+        <div style="position: absolute; left: -9999px;" aria-hidden="true">
+          <label for="website">Website</label>
+          <input type="text" id="website" name="website" x-model="form.website" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div style="margin-bottom: 1.25rem;">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" id="name" name="name" x-model="form.name" class="form-field" required>
+        </div>
+
+        <div style="margin-bottom: 1.25rem;">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" id="email" name="email" x-model="form.email" class="form-field" required>
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+          <label for="message" class="form-label">Tell us what you're working on</label>
+          <textarea id="message" name="message" rows="5" x-model="form.message" class="form-field" required></textarea>
+        </div>
+
+        <!-- Error message -->
+        <div x-show="state === 'error'" x-cloak style="margin-bottom: 1rem; color: #c44; font-size: var(--text-small);">
+          <p x-text="errorMessage"></p>
+        </div>
+
+        <button type="submit" class="btn-primary" :disabled="state === 'loading'" style="cursor: pointer;">
+          <span x-show="state !== 'loading'">Send it &rarr;</span>
+          <span x-show="state === 'loading'" x-cloak>Sending&hellip;</span>
+        </button>
+      </form>
+
+      <!-- Below the form -->
+      <div x-show="state !== 'success'" style="margin-top: 2.5rem; text-align: center;">
+        <p style="color: var(--color-light-muted); font-style: italic;">Prefer to call? We pick up.</p>
+        <a href="tel:+14068719875" style="color: var(--color-light-muted); text-decoration: none; font-family: var(--font-mono); font-size: var(--text-small);">+1 (406) 871-9875</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+{{ end }}
+
+{{ define "scripts" }}
+<script>
+function contactForm() {
+  return {
+    state: 'idle',
+    errorMessage: '',
+    form: {
+      name: '',
+      email: '',
+      message: '',
+      website: ''
+    },
+    async submit() {
+      this.state = 'loading';
+      this.errorMessage = '';
+
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(this.form)
+        });
+
+        const data = await res.json();
+
+        if (res.ok) {
+          this.state = 'success';
+        } else {
+          this.state = 'error';
+          this.errorMessage = data.error || 'Something went wrong. Please try again or call us directly.';
+        }
+      } catch (e) {
+        this.state = 'error';
+        this.errorMessage = 'Could not send your message. Please try again or call us directly.';
+      }
+    }
+  };
+}
+</script>
 {{ end }}
