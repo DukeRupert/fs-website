@@ -1,9 +1,90 @@
 {{ define "content" }}
-<section style="background: var(--color-dark-bg); padding: var(--section-padding-y) 1.5rem; min-height: 50vh; display: flex; align-items: center;">
-  <div style="max-width: var(--content-max-width); margin: 0 auto;">
-    <h1 style="font-family: var(--font-display); font-size: var(--text-h1); color: var(--color-dark-text);">Work</h1>
+
+<!-- ============================================================
+     Hero — Short dark hero
+     ============================================================ -->
+<section class="hero hero--short">
+  <div class="content-wrap" style="position: relative; z-index: 1;">
+    <h1 style="font-family: var(--font-display); font-size: var(--text-h1); color: var(--color-dark-text); text-transform: uppercase; margin: 0 0 1rem;">Work</h1>
     <p style="color: var(--color-dark-muted); font-size: 1.2rem; max-width: 560px;">A selection of recent projects. Websites, software, and the problems behind both.</p>
   </div>
 </section>
-<!-- Full content built in Phase 6 -->
+
+<!-- Dark-to-light gradient transition -->
+<div class="gradient-transition"></div>
+
+<!-- ============================================================
+     Websites Section
+     ============================================================ -->
+<section class="section section--light">
+  <div class="content-wrap">
+    <span class="section-label reveal">WEBSITES</span>
+
+    <div class="work-cards reveal">
+
+      <!-- Nautilus Group -->
+      <div class="card-light" style="padding: 2rem;">
+        <h3 style="font-family: var(--font-display); font-size: 1.4rem; color: var(--color-light-text); text-transform: uppercase; margin: 0 0 0.25rem;">Nautilus Group Cleaning Services</h3>
+        <p style="font-family: var(--font-mono); font-size: var(--text-small); color: var(--color-light-muted); font-style: italic; margin-bottom: 1rem;">Commercial cleaning &middot; Kennewick, WA</p>
+        <p style="margin-bottom: 1.5rem;">Nautilus had no web presence — no site, no listings, no digital footprint. We built from scratch: custom site, brand direction, SEO setup, and Google Business Profile. Within four weeks of launch they had received a commercial contract and five new inquiries. They had nothing before. Now they have a pipeline.</p>
+        <!-- TODO: Add live project URL when available -->
+      </div>
+
+      <!-- A-Team Asphalt -->
+      <div class="card-light" style="padding: 2rem; transition-delay: 0.1s;">
+        <h3 style="font-family: var(--font-display); font-size: 1.4rem; color: var(--color-light-text); text-transform: uppercase; margin: 0 0 0.25rem;">A-Team Asphalt</h3>
+        <p style="font-family: var(--font-mono); font-size: var(--text-small); color: var(--color-light-muted); font-style: italic; margin-bottom: 1rem;">Asphalt and paving &middot; Sumner, WA</p>
+        <p style="margin-bottom: 1.5rem;">A-Team needed a site that matched the scale of their operation — a Pacific Northwest paving company with decades of experience and no digital presence to show for it. We built a full custom site with brand identity, copy, SEO strategy, Google Business Profile, and email infrastructure. Built to rank, built to convert.</p>
+        <!-- TODO: Add live project URL when available -->
+      </div>
+
+      <!-- A-Team Gutters -->
+      <div class="card-light" style="padding: 2rem; transition-delay: 0.2s;">
+        <h3 style="font-family: var(--font-display); font-size: 1.4rem; color: var(--color-light-text); text-transform: uppercase; margin: 0 0 0.25rem;">A-Team Gutters</h3>
+        <p style="font-family: var(--font-mono); font-size: var(--text-small); color: var(--color-light-muted); font-style: italic; margin-bottom: 1rem;">Gutter installation &middot; Bonney Lake, WA</p>
+        <p style="margin-bottom: 1.5rem;">A-Team Gutters launched in 2024 with strong trade credentials and no web presence. We built the brand from the ground up — identity, copy, and a custom site designed to generate residential leads in a competitive Pacific Northwest market.</p>
+        <!-- TODO: Add live project URL when available -->
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     Software Section
+     ============================================================ -->
+<section class="section section--light" style="padding-top: 0;">
+  <div class="content-wrap">
+    <span class="section-label reveal">SOFTWARE</span>
+
+    <div class="work-cards work-cards--two reveal">
+
+      <!-- Western Skies -->
+      <div class="card-light" style="padding: 2rem;">
+        <h3 style="font-family: var(--font-display); font-size: 1.4rem; color: var(--color-light-text); text-transform: uppercase; margin: 0 0 0.25rem;">Estimating Tool — Western Skies Contracting</h3>
+        <p style="font-family: var(--font-mono); font-size: var(--text-small); color: var(--color-light-muted); font-style: italic; margin-bottom: 1rem;">Construction &middot; Hamilton, MT</p>
+        <p>Western Skies was running estimates out of spreadsheets — workable, but slow and error-prone. We built a custom estimating and quoting tool tailored to their specific workflow: line-item pricing, automated updates from local manufacturer price lists, e-signature, and version history. What used to take an afternoon now takes minutes. Spreadsheets to software — that's the whole story.</p>
+      </div>
+
+      <!-- Rockabilly Roasting -->
+      <div class="card-light" style="padding: 2rem; transition-delay: 0.1s;">
+        <h3 style="font-family: var(--font-display); font-size: 1.4rem; color: var(--color-light-text); text-transform: uppercase; margin: 0 0 0.25rem;">E-Commerce Platform — Rockabilly Roasting</h3>
+        <p style="font-family: var(--font-mono); font-size: var(--text-small); color: var(--color-light-muted); font-style: italic; margin-bottom: 1rem;">Coffee roaster &middot; Kennewick, WA</p>
+        <p>Rockabilly needed more than a storefront. They sell retail direct to consumers and wholesale to cafes and restaurants — two different buying experiences, two different pricing structures, one platform. We built a custom e-commerce solution handling B2C sales, B2B wholesale accounts, and subscriptions. No Shopify, no plugin stack, no monthly ransom to a platform they don't own.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     More Coming
+     ============================================================ -->
+<section class="section section--light" style="padding-top: 0;">
+  <div style="max-width: 560px; margin: 0 auto; padding: 0 1.5rem; text-align: center;">
+    <p class="reveal" style="color: var(--color-light-muted); margin-bottom: 1.5rem;">We're selective about the projects we take on. That means the list stays short and the work stays strong. If you want to see something specific — a particular industry, a particular kind of problem — get in touch and we'll tell you honestly what we've built that's closest to it.</p>
+    <a href="/contact" class="btn-secondary reveal">Start a conversation &rarr;</a>
+  </div>
+</section>
+
 {{ end }}

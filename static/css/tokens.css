@@ -299,6 +299,18 @@ body {
   color: var(--color-light-text);
 }
 
+/* Work page — project card grids */
+.work-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.work-cards--two {
+  grid-template-columns: repeat(2, 1fr);
+}
+
 /* Home page — three-card grid */
 .home-cards {
   display: grid;
@@ -699,6 +711,15 @@ body {
   .footer__bottom {
     flex-direction: column;
     text-align: center;
+  }
+
+  /* Work page: stack cards */
+  .work-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .work-cards--two {
+    grid-template-columns: 1fr;
   }
 
   /* Process page: stack steps */
