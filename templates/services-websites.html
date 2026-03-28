@@ -1,9 +1,91 @@
 {{ define "content" }}
-<section style="background: var(--color-dark-bg); padding: var(--section-padding-y) 1.5rem; min-height: 50vh; display: flex; align-items: center;">
-  <div style="max-width: var(--content-max-width); margin: 0 auto;">
-    <h1 style="font-family: var(--font-display); font-size: var(--text-h1); color: var(--color-dark-text);">Websites</h1>
+
+<!-- ============================================================
+     Hero — Short dark hero
+     ============================================================ -->
+<section class="hero hero--short">
+  <div class="content-wrap" style="position: relative; z-index: 1;">
+    <h1 style="font-family: var(--font-display); font-size: var(--text-h1); color: var(--color-dark-text); text-transform: uppercase; margin: 0 0 1rem;">Websites</h1>
     <p style="color: var(--color-dark-muted); font-size: 1.2rem; max-width: 560px;">Custom-built from scratch. No templates, no page builders, no WordPress.</p>
   </div>
 </section>
-<!-- Full content built in Phase 5 -->
+
+<!-- Dark-to-light gradient transition -->
+<div class="gradient-transition"></div>
+
+<!-- ============================================================
+     Opening copy
+     ============================================================ -->
+<section class="section section--light">
+  <div class="content-narrow">
+    <p class="reveal" style="margin-bottom: 1.25rem;">Most small business websites are assembled, not built. A template gets purchased, some colors get swapped, and six months later you're paying a plugin subscription to do something the site should have done from the start. When the plugin breaks, you call a support line that's never heard of you.</p>
+
+    <p class="reveal">We build from scratch. Every site we ship is custom-coded, fast, secure, and yours — no platform to outgrow, no monthly ransom to a third-party tool, no stranger on the other end of a ticket queue. When something needs attention, you call us. We built it. We know where everything is.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     What's Included
+     ============================================================ -->
+<section class="section section--light" style="padding-top: 0;">
+  <div class="content-narrow">
+    <span class="section-label reveal">WHAT'S INCLUDED</span>
+    <p class="reveal">Every website project includes custom design and development, SSL, hosting, mobile optimization, contact forms, basic SEO setup, analytics integration, and a developer who stays accountable after launch. We handle edits, updates, and questions — ongoing, not just until the invoice clears.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     Turnaround
+     ============================================================ -->
+<section class="section section--light" style="padding-top: 0;">
+  <div class="content-narrow">
+    <span class="section-label reveal">TURNAROUND</span>
+    <p class="reveal">Brochure sites typically ship in one week. Dynamic sites and web applications run four to six weeks depending on scope. Both timelines are agreed in writing before work starts.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     Pricing
+     ============================================================ -->
+<section class="section section--light" style="padding-top: 0;">
+  <div class="content-narrow">
+    <span class="section-label reveal">PRICING</span>
+
+    <div class="card-light reveal" style="padding: 2rem;">
+      <p style="margin-bottom: 1.25rem;">Marketing sites start at <span style="font-family: var(--font-display); font-size: 2rem; color: var(--color-light-text);">$4,500</span>. Dynamic sites and web applications start at <span style="font-family: var(--font-display); font-size: 2rem; color: var(--color-light-text);">$8,000</span>. Every project gets a fixed quote before we start — no hourly surprises, no scope creep without a conversation first.</p>
+
+      <p>Ongoing support starts at <span style="font-family: var(--font-display); font-size: 2rem; color: var(--color-light-text);">$75</span>/mo for static sites and <span style="font-family: var(--font-display); font-size: 2rem; color: var(--color-light-text);">$175</span>/mo for dynamic. That covers hosting, security, updates, and a developer on call — not a help desk, not a ticket queue. Us.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     Not sure if you need a full rebuild?
+     ============================================================ -->
+<section class="section section--light" style="padding-top: 0;">
+  <div class="content-narrow">
+    <div class="aside-accent reveal">
+      <h3 style="font-family: var(--font-display); font-size: var(--text-h2); color: var(--color-light-text); text-transform: uppercase; margin: 0 0 0.75rem;">Not sure if you need a full rebuild?</h3>
+      <p style="margin-bottom: 1.25rem;">If your current site is broken, slow, or stuck on a platform you've outgrown, we can assess it and tell you honestly whether it needs a fix or a replacement. Sometimes it's a repair. Sometimes it isn't. Either way you'll get a straight answer.</p>
+      <a href="/contact" class="btn-secondary">Talk to us about your site &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CTA Close
+     ============================================================ -->
+<section class="section section--dark" style="padding: 6rem 0;">
+  <div style="max-width: 620px; margin: 0 auto; padding: 0 1.5rem; text-align: center;">
+    <h2 style="font-family: var(--font-display); font-size: var(--text-h1); color: var(--color-dark-text); margin: 0 0 1.5rem; text-transform: uppercase;">Ready to build something that lasts?</h2>
+
+    <p style="color: var(--color-dark-muted); margin-bottom: 2.5rem;">Tell us about your project. We'll tell you what it takes and what it costs — before anything starts.</p>
+
+    <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; align-items: center;">
+      <a href="/contact" class="btn-primary">Start a project</a>
+      <a href="tel:+14068719875" class="btn-secondary btn-secondary--dark">+1 (406) 871-9875</a>
+    </div>
+  </div>
+</section>
+
 {{ end }}
