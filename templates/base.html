@@ -1,0 +1,47 @@
+{{ define "base" }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ .Title }}</title>
+  <meta name="description" content="{{ .Description }}">
+  <meta name="author" content="Firefly Software, LLC">
+
+  <!-- Fonts -->
+  <link rel="preload" href="/static/fonts/BebasNeue-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/static/fonts/InstrumentSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/static/fonts/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/static/css/output.css">
+
+  <!-- Favicons -->
+  <link rel="icon" href="/static/favicon.ico" sizes="any">
+  <link rel="icon" href="/static/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/static/apple-touch-icon.png">
+  <link rel="manifest" href="/static/site.webmanifest">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="{{ .Title }}">
+  <meta property="og:description" content="{{ .Description }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ .Site.BaseURL }}">
+  <meta property="og:image" content="{{ .Site.BaseURL }}/static/images/facebook_link_image.png">
+</head>
+<body>
+  {{ template "nav" . }}
+
+  <main>
+    {{ template "content" . }}
+  </main>
+
+  {{ template "footer" . }}
+
+  <!-- Alpine.js -->
+  <script src="/static/js/alpine.min.js" defer></script>
+
+  {{ block "scripts" . }}{{ end }}
+</body>
+</html>
+{{ end }}

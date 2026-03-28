@@ -1,15 +1,15 @@
 #!/bin/sh
 set -e
 
-echo "[entrypoint] Starting Firefly Software API server..."
-/usr/local/bin/fs-api &
+echo "[entrypoint] Starting Firefly Software server..."
+/usr/local/bin/fs-website &
 
-echo "[entrypoint] Waiting for API to be ready..."
+echo "[entrypoint] Waiting for server to be ready..."
 i=0
 api_ready=false
 while [ $i -lt 10 ]; do
   if wget -q -O /dev/null "http://127.0.0.1:${API_PORT:-8080}/api/health" 2>/dev/null; then
-    echo "[entrypoint] API is ready."
+    echo "[entrypoint] Server is ready."
     api_ready=true
     break
   fi
@@ -18,7 +18,7 @@ while [ $i -lt 10 ]; do
 done
 
 if [ "$api_ready" = false ]; then
-  echo "[entrypoint] ERROR: API failed to start after 10 attempts. Exiting."
+  echo "[entrypoint] ERROR: Server failed to start after 10 attempts. Exiting."
   exit 1
 fi
 

@@ -1,43 +1,58 @@
 # =============================================================================
-# Stage 1: Build Hugo static site
+# Stage 1: Build Tailwind CSS
 # =============================================================================
-FROM hugomods/hugo:exts AS hugo-builder
+FROM node:22-alpine AS css-builder
 
-WORKDIR /src
-COPY . .
+WORKDIR /build
+COPY package.json ./
+RUN npm install
 
-RUN hugo --gc --minify --environment production
+COPY static/css/ static/css/
+COPY templates/ templates/
+RUN npx @tailwindcss/cli -i static/css/input.css -o static/css/output.css --minify
 
 # =============================================================================
-# Stage 2: Build Go API binary
+# Stage 2: Build Go server binary
 # =============================================================================
 FROM golang:1.23-alpine AS go-builder
 
 WORKDIR /build
-COPY api/go.mod api/go.sum* ./
+COPY go.mod go.sum* ./
 RUN go mod download 2>/dev/null || true
 
-COPY api/ .
+COPY main.go .
+COPY handlers/ handlers/
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 \
-    go build -trimpath -ldflags="-s -w" -o fs-api .
+    go build -trimpath -ldflags="-s -w" -o fs-website .
 
 # =============================================================================
-# Stage 3: Final image — Caddy + static files + Go binary
+# Stage 3: Final image — Caddy + Go binary + templates + static assets
 # =============================================================================
 FROM caddy:2-alpine
 
-# Copy Hugo build output to Caddy's web root
-COPY --from=hugo-builder /src/public /srv
-
 # Copy Go binary
-COPY --from=go-builder /build/fs-api /usr/local/bin/fs-api
+COPY --from=go-builder /build/fs-website /usr/local/bin/fs-website
+
+# Copy templates
+COPY templates/ /app/templates/
+
+# Copy static assets
+COPY static/ /app/static/
+
+# Copy built CSS (overwrite the input.css with output.css)
+COPY --from=css-builder /build/static/css/output.css /app/static/css/output.css
+
+# Copy content (blog posts)
+COPY content/ /app/content/
 
 # Copy Caddy configuration
 COPY Caddyfile /etc/caddy/Caddyfile
 
 # Copy and set entrypoint
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
-RUN chmod +x /usr/local/bin/docker-entrypoint.sh /usr/local/bin/fs-api
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh /usr/local/bin/fs-website
+
+WORKDIR /app
 
 # Environment variable defaults (can be overridden at runtime)
 ENV PORT=80 \

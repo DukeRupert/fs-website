@@ -1,0 +1,16 @@
+{{ define "content" }}
+<article style="background: var(--color-light-bg); padding: var(--section-padding-y) 1.5rem;">
+  <div style="max-width: 680px; margin: 0 auto;">
+    <header style="margin-bottom: 2rem;">
+      <h1 style="font-family: var(--font-display); font-size: var(--text-h1); color: var(--color-light-text);">{{ .Post.Title }}</h1>
+      <p style="font-family: var(--font-mono); font-size: var(--text-small); color: var(--color-light-muted);">{{ .Post.Date }}{{ if .Post.Author }} &middot; {{ .Post.Author }}{{ end }}</p>
+    </header>
+    <div class="post-content" style="color: var(--color-light-text); line-height: 1.7;">
+      {{ .Post.Content }}
+    </div>
+    <footer style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-light-border);">
+      <a href="/posts/" style="color: var(--color-light-muted); text-decoration: none;">&larr; All posts</a>
+    </footer>
+  </div>
+</article>
+{{ end }}

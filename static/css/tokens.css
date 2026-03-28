@@ -1,0 +1,93 @@
+/* Design Tokens — Firefly Software */
+
+@layer base {
+  :root {
+    /* Dark palette */
+    --color-dark-bg:        #0E0F0D;
+    --color-dark-surface:   #161810;
+    --color-dark-border:    #2A2D26;
+    --color-dark-text:      #F0EDE6;
+    --color-dark-muted:     #8A8C82;
+
+    /* Light palette */
+    --color-light-bg:       #F7F5F0;
+    --color-light-surface:  #FFFFFF;
+    --color-light-border:   #E2DDD6;
+    --color-light-text:     #1A1C18;
+    --color-light-muted:    #6B6D63;
+
+    /* Accent — same in both modes */
+    --color-accent:         #C8F060;
+
+    /* Typography */
+    --font-display:         'Bebas Neue', sans-serif;
+    --font-body:            'Instrument Sans', sans-serif;
+    --font-mono:            'IBM Plex Mono', monospace;
+
+    /* Fluid type scale */
+    --text-display: clamp(4.5rem, 8vw, 7rem);
+    --text-h1:      clamp(2.5rem, 4vw, 3.5rem);
+    --text-h2:      clamp(1.5rem, 2.5vw, 2rem);
+    --text-body:    clamp(1rem, 1.2vw, 1.125rem);
+    --text-small:   0.8125rem;
+
+    /* Spacing */
+    --section-padding-y:    7.5rem;
+    --content-max-width:    1180px;
+    --border-radius-card:   4px;
+  }
+}
+
+/* Font face declarations */
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url('/static/fonts/BebasNeue-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Instrument Sans';
+  src: url('/static/fonts/InstrumentSans-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Instrument Sans';
+  src: url('/static/fonts/InstrumentSans-Italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  src: url('/static/fonts/IBMPlexMono-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
+/* Base resets */
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  color: var(--color-light-text);
+  background-color: var(--color-light-bg);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scroll reveal base state — Alpine.js toggles is-visible class */
+[x-cloak] { display: none !important; }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}

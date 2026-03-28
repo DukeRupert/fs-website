@@ -1,0 +1,28 @@
+{{ define "footer" }}
+<footer style="background: var(--color-dark-bg); color: var(--color-dark-text); padding: 4rem 1.5rem 2rem;">
+  <div style="max-width: var(--content-max-width); margin: 0 auto;">
+    <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem; margin-bottom: 3rem;">
+      <div>
+        <img src="/static/images/logo/logo_two_full.png" alt="Firefly Software" style="height: 28px; margin-bottom: 0.75rem;">
+        <p style="color: var(--color-dark-muted); font-size: var(--text-small); max-width: 280px;">{{ .Site.Tagline }}</p>
+      </div>
+      <div style="display: flex; gap: 1.5rem; font-size: var(--text-small);">
+        <a href="/work" style="color: var(--color-dark-muted); text-decoration: none;">Work</a>
+        <a href="/services/websites" style="color: var(--color-dark-muted); text-decoration: none;">Services</a>
+        <a href="/process" style="color: var(--color-dark-muted); text-decoration: none;">Process</a>
+        <a href="/about" style="color: var(--color-dark-muted); text-decoration: none;">About</a>
+        <a href="/contact" style="color: var(--color-dark-muted); text-decoration: none;">Contact</a>
+        <a href="/posts/" style="color: var(--color-dark-muted); text-decoration: none;">Posts</a>
+      </div>
+      <div style="font-size: var(--text-small);">
+        <p style="color: var(--color-dark-muted);">{{ .Site.Phone }}</p>
+        <p><a href="mailto:{{ .Site.Email }}" style="color: var(--color-dark-muted); text-decoration: none;">{{ .Site.Email }}</a></p>
+      </div>
+    </div>
+    <div style="border-top: 1px solid var(--color-dark-border); padding-top: 1.5rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: var(--text-small); color: var(--color-dark-muted);">
+      <span>&copy; 2026 Firefly Software, LLC.</span>
+      <span>Based in Helena, Montana. Working with clients across the US.</span>
+    </div>
+  </div>
+</footer>
+{{ end }}

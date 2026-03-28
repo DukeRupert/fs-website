@@ -10,6 +10,14 @@ resources/_gen/
 
 # Go
 api/api
+fs-website
+
+# Node (Tailwind CSS build)
+node_modules/
+package-lock.json
+
+# Tailwind output (built from input.css)
+static/css/output.css
 
 # Docker
 .docker/
