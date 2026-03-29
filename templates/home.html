@@ -3,15 +3,73 @@
 <!-- ============================================================
      Section 1 — Hero
      ============================================================ -->
-<section class="hero">
-  <!-- Background texture -->
-  <img src="/static/images/sleeping-giant.svg" alt="" aria-hidden="true"
-       style="position: absolute; bottom: 0; right: 0; opacity: 0.06; pointer-events: none; max-width: 60%; height: auto;">
+<section class="hero hero--home">
+  <!-- Landscape SVG — sky gradient + ridgeline + transition to light -->
+  <svg class="hero__landscape" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="sky-to-ground" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#0A0C14"/>
+        <stop offset="50%" stop-color="#0E0F0D"/>
+        <stop offset="72%" stop-color="#1C1A0F"/>
+        <stop offset="100%" stop-color="#F7F5F0"/>
+      </linearGradient>
+      <linearGradient id="ridge-fill" gradientUnits="userSpaceOnUse" x1="0" y1="624" x2="0" y2="900">
+        <stop offset="0%" stop-color="#1A1C18"/>
+        <stop offset="100%" stop-color="#F7F5F0"/>
+      </linearGradient>
+    </defs>
+    <rect width="1600" height="900" fill="url(#sky-to-ground)"/>
+    <path d="
+      M 0 900
+      L 0 760
+      Q 30 755, 60 750
+      Q 120 735, 180 715
+      Q 240 695, 300 678
+      Q 360 662, 420 650
+      Q 480 638, 540 632
+      Q 580 628, 620 626
+      Q 660 624, 700 625
+      Q 740 626, 780 630
+      Q 830 636, 870 645
+      Q 910 655, 940 668
+      Q 970 685, 1000 705
+      Q 1020 718, 1040 725
+      Q 1055 728, 1070 725
+      Q 1090 718, 1110 710
+      Q 1130 698, 1150 688
+      Q 1165 680, 1180 675
+      Q 1195 672, 1210 675
+      Q 1225 678, 1235 682
+      Q 1245 678, 1258 675
+      Q 1275 672, 1295 676
+      Q 1310 680, 1320 685
+      Q 1335 695, 1350 708
+      Q 1365 718, 1380 722
+      Q 1395 718, 1408 730
+      Q 1425 750, 1445 770
+      Q 1470 790, 1500 802
+      Q 1535 810, 1570 815
+      Q 1585 817, 1600 818
+      L 1600 900
+      Z
+    " fill="url(#ridge-fill)"/>
+  </svg>
 
-  <div style="max-width: 780px; text-align: center; padding: 0 1.5rem; position: relative; z-index: 1;">
+  <!-- Firefly glows — animated drift + fade -->
+  <div class="firefly-glow firefly-glow--1" aria-hidden="true"></div>
+  <div class="firefly-glow firefly-glow--2" aria-hidden="true"></div>
+  <div class="firefly-glow firefly-glow--3" aria-hidden="true"></div>
+
+  <!-- Firefly pulse — scroll-triggered, fires once at the landing moment -->
+  <div class="firefly-pulse" aria-hidden="true"></div>
+
+  <!-- Scroll sentinel — observed by IntersectionObserver -->
+  <div class="hero__sentinel" aria-hidden="true"></div>
+
+  <div class="hero__content">
     <span class="eyebrow">FIREFLY SOFTWARE</span>
 
-    <h1 class="hero-headline" style="font-family: var(--font-display); font-size: var(--text-display); color: var(--color-dark-text); line-height: 0.95; margin: 0 0 1.5rem; text-transform: uppercase;">Your business deserves a website that was actually built for it.</h1>
+    <h1 class="hero-headline" style="font-family: var(--font-display); font-size: var(--text-display); color: var(--color-dark-text); line-height: 0.9; margin: 0 0 1.5rem; text-transform: uppercase;">Your business deserves<br> a website that was<br> actually built for it.</h1>
 
     <p class="text-subhead" style="margin: 0 auto 2.5rem;">Most aren't. They're assembled from templates, handed off to support teams, and forgotten. We build from scratch — custom code, no page builders — and we stay accountable for what we ship.</p>
 
@@ -23,9 +81,6 @@
     <p class="coordinates" style="margin-top: 5rem;">46.5958&deg;N &middot; 112.0270&deg;W</p>
   </div>
 </section>
-
-<!-- Dark-to-light gradient transition -->
-<div class="gradient-transition"></div>
 
 <!-- ============================================================
      Section 2 — Credentialing
@@ -51,21 +106,24 @@
 
     <div class="home-cards">
       <!-- Card 1: Websites -->
-      <div class="card-light reveal" style="padding: 2rem;">
+      <div class="card-light reveal" style="padding: 2.5rem 2rem;">
+        <span class="card-eyebrow">WEBSITES</span>
         <h3 class="heading-card">A website your business can grow into.</h3>
         <p style="margin-bottom: 1.5rem;">Custom-built from scratch. Fast, secure, and yours — no platform lock-in, no monthly ransom to a page builder. We handle hosting, maintenance, and edits after launch. If your current site is broken or on a platform you've outgrown, we can fix or replace it.</p>
         <a href="/work" class="btn-secondary">See our website work &rarr;</a>
       </div>
 
       <!-- Card 2: Software -->
-      <div class="card-light reveal" style="padding: 2rem; transition-delay: 0.1s;">
+      <div class="card-light reveal" style="padding: 2.5rem 2rem; transition-delay: 0.1s;">
+        <span class="card-eyebrow">SOFTWARE</span>
         <h3 class="heading-card">Software that fits the way you actually work.</h3>
         <p style="margin-bottom: 1.5rem;">Most off-the-shelf tools almost fit. You end up working around the parts that don't — spreadsheets, workarounds, subscriptions that add up. We build custom tools your business owns outright. No recurring fees, no feature you'll never use.</p>
         <a href="/work" class="btn-secondary">See our software work &rarr;</a>
       </div>
 
       <!-- Card 3: Support -->
-      <div class="card-light reveal" style="padding: 2rem; transition-delay: 0.2s;">
+      <div class="card-light reveal" style="padding: 2.5rem 2rem; transition-delay: 0.2s;">
+        <span class="card-eyebrow">ONGOING SUPPORT</span>
         <h3 class="heading-card">Someone to call when something needs attention.</h3>
         <p style="margin-bottom: 1.5rem;">Hosting, security, updates, and edits — handled. One monthly rate, no surprises. For businesses that want a developer on call without hiring one.</p>
         <a href="/contact" class="btn-secondary">Ask about support &rarr;</a>
@@ -125,15 +183,15 @@
 <!-- ============================================================
      Section 5 — CTA / Footer Close
      ============================================================ -->
-<section class="section section--dark" style="padding: 6rem 0;">
-  <div style="max-width: 620px; margin: 0 auto; padding: 0 1.5rem; text-align: center;">
+<section class="section section--dark" style="padding: 8rem 0;">
+  <div style="max-width: 680px; margin: 0 auto; padding: 0 1.5rem; text-align: center;">
     <span class="section-label section-label--accent">LET'S TALK</span>
 
-    <h2 style="font-family: var(--font-display); font-size: var(--text-h1); color: var(--color-dark-text); margin: 0.5rem 0 1.5rem; text-transform: uppercase;">Let's Talk About Your Project</h2>
+    <h2 style="font-family: var(--font-display); font-size: var(--text-display); color: var(--color-dark-text); margin: 0.5rem 0 1.5rem; text-transform: uppercase; line-height: 0.95;">Ready When You Are</h2>
 
-    <p style="color: var(--color-dark-muted); margin-bottom: 1rem;">You don't need a fully formed brief to get in touch. Tell us what you're working on — or what's not working — and we'll tell you honestly whether we're the right fit.</p>
+    <p style="color: var(--color-dark-muted); font-size: 1.125rem; margin-bottom: 1rem;">You don't need a fully formed brief to get in touch. Tell us what you're working on — or what's not working — and we'll tell you honestly whether we're the right fit.</p>
 
-    <p style="color: var(--color-dark-muted); margin-bottom: 2.5rem;">We reply within one business day. No automated responses, no sales funnel. Just a real reply from a real person in Helena, Montana.</p>
+    <p style="color: var(--color-dark-muted); font-size: 1.125rem; margin-bottom: 3rem;">We reply within one business day. No automated responses, no sales funnel. Just a real reply from a real person in Helena, Montana.</p>
 
     <div class="cta-group">
       <a href="/contact" class="btn-primary">Send a message</a>
@@ -142,4 +200,26 @@
   </div>
 </section>
 
+{{ end }}
+
+{{ define "scripts" }}
+<script>
+  // Firefly pulse — fires once when the ridgeline fully enters the viewport
+  (function () {
+    var sentinel = document.querySelector('.hero__sentinel');
+    var pulse = document.querySelector('.firefly-pulse');
+    if (!sentinel || !pulse) return;
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          pulse.classList.add('firefly-pulse--active');
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 1.0 });
+
+    observer.observe(sentinel);
+  })();
+</script>
 {{ end }}

@@ -31,7 +31,7 @@
     --font-mono:            'IBM Plex Mono', monospace;
 
     /* Fluid type scale */
-    --text-display: clamp(4.5rem, 8vw, 7rem);
+    --text-display: clamp(4.5rem, 9vw, 8rem);
     --text-h1:      clamp(2.5rem, 4vw, 3.5rem);
     --text-h2:      clamp(1.5rem, 2.5vw, 2rem);
     --text-body:    clamp(1rem, 1.2vw, 1.125rem);
@@ -303,6 +303,190 @@ body {
   overflow: hidden;
 }
 
+/* Home hero — SVG handles sky gradient + ridgeline + transition */
+.hero--home {
+  background: var(--color-dark-bg);
+  margin-bottom: -1px;
+}
+
+/* Starfield — faint static dots across the upper hero */
+.hero--home::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  /* Each box-shadow is a star: x y blur spread color */
+  box-shadow:
+    /* Bright stars — small, warm white */
+    120px  68px  0 0.5px rgba(240, 237, 230, 0.7),
+    340px  42px  0 0.5px rgba(240, 237, 230, 0.5),
+    580px 110px  0 0.5px rgba(240, 237, 230, 0.6),
+    790px  35px  0 0.5px rgba(240, 237, 230, 0.65),
+    960px  88px  0 0.5px rgba(240, 237, 230, 0.55),
+    1140px 52px  0 0.5px rgba(240, 237, 230, 0.7),
+    1380px 75px  0 0.5px rgba(240, 237, 230, 0.5),
+    /* Mid stars — dimmer */
+    60px  130px 0 0.5px rgba(240, 237, 230, 0.3),
+    220px 180px 0 0.5px rgba(240, 237, 230, 0.25),
+    440px  28px 0 0.5px rgba(240, 237, 230, 0.35),
+    650px 160px 0 0.5px rgba(240, 237, 230, 0.3),
+    850px 145px 0 0.5px rgba(240, 237, 230, 0.28),
+    1050px 25px 0 0.5px rgba(240, 237, 230, 0.32),
+    1250px 170px 0 0.5px rgba(240, 237, 230, 0.25),
+    1450px 120px 0 0.5px rgba(240, 237, 230, 0.3),
+    /* Faint dust — barely there */
+    180px  95px 0 0.3px rgba(240, 237, 230, 0.15),
+    310px 155px 0 0.3px rgba(240, 237, 230, 0.12),
+    500px  60px 0 0.3px rgba(240, 237, 230, 0.18),
+    720px 190px 0 0.3px rgba(240, 237, 230, 0.14),
+    910px  50px 0 0.3px rgba(240, 237, 230, 0.16),
+    1100px 135px 0 0.3px rgba(240, 237, 230, 0.13),
+    1300px  40px 0 0.3px rgba(240, 237, 230, 0.17),
+    1480px  90px 0 0.3px rgba(240, 237, 230, 0.15),
+    /* Extra scatter */
+    45px   45px 0 0.3px rgba(240, 237, 230, 0.2),
+    270px  10px 0 0.5px rgba(240, 237, 230, 0.4),
+    530px 200px 0 0.3px rgba(240, 237, 230, 0.12),
+    1200px 95px 0 0.5px rgba(240, 237, 230, 0.45),
+    1520px 55px 0 0.3px rgba(240, 237, 230, 0.18),
+    390px 220px 0 0.3px rgba(240, 237, 230, 0.1),
+    1070px 200px 0 0.3px rgba(240, 237, 230, 0.1),
+    750px  15px 0 0.5px rgba(240, 237, 230, 0.5);
+}
+
+.hero__content {
+  max-width: 860px;
+  text-align: center;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 3;
+  padding-bottom: 12vh;
+}
+
+/* Landscape SVG — full hero coverage, anchored at bottom */
+.hero__landscape {
+  position: absolute;
+  inset: 0 0 -1px 0;
+  width: 100%;
+  height: calc(100% + 1px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Scroll sentinel — invisible element at the hero bottom edge */
+.hero__sentinel {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  width: 1px;
+  height: 1px;
+}
+
+/* Firefly glows — animated drift + fade */
+.firefly-glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* Firefly pulse — scroll-triggered single glow */
+.firefly-pulse {
+  position: absolute;
+  bottom: 22%;
+  left: 45%;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow:
+    0 0 8px 4px rgba(200, 240, 96, 0.6),
+    0 0 24px 12px rgba(200, 240, 96, 0.25),
+    0 0 48px 24px rgba(200, 240, 96, 0.08);
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+}
+
+.firefly-pulse--active {
+  animation: firefly-pulse 1.2s ease-in-out forwards;
+}
+
+@keyframes firefly-pulse {
+  0%   { opacity: 0; }
+  25%  { opacity: 0.9; }
+  75%  { opacity: 0.9; }
+  100% { opacity: 0; }
+}
+
+.firefly-glow--1 {
+  width: 6px;
+  height: 6px;
+  bottom: 28%;
+  left: 32%;
+  background: var(--color-accent);
+  box-shadow:
+    0 0 8px 4px rgba(200, 240, 96, 0.6),
+    0 0 24px 12px rgba(200, 240, 96, 0.25),
+    0 0 48px 24px rgba(200, 240, 96, 0.08);
+  animation: firefly-1 7s ease-in-out 1s infinite;
+}
+
+.firefly-glow--2 {
+  width: 4px;
+  height: 4px;
+  bottom: 34%;
+  right: 26%;
+  background: var(--color-accent);
+  box-shadow:
+    0 0 6px 3px rgba(200, 240, 96, 0.5),
+    0 0 18px 9px rgba(200, 240, 96, 0.2),
+    0 0 36px 18px rgba(200, 240, 96, 0.06);
+  animation: firefly-2 9s ease-in-out 3.5s infinite;
+}
+
+.firefly-glow--3 {
+  width: 3px;
+  height: 3px;
+  bottom: 22%;
+  left: 58%;
+  background: var(--color-accent);
+  box-shadow:
+    0 0 5px 2px rgba(200, 240, 96, 0.4),
+    0 0 14px 7px rgba(200, 240, 96, 0.15),
+    0 0 28px 14px rgba(200, 240, 96, 0.05);
+  animation: firefly-3 11s ease-in-out 6s infinite;
+}
+
+/* Each firefly has its own drift path — no two move alike */
+@keyframes firefly-1 {
+  0%   { opacity: 0;   transform: translate(0, 0); }
+  12%  { opacity: 0.9; }
+  50%  { opacity: 0.7; transform: translate(18px, -12px); }
+  88%  { opacity: 0.9; }
+  100% { opacity: 0;   transform: translate(-6px, -20px); }
+}
+
+@keyframes firefly-2 {
+  0%   { opacity: 0;   transform: translate(0, 0); }
+  15%  { opacity: 0.8; }
+  40%  { opacity: 0.6; transform: translate(-14px, -8px); }
+  70%  { opacity: 0.85; transform: translate(-22px, 4px); }
+  100% { opacity: 0;   transform: translate(-10px, 10px); }
+}
+
+@keyframes firefly-3 {
+  0%   { opacity: 0;   transform: translate(0, 0); }
+  10%  { opacity: 0.7; }
+  35%  { opacity: 0.5; transform: translate(8px, -16px); }
+  65%  { opacity: 0.75; transform: translate(20px, -6px); }
+  90%  { opacity: 0.6; transform: translate(12px, 8px); }
+  100% { opacity: 0;   transform: translate(4px, 14px); }
+}
+
 .hero--short {
   min-height: 50vh;
 }
@@ -311,7 +495,7 @@ body {
 .hero-headline {
   opacity: 0;
   transform: translateY(20px);
-  animation: hero-fade-up 0.6s ease-out forwards;
+  animation: hero-fade-up 0.6s ease-out 0.1s forwards;
 }
 
 @keyframes hero-fade-up {
@@ -321,10 +505,15 @@ body {
   }
 }
 
-/* Dark-to-light gradient transition */
-.gradient-transition {
-  height: 80px;
-  background: linear-gradient(to bottom, var(--color-dark-bg), var(--color-light-bg));
+/* Card eyebrow — accent label above heading */
+.card-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--color-accent-light);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.75rem;
 }
 
 /* Logo strip — grayscale with hover color, normalized sizing */
@@ -882,6 +1071,15 @@ body {
   .home-testimonials__supporting {
     grid-template-columns: 1fr;
   }
+
+  /* Hero adjustments */
+  .hero__content {
+    padding-bottom: 18vh;
+  }
+
+  .firefly-glow--2 {
+    right: 15%;
+  }
 }
 
 /* ============================================================
@@ -927,6 +1125,19 @@ body {
   .hero-headline {
     opacity: 1;
     transform: none;
+    animation: none;
+  }
+
+  /* Fireflies become static glows — no drift, no fade */
+  .firefly-glow {
+    opacity: 0.6;
+    transform: none;
+    animation: none;
+  }
+
+  /* Pulse becomes a static glow */
+  .firefly-pulse--active {
+    opacity: 0.6;
     animation: none;
   }
 }
