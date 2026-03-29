@@ -1,40 +1,18 @@
 {{ define "footer" }}
-<footer class="footer">
-  <div class="content-wrap">
-    <!-- Three-column layout -->
-    <div class="footer__columns">
-      <!-- Col 1: Logo + tagline -->
-      <div class="footer__col">
-        <a href="/">
-          <img src="/static/images/logo/logo_two_full.png" alt="Firefly Software" width="140" height="32" class="footer__logo">
-        </a>
-        <p class="footer__tagline">Websites, fixes, and software — built for small businesses.</p>
-      </div>
-
-      <!-- Col 2: Nav links -->
-      <div class="footer__col">
-        <nav class="footer__nav" aria-label="Footer navigation">
-          <a href="/work" class="footer__link">Work</a>
-          <a href="/services/websites" class="footer__link">Services</a>
-          <a href="/process" class="footer__link">Process</a>
-          <a href="/about" class="footer__link">About</a>
-          <a href="/contact" class="footer__link">Contact</a>
-          <a href="/posts/" class="footer__link">Posts</a>
-        </nav>
-      </div>
-
-      <!-- Col 3: Contact info -->
-      <div class="footer__col">
-        <a href="tel:+14068719875" class="footer__link">{{ .Site.Phone }}</a>
-        <a href="mailto:{{ .Site.Email }}" class="footer__link">{{ .Site.Email }}</a>
-      </div>
-    </div>
-
-    <!-- Bottom bar -->
-    <div class="footer__bottom">
-      <span>&copy; 2026 Firefly Software, LLC.</span>
-      <span>Based in Helena, Montana. Working with clients across the US.</span>
-    </div>
+<footer class="ff-footer">
+  <div class="ff-footer-logo">
+    <svg width="16" height="16" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+      <path d="M11 2C11 2 7 8 7 13c0 3.3 1.8 6 4 6s4-2.7 4-6c0-5-4-11-4-11z" fill="#5b7ec4" opacity="0.7"/>
+      <path d="M11 8c0 0-2.5 3.5-2.5 6 0 1.6 1.1 3 2.5 3s2.5-1.4 2.5-3c0-2.5-2.5-6-2.5-6z" fill="#edf0f7" opacity="0.4"/>
+    </svg>
+    Firefly Software
   </div>
+  <ul class="ff-footer-links">
+    <li><a href="/work">Work</a></li>
+    <li><a href="/process">Process</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+  <p class="ff-footer-copy">Helena, Montana &middot; &copy; 2026</p>
 </footer>
 {{ end }}

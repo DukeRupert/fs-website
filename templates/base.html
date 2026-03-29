@@ -9,9 +9,8 @@
   <meta name="author" content="Firefly Software, LLC">
 
   <!-- Fonts -->
-  <link rel="preload" href="/static/fonts/BebasNeue-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/static/fonts/InstrumentSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/static/fonts/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/static/fonts/CormorantGaramond-Medium.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/static/fonts/DMSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
 
   <!-- CSS -->
   <link rel="stylesheet" href="/static/css/output.css">
@@ -34,6 +33,7 @@
     entries.forEach(e => {
       if (e.isIntersecting) {
         e.target.classList.add('is-visible');
+        e.target.classList.add('revealed');
         observer.unobserve(e.target);
       }
     });

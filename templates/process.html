@@ -1,135 +1,152 @@
 {{ define "content" }}
 
 <!-- ============================================================
-     Hero — Short dark hero
+     Hero
      ============================================================ -->
-<section class="hero hero--short">
-  <div class="content-wrap" style="position: relative; z-index: 1;">
-    <h1 style="font-family: var(--font-display); font-size: var(--text-h1); color: var(--color-dark-text); text-transform: uppercase; margin: 0 0 1rem;">How we work</h1>
-    <p style="color: var(--color-dark-muted); font-size: 1.2rem; max-width: 560px;">Every project is different. The process isn't. Here's exactly what working with Firefly looks like — from the first call to the day your site goes live.</p>
+<section class="ff-hero" style="grid-template-columns: 1fr; min-height: auto; padding-bottom: 64px;">
+  <div>
+    <p class="ff-eyebrow">
+      <span class="ff-eyebrow-line" id="hero-line"></span>
+      <span class="ff-eyebrow-text" id="hero-eyebrow-text">How we work</span>
+    </p>
+    <h1 class="ff-headline" id="hero-headline" style="max-width: 640px;">
+      Six steps. No surprises.<br><em>That's the point.</em>
+    </h1>
+    <p class="ff-subline" id="hero-subline" style="max-width: 520px;">
+      Every project is different. The process isn't. Here's exactly what working with Firefly looks like &mdash; from the first call to the day your site goes live.
+    </p>
   </div>
 </section>
-
-<!-- Dark-to-light gradient transition -->
-<div class="gradient-transition"></div>
 
 <!-- ============================================================
      Framing block
      ============================================================ -->
-<section class="section section--light">
-  <div class="content-narrow">
-    <p class="reveal" style="font-size: 1.15rem; color: var(--color-light-muted); font-style: italic; line-height: 1.7;">One thing you'll notice throughout: we do the work first, then ask for your reaction. You're the expert on your business. We're the experts on the build. Our job is to bring you something finished enough to have an opinion about — not to pepper you with questions and put the blank page in your lap.</p>
+<section style="padding: 0 var(--page-gutter) 56px; max-width: 680px;">
+  <div class="reveal" style="border-left: 2px solid var(--ff-dusk-lo); padding: 16px 20px; background: var(--ff-panel2);">
+    <p style="font-family: var(--font-display); font-style: italic; font-size: 16px; line-height: 1.6; color: var(--ff-moon); margin: 0;">
+      One thing you'll notice throughout: we do the work first, then ask for your reaction. You're the expert on your business. We're the experts on the build. Our job is to bring you something finished enough to have an opinion about &mdash; not to pepper you with questions and put the blank page in your lap.
+    </p>
   </div>
 </section>
 
 <!-- ============================================================
      Process Steps
      ============================================================ -->
-<section class="section section--light" style="padding-top: 0;">
-  <div class="content-wrap">
+<section style="padding: 0 var(--page-gutter) var(--section-gap);">
 
-    <!-- Step 01 — Discover -->
-    <div class="process-step reveal">
-      <div class="process-step__header">
-        <span class="process-step__number">01</span>
-        <h2 class="process-step__name">Discover</h2>
-      </div>
-      <div class="process-step__body">
-        <p style="margin-bottom: 1rem;">The first conversation is a scoping call — no sales pitch, no deck. We talk through what you need, what you've tried, and what success looks like for your business. If we're a good fit, we'll tell you. If we're not, we'll tell you that too.</p>
-        <p>By the end of this call you'll have a clear sense of scope, timeline, and what it's likely to cost.</p>
-      </div>
+  <!-- Step 01 — Discover -->
+  <div class="ff-process-step reveal">
+    <div class="ff-process-step__header">
+      <span class="ff-process-step__number">01</span>
+      <h2 class="ff-process-step__name">Discover</h2>
     </div>
-
-    <!-- Step 02 — Agree -->
-    <div class="process-step reveal">
-      <div class="process-step__header">
-        <span class="process-step__number">02</span>
-        <h2 class="process-step__name">Agree</h2>
-      </div>
-      <div class="process-step__body">
-        <p style="margin-bottom: 1rem;">If the scoping call goes well, we put it in writing. We send over a project proposal that covers scope, deliverables, timeline, and price — in plain English, not legal boilerplate. No work starts until both sides have signed.</p>
-        <p>This protects you as much as it protects us. You know exactly what you're getting before any money changes hands.</p>
-      </div>
+    <div class="ff-process-step__body">
+      <p>The first conversation is a scoping call &mdash; no sales pitch, no deck. We talk through what you need, what you've tried, and what success looks like for your business. If we're a good fit, we'll tell you. If we're not, we'll tell you that too.</p>
+      <p>By the end of this call you'll have a clear sense of scope, timeline, and what it's likely to cost.</p>
     </div>
-
-    <!-- Step 03 — Research -->
-    <div class="process-step reveal">
-      <div class="process-step__header">
-        <span class="process-step__number">03</span>
-        <h2 class="process-step__name">Research</h2>
-      </div>
-      <div class="process-step__body">
-        <p style="margin-bottom: 1rem;">Before we open a design tool, we research your market, identify what successful competitors are doing well, and establish what good looks like in your space. Then we build two or three brand and UI direction examples — different enough to be a real choice, grounded enough to be buildable.</p>
-        <p>You pick a direction and tell us what you like and what you don't. That's the whole ask. No mood boards to assemble, no questionnaires to fill out. We bring the options; you steer.</p>
-      </div>
-    </div>
-
-    <!-- Step 04 — Build -->
-    <div class="process-step reveal">
-      <div class="process-step__header">
-        <span class="process-step__number">04</span>
-        <h2 class="process-step__name">Build</h2>
-      </div>
-      <div class="process-step__body">
-        <p style="margin-bottom: 1rem;">Once a direction is agreed, we build. You get a public URL from day one — you can watch the site take shape without scheduling a call or waiting for a demo. We work through the core pages first: landing page, services, about, contact.</p>
-        <p>When the first full draft is ready, we send you a list of every factual claim the site makes about your business — guarantees, credentials, years of experience, service areas, all of it. You go down the list and tell us what to change. Most owners don't have time to write copy from scratch, and it's faster for everyone if you're correcting something finished than building it from nothing.</p>
-      </div>
-    </div>
-
-    <!-- Step 05 — Refine -->
-    <div class="process-step reveal">
-      <div class="process-step__header">
-        <span class="process-step__number">05</span>
-        <h2 class="process-step__name">Refine</h2>
-      </div>
-      <div class="process-step__body">
-        <p style="margin-bottom: 1rem;">This is where the site gets finished. You've seen the full draft, you've verified the claims, and now you have something real to react to. Most clients find it easier to say what they want to change once they can see what they have.</p>
-        <p>We go through as many rounds of edits as the project needs — copy, layout, visuals, mobile behavior. When you're satisfied, we move to launch.</p>
-      </div>
-    </div>
-
-    <!-- Step 06 — Launch -->
-    <div class="process-step reveal">
-      <div class="process-step__header">
-        <span class="process-step__number">06</span>
-        <h2 class="process-step__name">Launch</h2>
-      </div>
-      <div class="process-step__body">
-        <p style="margin-bottom: 1rem;">Before we go live we run a full pre-launch checklist — performance, security, mobile, SEO basics, contact forms, analytics. Then we flip the switch.</p>
-        <p>After launch you receive a written summary of everything that was built and delivered: pages, features, integrations, credentials, and anything you'll need to know going forward. You own all of it — the code, the domain, the content. We don't hold anything hostage.</p>
-      </div>
-    </div>
-
   </div>
+
+  <!-- Step 02 — Agree -->
+  <div class="ff-process-step reveal">
+    <div class="ff-process-step__header">
+      <span class="ff-process-step__number">02</span>
+      <h2 class="ff-process-step__name">Agree</h2>
+    </div>
+    <div class="ff-process-step__body">
+      <p>If the scoping call goes well, we put it in writing. We send over a project proposal that covers scope, deliverables, timeline, and price &mdash; in plain English, not legal boilerplate. No work starts until both sides have signed.</p>
+      <p>This protects you as much as it protects us. You know exactly what you're getting before any money changes hands.</p>
+    </div>
+  </div>
+
+  <!-- Step 03 — Research -->
+  <div class="ff-process-step reveal">
+    <div class="ff-process-step__header">
+      <span class="ff-process-step__number">03</span>
+      <h2 class="ff-process-step__name">Research</h2>
+    </div>
+    <div class="ff-process-step__body">
+      <p>Before we open a design tool, we research your market, identify what successful competitors are doing well, and establish what good looks like in your space. Then we build two or three brand and UI direction examples &mdash; different enough to be a real choice, grounded enough to be buildable.</p>
+      <p>You pick a direction and tell us what you like and what you don't. That's the whole ask. No mood boards to assemble, no questionnaires to fill out. We bring the options; you steer.</p>
+    </div>
+  </div>
+
+  <!-- Step 04 — Build -->
+  <div class="ff-process-step reveal">
+    <div class="ff-process-step__header">
+      <span class="ff-process-step__number">04</span>
+      <h2 class="ff-process-step__name">Build</h2>
+    </div>
+    <div class="ff-process-step__body">
+      <p>Once a direction is agreed, we build. You get a public URL from day one &mdash; you can watch the site take shape without scheduling a call or waiting for a demo. We work through the core pages first: landing page, services, about, contact.</p>
+      <p>When the first full draft is ready, we send you a list of every factual claim the site makes about your business &mdash; guarantees, credentials, years of experience, service areas, all of it. You go down the list and tell us what to change. Most owners don't have time to write copy from scratch, and it's faster for everyone if you're correcting something finished than building it from nothing.</p>
+    </div>
+  </div>
+
+  <!-- Step 05 — Refine -->
+  <div class="ff-process-step reveal">
+    <div class="ff-process-step__header">
+      <span class="ff-process-step__number">05</span>
+      <h2 class="ff-process-step__name">Refine</h2>
+    </div>
+    <div class="ff-process-step__body">
+      <p>This is where the site gets finished. You've seen the full draft, you've verified the claims, and now you have something real to react to. Most clients find it easier to say what they want to change once they can see what they have.</p>
+      <p>We go through as many rounds of edits as the project needs &mdash; copy, layout, visuals, mobile behavior. When you're satisfied, we move to launch.</p>
+    </div>
+  </div>
+
+  <!-- Step 06 — Launch -->
+  <div class="ff-process-step reveal">
+    <div class="ff-process-step__header">
+      <span class="ff-process-step__number">06</span>
+      <h2 class="ff-process-step__name">Launch</h2>
+    </div>
+    <div class="ff-process-step__body">
+      <p>Before we go live we run a full pre-launch checklist &mdash; performance, security, mobile, SEO basics, contact forms, analytics. Then we flip the switch.</p>
+      <p>After launch you receive a written summary of everything that was built and delivered: pages, features, integrations, credentials, and anything you'll need to know going forward. You own all of it &mdash; the code, the domain, the content. We don't hold anything hostage.</p>
+    </div>
+  </div>
+
 </section>
 
 <!-- ============================================================
-     "What happens if something goes wrong?" — Dark card
+     "What happens if something goes wrong?"
      ============================================================ -->
-<section class="section section--light" style="padding-top: 0;">
-  <div class="content-wrap">
-    <div class="card-dark reveal" style="max-width: 820px;">
-      <h2 style="font-family: var(--font-display); font-size: var(--text-h2); text-transform: uppercase; margin: 0 0 1rem;">What happens if something goes wrong?</h2>
-      <p style="color: var(--color-dark-muted); margin-bottom: 1rem;">Scope changes. Timelines slip. Clients change their minds — it happens on every project and it's not a crisis. If scope grows beyond what the proposal covers, we'll tell you before we build it, not after. If a deadline is at risk, you'll hear from us first. We'd rather have an uncomfortable conversation early than a bad surprise late.</p>
-      <p style="color: var(--color-dark-muted);">We've never abandoned a project. We don't intend to start.</p>
-    </div>
+<section style="padding: 0 var(--page-gutter) var(--section-gap);">
+  <div class="reveal" style="background: var(--ff-panel); border: 1px solid var(--ff-border); padding: 48px; max-width: 820px;">
+    <h2 style="font-family: var(--font-display); font-size: var(--type-h3); font-weight: 500; color: var(--ff-paper); margin-bottom: 20px;">What happens if something goes wrong?</h2>
+    <p style="color: var(--ff-ash); font-weight: 300; font-size: var(--type-body); line-height: 1.75; margin-bottom: 16px;">Scope changes. Timelines slip. Clients change their minds &mdash; it happens on every project and it's not a crisis. If scope grows beyond what the proposal covers, we'll tell you before we build it, not after. If a deadline is at risk, you'll hear from us first. We'd rather have an uncomfortable conversation early than a bad surprise late.</p>
+    <p style="color: var(--ff-ash); font-weight: 300; font-size: var(--type-body); line-height: 1.75;">We've never abandoned a project. We don't intend to start.</p>
   </div>
 </section>
 
 <!-- ============================================================
      CTA Close
      ============================================================ -->
-<section class="section section--dark" style="padding: 6rem 0;">
-  <div style="max-width: 620px; margin: 0 auto; padding: 0 1.5rem; text-align: center;">
-    <h2 style="font-family: var(--font-display); font-size: var(--text-h1); color: var(--color-dark-text); margin: 0 0 1.5rem; text-transform: uppercase;">Ready to start?</h2>
-
-    <p style="color: var(--color-dark-muted); margin-bottom: 2.5rem;">The first conversation costs nothing. Tell us what you're working on and we'll tell you honestly whether we're the right fit.</p>
-
-    <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; align-items: center;">
-      <a href="/contact" class="btn-primary">Start a project</a>
-      <a href="tel:+14068719875" class="btn-secondary btn-secondary--dark">+1 (406) 871-9875</a>
+<section style="border-top: 1px solid var(--ff-border); padding: var(--section-gap) var(--page-gutter);">
+  <div style="max-width: 560px;">
+    <p class="ff-eyebrow reveal">
+      <span class="ff-eyebrow-line drawn" style="width: 28px;"></span>
+      <span class="ff-eyebrow-text drawn" style="opacity: 1;">Let's talk</span>
+    </p>
+    <h2 class="reveal" style="font-family: var(--font-display); font-size: var(--type-h2); font-weight: 500; color: var(--ff-paper); line-height: 1.05; margin-bottom: 20px;">Ready to start?</h2>
+    <p class="reveal" style="color: var(--ff-ash); font-weight: 300; font-size: var(--type-body); line-height: 1.75; margin-bottom: 36px;">The first conversation costs nothing. Tell us what you're working on and we'll tell you honestly whether we're the right fit.</p>
+    <div class="reveal" style="display: flex; align-items: center; gap: 28px;">
+      <a href="/contact" class="ff-btn-primary">Start a project</a>
+      <a href="tel:+14068719875" class="ff-btn-secondary">+1 (406) 871-9875</a>
     </div>
   </div>
 </section>
 
+{{ end }}
+
+{{ define "scripts" }}
+<script>
+  // Hero reveal
+  (function () {
+    function draw(id) { var el = document.getElementById(id); if (el) el.classList.add('drawn'); }
+    setTimeout(function() { draw('hero-line'); draw('hero-eyebrow-text'); }, 120);
+    setTimeout(function() { draw('hero-headline'); }, 300);
+    setTimeout(function() { draw('hero-subline'); }, 550);
+  })();
+</script>
 {{ end }}

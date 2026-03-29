@@ -1,202 +1,354 @@
 {{ define "content" }}
 
+<!-- Firefly canvas -->
+<canvas id="firefly-canvas"></canvas>
+
 <!-- ============================================================
      Section 1 — Hero
      ============================================================ -->
-<section class="hero hero--home">
-  <!-- Landscape SVG — sky gradient + ridgeline + transition to light -->
-  <svg class="hero__landscape" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
-    <defs>
-      <linearGradient id="sky-to-ground" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#0A0C14"/>
-        <stop offset="50%" stop-color="#0E0F0D"/>
-        <stop offset="72%" stop-color="#1C1A0F"/>
-        <stop offset="100%" stop-color="#F7F5F0"/>
-      </linearGradient>
-      <linearGradient id="ridge-fill" gradientUnits="userSpaceOnUse" x1="0" y1="624" x2="0" y2="900">
-        <stop offset="0%" stop-color="#1A1C18"/>
-        <stop offset="100%" stop-color="#F7F5F0"/>
-      </linearGradient>
-    </defs>
-    <rect width="1600" height="900" fill="url(#sky-to-ground)"/>
-    <path d="
-      M 0 900
-      L 0 760
-      Q 30 755, 60 750
-      Q 120 735, 180 715
-      Q 240 695, 300 678
-      Q 360 662, 420 650
-      Q 480 638, 540 632
-      Q 580 628, 620 626
-      Q 660 624, 700 625
-      Q 740 626, 780 630
-      Q 830 636, 870 645
-      Q 910 655, 940 668
-      Q 970 685, 1000 705
-      Q 1020 718, 1040 725
-      Q 1055 728, 1070 725
-      Q 1090 718, 1110 710
-      Q 1130 698, 1150 688
-      Q 1165 680, 1180 675
-      Q 1195 672, 1210 675
-      Q 1225 678, 1235 682
-      Q 1245 678, 1258 675
-      Q 1275 672, 1295 676
-      Q 1310 680, 1320 685
-      Q 1335 695, 1350 708
-      Q 1365 718, 1380 722
-      Q 1395 718, 1408 730
-      Q 1425 750, 1445 770
-      Q 1470 790, 1500 802
-      Q 1535 810, 1570 815
-      Q 1585 817, 1600 818
-      L 1600 900
-      Z
-    " fill="url(#ridge-fill)"/>
+<section class="ff-hero">
+  <!-- Stars -->
+  <svg class="ff-stars" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <circle cx="140"  cy="55"  r="1"   fill="#a8c0e8" opacity="0.5" style="animation:twinkle 3.1s ease-in-out infinite 0.2s"/>
+    <circle cx="360"  cy="28"  r="0.8" fill="#a8c0e8" opacity="0.4" style="animation:twinkle 4.2s ease-in-out infinite 1.1s"/>
+    <circle cx="580"  cy="18"  r="1.2" fill="#c8d5ed" opacity="0.6" style="animation:twinkle 2.8s ease-in-out infinite 0.7s"/>
+    <circle cx="820"  cy="40"  r="0.8" fill="#a8c0e8" opacity="0.35" style="animation:twinkle 3.6s ease-in-out infinite 1.8s"/>
+    <circle cx="980"  cy="22"  r="1"   fill="#c8d5ed" opacity="0.5" style="animation:twinkle 4.0s ease-in-out infinite 0.4s"/>
+    <circle cx="1100" cy="58"  r="0.7" fill="#a8c0e8" opacity="0.3" style="animation:twinkle 3.3s ease-in-out infinite 2.1s"/>
+    <circle cx="240"  cy="88"  r="0.6" fill="#a8c0e8" opacity="0.3" style="animation:twinkle 5.0s ease-in-out infinite 0.9s"/>
+    <circle cx="720"  cy="70"  r="0.9" fill="#c8d5ed" opacity="0.45" style="animation:twinkle 3.8s ease-in-out infinite 1.4s"/>
+    <circle cx="1050" cy="95"  r="1"   fill="#a8c0e8" opacity="0.4" style="animation:twinkle 3.2s ease-in-out infinite 0.3s"/>
+    <circle cx="460"  cy="42"  r="0.7" fill="#a8c0e8" opacity="0.35" style="animation:twinkle 4.6s ease-in-out infinite 1.6s"/>
   </svg>
 
-  <!-- Firefly glows — animated drift + fade -->
-  <div class="firefly-glow firefly-glow--1" aria-hidden="true"></div>
-  <div class="firefly-glow firefly-glow--2" aria-hidden="true"></div>
-  <div class="firefly-glow firefly-glow--3" aria-hidden="true"></div>
-
-  <!-- Firefly pulse — scroll-triggered, fires once at the landing moment -->
-  <div class="firefly-pulse" aria-hidden="true"></div>
-
-  <!-- Scroll sentinel — observed by IntersectionObserver -->
-  <div class="hero__sentinel" aria-hidden="true"></div>
-
-  <div class="hero__content">
-    <span class="eyebrow">FIREFLY SOFTWARE</span>
-
-    <h1 class="hero-headline" style="font-family: var(--font-display); font-size: var(--text-display); color: var(--color-dark-text); line-height: 0.9; margin: 0 0 1.5rem; text-transform: uppercase;">Your business deserves<br> a website that was<br> actually built for it.</h1>
-
-    <p class="text-subhead" style="margin: 0 auto 2.5rem;">Most aren't. They're assembled from templates, handed off to support teams, and forgotten. We build from scratch — custom code, no page builders — and we stay accountable for what we ship.</p>
-
-    <div class="cta-group">
-      <a href="/contact" class="btn-primary">Start a project</a>
-      <a href="/work" class="btn-secondary btn-secondary--dark" style="padding: 0.75rem 0;">See our work &rarr;</a>
+  <!-- Left column -->
+  <div>
+    <p class="ff-eyebrow">
+      <span class="ff-eyebrow-line" id="hero-line"></span>
+      <span class="ff-eyebrow-text" id="hero-eyebrow-text">Custom Web Development · Helena, Montana</span>
+    </p>
+    <h1 class="ff-headline" id="hero-headline">
+      Precision instruments.<br><em>Montana made.</em>
+    </h1>
+    <p class="ff-subline" id="hero-subline">
+      Custom websites and software built to last.
+      <strong>No templates. No offshore teams. No runaround.</strong>
+      Just two engineers who answer the phone and ship what they promise.
+    </p>
+    <div class="ff-actions" id="hero-actions">
+      <a href="/work" class="ff-btn-primary">See our work</a>
+      <a href="/process" class="ff-btn-secondary">How we work</a>
     </div>
-
-    <p class="coordinates" style="margin-top: 5rem;">46.5958&deg;N &middot; 112.0270&deg;W</p>
   </div>
-</section>
 
-<!-- ============================================================
-     Section 2 — Credentialing
-     ============================================================ -->
-<section class="section section--light">
-  <div class="content-narrow">
-    <span class="section-label reveal">WHO WE ARE</span>
-
-    <p class="reveal" style="margin-bottom: 1.25rem;">Firefly Software is a small custom development studio based in Helena, Montana. We build websites and software for small businesses — from marketing sites to internal tools to e-commerce platforms. Everything we ship is written from scratch in clean, fast, maintainable code. No WordPress, no Squarespace, no page builders.</p>
-
-    <p class="reveal" style="margin-bottom: 1.25rem;">We're small by design. Every project has a named owner. You'll always know who to call.</p>
-
-    <p class="reveal">We've built for contractors, roasters, outfitters, service businesses, and nonprofits — in Montana and across the country. The geography doesn't change how we work. The accountability does.</p>
-  </div>
-</section>
-
-<!-- ============================================================
-     Section 3 — What We Build
-     ============================================================ -->
-<section class="section section--light">
-  <div class="content-wrap">
-    <span class="section-label reveal">WHAT WE BUILD</span>
-
-    <div class="home-cards">
-      <!-- Card 1: Websites -->
-      <div class="card-light reveal" style="padding: 2.5rem 2rem;">
-        <span class="card-eyebrow">WEBSITES</span>
-        <h3 class="heading-card">A website your business can grow into.</h3>
-        <p style="margin-bottom: 1.5rem;">Custom-built from scratch. Fast, secure, and yours — no platform lock-in, no monthly ransom to a page builder. We handle hosting, maintenance, and edits after launch. If your current site is broken or on a platform you've outgrown, we can fix or replace it.</p>
-        <a href="/work" class="btn-secondary">See our website work &rarr;</a>
-      </div>
-
-      <!-- Card 2: Software -->
-      <div class="card-light reveal" style="padding: 2.5rem 2rem; transition-delay: 0.1s;">
-        <span class="card-eyebrow">SOFTWARE</span>
-        <h3 class="heading-card">Software that fits the way you actually work.</h3>
-        <p style="margin-bottom: 1.5rem;">Most off-the-shelf tools almost fit. You end up working around the parts that don't — spreadsheets, workarounds, subscriptions that add up. We build custom tools your business owns outright. No recurring fees, no feature you'll never use.</p>
-        <a href="/work" class="btn-secondary">See our software work &rarr;</a>
-      </div>
-
-      <!-- Card 3: Support -->
-      <div class="card-light reveal" style="padding: 2.5rem 2rem; transition-delay: 0.2s;">
-        <span class="card-eyebrow">ONGOING SUPPORT</span>
-        <h3 class="heading-card">Someone to call when something needs attention.</h3>
-        <p style="margin-bottom: 1.5rem;">Hosting, security, updates, and edits — handled. One monthly rate, no surprises. For businesses that want a developer on call without hiring one.</p>
-        <a href="/contact" class="btn-secondary">Ask about support &rarr;</a>
-      </div>
+  <!-- Proof column -->
+  <div class="ff-proof" id="hero-proof">
+    <div class="ff-proof-item">
+      <div class="ff-proof-number">100<span>%</span></div>
+      <div class="ff-proof-label">Deadlines met</div>
+    </div>
+    <div class="ff-proof-item">
+      <div class="ff-proof-number">2<span>engineers</span></div>
+      <div class="ff-proof-label">You always know who built it</div>
+    </div>
+    <div class="ff-proof-item">
+      <div class="ff-proof-number">0<span>templates</span></div>
+      <div class="ff-proof-label">Every line written for you</div>
+    </div>
+    <div class="ff-proof-item">
+      <div class="ff-proof-number">&infin;</div>
+      <div class="ff-proof-label">Miles from a call center</div>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     Section 4 — What Clients Say
+     Section 2 — Interstitial Band
      ============================================================ -->
-<section class="section section--light">
-  <div class="content-wrap">
-    <span class="section-label reveal">WHAT CLIENTS SAY</span>
+<div class="ff-band">
+  <div class="ff-scan-line" id="scan-line"></div>
+  <div class="ff-marquee-wrap" aria-hidden="true">
+    <div class="ff-marquee-track">
+      <div class="ff-marquee-item">Go</div>
+      <div class="ff-marquee-item">htmx</div>
+      <div class="ff-marquee-item">PostgreSQL</div>
+      <div class="ff-marquee-item">Tailwind CSS</div>
+      <div class="ff-marquee-item">Alpine.js</div>
+      <div class="ff-marquee-item">Hetzner</div>
+      <div class="ff-marquee-item">Caddy</div>
+      <div class="ff-marquee-item">Docker</div>
+      <div class="ff-marquee-item">Cloudflare</div>
+      <div class="ff-marquee-item">Postmark</div>
+      <!-- Duplicate for seamless loop -->
+      <div class="ff-marquee-item">Go</div>
+      <div class="ff-marquee-item">htmx</div>
+      <div class="ff-marquee-item">PostgreSQL</div>
+      <div class="ff-marquee-item">Tailwind CSS</div>
+      <div class="ff-marquee-item">Alpine.js</div>
+      <div class="ff-marquee-item">Hetzner</div>
+      <div class="ff-marquee-item">Caddy</div>
+      <div class="ff-marquee-item">Docker</div>
+      <div class="ff-marquee-item">Cloudflare</div>
+      <div class="ff-marquee-item">Postmark</div>
+    </div>
+  </div>
+  <div class="ff-band-statement">
+    <p>&ldquo;As durable as the mountains, and just as unlikely to move to San Francisco.&rdquo;</p>
+    <small>Helena, MT &middot; Est. 2023</small>
+  </div>
+</div>
 
-    <div class="home-testimonials">
-      <!-- Featured testimonial — Maldonado (most specific, most credible) -->
-      <div class="card-testimonial card-testimonial--featured reveal">
-        <p class="testimonial-quote" style="font-style: italic; margin-bottom: 1rem;">&ldquo;As an accountant, I know value when I see it. Firefly built us a site that looks like we spent ten times what we paid. Professional, responsive, and they actually pick up the phone when you call. That kind of service is rare.&rdquo;</p>
-        <p style="text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-light-muted); font-size: 0.7rem;"><strong>Cade Maldonado</strong> &middot; Owner, Momentum Business Solutions</p>
-      </div>
+<!-- ============================================================
+     Section 3 — Work / Field Reports
+     ============================================================ -->
+<section class="ff-work reveal" id="work">
+  <div class="ff-section-header">
+    <div>
+      <p class="ff-eyebrow">
+        <span class="ff-eyebrow-line" id="work-line"></span>
+        <span class="ff-eyebrow-text" id="work-eyebrow-text">Selected work</span>
+      </p>
+      <h2 class="ff-section-title">Field reports</h2>
+    </div>
+    <p class="ff-section-note">2 projects &middot; 1 in progress</p>
+  </div>
 
-      <!-- Supporting testimonials — smaller, side by side -->
-      <div class="home-testimonials__supporting">
-        <div class="card-testimonial reveal" style="transition-delay: 0.1s;">
-          <p style="font-style: italic; margin-bottom: 1rem;">&ldquo;No runaround, no upsells, no waiting around for weeks. I told them what I needed and they just handled it. That's how it should be.&rdquo;</p>
-          <p style="text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-light-muted); font-size: 0.7rem;"><strong>Kyle Willis</strong> &middot; Owner, 406 Records</p>
+  <div class="ff-card-grid">
+
+    <!-- Card 1 — A-Team Asphalt -->
+    <article class="cs-card">
+      <div class="cs-visual" aria-hidden="true">
+        <div class="cs-vis-asphalt">
+          <div class="asph-nav">
+            <div class="asph-nav-item active">Home</div>
+            <div class="asph-nav-item">Services</div>
+            <div class="asph-nav-item">Projects</div>
+            <div class="asph-nav-item">Contact</div>
+          </div>
+          <div class="asph-headline-block">
+            <div class="asph-tag">Sumner &middot; Puyallup, WA</div>
+            <div class="asph-name">A-Team Asphalt</div>
+            <div class="asph-sub">Commercial &amp; Residential Paving</div>
+          </div>
+          <div class="asph-blocks">
+            <div class="asph-block accent"><div class="asph-block-label">Services</div></div>
+            <div class="asph-block"><div class="asph-block-label">Portfolio</div></div>
+            <div class="asph-block"><div class="asph-block-label">Contact</div></div>
+            <div class="asph-block"><div class="asph-block-label">About</div></div>
+          </div>
         </div>
-
-        <div class="card-testimonial reveal" style="transition-delay: 0.2s;">
-          <p style="font-style: italic; margin-bottom: 1rem;">&ldquo;Reasonably priced and headache free. I appreciate getting to speak with a real person who responds lightning fast, listens to what I want, and can create anything — and do it better than anyone.&rdquo;</p>
-          <p style="text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-light-muted); font-size: 0.7rem;"><strong>Beverly Sharp</strong> &middot; Owner, FTS Excavation</p>
+      </div>
+      <div class="cs-body">
+        <div class="cs-meta">
+          <div class="cs-client">A-Team Asphalt</div>
+          <div class="cs-tags">
+            <div class="cs-tag">Marketing site</div>
+            <div class="cs-tag">SEO</div>
+          </div>
+        </div>
+        <h3 class="cs-title">Twenty years of reputation. A website that finally matched it.</h3>
+        <p class="cs-outcome">
+          Don and Gary had built a real business the hard way &mdash; word of mouth, quality work,
+          repeat clients across the Puyallup Valley. Their website hadn't kept up.
+          <strong>We rebuilt it from the ground up</strong> &mdash; brand, copy, and code &mdash;
+          and fixed an NAP inconsistency quietly suppressing their local search ranking.
+        </p>
+        <div class="cs-quote">
+          <p class="cs-quote-text">&ldquo;They understood what we do and built something we're actually proud to hand out.&rdquo;</p>
+          <p class="cs-quote-attr">Don &mdash; A-Team Asphalt</p>
+        </div>
+        <div class="cs-results">
+          <div class="cs-result">
+            <div class="cs-result-num">6<span>wks</span></div>
+            <div class="cs-result-label">Discovery to launch</div>
+          </div>
+          <div class="cs-result">
+            <div class="cs-result-num">0<span>templates</span></div>
+            <div class="cs-result-label">Every line custom</div>
+          </div>
+          <div class="cs-result">
+            <div class="cs-result-num">1<span>call</span></div>
+            <div class="cs-result-label">To reach the builder</div>
+          </div>
         </div>
       </div>
-    </div>
+    </article>
 
-    <!-- Logo strip -->
-    <div class="logo-strip reveal">
-      <img src="/static/images/portfolio/ateam_logo.webp" alt="A-Team Asphalt">
-      <img src="/static/images/portfolio/thf_logo.webp" alt="Traver Hardwood Floors">
-      <img src="/static/images/portfolio/nautilus_logo.webp" alt="Nautilus Group">
-      <img src="/static/images/portfolio/406_logo.webp" alt="406 Records">
-      <img src="/static/images/portfolio/shcoc_logo.webp" alt="South Hills Church of Christ">
-      <img src="/static/images/portfolio/cbl_logo.webp" alt="Christian Brother's Lining">
-      <img src="/static/images/portfolio/mbs_logo.webp" alt="Momentum Business Solutions">
-      <img src="/static/images/portfolio/aestus_logo.webp" alt="Aestus Guides">
-    </div>
+    <!-- Card 2 — Western Skies / Skalkaho -->
+    <article class="cs-card">
+      <div class="cs-visual" aria-hidden="true">
+        <div class="cs-vis-western">
+          <div class="wsk-header">
+            <div class="wsk-logo-text">Skalkaho</div>
+            <div class="wsk-badge">Beta</div>
+          </div>
+          <div class="wsk-body">
+            <div class="wsk-sidebar">
+              <div class="wsk-sidebar-item active">New estimate</div>
+              <div class="wsk-sidebar-item">Drafts</div>
+              <div class="wsk-sidebar-item">Sent</div>
+              <div class="wsk-sidebar-item">Clients</div>
+              <div class="wsk-sidebar-item">Settings</div>
+            </div>
+            <div class="wsk-main">
+              <div>
+                <div class="wsk-row-label">Project</div>
+                <div class="wsk-input-row">
+                  <div class="wsk-input wide"></div>
+                  <div class="wsk-input sm"></div>
+                </div>
+              </div>
+              <div>
+                <div class="wsk-row-label">Line items</div>
+                <div class="wsk-input-row">
+                  <div class="wsk-input wide"></div>
+                  <div class="wsk-input sm"></div>
+                  <div class="wsk-input sm"></div>
+                </div>
+                <div class="wsk-input-row" style="margin-top:4px">
+                  <div class="wsk-input wide"></div>
+                  <div class="wsk-input sm"></div>
+                  <div class="wsk-input sm"></div>
+                </div>
+              </div>
+              <div class="wsk-total-bar">
+                <div class="wsk-total-label">Estimate total</div>
+                <div class="wsk-total-num">$14,200</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cs-body">
+        <div class="cs-meta">
+          <div class="cs-client">Western Skies Contracting</div>
+          <div class="cs-tags">
+            <div class="cs-tag">Web app</div>
+            <div class="cs-tag">Estimating</div>
+          </div>
+        </div>
+        <div class="cs-status">
+          <div class="cs-status-dot"></div>
+          In progress
+        </div>
+        <h3 class="cs-title">A quoting tool built around how a contractor actually thinks.</h3>
+        <p class="cs-outcome">
+          Generic estimating software meant paying for features that didn't fit and working
+          around the ones that did. <strong>Skalkaho</strong> is purpose-built for Western
+          Skies &mdash; their line items, their workflow, their clients. No subscription. No bloat.
+          Just the tool they needed.
+        </p>
+        <div class="cs-results">
+          <div class="cs-result">
+            <div class="cs-result-num">2<span>phases</span></div>
+            <div class="cs-result-label">Milestone delivery</div>
+          </div>
+          <div class="cs-result">
+            <div class="cs-result-num">$4.5<span>k</span></div>
+            <div class="cs-result-label">Fixed price, no surprises</div>
+          </div>
+          <div class="cs-result">
+            <div class="cs-result-num">0<span>bloat</span></div>
+            <div class="cs-result-label">Built to spec, nothing extra</div>
+          </div>
+        </div>
+      </div>
+    </article>
 
-    <!-- Guarantee block -->
-    <div class="reveal" style="max-width: 680px; margin: 3.5rem auto 0; text-align: center; padding: 2rem 0;">
-      <p style="font-size: 1.1rem; color: var(--color-light-muted); margin-bottom: 0.75rem;"><strong>Every project is different. A few things never change.</strong></p>
-      <p style="font-size: 1.1rem; color: var(--color-light-muted);">We quote before we start. Scope is agreed in writing. You own everything we build — code, domain, content. We don't disappear after launch.</p>
-    </div>
   </div>
 </section>
 
 <!-- ============================================================
-     Section 5 — CTA / Footer Close
+     Section 4 — CTA
      ============================================================ -->
-<section class="section section--dark" style="padding: 8rem 0;">
-  <div style="max-width: 680px; margin: 0 auto; padding: 0 1.5rem; text-align: center;">
-    <span class="section-label section-label--accent">LET'S TALK</span>
+<section class="ff-cta reveal" id="cta-section">
+  <div class="ff-cta-inner">
 
-    <h2 style="font-family: var(--font-display); font-size: var(--text-display); color: var(--color-dark-text); margin: 0.5rem 0 1.5rem; text-transform: uppercase; line-height: 0.95;">Ready When You Are</h2>
-
-    <p style="color: var(--color-dark-muted); font-size: 1.125rem; margin-bottom: 1rem;">You don't need a fully formed brief to get in touch. Tell us what you're working on — or what's not working — and we'll tell you honestly whether we're the right fit.</p>
-
-    <p style="color: var(--color-dark-muted); font-size: 1.125rem; margin-bottom: 3rem;">We reply within one business day. No automated responses, no sales funnel. Just a real reply from a real person in Helena, Montana.</p>
-
-    <div class="cta-group">
-      <a href="/contact" class="btn-primary">Send a message</a>
-      <a href="tel:+14068719875" class="btn-secondary btn-secondary--dark">+1 (406) 871-9875</a>
+    <!-- Left -->
+    <div class="ff-cta-left">
+      <p class="ff-eyebrow">
+        <span class="ff-eyebrow-line" id="cta-line"></span>
+        <span class="ff-eyebrow-text" id="cta-eyebrow-text">Start a project</span>
+      </p>
+      <h2 class="ff-cta-headline" id="cta-headline">
+        Tell us what<br>you're <em>building.</em>
+      </h2>
+      <p class="ff-cta-body" id="cta-body">
+        No intake form. No automated follow-up.
+        <strong>Write a sentence or ten</strong> &mdash; what the project is,
+        what's not working, what you're hoping for.
+        We'll read it and write back.
+      </p>
+      <div class="ff-commitment" id="cta-commitment">
+        <div class="ff-avatar">L</div>
+        <div class="ff-commitment-text">
+          <strong>Logan &middot; Firefly Software</strong>
+          I aim to reply by end of day. I generally hit what I aim at.
+        </div>
+      </div>
     </div>
+
+    <!-- Divider -->
+    <div class="ff-cta-divider"></div>
+
+    <!-- Right — form -->
+    <div class="ff-cta-right" id="cta-right"
+         x-data="{ sending: false, sent: false, error: '' }">
+      <div x-show="!sent">
+        <p class="ff-form-label">Your project</p>
+        <p class="ff-form-question">What are you trying to build, fix, or launch?</p>
+        <form @submit.prevent="
+          if (!$refs.message.value.trim()) { $refs.message.focus(); return; }
+          sending = true; error = '';
+          fetch('/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              name: $refs.name.value.trim(),
+              email: $refs.email.value.trim(),
+              message: $refs.message.value.trim()
+            })
+          })
+          .then(r => { if (!r.ok) throw new Error('Failed'); sent = true; })
+          .catch(() => { error = 'Something went wrong. Try emailing us directly.'; sending = false; });
+        ">
+          <!-- Honeypot -->
+          <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
+          <textarea
+            class="ff-textarea"
+            x-ref="message"
+            id="cta-message"
+            name="message"
+            placeholder="We run a contracting business in the Pacific Northwest and need a site that actually converts. Right now we're on a builder template from 2019..."
+          ></textarea>
+          <div class="ff-contact-row">
+            <input class="ff-input" type="text" x-ref="name" name="name" placeholder="Your name" />
+            <input class="ff-input" type="email" x-ref="email" name="email" placeholder="Email address" />
+          </div>
+          <div class="ff-submit-row">
+            <button class="ff-btn-submit" type="submit" :disabled="sending">
+              <span x-show="!sending">Send it &rarr;</span>
+              <span x-show="sending" x-cloak>Sending&hellip;</span>
+            </button>
+            <p class="ff-form-note">Plain email on our end.<br>No CRM. No drip sequence.</p>
+          </div>
+          <p x-show="error" x-text="error" style="color: var(--ff-dusk); font-size: var(--type-small); margin-top: 12px;" x-cloak></p>
+        </form>
+      </div>
+      <div class="ff-confirm" :class="sent ? 'visible' : ''">
+        <div class="ff-confirm-icon">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M2.5 7L5.5 10L11.5 4" stroke="#5b7ec4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <p class="ff-confirm-title">Got it. You'll hear from Logan.</p>
+        <p class="ff-confirm-sub">
+          <strong>Not a bot. Not a VA.</strong>
+          The person who will actually build your project is reading this right now.
+        </p>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -204,22 +356,140 @@
 
 {{ define "scripts" }}
 <script>
-  // Firefly pulse — fires once when the ridgeline fully enters the viewport
+  // ============================================================
+  // FIREFLY ENGINE
+  // Three fireflies drift independently in the hero sky zone.
+  // Each pulses with a shaped sine curve — sharp peak, fast fade.
+  // ============================================================
   (function () {
-    var sentinel = document.querySelector('.hero__sentinel');
-    var pulse = document.querySelector('.firefly-pulse');
-    if (!sentinel || !pulse) return;
+    var canvas = document.getElementById('firefly-canvas');
+    if (!canvas) return;
+    var ctx = canvas.getContext('2d');
 
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          pulse.classList.add('firefly-pulse--active');
-          observer.disconnect();
+    function resize() {
+      canvas.width  = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    var ZONE = { xMin: 0.44, xMax: 0.96, yMin: 0.02, yMax: 0.50 };
+
+    var flies = [
+      { x: 0.56, y: 0.17, pulseOffset: 0.0, speed: 0.00008, angle: 1.1,  turnRate: 0.004 },
+      { x: 0.73, y: 0.27, pulseOffset: 3.8, speed: 0.00006, angle: 2.7,  turnRate: 0.003 },
+      { x: 0.63, y: 0.11, pulseOffset: 7.1, speed: 0.00010, angle: 0.4,  turnRate: 0.005 },
+    ];
+
+    var lastTime = null;
+
+    function drawFly(fly, now) {
+      var W = canvas.width, H = canvas.height;
+      var px = fly.x * W, py = fly.y * H;
+      var raw = Math.sin((now * 0.0007) + fly.pulseOffset);
+      var pulse = Math.pow(Math.max(0, raw), 3);
+      if (pulse < 0.01) return;
+      var alpha = pulse * 0.85;
+      var glowR = 2.5 + pulse * 7;
+      var grad = ctx.createRadialGradient(px, py, 0, px, py, glowR * 3);
+      grad.addColorStop(0,   'rgba(195, 235, 85, ' + (alpha * 0.65) + ')');
+      grad.addColorStop(0.4, 'rgba(165, 215, 65, ' + (alpha * 0.28) + ')');
+      grad.addColorStop(1,   'rgba(140, 200, 50, 0)');
+      ctx.beginPath();
+      ctx.arc(px, py, glowR * 3, 0, Math.PI * 2);
+      ctx.fillStyle = grad;
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(px, py, glowR * 0.35, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(225, 252, 145, ' + alpha + ')';
+      ctx.fill();
+    }
+
+    function moveFly(fly, dt) {
+      fly.angle += (Math.random() - 0.5) * fly.turnRate;
+      var margin = 0.03;
+      if (fly.x < ZONE.xMin + margin) fly.angle += 0.05;
+      if (fly.x > ZONE.xMax - margin) fly.angle -= 0.05;
+      if (fly.y < ZONE.yMin + margin) fly.angle += 0.05;
+      if (fly.y > ZONE.yMax - margin) fly.angle -= 0.05;
+      fly.x += Math.cos(fly.angle) * fly.speed * dt;
+      fly.y += Math.sin(fly.angle) * fly.speed * dt;
+      fly.x = Math.max(ZONE.xMin, Math.min(ZONE.xMax, fly.x));
+      fly.y = Math.max(ZONE.yMin, Math.min(ZONE.yMax, fly.y));
+    }
+
+    function frame(now) {
+      if (!lastTime) lastTime = now;
+      var dt = Math.min(now - lastTime, 50);
+      lastTime = now;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      flies.forEach(function(fly) { moveFly(fly, dt); drawFly(fly, now); });
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  })();
+
+  // ============================================================
+  // HERO REVEAL — on load
+  // ============================================================
+  (function () {
+    function draw(id) { var el = document.getElementById(id); if (el) el.classList.add('drawn'); }
+    setTimeout(function() {
+      draw('hero-line');
+      draw('hero-eyebrow-text');
+    }, 120);
+    setTimeout(function() { draw('hero-headline'); }, 300);
+    setTimeout(function() { draw('hero-subline'); },  550);
+    setTimeout(function() { draw('hero-actions'); },  800);
+    setTimeout(function() { draw('hero-proof'); },    650);
+  })();
+
+  // ============================================================
+  // SCAN LINE — fires once, 300ms after load
+  // ============================================================
+  setTimeout(function() {
+    var el = document.getElementById('scan-line');
+    if (el) el.classList.add('fired');
+  }, 300);
+
+  // ============================================================
+  // SCROLL REVEAL — IntersectionObserver
+  // ============================================================
+  (function () {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        el.classList.add('revealed');
+
+        // Eyebrow draw-in per section
+        var lineMap = {
+          'work':        ['work-line',  'work-eyebrow-text'],
+          'cta-section': ['cta-line',   'cta-eyebrow-text'],
+        };
+        var ids = lineMap[el.id];
+        if (ids) {
+          setTimeout(function() {
+            var line = document.getElementById(ids[0]);
+            var text = document.getElementById(ids[1]);
+            if (line) line.classList.add('drawn');
+            if (text) text.classList.add('drawn');
+          }, 150);
         }
-      });
-    }, { threshold: 1.0 });
 
-    observer.observe(sentinel);
+        // CTA-specific reveals
+        if (el.id === 'cta-section') {
+          setTimeout(function() { var e = document.getElementById('cta-headline'); if (e) e.classList.add('drawn'); }, 250);
+          setTimeout(function() { var e = document.getElementById('cta-body'); if (e) e.classList.add('drawn'); }, 450);
+          setTimeout(function() { var e = document.getElementById('cta-commitment'); if (e) e.classList.add('drawn'); }, 700);
+          setTimeout(function() { var e = document.getElementById('cta-right'); if (e) e.classList.add('drawn'); }, 400);
+        }
+
+        observer.unobserve(el);
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
   })();
 </script>
 {{ end }}
