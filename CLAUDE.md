@@ -73,7 +73,9 @@ All colors are CSS custom properties on `:root` in `static/css/tokens.css`:
 | `--color-dark-surface` | `#161810` | Cards, nav, elevated elements |
 | `--color-dark-border` | `#2A2D26` | Subtle dividers |
 | `--color-dark-text` | `#F0EDE6` | Warm off-white primary text |
-| `--color-dark-muted` | `#8A8C82` | Secondary/muted text |
+| `--color-dark-muted` | `#A3A59B` | Secondary/muted text (AAA contrast) |
+| `--color-sky-top` | `#0A0C14` | Hero sky gradient top (home page only) |
+| `--color-sky-horizon` | `#1C1A0F` | Hero sky gradient horizon (home page only) |
 
 **Light palette (body sections):**
 
@@ -85,11 +87,15 @@ All colors are CSS custom properties on `:root` in `static/css/tokens.css`:
 | `--color-light-text` | `#1A1C18` | Near-black body text |
 | `--color-light-muted` | `#6B6D63` | Secondary/muted text |
 
-**Accent (same in both modes):**
+**Accent — two tokens, surface-dependent:**
 
 | Token | Hex | Use |
 |---|---|---|
-| `--color-accent` | `#C8F060` | Firefly glow — CTAs, hovers, labels, borders |
+| `--color-accent` | `#C8F060` | Firefly glow on dark surfaces — hero, nav, footer, dark cards |
+| `--color-accent-light` | `#4D6B00` | Accent text on light surfaces — labels, links, step numbers |
+| `--color-accent-light-border` | `#6B8F0A` | Accent borders on light surfaces — card hovers, testimonials, asides |
+
+The two-accent system keeps the brand thread on both surfaces while solving contrast. `#C8F060` on dark is the firefly glow. `#4D6B00` on light is the same hue darkened for AAA contrast on parchment. See `component-guide.html` for the full reference.
 
 ### Typography
 
@@ -221,17 +227,15 @@ The `#C8F060` glow is the single decorative thread. Its power comes entirely fro
 - Process page step glows — brief `4px` glow next to step numbers on scroll-into-view, `0.3s` then gone
 
 **Where it appears (functional):**
-- Section labels on dark backgrounds (`.section-label--accent`)
-- Active nav underlines
-- Card hover borders
-- CTA button hover fills
-- Focus-visible outlines
+- `--color-accent` (#C8F060): section labels on dark bg, active nav underlines, CTA buttons on dark bg, focus-visible outlines, dark card labels
+- `--color-accent-light` (#4D6B00): section labels on light bg, buttons/links on light bg, step numbers, team roles, card eyebrows
+- `--color-accent-light-border` (#6B8F0A): card hover borders on light bg, testimonial left borders, accent asides on light bg
 
 **Where it never appears:**
-- As a background fill
+- As a background fill (exception: `.btn-primary:hover` fill)
 - In any looping animation
 - More than once per section in decorative form
-- Section labels on light backgrounds (use `--color-light-muted` instead)
+- `#C8F060` directly on light surfaces (use `--color-accent-light` instead)
 
 **Governing principle:** A firefly never performs. It appears when the conditions are right and then it's gone. If it feels like a design decision, it's too much.
 

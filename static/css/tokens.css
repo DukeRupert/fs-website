@@ -16,8 +16,14 @@
     --color-light-text:     #1A1C18;
     --color-light-muted:    #6B6D63;
 
-    /* Accent — same in both modes */
-    --color-accent:         #C8F060;
+    /* Accent — surface-dependent */
+    --color-accent:              #C8F060;  /* dark surfaces only */
+    --color-accent-light:        #4D6B00;  /* text on light surfaces */
+    --color-accent-light-border: #6B8F0A;  /* borders/stripes on light surfaces */
+
+    /* Sky gradient (home hero only) */
+    --color-sky-top:        #0A0C14;
+    --color-sky-horizon:    #1C1A0F;
 
     /* Typography */
     --font-display:         'Bebas Neue', sans-serif;
@@ -131,7 +137,7 @@ body {
 }
 
 .btn-secondary:hover {
-  color: var(--color-accent);
+  color: var(--color-accent-light);
 }
 
 /* Secondary on dark backgrounds — underline for affordance */
@@ -152,14 +158,14 @@ body {
 .section-label {
   font-family: var(--font-display);
   font-size: 0.8125rem;
-  color: var(--color-light-muted);
+  color: var(--color-accent-light);
   letter-spacing: 0.15em;
   text-transform: uppercase;
   display: block;
   margin-bottom: 0.75rem;
 }
 
-/* Accent label — on dark backgrounds or for emphasis */
+/* Accent label — on dark backgrounds */
 .section-label--accent {
   color: var(--color-accent);
 }
@@ -182,28 +188,23 @@ body {
 }
 
 .card-light:hover {
-  border-color: var(--color-accent);
+  border-color: var(--color-accent-light-border);
   transform: translateY(-2px);
 }
 
 /* Accent Aside — left border accent block */
 .aside-accent {
-  border-left: 3px solid var(--color-accent);
+  border-left: 3px solid var(--color-accent-light-border);
   padding-left: 1.5rem;
   margin: 2.5rem 0;
 }
 
-/* Testimonial Card — grey border, accent on hover */
+/* Testimonial Card — light accent border */
 .card-testimonial {
   background: var(--color-light-surface);
-  border-left: 3px solid var(--color-light-border);
+  border-left: 3px solid var(--color-accent-light-border);
   border-radius: var(--border-radius-card);
   padding: 1.5rem;
-  transition: border-color 0.15s;
-}
-
-.card-testimonial:hover {
-  border-color: var(--color-accent);
 }
 
 /* Content wrapper — consistent max-width + padding */
@@ -368,7 +369,7 @@ body {
 .process-step__number {
   font-family: var(--font-mono);
   font-size: var(--text-small);
-  color: var(--color-accent);
+  color: var(--color-accent-light);
 }
 
 .process-step__name {
@@ -482,7 +483,7 @@ body {
 
 .form-field:focus {
   outline: none;
-  border-color: var(--color-accent);
+  border-color: var(--color-accent-light);
 }
 
 .form-label {
@@ -523,7 +524,7 @@ body {
 }
 
 .post-content a {
-  color: var(--color-accent);
+  color: var(--color-accent-light);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
@@ -533,7 +534,7 @@ body {
 }
 
 .post-content blockquote {
-  border-left: 3px solid var(--color-accent);
+  border-left: 3px solid var(--color-accent-light-border);
   padding-left: 1.5rem;
   margin: 1.5rem 0;
   color: var(--color-light-muted);
@@ -900,8 +901,8 @@ body {
 
 .form-field:focus-visible {
   outline: none;
-  border-color: var(--color-accent);
-  box-shadow: 0 0 0 1px var(--color-accent);
+  border-color: var(--color-accent-light);
+  box-shadow: 0 0 0 1px var(--color-accent-light);
 }
 
 /* ============================================================
