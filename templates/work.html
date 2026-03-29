@@ -1,90 +1,369 @@
 {{ define "content" }}
 
 <!-- ============================================================
-     Hero — Short dark hero
+     Hero
      ============================================================ -->
-<section class="hero hero--short">
-  <div class="content-wrap" style="position: relative; z-index: 1;">
-    <h1 style="font-family: var(--font-display); font-size: var(--text-h1); color: var(--color-dark-text); text-transform: uppercase; margin: 0 0 1rem;">Work</h1>
-    <p style="color: var(--color-dark-muted); font-size: 1.2rem; max-width: 560px;">A selection of recent projects. Websites, software, and the problems behind both.</p>
-  </div>
-</section>
-
-<!-- Dark-to-light gradient transition -->
-<div class="gradient-transition"></div>
-
-<!-- ============================================================
-     Websites Section
-     ============================================================ -->
-<section class="section section--light">
-  <div class="content-wrap">
-    <span class="section-label reveal">WEBSITES</span>
-
-    <div class="work-cards reveal">
-
-      <!-- Nautilus Group -->
-      <div class="card-light" style="padding: 2rem;">
-        <h3 style="font-family: var(--font-display); font-size: 1.4rem; color: var(--color-light-text); text-transform: uppercase; margin: 0 0 0.25rem;">Nautilus Group Cleaning Services</h3>
-        <p style="font-family: var(--font-mono); font-size: var(--text-small); color: var(--color-light-muted); font-style: italic; margin-bottom: 1rem;">Commercial cleaning &middot; Kennewick, WA</p>
-        <p style="margin-bottom: 1.5rem;">Nautilus had no web presence — no site, no listings, no digital footprint. We built from scratch: custom site, brand direction, SEO setup, and Google Business Profile. Within four weeks of launch they had received a commercial contract and five new inquiries. They had nothing before. Now they have a pipeline.</p>
-        <!-- TODO: Add live project URL when available -->
-      </div>
-
-      <!-- A-Team Asphalt -->
-      <div class="card-light" style="padding: 2rem; transition-delay: 0.1s;">
-        <h3 style="font-family: var(--font-display); font-size: 1.4rem; color: var(--color-light-text); text-transform: uppercase; margin: 0 0 0.25rem;">A-Team Asphalt</h3>
-        <p style="font-family: var(--font-mono); font-size: var(--text-small); color: var(--color-light-muted); font-style: italic; margin-bottom: 1rem;">Asphalt and paving &middot; Sumner, WA</p>
-        <p style="margin-bottom: 1.5rem;">A-Team needed a site that matched the scale of their operation — a Pacific Northwest paving company with decades of experience and no digital presence to show for it. We built a full custom site with brand identity, copy, SEO strategy, Google Business Profile, and email infrastructure. Built to rank, built to convert.</p>
-        <!-- TODO: Add live project URL when available -->
-      </div>
-
-      <!-- A-Team Gutters -->
-      <div class="card-light" style="padding: 2rem; transition-delay: 0.2s;">
-        <h3 style="font-family: var(--font-display); font-size: 1.4rem; color: var(--color-light-text); text-transform: uppercase; margin: 0 0 0.25rem;">A-Team Gutters</h3>
-        <p style="font-family: var(--font-mono); font-size: var(--text-small); color: var(--color-light-muted); font-style: italic; margin-bottom: 1rem;">Gutter installation &middot; Bonney Lake, WA</p>
-        <p style="margin-bottom: 1.5rem;">A-Team Gutters launched in 2024 with strong trade credentials and no web presence. We built the brand from the ground up — identity, copy, and a custom site designed to generate residential leads in a competitive Pacific Northwest market.</p>
-        <!-- TODO: Add live project URL when available -->
-      </div>
-
-    </div>
+<section class="ff-hero" style="grid-template-columns: 1fr; min-height: auto; padding-bottom: 64px;">
+  <div>
+    <p class="ff-eyebrow">
+      <span class="ff-eyebrow-line" id="hero-line"></span>
+      <span class="ff-eyebrow-text" id="hero-eyebrow-text">Selected work</span>
+    </p>
+    <h1 class="ff-headline" id="hero-headline" style="max-width: 640px;">
+      Field reports.
+    </h1>
+    <p class="ff-subline" id="hero-subline" style="max-width: 520px;">
+      A selection of recent projects. Websites, software, and the problems behind both.
+    </p>
   </div>
 </section>
 
 <!-- ============================================================
-     Software Section
+     Websites
      ============================================================ -->
-<section class="section section--light" style="padding-top: 0;">
-  <div class="content-wrap">
-    <span class="section-label reveal">SOFTWARE</span>
-
-    <div class="work-cards work-cards--two reveal">
-
-      <!-- Western Skies -->
-      <div class="card-light" style="padding: 2rem;">
-        <h3 style="font-family: var(--font-display); font-size: 1.4rem; color: var(--color-light-text); text-transform: uppercase; margin: 0 0 0.25rem;">Estimating Tool — Western Skies Contracting</h3>
-        <p style="font-family: var(--font-mono); font-size: var(--text-small); color: var(--color-light-muted); font-style: italic; margin-bottom: 1rem;">Construction &middot; Hamilton, MT</p>
-        <p>Western Skies was running estimates out of spreadsheets — workable, but slow and error-prone. We built a custom estimating and quoting tool tailored to their specific workflow: line-item pricing, automated updates from local manufacturer price lists, e-signature, and version history. What used to take an afternoon now takes minutes. Spreadsheets to software — that's the whole story.</p>
-      </div>
-
-      <!-- Rockabilly Roasting -->
-      <div class="card-light" style="padding: 2rem; transition-delay: 0.1s;">
-        <h3 style="font-family: var(--font-display); font-size: 1.4rem; color: var(--color-light-text); text-transform: uppercase; margin: 0 0 0.25rem;">E-Commerce Platform — Rockabilly Roasting</h3>
-        <p style="font-family: var(--font-mono); font-size: var(--text-small); color: var(--color-light-muted); font-style: italic; margin-bottom: 1rem;">Coffee roaster &middot; Kennewick, WA</p>
-        <p>Rockabilly needed more than a storefront. They sell retail direct to consumers and wholesale to cafes and restaurants — two different buying experiences, two different pricing structures, one platform. We built a custom e-commerce solution handling B2C sales, B2B wholesale accounts, and subscriptions. No Shopify, no plugin stack, no monthly ransom to a platform they don't own.</p>
-      </div>
-
+<section class="ff-work reveal" id="websites-section">
+  <div class="ff-section-header">
+    <div>
+      <p class="ff-eyebrow">
+        <span class="ff-eyebrow-line" id="websites-line"></span>
+        <span class="ff-eyebrow-text" id="websites-eyebrow-text">Websites</span>
+      </p>
+      <h2 class="ff-section-title">Marketing sites &amp; brand builds</h2>
     </div>
+    <p class="ff-section-note">3 projects</p>
+  </div>
+
+  <div class="ff-card-grid">
+
+    <!-- Nautilus Group -->
+    <article class="cs-card">
+      <div class="cs-body">
+        <div class="cs-meta">
+          <div class="cs-client">Nautilus Group</div>
+          <div class="cs-tags">
+            <div class="cs-tag">Marketing site</div>
+            <div class="cs-tag">Brand</div>
+            <div class="cs-tag">SEO</div>
+          </div>
+        </div>
+        <h3 class="cs-title">No web presence. Now they have a pipeline.</h3>
+        <p class="cs-outcome">
+          Nautilus had nothing &mdash; no site, no listings, no digital footprint. We built from scratch:
+          custom site, brand direction, SEO setup, and Google Business Profile.
+          <strong>Within four weeks of launch they had a commercial contract and five new inquiries.</strong>
+        </p>
+        <div class="cs-results">
+          <div class="cs-result">
+            <div class="cs-result-num">0<span>&rarr;1</span></div>
+            <div class="cs-result-label">Web presence built</div>
+          </div>
+          <div class="cs-result">
+            <div class="cs-result-num">4<span>wks</span></div>
+            <div class="cs-result-label">First contract</div>
+          </div>
+          <div class="cs-result">
+            <div class="cs-result-num">5<span>leads</span></div>
+            <div class="cs-result-label">Month one inquiries</div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- A-Team Asphalt -->
+    <article class="cs-card">
+      <div class="cs-visual" aria-hidden="true">
+        <div class="cs-vis-asphalt">
+          <div class="asph-nav">
+            <div class="asph-nav-item active">Home</div>
+            <div class="asph-nav-item">Services</div>
+            <div class="asph-nav-item">Projects</div>
+            <div class="asph-nav-item">Contact</div>
+          </div>
+          <div class="asph-headline-block">
+            <div class="asph-tag">Sumner &middot; Puyallup, WA</div>
+            <div class="asph-name">A-Team Asphalt</div>
+            <div class="asph-sub">Commercial &amp; Residential Paving</div>
+          </div>
+          <div class="asph-blocks">
+            <div class="asph-block accent"><div class="asph-block-label">Services</div></div>
+            <div class="asph-block"><div class="asph-block-label">Portfolio</div></div>
+            <div class="asph-block"><div class="asph-block-label">Contact</div></div>
+            <div class="asph-block"><div class="asph-block-label">About</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="cs-body">
+        <div class="cs-meta">
+          <div class="cs-client">A-Team Asphalt</div>
+          <div class="cs-tags">
+            <div class="cs-tag">Marketing site</div>
+            <div class="cs-tag">SEO</div>
+          </div>
+        </div>
+        <h3 class="cs-title">Twenty years of reputation. A website that finally matched it.</h3>
+        <p class="cs-outcome">
+          A Pacific Northwest paving company with decades of experience and no digital presence to show for it.
+          <strong>We built a full custom site with brand identity, copy, SEO strategy, Google Business Profile, and email infrastructure.</strong>
+          Built to rank, built to convert.
+        </p>
+        <div class="cs-quote">
+          <p class="cs-quote-text">&ldquo;They understood what we do and built something we're actually proud to hand out.&rdquo;</p>
+          <p class="cs-quote-attr">Don &mdash; A-Team Asphalt</p>
+        </div>
+        <div class="cs-results">
+          <div class="cs-result">
+            <div class="cs-result-num">6<span>wks</span></div>
+            <div class="cs-result-label">Discovery to launch</div>
+          </div>
+          <div class="cs-result">
+            <div class="cs-result-num">0<span>templates</span></div>
+            <div class="cs-result-label">Every line custom</div>
+          </div>
+          <div class="cs-result">
+            <div class="cs-result-num">1<span>call</span></div>
+            <div class="cs-result-label">To reach the builder</div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- A-Team Gutters -->
+    <article class="cs-card">
+      <div class="cs-body">
+        <div class="cs-meta">
+          <div class="cs-client">A-Team Gutters</div>
+          <div class="cs-tags">
+            <div class="cs-tag">Marketing site</div>
+            <div class="cs-tag">Brand</div>
+          </div>
+        </div>
+        <h3 class="cs-title">New trade, new brand, built to generate leads from day one.</h3>
+        <p class="cs-outcome">
+          A-Team Gutters launched in 2024 with strong trade credentials and no web presence.
+          <strong>We built the brand from the ground up</strong> &mdash; identity, copy, and a custom site
+          designed to generate residential leads in a competitive Pacific Northwest market.
+        </p>
+        <div class="cs-results">
+          <div class="cs-result">
+            <div class="cs-result-num">0<span>&rarr;1</span></div>
+            <div class="cs-result-label">Brand created</div>
+          </div>
+          <div class="cs-result">
+            <div class="cs-result-num">1<span>site</span></div>
+            <div class="cs-result-label">Custom built</div>
+          </div>
+          <div class="cs-result">
+            <div class="cs-result-num">2024</div>
+            <div class="cs-result-label">Launch year</div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     Software
+     ============================================================ -->
+<section class="ff-work reveal" id="software-section" style="padding-top: 0;">
+  <div class="ff-section-header">
+    <div>
+      <p class="ff-eyebrow">
+        <span class="ff-eyebrow-line" id="software-line"></span>
+        <span class="ff-eyebrow-text" id="software-eyebrow-text">Software</span>
+      </p>
+      <h2 class="ff-section-title">Custom tools &amp; platforms</h2>
+    </div>
+    <p class="ff-section-note">2 projects &middot; 1 in progress</p>
+  </div>
+
+  <div class="ff-card-grid">
+
+    <!-- Western Skies -->
+    <article class="cs-card">
+      <div class="cs-visual" aria-hidden="true">
+        <div class="cs-vis-western">
+          <div class="wsk-header">
+            <div class="wsk-logo-text">Skalkaho</div>
+            <div class="wsk-badge">Beta</div>
+          </div>
+          <div class="wsk-body">
+            <div class="wsk-sidebar">
+              <div class="wsk-sidebar-item active">New estimate</div>
+              <div class="wsk-sidebar-item">Drafts</div>
+              <div class="wsk-sidebar-item">Sent</div>
+              <div class="wsk-sidebar-item">Clients</div>
+              <div class="wsk-sidebar-item">Settings</div>
+            </div>
+            <div class="wsk-main">
+              <div>
+                <div class="wsk-row-label">Project</div>
+                <div class="wsk-input-row">
+                  <div class="wsk-input wide"></div>
+                  <div class="wsk-input sm"></div>
+                </div>
+              </div>
+              <div>
+                <div class="wsk-row-label">Line items</div>
+                <div class="wsk-input-row">
+                  <div class="wsk-input wide"></div>
+                  <div class="wsk-input sm"></div>
+                  <div class="wsk-input sm"></div>
+                </div>
+                <div class="wsk-input-row" style="margin-top:4px">
+                  <div class="wsk-input wide"></div>
+                  <div class="wsk-input sm"></div>
+                  <div class="wsk-input sm"></div>
+                </div>
+              </div>
+              <div class="wsk-total-bar">
+                <div class="wsk-total-label">Estimate total</div>
+                <div class="wsk-total-num">$14,200</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cs-body">
+        <div class="cs-meta">
+          <div class="cs-client">Western Skies Contracting</div>
+          <div class="cs-tags">
+            <div class="cs-tag">Web app</div>
+            <div class="cs-tag">Estimating</div>
+          </div>
+        </div>
+        <div class="cs-status">
+          <div class="cs-status-dot"></div>
+          In progress
+        </div>
+        <h3 class="cs-title">A quoting tool built around how a contractor actually thinks.</h3>
+        <p class="cs-outcome">
+          Western Skies was running estimates out of spreadsheets &mdash; workable, but slow and error-prone.
+          <strong>We built a custom estimating and quoting tool tailored to their workflow:</strong>
+          line-item pricing, automated manufacturer price list updates, e-signature, and version history.
+          What used to take an afternoon now takes minutes.
+        </p>
+        <div class="cs-results">
+          <div class="cs-result">
+            <div class="cs-result-num">2<span>phases</span></div>
+            <div class="cs-result-label">Milestone delivery</div>
+          </div>
+          <div class="cs-result">
+            <div class="cs-result-num">$4.5<span>k</span></div>
+            <div class="cs-result-label">Fixed price</div>
+          </div>
+          <div class="cs-result">
+            <div class="cs-result-num">0<span>bloat</span></div>
+            <div class="cs-result-label">Built to spec</div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Rockabilly Roasting -->
+    <article class="cs-card">
+      <div class="cs-body">
+        <div class="cs-meta">
+          <div class="cs-client">Rockabilly Roasting</div>
+          <div class="cs-tags">
+            <div class="cs-tag">E-commerce</div>
+            <div class="cs-tag">B2B + B2C</div>
+          </div>
+        </div>
+        <h3 class="cs-title">Two buying experiences, two pricing structures, one platform.</h3>
+        <p class="cs-outcome">
+          Rockabilly sells retail to consumers and wholesale to cafes and restaurants &mdash;
+          two different experiences, two different pricing structures.
+          <strong>We built a custom e-commerce solution</strong> handling B2C sales, B2B wholesale accounts,
+          and subscriptions. No Shopify, no plugin stack, no monthly ransom to a platform they don't own.
+        </p>
+        <div class="cs-results">
+          <div class="cs-result">
+            <div class="cs-result-num">2<span>channels</span></div>
+            <div class="cs-result-label">B2C + wholesale</div>
+          </div>
+          <div class="cs-result">
+            <div class="cs-result-num">0<span>platforms</span></div>
+            <div class="cs-result-label">Fully custom owned</div>
+          </div>
+          <div class="cs-result">
+            <div class="cs-result-num">1<span>codebase</span></div>
+            <div class="cs-result-label">Both experiences unified</div>
+          </div>
+        </div>
+      </div>
+    </article>
+
   </div>
 </section>
 
 <!-- ============================================================
      More Coming
      ============================================================ -->
-<section class="section section--light" style="padding-top: 0;">
-  <div style="max-width: 560px; margin: 0 auto; padding: 0 1.5rem; text-align: center;">
-    <p class="reveal" style="color: var(--color-light-muted); margin-bottom: 1.5rem;">We're selective about the projects we take on. That means the list stays short and the work stays strong. If you want to see something specific — a particular industry, a particular kind of problem — get in touch and we'll tell you honestly what we've built that's closest to it.</p>
-    <a href="/contact" class="btn-secondary reveal">Start a conversation &rarr;</a>
+<section style="padding: 0 var(--page-gutter) var(--section-gap); max-width: 560px;">
+  <p class="reveal" style="color: var(--ff-ash); font-weight: 300; font-size: var(--type-body); line-height: 1.75; margin-bottom: 28px;">
+    We're selective about the projects we take on. That means the list stays short and the work stays strong.
+    If you want to see something specific &mdash; a particular industry, a particular kind of problem &mdash;
+    get in touch and we'll tell you honestly what we've built that's closest to it.
+  </p>
+  <a href="/contact" class="ff-btn-secondary reveal">Start a conversation</a>
+</section>
+
+<!-- ============================================================
+     CTA Close
+     ============================================================ -->
+<section style="border-top: 1px solid var(--ff-border); padding: var(--section-gap) var(--page-gutter);">
+  <div style="max-width: 560px;">
+    <p class="ff-eyebrow reveal">
+      <span class="ff-eyebrow-line drawn" style="width: 28px;"></span>
+      <span class="ff-eyebrow-text drawn" style="opacity: 1;">Let's talk</span>
+    </p>
+    <h2 class="reveal" style="font-family: var(--font-display); font-size: var(--type-h2); font-weight: 500; color: var(--ff-paper); line-height: 1.05; margin-bottom: 20px;">Have a project in mind?</h2>
+    <p class="reveal" style="color: var(--ff-ash); font-weight: 300; font-size: var(--type-body); line-height: 1.75; margin-bottom: 36px;">Tell us what you're working on. We'll tell you honestly whether we're the right fit.</p>
+    <div class="reveal" style="display: flex; align-items: center; gap: 28px;">
+      <a href="/contact" class="ff-btn-primary">Start a project</a>
+      <a href="tel:+14068719875" class="ff-btn-secondary">+1 (406) 871-9875</a>
+    </div>
   </div>
 </section>
 
+{{ end }}
+
+{{ define "scripts" }}
+<script>
+  // Hero reveal
+  (function () {
+    function draw(id) { var el = document.getElementById(id); if (el) el.classList.add('drawn'); }
+    setTimeout(function() { draw('hero-line'); draw('hero-eyebrow-text'); }, 120);
+    setTimeout(function() { draw('hero-headline'); }, 300);
+    setTimeout(function() { draw('hero-subline'); }, 550);
+  })();
+
+  // Section eyebrow draw-ins
+  (function () {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        var lineMap = {
+          'websites-section': ['websites-line', 'websites-eyebrow-text'],
+          'software-section': ['software-line', 'software-eyebrow-text'],
+        };
+        var ids = lineMap[el.id];
+        if (ids) {
+          setTimeout(function() {
+            var line = document.getElementById(ids[0]);
+            var text = document.getElementById(ids[1]);
+            if (line) line.classList.add('drawn');
+            if (text) text.classList.add('drawn');
+          }, 150);
+        }
+        observer.unobserve(el);
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.ff-work').forEach(function(el) { observer.observe(el); });
+  })();
+</script>
 {{ end }}
