@@ -172,6 +172,8 @@ Required GitHub Secrets: `DOCKERHUB_USERNAME`, `DOCKERHUB_TOKEN`, `VPS_HOST`, `P
 
 ## Design Context
 
+Read alongside `visual-design-direction.md` for full visual specification.
+
 ### Users
 
 Small business owners evaluating a custom development studio — often arriving cold from search or a referral. Many are coastal (California, Florida, Pacific Northwest) and are comparing Firefly against local agencies or freelancers. They're pragmatic buyers: they want to know what they'll get, what it costs, and whether the people behind the studio can be trusted. They don't want a sales pitch. They want a straight answer.
@@ -182,15 +184,62 @@ Small business owners evaluating a custom development studio — often arriving 
 
 Firefly speaks with quiet confidence — technically excellent but never showy. The tone is first-person plural ("we"), conversational but never casual, and specific rather than aspirational. It reads like a letter from someone who builds things for a living, not a marketing team.
 
+The emotional reference is *Yellowstone* — not the props (no barbed wire, no weathered wood), but the feeling: unhurried confidence, landscape as character, craft that's been tested.
+
 ### Aesthetic Direction
 
-**"Precision instrument"** — the visual language of a well-made tool. Dark above the fold (late Montana night sky), warm parchment below. The single decorative moment is the `#C8F060` firefly glow accent against near-black — bioluminescence in a dark field. Everything else exists to not compete with that moment.
+**"Precision instrument, Montana made."** The visual language of a well-made tool. Dark above the fold (late Montana night sky), warm parchment below.
+
+**The One Memorable Thing:** The first `#C8F060` firefly glow against the near-black hero — the ridgeline below it, the coordinates in mono type beside it. Quiet, specific, earned. Everything else on the site exists to not compete with that moment.
 
 **References:** Pared-back product pages (Stripe's developer docs, Linear's marketing site) — confident typography, generous whitespace, zero decoration.
 
-**Anti-references:** Creative agency sites with parallax, animated counters, gradient buttons, purple/teal accents, stock photography hero sections, or mega-menu navigation.
+**Anti-references:** Creative agency sites with parallax, animated counters, gradient buttons, purple/teal accents, stock photography hero sections, or mega-menu navigation. No drop shadows, no gradient fills on buttons, no rounded corners above 6px, no full-bleed background images, no animated stat counters.
 
 **Theme:** Dark hero → gradient transition → warm light body. Both halves share the same accent color as a thread.
+
+### Hero Composition (Home Page Only)
+
+The home page hero is the one place on the site where the Montana landscape is shown directly. Three elements:
+
+1. **Sky gradient** — CSS gradient from `#0A0C14` (top) through `#0E0F0D` (55%) to `#1C1A0F` (bottom). Two to three stops. The kind of sky where fireflies come out. Home page hero only; all other dark sections use flat `#0E0F0D`.
+
+2. **Ridgeline** — SVG silhouette of the Sleeping Giant profile. Fill `#1A1C18`. Positioned `absolute; bottom: 0`. Full viewport width. Dark enough to read as shape, warm enough to not disappear.
+
+3. **Firefly glows** — Two to three static radial gradient glows (`#C8F060` center → transparent). Positioned above the ridgeline. No animation. They are simply present, the way fireflies are present at dusk if you happen to look.
+
+Type sits in the upper two-thirds. The landscape owns the bottom third. They do not compete.
+
+### The Firefly Magic — Rules of Use
+
+The `#C8F060` glow is the single decorative thread. Its power comes entirely from restraint.
+
+**Where it appears (decorative):**
+- Hero glows — static, home page only
+- Logo mark — single small dot near the ridgeline in the SVG
+- Scroll-transition pulse — one firefly glow pulses once at the dark-to-light transition, triggered by IntersectionObserver, fires once per page load
+- Process page step glows — brief `4px` glow next to step numbers on scroll-into-view, `0.3s` then gone
+
+**Where it appears (functional):**
+- Section labels on dark backgrounds (`.section-label--accent`)
+- Active nav underlines
+- Card hover borders
+- CTA button hover fills
+- Focus-visible outlines
+
+**Where it never appears:**
+- As a background fill
+- In any looping animation
+- More than once per section in decorative form
+- Section labels on light backgrounds (use `--color-light-muted` instead)
+
+**Governing principle:** A firefly never performs. It appears when the conditions are right and then it's gone. If it feels like a design decision, it's too much.
+
+### Interior Pages
+
+Interior heroes (Process, Services, Work, About, Contact) use flat `#0E0F0D` — no sky gradient, no ridgeline, no firefly glows. The landscape composition belongs to the home page alone.
+
+Light-background sections on interior pages get topographic contour lines as subtle texture: thin strokes (`0.5px`), `--color-light-border`, `opacity: 0.4`, repeating SVG background. Barely perceptible — texture, not decoration. (Asset: `static/images/topo-pattern.svg` — needs creation.)
 
 ### Emotional Goals
 
@@ -198,16 +247,18 @@ A cold visitor should feel **curiosity and respect** ("this isn't what I expecte
 
 ### Accessibility
 
-Target **WCAG AAA where feasible**. Enhanced contrast ratios, `prefers-reduced-motion` support, keyboard navigation, semantic HTML landmarks, descriptive alt text, associated form labels. Color is never the sole indicator of state.
+Target **WCAG AAA where feasible**. Enhanced contrast ratios, `prefers-reduced-motion` support (all animations/transitions disabled), `:focus-visible` outlines on all interactive elements, keyboard navigation, semantic HTML landmarks, descriptive alt text, associated form labels. Color is never the sole indicator of state.
 
 ### Design Principles
 
 1. **Restraint is the design.** Every element earns its place. If it doesn't serve clarity or trust, it doesn't belong. One accent moment per section maximum.
 
-2. **Typography does the work.** No hero images, no stock photography, no illustration beyond the Sleeping Giant texture. Bebas Neue at display size, generous whitespace, and the firefly glow are the entire visual vocabulary.
+2. **Typography does the work.** No hero images, no stock photography, no illustration beyond the Sleeping Giant ridgeline. Bebas Neue at display size, generous whitespace, and the firefly glow are the entire visual vocabulary.
 
 3. **Warm, not sterile.** Colors have undertones (warm off-white, not clinical white; warm near-black, not blue-black). The site should feel handmade in the best sense — considered, not generated.
 
-4. **Motion is earned.** One fade-up on load. Scroll reveals at 0.4s. Hover states at 0.15s. Nothing bounces, springs, loops, or parallaxes. Speed signals competence.
+4. **Motion is earned.** One fade-up on load. Scroll reveals at 0.4s. Hover states at 0.15s. One scroll-transition pulse. Nothing bounces, springs, loops, or parallaxes. Speed signals competence.
 
 5. **Accessibility is structural, not decorative.** Semantic HTML, landmark roles, AAA contrast where feasible, reduced-motion support. These aren't features — they're how the site is built.
+
+6. **The firefly never performs.** Every decorative use of the accent color should feel like you caught the scene at exactly the right moment. If it feels like a design decision, it's too much.
