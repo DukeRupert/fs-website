@@ -43,6 +43,7 @@ func (tr *TemplateRenderer) parseAll() error {
 		"work":               tr.baseDir + "/work.html",
 		"process":            tr.baseDir + "/process.html",
 		"about":              tr.baseDir + "/about.html",
+		"pricing":            tr.baseDir + "/pricing.html",
 		"contact":            tr.baseDir + "/contact.html",
 		"services-websites":  tr.baseDir + "/services-websites.html",
 		"services-software":  tr.baseDir + "/services-software.html",

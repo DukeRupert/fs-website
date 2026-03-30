@@ -85,6 +85,11 @@ func main() {
 		"A small, focused team building custom websites and software for small businesses. Based in Helena, Montana.",
 		site,
 	)))
+	mux.HandleFunc("GET /pricing", handlers.PageHandler(tr, "pricing", handlers.NewPageData(
+		"Pricing — Firefly Software",
+		"One relationship, one monthly number. Custom websites built, hosted, and maintained under one agreement.",
+		site,
+	)))
 	mux.HandleFunc("GET /contact", handlers.PageHandler(tr, "contact", handlers.NewPageData(
 		"Contact — Firefly Software",
 		"Tell us what you're working on. We'll tell you honestly whether we're the right fit.",
@@ -116,8 +121,7 @@ func main() {
 	mux.HandleFunc("GET /site-rescue", handlers.Redirect301("/services/websites"))
 	mux.HandleFunc("GET /outfitters/", handlers.Redirect301("/work"))
 	mux.HandleFunc("GET /outfitters", handlers.Redirect301("/work"))
-	mux.HandleFunc("GET /pricing/", handlers.Redirect301("/services/websites"))
-	mux.HandleFunc("GET /pricing", handlers.Redirect301("/services/websites"))
+	mux.HandleFunc("GET /pricing/", handlers.Redirect301("/pricing"))
 	mux.HandleFunc("GET /portfolio/", handlers.Redirect301("/work"))
 	mux.HandleFunc("GET /portfolio", handlers.Redirect301("/work"))
 	mux.HandleFunc("GET /contact-us/", handlers.Redirect301("/contact"))

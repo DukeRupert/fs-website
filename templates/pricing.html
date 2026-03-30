@@ -1,0 +1,246 @@
+{{ define "content" }}
+
+<!-- ============================================================
+     Hero
+     ============================================================ -->
+<section class="ff-hero" style="grid-template-columns: 1fr; min-height: auto; padding-bottom: 64px;">
+  <div>
+    <p class="ff-eyebrow">
+      <span class="ff-eyebrow-line" id="hero-line"></span>
+      <span class="ff-eyebrow-text" id="hero-eyebrow-text">Pricing</span>
+    </p>
+    <h1 class="ff-headline" id="hero-headline" style="max-width: 600px;">
+      One relationship.<br><em>One monthly number.</em>
+    </h1>
+    <p class="ff-subline" id="hero-subline" style="max-width: 520px;">
+      Your site is built, hosted, and maintained under one agreement.
+      <strong>No surprise invoices. No hunting for a developer when something breaks.</strong>
+      Pay monthly over twelve months, then a simple maintenance rate for as long as you want to stay.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     Pricing Cards
+     ============================================================ -->
+<section class="ff-pricing reveal" id="pricing"
+         x-data="{ mode: 'monthly' }">
+
+  <!-- Toggle -->
+  <div class="ff-toggle-wrap">
+    <span class="ff-toggle-label">Payment</span>
+    <div class="ff-toggle">
+      <button class="ff-toggle-btn" :class="mode === 'monthly' ? 'active' : ''"
+              @click="mode = 'monthly'">Pay monthly</button>
+      <button class="ff-toggle-btn" :class="mode === 'upfront' ? 'active' : ''"
+              @click="mode = 'upfront'">Pay upfront</button>
+    </div>
+    <span class="ff-save-note" :class="mode === 'upfront' ? 'visible' : ''">10% off &mdash; no financing cost</span>
+  </div>
+
+  <div class="ff-price-card-grid">
+
+    <!-- Standard -->
+    <div class="ff-price-card">
+      <div class="ff-price-card-header">
+        <div class="ff-price-card-tier">Standard</div>
+        <div class="ff-save-pill" :class="mode === 'upfront' ? 'visible' : ''">Save $450</div>
+        <div class="ff-price-row">
+          <div class="ff-price" x-text="mode === 'monthly' ? '$375' : '$4,050'"></div>
+          <div class="ff-price-unit" x-text="mode === 'monthly' ? '/mo' : ''"></div>
+        </div>
+        <div class="ff-price-term" x-text="mode === 'monthly' ? '12 monthly payments · then $95/mo' : 'One-time payment · then $95/mo'"></div>
+        <div class="ff-price-card-name">Up to 6 pages</div>
+        <div class="ff-price-card-desc">Custom design and copy structure for a business that needs to show up professionally online and convert visitors into calls.</div>
+      </div>
+      <div class="ff-price-card-body">
+        <div class="ff-features-label">What's included</div>
+        <ul class="ff-features">
+          <li class="ff-feature"><span class="ff-feature-dot"></span><span><strong>Custom design</strong> &mdash; no templates, no page builders, no offshore work</span></li>
+          <li class="ff-feature"><span class="ff-feature-dot"></span><span><strong>Up to 6 pages</strong> &mdash; home, services, about, contact, plus two more</span></li>
+          <li class="ff-feature"><span class="ff-feature-dot"></span><span><strong>Copy structure</strong> &mdash; we draft the framework, you refine the details</span></li>
+          <li class="ff-feature"><span class="ff-feature-dot"></span><span><strong>1 round of revisions</strong> before launch</span></li>
+          <li class="ff-feature"><span class="ff-feature-dot"></span><span><strong>Hosting + SSL</strong> on Firefly's Hetzner infrastructure</span></li>
+          <li class="ff-feature"><span class="ff-feature-dot"></span><span><strong>1 hr/mo changes</strong> &mdash; copy updates, photos, small additions</span></li>
+          <li class="ff-feature"><span class="ff-feature-dot"></span><span><strong>Google Business Profile</strong> setup and optimization</span></li>
+          <li class="ff-feature"><span class="ff-feature-dot"></span><span><strong>SEO foundation</strong> &mdash; meta tags, schema markup, sitemap</span></li>
+        </ul>
+      </div>
+      <div class="ff-post-strip">
+        <div>
+          <div class="ff-post-label">After month 12</div>
+          <div class="ff-post-rate">$95<span>/mo</span></div>
+        </div>
+        <div class="ff-post-detail">Hosting, SSL, 1hr/mo changes.<br>Cancel with 30 days notice.</div>
+      </div>
+      <div class="ff-price-card-footer">
+        <a href="/contact" class="ff-btn-card">Start with Standard</a>
+      </div>
+    </div>
+
+    <!-- Advanced -->
+    <div class="ff-price-card featured">
+      <div class="ff-price-card-header">
+        <div class="ff-price-card-tier">Advanced</div>
+        <div class="ff-save-pill" :class="mode === 'upfront' ? 'visible' : ''">Save $750</div>
+        <div class="ff-price-row">
+          <div class="ff-price" x-text="mode === 'monthly' ? '$625' : '$6,750'"></div>
+          <div class="ff-price-unit" x-text="mode === 'monthly' ? '/mo' : ''"></div>
+        </div>
+        <div class="ff-price-term" x-text="mode === 'monthly' ? '12 monthly payments · then $95/mo' : 'One-time payment · then $95/mo'"></div>
+        <div class="ff-price-card-name">Up to 12 pages</div>
+        <div class="ff-price-card-desc">Full site build with custom functionality, complete copywriting, and deeper content strategy for businesses that need more than a brochure.</div>
+      </div>
+      <div class="ff-price-card-body">
+        <div class="ff-features-label">Everything in Standard, plus</div>
+        <ul class="ff-features">
+          <li class="ff-feature"><span class="ff-feature-dot"></span><span><strong>Up to 12 pages</strong> &mdash; full site architecture and navigation</span></li>
+          <li class="ff-feature"><span class="ff-feature-dot"></span><span><strong>Full copywriting</strong> &mdash; we write every page, you approve</span></li>
+          <li class="ff-feature"><span class="ff-feature-dot"></span><span><strong>2 rounds of revisions</strong> before launch</span></li>
+          <li class="ff-feature"><span class="ff-feature-dot"></span><span><strong>2 hrs/mo changes</strong> &mdash; ongoing updates and additions</span></li>
+          <li class="ff-feature"><span class="ff-feature-dot"></span><span><strong>Custom functionality</strong> &mdash; forms, calculators, booking, integrations</span></li>
+          <li class="ff-feature"><span class="ff-feature-dot"></span><span><strong>Brand guide</strong> &mdash; color, type, logo usage for consistent future work</span></li>
+          <li class="ff-feature"><span class="ff-feature-dot"></span><span><strong>Priority response</strong> &mdash; same business day on all requests</span></li>
+        </ul>
+      </div>
+      <div class="ff-post-strip">
+        <div>
+          <div class="ff-post-label">After month 12</div>
+          <div class="ff-post-rate">$95<span>/mo</span></div>
+        </div>
+        <div class="ff-post-detail">Hosting, SSL, 2hrs/mo changes.<br>Cancel with 30 days notice.</div>
+      </div>
+      <div class="ff-price-card-footer">
+        <a href="/contact" class="ff-btn-card">Start with Advanced</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Policy strip -->
+  <div class="ff-policy">
+    <div class="ff-policy-item">
+      <div class="ff-policy-label">How the deposit works</div>
+      <div class="ff-policy-text">First two months are due at signing and cover discovery and design. <strong>The remaining ten payments begin when your site launches.</strong> You don't pay for work you haven't seen.</div>
+    </div>
+    <div class="ff-policy-item">
+      <div class="ff-policy-label">Ownership and transfer</div>
+      <div class="ff-policy-text">You own your content and design from day one. <strong>Your site lives on Firefly's infrastructure during the agreement.</strong> Request a full file transfer and DNS migration after payoff for a one-time $150 fee.</div>
+    </div>
+    <div class="ff-policy-item">
+      <div class="ff-policy-label">Custom projects</div>
+      <div class="ff-policy-text">Need a web app, estimating tool, or something beyond a marketing site? <strong>Custom projects are scoped and priced separately.</strong> Write and tell us what you're building.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     Guarantee
+     ============================================================ -->
+<section style="padding: 48px var(--page-gutter) 0;">
+  <div class="ff-guarantee reveal" id="guarantee">
+    <div class="ff-guarantee-inner">
+      <div class="ff-guarantee-left">
+        <p class="ff-eyebrow" style="margin-bottom: 16px;">
+          <span class="ff-eyebrow-line drawn" style="width: 20px;"></span>
+          <span class="ff-eyebrow-text drawn" style="opacity: 1;">The confidence guarantee</span>
+        </p>
+        <h2 style="font-family: var(--font-display); font-size: 32px; font-weight: 500; color: var(--ff-paper); line-height: 1.1; margin-bottom: 16px;">
+          If we're not moving<br>the needle, <em style="color: var(--ff-moon); opacity: 0.8;">you don't pay.</em>
+        </h2>
+        <div style="font-size: 14px; line-height: 1.75; color: var(--ff-ash); font-weight: 300; max-width: 420px;">
+          <p>Every site we build is connected to Google Search Console from day one. We establish a baseline at launch and track organic search visibility over the following six months.</p>
+          <p style="margin-top: 12px;"><strong style="color: var(--ff-cream); font-weight: 400;">If your search visibility hasn't improved meaningfully by the six-month mark, you can invoke the guarantee.</strong> The last two monthly payments come back as Firefly credit &mdash; valid for 12 months, applied to any future work.</p>
+          <p style="margin-top: 12px;">We'd rather earn it than keep it.</p>
+        </div>
+      </div>
+      <div class="ff-guarantee-divider"></div>
+      <div class="ff-guarantee-right">
+        <div class="ff-guarantee-terms-label">How it works</div>
+        <ul class="ff-terms-list">
+          <li class="ff-term">
+            <div class="ff-term-num">1</div>
+            <div class="ff-term-text"><strong>Baseline at launch.</strong> We pull your Google Search Console data the day the site goes live and document your starting point.</div>
+          </li>
+          <li class="ff-term">
+            <div class="ff-term-num">2</div>
+            <div class="ff-term-text"><strong>Six-month check.</strong> At month six we share a visibility report. If organic impressions haven't grown, you can invoke the guarantee.</div>
+          </li>
+          <li class="ff-term">
+            <div class="ff-term-num">3</div>
+            <div class="ff-term-text"><strong>Credit, not cash.</strong> The last two monthly payments return as Firefly credit &mdash; toward a redesign, new pages, or anything else. Valid 12 months.</div>
+          </li>
+          <li class="ff-term">
+            <div class="ff-term-num">4</div>
+            <div class="ff-term-text"><strong>One condition.</strong> The guarantee requires reasonable responsiveness during the build. The clock starts at launch, not signing.</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FAQ
+     ============================================================ -->
+<section class="ff-faq reveal" id="faq">
+  <p class="ff-eyebrow" style="margin-bottom: 16px;">
+    <span class="ff-eyebrow-line drawn" style="width: 28px;"></span>
+    <span class="ff-eyebrow-text drawn" style="opacity: 1;">Common questions</span>
+  </p>
+  <h2 class="ff-faq-title">Things people ask before signing.</h2>
+  <div class="ff-faq-grid">
+    <div class="ff-faq-item">
+      <div class="ff-faq-q">What happens if I want to cancel before month 12?</div>
+      <div class="ff-faq-a">You can cancel with 30 days notice at any time. Payments made to date are non-refundable &mdash; they cover work already completed. <strong>You keep the site</strong> and can request a file transfer for the standard $150 fee.</div>
+    </div>
+    <div class="ff-faq-item">
+      <div class="ff-faq-q">Do I own the site?</div>
+      <div class="ff-faq-a">You own all content and the design from day one. <strong>During the agreement, the site lives on Firefly's infrastructure</strong> because that's what the hosting covers. After payoff, a full file transfer is $150.</div>
+    </div>
+    <div class="ff-faq-item">
+      <div class="ff-faq-q">What counts as a monthly change?</div>
+      <div class="ff-faq-a">Copy updates, new photos, team member changes, updated hours or pricing, adding a page section. <strong>Major redesigns or new page builds are scoped separately.</strong> Most requests take well under an hour.</div>
+    </div>
+    <div class="ff-faq-item">
+      <div class="ff-faq-q">How long does the build take?</div>
+      <div class="ff-faq-a">Standard sites typically launch in 4&ndash;6 weeks. Advanced sites run 6&ndash;10 weeks. <strong>The timeline depends heavily on how quickly you can provide assets and approvals.</strong> We've never missed a deadline we set.</div>
+    </div>
+    <div class="ff-faq-item">
+      <div class="ff-faq-q">Can I pay upfront and skip the monthly structure?</div>
+      <div class="ff-faq-a">Yes &mdash; toggle to &ldquo;Pay upfront&rdquo; above. You save 10% on the build and move straight to the $95/mo maintenance rate after launch. <strong>Same site, same work, no financing cost.</strong></div>
+    </div>
+    <div class="ff-faq-item">
+      <div class="ff-faq-q">What if I need more than 12 pages?</div>
+      <div class="ff-faq-a">That moves into custom project territory and gets scoped individually. <strong>Write and tell us what you're building</strong> &mdash; most of the time it's more manageable than it sounds.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CTA Strip
+     ============================================================ -->
+<section class="ff-cta-strip reveal">
+  <div>
+    <h2 style="font-family: var(--font-display); font-size: 28px; font-weight: 500; color: var(--ff-paper); margin-bottom: 6px;">Not sure which tier fits?</h2>
+    <p style="font-size: 13px; color: var(--ff-ash); font-weight: 300;">Write and describe what you're building. We'll tell you straight.</p>
+  </div>
+  <div style="display: flex; align-items: center; gap: 20px; flex-shrink: 0;">
+    <a href="/contact" class="ff-btn-primary">Start a project</a>
+    <a href="/work" class="ff-btn-secondary">See our work</a>
+  </div>
+</section>
+
+{{ end }}
+
+{{ define "scripts" }}
+<script>
+  // Hero reveal
+  (function () {
+    function draw(id) { var el = document.getElementById(id); if (el) el.classList.add('drawn'); }
+    setTimeout(function() { draw('hero-line'); draw('hero-eyebrow-text'); }, 120);
+    setTimeout(function() { draw('hero-headline'); }, 300);
+    setTimeout(function() { draw('hero-subline'); }, 550);
+  })();
+</script>
+{{ end }}
