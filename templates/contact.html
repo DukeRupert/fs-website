@@ -78,6 +78,9 @@
           <textarea id="message" name="message" rows="6" x-model="form.message" class="ff-textarea" style="height: 180px;" required></textarea>
         </div>
 
+        <!-- Turnstile -->
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAACNEZHtGHIkcNePc" data-theme="dark" data-callback="onTurnstileSuccess" style="margin-bottom: 16px;"></div>
+
         <!-- Error message -->
         <div x-show="state === 'error'" x-cloak style="margin-bottom: 16px;">
           <p x-text="errorMessage" style="color: var(--ff-dusk); font-size: var(--type-small);"></p>
@@ -103,6 +106,9 @@
 
 {{ define "scripts" }}
 <script>
+var _turnstileToken = '';
+function onTurnstileSuccess(token) { _turnstileToken = token; }
+
 function contactForm() {
   return {
     state: 'idle',
@@ -117,11 +123,14 @@ function contactForm() {
       this.state = 'loading';
       this.errorMessage = '';
 
+      var payload = Object.assign({}, this.form);
+      if (_turnstileToken) { payload['cf-turnstile-response'] = _turnstileToken; }
+
       try {
         var res = await fetch('/api/contact', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(this.form)
+          body: JSON.stringify(payload)
         });
 
         var data = await res.json();

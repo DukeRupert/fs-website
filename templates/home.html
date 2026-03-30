@@ -302,14 +302,17 @@
         <form @submit.prevent="
           if (!$refs.message.value.trim()) { $refs.message.focus(); return; }
           sending = true; error = '';
+          var token = document.querySelector('#cta-turnstile [name=cf-turnstile-response]');
+          var payload = {
+            name: $refs.name.value.trim(),
+            email: $refs.email.value.trim(),
+            message: $refs.message.value.trim()
+          };
+          if (token) payload['cf-turnstile-response'] = token.value;
           fetch('/api/contact', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              name: $refs.name.value.trim(),
-              email: $refs.email.value.trim(),
-              message: $refs.message.value.trim()
-            })
+            body: JSON.stringify(payload)
           })
           .then(r => { if (!r.ok) throw new Error('Failed'); sent = true; })
           .catch(() => { error = 'Something went wrong. Try emailing us directly.'; sending = false; });
@@ -327,6 +330,7 @@
             <input class="ff-input" type="text" x-ref="name" name="name" placeholder="Your name" />
             <input class="ff-input" type="email" x-ref="email" name="email" placeholder="Email address" />
           </div>
+          <div id="cta-turnstile" class="cf-turnstile" data-sitekey="0x4AAAAAACNEZHtGHIkcNePc" data-theme="dark" style="margin-bottom: 16px;"></div>
           <div class="ff-submit-row">
             <button class="ff-btn-submit" type="submit" :disabled="sending">
               <span x-show="!sending">Send it &rarr;</span>
