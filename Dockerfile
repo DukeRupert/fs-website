@@ -14,7 +14,7 @@ RUN npx @tailwindcss/cli -i static/css/input.css -o static/css/output.css --mini
 # =============================================================================
 # Stage 2: Build Go server binary
 # =============================================================================
-FROM golang:1.23-alpine AS go-builder
+FROM golang:1.25-alpine AS go-builder
 
 WORKDIR /build
 COPY go.mod go.sum* ./
