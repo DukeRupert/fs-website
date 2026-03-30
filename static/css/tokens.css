@@ -138,14 +138,19 @@ body {
   position: sticky;
   top: 0;
   z-index: 100;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 26px var(--page-gutter);
   border-bottom: 1px solid var(--ff-border);
   background: rgba(15, 17, 23, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+}
+
+.ff-nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 26px var(--page-gutter);
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .ff-logo {
@@ -172,9 +177,15 @@ body {
   text-transform: uppercase;
   color: var(--ff-ash);
   text-decoration: none;
-  transition: color 0.2s;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
 }
 .ff-nav-links a:hover { color: var(--ff-cream); }
+.ff-nav-links a.active {
+  color: var(--ff-cream);
+  border-bottom-color: var(--ff-dusk);
+}
 
 .ff-nav-cta {
   font-family: var(--font-body);
@@ -200,11 +211,14 @@ body {
 .ff-nav-hamburger {
   display: none;
   flex-direction: column;
+  justify-content: center;
   gap: 5px;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 4px;
+  padding: 12px;
+  min-width: 46px;
+  min-height: 44px;
 }
 
 .ff-nav-hamburger span {
@@ -212,7 +226,17 @@ body {
   width: 22px;
   height: 1.5px;
   background: var(--ff-ash);
-  transition: transform 0.2s, opacity 0.2s;
+  transition: transform 0.2s, opacity 0.2s, background 0.2s;
+}
+.ff-nav-hamburger.open span { background: var(--ff-cream); }
+
+/* Focus-visible for nav elements */
+.ff-logo:focus-visible,
+.ff-nav-links a:focus-visible,
+.ff-nav-cta:focus-visible,
+.ff-nav-hamburger:focus-visible {
+  outline: 2px solid var(--ff-dusk);
+  outline-offset: 2px;
 }
 
 /* ============================================================
@@ -1242,21 +1266,41 @@ body {
   .ff-nav-overlay {
     position: fixed;
     inset: 0;
-    z-index: 99;
-    background: rgba(15, 17, 23, 0.97);
-    backdrop-filter: blur(12px);
+    z-index: 101;
+    background: var(--ff-dark);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 32px;
+    gap: 12px;
+    padding-top: 80px;
   }
   .ff-nav-overlay a {
-    font-size: 14px;
+    font-size: 20px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--ff-cream);
+    color: var(--ff-ash);
     text-decoration: none;
+    padding: 12px 24px;
+    transition: color 0.15s;
+  }
+  .ff-nav-overlay a:hover { color: var(--ff-cream); }
+  .ff-nav-overlay a.active { color: var(--ff-cream); }
+  .ff-nav-overlay a:focus-visible {
+    outline: 2px solid var(--ff-dusk);
+    outline-offset: 2px;
+  }
+  .ff-nav-overlay .ff-nav-overlay-cta {
+    color: var(--ff-ice);
+    border: 1px solid var(--ff-dusk-lo);
+    padding: 14px 32px;
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .ff-nav-overlay .ff-nav-overlay-cta:hover {
+    background: var(--ff-dusk-lo);
+    color: var(--ff-paper);
   }
 
   /* Hero stacked */

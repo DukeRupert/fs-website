@@ -74,27 +74,27 @@ func main() {
 		"Work — Firefly Software",
 		"A selection of recent projects. Websites, software, and the problems behind both.",
 		site,
-	)))
+	).WithNav("work")))
 	mux.HandleFunc("GET /process", handlers.PageHandler(tr, "process", handlers.NewPageData(
 		"How We Work — Firefly Software",
 		"Every project is different. The process isn't. Here's exactly what working with Firefly looks like.",
 		site,
-	)))
+	).WithNav("process")))
 	mux.HandleFunc("GET /about", handlers.PageHandler(tr, "about", handlers.NewPageData(
 		"About — Firefly Software",
 		"A small, focused team building custom websites and software for small businesses. Based in Helena, Montana.",
 		site,
-	)))
+	).WithNav("about")))
 	mux.HandleFunc("GET /pricing", handlers.PageHandler(tr, "pricing", handlers.NewPageData(
 		"Pricing — Firefly Software",
 		"One relationship, one monthly number. Custom websites built, hosted, and maintained under one agreement.",
 		site,
-	)))
+	).WithNav("pricing")))
 	mux.HandleFunc("GET /contact", handlers.PageHandler(tr, "contact", handlers.NewPageData(
 		"Contact — Firefly Software",
 		"Tell us what you're working on. We'll tell you honestly whether we're the right fit.",
 		site,
-	)))
+	).WithNav("contact")))
 	mux.HandleFunc("GET /services/websites", handlers.PageHandler(tr, "services-websites", handlers.NewPageData(
 		"Websites — Firefly Software",
 		"Custom-built from scratch. No templates, no page builders, no WordPress.",

@@ -101,6 +101,7 @@ type PageData struct {
 	Phone       string
 	Email       string
 	Site        SiteData
+	ActiveNav   string
 }
 
 // SiteData holds site-wide configuration.
@@ -130,6 +131,12 @@ func NewPageData(title, description string, site SiteData) PageData {
 		Email:       site.Email,
 		Site:        site,
 	}
+}
+
+// WithNav returns a copy of PageData with ActiveNav set.
+func (p PageData) WithNav(nav string) PageData {
+	p.ActiveNav = nav
+	return p
 }
 
 // PhoneHref returns the tel: link for the phone number.
