@@ -1148,10 +1148,11 @@ body {
 .ff-textarea::placeholder { color: var(--ff-stone); }
 .ff-textarea:focus { border-color: rgba(91, 126, 196, 0.45); }
 
-.ff-contact-row { display: flex; gap: 10px; margin-bottom: 20px; }
+.ff-contact-row { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
 
 .ff-input {
   flex: 1;
+  min-width: 0;
   background: var(--ff-panel);
   border: 1px solid var(--ff-border);
   color: var(--ff-cream);

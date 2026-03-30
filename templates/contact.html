@@ -1,81 +1,99 @@
 {{ define "content" }}
 
 <!-- ============================================================
-     Hero — Short dark hero
+     Hero
      ============================================================ -->
-<section class="hero hero--short">
-  <div class="content-wrap" style="position: relative; z-index: 1;">
-    <h1 style="font-family: var(--font-display); font-size: var(--text-h1); color: var(--color-dark-text); text-transform: uppercase; margin: 0;">Let's talk.</h1>
+<section class="ff-hero" style="grid-template-columns: 1fr; min-height: auto; padding-bottom: 64px;">
+  <div>
+    <p class="ff-eyebrow">
+      <span class="ff-eyebrow-line" id="hero-line"></span>
+      <span class="ff-eyebrow-text" id="hero-eyebrow-text">Get in touch</span>
+    </p>
+    <h1 class="ff-headline" id="hero-headline" style="max-width: 500px;">
+      Let's talk.
+    </h1>
+    <p class="ff-subline" id="hero-subline" style="max-width: 520px;">
+      You don't need a fully formed project to get in touch. A problem you're trying to solve,
+      a site that isn't working, a tool your business has outgrown &mdash; that's enough to start.
+    </p>
   </div>
 </section>
 
-<!-- Dark-to-light gradient transition -->
-<div class="gradient-transition"></div>
-
 <!-- ============================================================
-     Opening + Form
+     Form Section
      ============================================================ -->
-<section class="section section--light">
-  <div style="max-width: 620px; margin: 0 auto; padding: 0 1.5rem;">
+<section style="padding: 0 var(--page-gutter) var(--section-gap);">
+  <div style="max-width: 620px;">
 
-    <!-- Opening copy -->
-    <p class="reveal" style="margin-bottom: 1.25rem;">You don't need a fully formed project to get in touch. A problem you're trying to solve, a site that isn't working, a tool your business has outgrown — that's enough to start. We'll figure out the rest together on a call.</p>
-
-    <p class="reveal" style="margin-bottom: 2.5rem;">When you write in, we'll reply within one business day to schedule a conversation. No intake forms, no automated sequences, no sales deck. Just a call with the people who would actually build your project.</p>
+    <p class="reveal" style="color: var(--ff-ash); font-weight: 300; font-size: var(--type-body); line-height: 1.75; margin-bottom: 40px;">
+      When you write in, we'll reply within one business day to schedule a conversation.
+      No intake forms, no automated sequences, no sales deck. Just a call with the people
+      who would actually build your project.
+    </p>
 
     <!-- One Thing Worth Knowing -->
-    <div class="aside-accent reveal" style="margin-bottom: 3rem;">
-      <h3 style="font-family: var(--font-display); font-size: var(--text-h2); color: var(--color-light-text); text-transform: uppercase; margin: 0 0 0.5rem;">One Thing Worth Knowing</h3>
-      <p>We build from scratch. If you have an existing WordPress or Wix site that needs ongoing management, we're not the right fit — we don't inherit and maintain sites we didn't build. If you want to replace it with something better, that's a different conversation and we're happy to have it.</p>
+    <div class="reveal" style="border-left: 2px solid var(--ff-dusk-lo); padding: 16px 20px; background: var(--ff-panel2); margin-bottom: 48px;">
+      <p style="font-size: var(--type-small); font-weight: 500; color: var(--ff-cream); letter-spacing: 0.04em; margin-bottom: 8px;">One thing worth knowing</p>
+      <p style="font-size: var(--type-small); color: var(--ff-ash); font-weight: 300; line-height: 1.7;">
+        We build from scratch. If you have an existing WordPress or Wix site that needs ongoing management,
+        we're not the right fit. If you want to replace it with something better, that's a different
+        conversation and we're happy to have it.
+      </p>
     </div>
 
     <!-- Contact Form -->
     <div x-data="contactForm()" class="reveal">
       <!-- Success state -->
-      <div x-show="state === 'success'" x-cloak style="text-align: center; padding: 3rem 0;">
-        <h3 style="font-family: var(--font-display); font-size: var(--text-h2); color: var(--color-light-text); text-transform: uppercase; margin: 0 0 0.75rem;">Message sent.</h3>
-        <p style="color: var(--color-light-muted);">Thank you. We'll be in touch within one business day.</p>
+      <div x-show="state === 'success'" x-cloak style="padding: 48px 0;">
+        <div class="ff-confirm-icon" style="margin-bottom: 16px;">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M2.5 7L5.5 10L11.5 4" stroke="#5b7ec4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <p style="font-family: var(--font-display); font-size: 24px; color: var(--ff-paper); margin-bottom: 8px;">Message sent.</p>
+        <p style="color: var(--ff-ash); font-weight: 300; font-size: var(--type-body); line-height: 1.75;">Thank you. We'll be in touch within one business day.</p>
       </div>
 
       <!-- Form -->
       <form x-show="state !== 'success'" @submit.prevent="submit" novalidate>
-        <!-- Honeypot — hidden from users -->
+        <!-- Honeypot -->
         <div style="position: absolute; left: -9999px;" aria-hidden="true">
           <label for="website">Website</label>
           <input type="text" id="website" name="website" x-model="form.website" tabindex="-1" autocomplete="off">
         </div>
 
-        <div style="margin-bottom: 1.25rem;">
-          <label for="name" class="form-label">Name</label>
-          <input type="text" id="name" name="name" x-model="form.name" class="form-field" required>
+        <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+          <div style="flex: 1;">
+            <label for="name" style="font-size: var(--type-label); letter-spacing: 0.14em; text-transform: uppercase; color: var(--ff-stone); display: block; margin-bottom: 8px;">Name</label>
+            <input type="text" id="name" name="name" x-model="form.name" class="ff-input" style="width: 100%;" required>
+          </div>
+          <div style="flex: 1;">
+            <label for="email" style="font-size: var(--type-label); letter-spacing: 0.14em; text-transform: uppercase; color: var(--ff-stone); display: block; margin-bottom: 8px;">Email</label>
+            <input type="email" id="email" name="email" x-model="form.email" class="ff-input" style="width: 100%;" required>
+          </div>
         </div>
 
-        <div style="margin-bottom: 1.25rem;">
-          <label for="email" class="form-label">Email</label>
-          <input type="email" id="email" name="email" x-model="form.email" class="form-field" required>
-        </div>
-
-        <div style="margin-bottom: 1.5rem;">
-          <label for="message" class="form-label">Tell us what you're working on</label>
-          <textarea id="message" name="message" rows="5" x-model="form.message" class="form-field" required></textarea>
+        <div style="margin-bottom: 20px;">
+          <label for="message" style="font-size: var(--type-label); letter-spacing: 0.14em; text-transform: uppercase; color: var(--ff-stone); display: block; margin-bottom: 8px;">Tell us what you're working on</label>
+          <textarea id="message" name="message" rows="6" x-model="form.message" class="ff-textarea" style="height: 180px;" required></textarea>
         </div>
 
         <!-- Error message -->
-        <div x-show="state === 'error'" x-cloak style="margin-bottom: 1rem; color: #c44; font-size: var(--text-small);">
-          <p x-text="errorMessage"></p>
+        <div x-show="state === 'error'" x-cloak style="margin-bottom: 16px;">
+          <p x-text="errorMessage" style="color: var(--ff-dusk); font-size: var(--type-small);"></p>
         </div>
 
-        <button type="submit" class="btn-primary" :disabled="state === 'loading'" style="cursor: pointer;">
-          <span x-show="state !== 'loading'">Send it &rarr;</span>
-          <span x-show="state === 'loading'" x-cloak>Sending&hellip;</span>
-        </button>
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+          <button type="submit" class="ff-btn-primary" :disabled="state === 'loading'">
+            <span x-show="state !== 'loading'">Send it &rarr;</span>
+            <span x-show="state === 'loading'" x-cloak>Sending&hellip;</span>
+          </button>
+          <p style="font-size: var(--type-label); color: var(--ff-stone); line-height: 1.5;">
+            Prefer to call?<br>
+            <a href="tel:+14068719875" style="color: var(--ff-ash); text-decoration: none;">+1 (406) 871-9875</a>
+          </p>
+        </div>
       </form>
-
-      <!-- Below the form -->
-      <div x-show="state !== 'success'" style="margin-top: 2.5rem; text-align: center;">
-        <p style="color: var(--color-light-muted); font-style: italic;">Prefer to call? We pick up.</p>
-        <a href="tel:+14068719875" style="color: var(--color-light-muted); text-decoration: none; font-family: var(--font-mono); font-size: var(--text-small);">+1 (406) 871-9875</a>
-      </div>
     </div>
 
   </div>
@@ -100,13 +118,13 @@ function contactForm() {
       this.errorMessage = '';
 
       try {
-        const res = await fetch('/api/contact', {
+        var res = await fetch('/api/contact', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(this.form)
         });
 
-        const data = await res.json();
+        var data = await res.json();
 
         if (res.ok) {
           this.state = 'success';
@@ -121,5 +139,15 @@ function contactForm() {
     }
   };
 }
+</script>
+
+<script>
+  // Hero reveal
+  (function () {
+    function draw(id) { var el = document.getElementById(id); if (el) el.classList.add('drawn'); }
+    setTimeout(function() { draw('hero-line'); draw('hero-eyebrow-text'); }, 120);
+    setTimeout(function() { draw('hero-headline'); }, 300);
+    setTimeout(function() { draw('hero-subline'); }, 550);
+  })();
 </script>
 {{ end }}
