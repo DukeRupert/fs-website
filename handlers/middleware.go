@@ -1,9 +1,12 @@
 package handlers
 
 import (
+	"crypto/md5"
 	"fmt"
+	"io"
 	"log"
 	"net/http"
+	"os"
 	"time"
 
 	"github.com/getsentry/sentry-go"
@@ -111,6 +114,7 @@ type SiteData struct {
 	Phone   string
 	Email   string
 	BaseURL string
+	CSSFile string
 }
 
 func NewSiteData() SiteData {
@@ -120,7 +124,47 @@ func NewSiteData() SiteData {
 		Phone:   "+1 (406) 871-9875",
 		Email:   "logan@fireflysoftware.dev",
 		BaseURL: "https://fireflysoftware.dev",
+		CSSFile: cssFilePath("static"),
 	}
+}
+
+// cssFilePath computes a fingerprinted CSS filename from static/css/output.css.
+// Returns "/static/css/output.<hash>.css" in production, or "/static/css/output.css" as fallback.
+func cssFilePath(staticDir string) string {
+	path := staticDir + "/css/output.css"
+	f, err := os.Open(path)
+	if err != nil {
+		log.Printf("[css] cannot open %s: %v — using unhashed path", path, err)
+		return "/static/css/output.css"
+	}
+	defer f.Close()
+
+	h := md5.New()
+	if _, err := io.Copy(h, f); err != nil {
+		log.Printf("[css] hash error: %v — using unhashed path", err)
+		return "/static/css/output.css"
+	}
+
+	hash := fmt.Sprintf("%x", h.Sum(nil))[:8]
+	hashedName := fmt.Sprintf("/static/css/output.%s.css", hash)
+
+	// Create the hashed file on disk so the static file server can serve it
+	src := staticDir + "/css/output.css"
+	dst := fmt.Sprintf("%s/css/output.%s.css", staticDir, hash)
+	if _, err := os.Stat(dst); os.IsNotExist(err) {
+		data, err := os.ReadFile(src)
+		if err != nil {
+			log.Printf("[css] read error: %v — using unhashed path", err)
+			return "/static/css/output.css"
+		}
+		if err := os.WriteFile(dst, data, 0644); err != nil {
+			log.Printf("[css] write error: %v — using unhashed path", err)
+			return "/static/css/output.css"
+		}
+		log.Printf("[css] created %s", dst)
+	}
+
+	return hashedName
 }
 
 func NewPageData(title, description string, site SiteData) PageData {
