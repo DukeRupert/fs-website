@@ -100,6 +100,11 @@ func main() {
 		"How Firefly Software handles your data. We use Google Analytics and Plausible Analytics.",
 		site,
 	)))
+	mux.HandleFunc("GET /terms", handlers.PageHandler(tr, "terms", handlers.NewPageData(
+		"Terms of Service — Firefly Software",
+		"Terms governing Firefly Software's website development and maintenance services.",
+		site,
+	)))
 	mux.HandleFunc("GET /services/websites", handlers.PageHandler(tr, "services-websites", handlers.NewPageData(
 		"Websites — Firefly Software",
 		"Custom-built from scratch. No templates, no page builders, no WordPress.",
