@@ -34,15 +34,13 @@
 <!-- ============================================================
      The Team
      ============================================================ -->
-<section class="ff-work reveal" id="team-section">
-  <div class="ff-section-header">
-    <div>
-      <p class="ff-eyebrow">
-        <span class="ff-eyebrow-line" id="team-line"></span>
-        <span class="ff-eyebrow-text" id="team-eyebrow-text">The team</span>
-      </p>
-      <h2 class="ff-section-title">The people who do the work</h2>
-    </div>
+<section class="reveal" id="team-section" style="padding: 0 var(--page-gutter) var(--section-gap);">
+  <div style="margin-bottom: 36px;">
+    <p class="ff-eyebrow">
+      <span class="ff-eyebrow-line" id="team-line"></span>
+      <span class="ff-eyebrow-text" id="team-eyebrow-text">The team</span>
+    </p>
+    <h2 class="ff-section-title">The people who do the work</h2>
   </div>
 
   <div class="ff-card-grid">
@@ -50,7 +48,7 @@
     <!-- Logan Williams -->
     <article class="cs-card">
       <div class="cs-visual" style="height: auto; border-bottom: 1px solid var(--ff-border);">
-        <img src="/static/images/about/logan_and_elliot_williams.webp" alt="Logan Williams" style="width: 100%; height: 240px; object-fit: cover; display: block;">
+        <img src="/static/images/about/logan_and_elliot_williams.webp" alt="Logan Williams with his son Elliot" style="width: 100%; height: 240px; object-fit: cover; display: block;">
       </div>
       <div class="cs-body">
         <div class="cs-meta">
@@ -100,54 +98,81 @@
 <!-- ============================================================
      Built in Montana
      ============================================================ -->
-<section style="padding: 0 var(--page-gutter) var(--section-gap);">
-  <div class="reveal" style="background: var(--ff-panel); border: 1px solid var(--ff-border); padding: 48px; max-width: 820px;">
-    <p class="ff-eyebrow" style="margin-bottom: 16px;">
-      <span class="ff-eyebrow-line drawn" style="width: 28px;"></span>
-      <span class="ff-eyebrow-text drawn" style="opacity: 1;">Where we're from</span>
-    </p>
-    <h2 style="font-family: var(--font-display); font-size: var(--type-h3); font-weight: 500; color: var(--ff-paper); margin-bottom: 20px;">Built in Montana.<br><em style="color: var(--ff-moon); opacity: 0.8;">Built for America.</em></h2>
-    <p style="color: var(--ff-ash); font-weight: 300; font-size: var(--type-body); line-height: 1.75;">
-      Helena is home. We're proud of that &mdash; proud to be part of Montana's economy, proud to build things
-      that help American small businesses compete. But the work doesn't stop at the state line. A business
-      in Florida or California deserves the same accountability that our Helena neighbors get. That's the
-      standard we hold ourselves to regardless of the zip code.
-    </p>
+<section class="reveal" id="montana-section" style="padding: 0 var(--page-gutter) var(--section-gap);">
+  <div class="ff-process-card" style="position: relative; overflow: hidden;">
+    <!-- Subtle dusk atmosphere -->
+    <div style="position: absolute; top: -40px; right: -60px; width: 300px; height: 240px; background: radial-gradient(ellipse at 65% 30%, #1e2d52 0%, transparent 70%); pointer-events: none; z-index: 0;"></div>
+    <div style="position: relative; z-index: 1;">
+      <p class="ff-eyebrow" style="margin-bottom: 16px;">
+        <span class="ff-eyebrow-line" id="montana-line"></span>
+        <span class="ff-eyebrow-text" id="montana-eyebrow-text">Where we're from</span>
+      </p>
+      <h2 style="font-family: var(--font-display); font-size: var(--type-h3); font-weight: 500; color: var(--ff-paper); margin-bottom: 20px;">Built in Montana.<br><em style="color: var(--ff-moon); opacity: 0.8;">Built for America.</em></h2>
+      <p style="color: var(--ff-ash); font-weight: 300; font-size: var(--type-body); line-height: 1.75; margin-bottom: 24px;">
+        Helena is home. We're proud of that &mdash; proud to be part of Montana's economy, proud to build things
+        that help American small businesses compete. But the work doesn't stop at the state line. A business
+        in Florida or California deserves the same accountability that our Helena neighbors get. That's the
+        standard we hold ourselves to regardless of the zip code.
+      </p>
+      <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">
+        <span style="font-size: var(--type-label); letter-spacing: 0.12em; text-transform: uppercase; color: var(--ff-stone);">46.5958&deg;N &middot; 112.0270&deg;W</span>
+        <span style="font-size: var(--type-label); color: var(--ff-stone);">&middot;</span>
+        <span style="font-size: var(--type-label); letter-spacing: 0.12em; text-transform: uppercase; color: var(--ff-stone);">Founded 2019 &middot; Registered in Montana 2022</span>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- ============================================================
      What We Won't Do
      ============================================================ -->
-<section style="padding: 0 var(--page-gutter) var(--section-gap); max-width: 680px;">
-  <p class="ff-eyebrow reveal" style="margin-bottom: 16px;">
-    <span class="ff-eyebrow-line drawn" style="width: 28px;"></span>
-    <span class="ff-eyebrow-text drawn" style="opacity: 1;">What we won't do</span>
-  </p>
-  <p class="reveal" style="color: var(--ff-ash); font-weight: 300; font-size: var(--type-body); line-height: 1.75; margin-bottom: 16px;">
-    We won't take on a project we can't deliver. We won't quote a price and change it mid-build without
-    a conversation. We won't hand your project to someone you've never met. We won't disappear after
-    launch and let you figure out the rest yourself.
-  </p>
-  <p class="reveal" style="color: var(--ff-ash); font-weight: 300; font-size: var(--type-body); line-height: 1.75;">
-    We also won't maintain sites we didn't build &mdash; if it's on WordPress or Wix and you want someone
-    to manage it, we're not the right fit. If you want to replace it with something better, that's a
-    different conversation.
-  </p>
+<section class="reveal" id="wontdo-section" style="padding: 0 var(--page-gutter) var(--section-gap);">
+  <div class="ff-card-grid" style="max-width: 820px;">
+
+    <!-- Left: The won'ts -->
+    <div class="ff-process-card">
+      <p class="ff-eyebrow" style="margin-bottom: 16px;">
+        <span class="ff-eyebrow-line" id="wontdo-line"></span>
+        <span class="ff-eyebrow-text" id="wontdo-eyebrow-text">What we won't do</span>
+      </p>
+      <ul class="ff-features" style="gap: 14px;">
+        <li class="ff-feature"><span class="ff-feature-dot"></span><span>Take on a project we can't deliver</span></li>
+        <li class="ff-feature"><span class="ff-feature-dot"></span><span>Quote a price and change it mid-build without a conversation</span></li>
+        <li class="ff-feature"><span class="ff-feature-dot"></span><span>Hand your project to someone you've never met</span></li>
+        <li class="ff-feature"><span class="ff-feature-dot"></span><span>Disappear after launch and let you figure out the rest</span></li>
+      </ul>
+    </div>
+
+    <!-- Right: The caveat -->
+    <div class="ff-process-card">
+      <p class="ff-eyebrow" style="margin-bottom: 16px;">
+        <span style="display: block; width: 28px; height: 1px; background: var(--ff-dusk); flex-shrink: 0;"></span>
+      </p>
+      <p style="color: var(--ff-ash); font-weight: 300; font-size: var(--type-body); line-height: 1.75; margin-bottom: 16px;">
+        We also won't maintain sites we didn't build &mdash; if it's on WordPress or Wix and you want someone
+        to manage it, we're not the right fit.
+      </p>
+      <p style="color: var(--ff-ash); font-weight: 300; font-size: var(--type-body); line-height: 1.75;">
+        If you want to <strong style="color: var(--ff-cream); font-weight: 400;">replace it with something better</strong>, that's a different
+        conversation and we're happy to have it.
+      </p>
+    </div>
+
+  </div>
 </section>
 
 <!-- ============================================================
      CTA Close
      ============================================================ -->
-<section style="border-top: 1px solid var(--ff-border); padding: var(--section-gap) var(--page-gutter);">
+<section class="reveal" id="about-cta" style="border-top: 1px solid var(--ff-border); padding: var(--section-gap) var(--page-gutter);">
   <div style="max-width: 560px;">
-    <p class="ff-eyebrow reveal">
-      <span class="ff-eyebrow-line drawn" style="width: 28px;"></span>
-      <span class="ff-eyebrow-text drawn" style="opacity: 1;">Let's talk</span>
+    <p class="ff-eyebrow">
+      <span class="ff-eyebrow-line" id="cta-line"></span>
+      <span class="ff-eyebrow-text" id="cta-eyebrow-text">Let's talk</span>
     </p>
-    <h2 class="reveal" style="font-family: var(--font-display); font-size: var(--type-h2); font-weight: 500; color: var(--ff-paper); line-height: 1.05; margin-bottom: 20px;">Want to work together?</h2>
-    <p class="reveal" style="color: var(--ff-ash); font-weight: 300; font-size: var(--type-body); line-height: 1.75; margin-bottom: 36px;">Send a message or give us a call. You'll hear back from one of us &mdash; the people who would actually build your project.</p>
-    <div class="reveal" style="display: flex; align-items: center; gap: 28px;">
+    <h2 style="font-family: var(--font-display); font-size: var(--type-h2); font-weight: 500; color: var(--ff-paper); line-height: 1.05; margin-bottom: 20px;">Want to work together?</h2>
+    <p style="color: var(--ff-ash); font-weight: 300; font-size: var(--type-body); line-height: 1.75; margin-bottom: 36px;">Send a message or give us a call. You'll hear back from one of us &mdash; the people who would actually build your project.</p>
+    <div style="display: flex; align-items: center; gap: 28px; flex-wrap: wrap;">
       <a href="/contact" class="ff-btn-primary">Send a message</a>
       <a href="tel:+14068719875" class="ff-btn-secondary">+1 (406) 871-9875</a>
     </div>
@@ -166,22 +191,34 @@
     setTimeout(function() { draw('hero-subline'); }, 550);
   })();
 
-  // Team section eyebrow
+  // Section eyebrow draw-ins
   (function () {
     var observer = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
         if (!entry.isIntersecting) return;
-        setTimeout(function() {
-          var line = document.getElementById('team-line');
-          var text = document.getElementById('team-eyebrow-text');
-          if (line) line.classList.add('drawn');
-          if (text) text.classList.add('drawn');
-        }, 150);
-        observer.unobserve(entry.target);
+        var el = entry.target;
+        var lineMap = {
+          'team-section':    ['team-line',    'team-eyebrow-text'],
+          'montana-section': ['montana-line',  'montana-eyebrow-text'],
+          'wontdo-section':  ['wontdo-line',   'wontdo-eyebrow-text'],
+          'about-cta':       ['cta-line',      'cta-eyebrow-text'],
+        };
+        var ids = lineMap[el.id];
+        if (ids) {
+          setTimeout(function() {
+            var line = document.getElementById(ids[0]);
+            var text = document.getElementById(ids[1]);
+            if (line) line.classList.add('drawn');
+            if (text) text.classList.add('drawn');
+          }, 150);
+        }
+        observer.unobserve(el);
       });
     }, { threshold: 0.1 });
-    var el = document.getElementById('team-section');
-    if (el) observer.observe(el);
+
+    document.querySelectorAll('#team-section, #montana-section, #wontdo-section, #about-cta').forEach(function(el) {
+      observer.observe(el);
+    });
   })();
 </script>
 {{ end }}
