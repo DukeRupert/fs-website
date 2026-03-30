@@ -1,16 +1,37 @@
 {{ define "footer" }}
-<footer class="ff-footer">
-  <div class="ff-footer-logo">
-    <img src="/static/images/logo/firefly_logo_raw_white.svg" alt="" width="18" height="15" aria-hidden="true" style="opacity: 0.6;">
-    Firefly Software
+<footer>
+  <!-- Main footer row -->
+  <div class="ff-footer">
+    <a href="/" class="ff-footer-logo">
+      <img src="/static/images/logo/firefly_logo_raw_white.svg" alt="" width="18" height="15" aria-hidden="true" style="opacity: 0.6;">
+      Firefly Software
+    </a>
+    <nav class="ff-footer-links" aria-label="Footer navigation">
+      <a href="/work">Work</a>
+      <a href="/process">Process</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+    </nav>
+    <div class="ff-footer-contact">
+      <a href="tel:+14068719875">+1 (406) 871-9875</a>
+      <a href="mailto:logan@fireflysoftware.dev">logan@fireflysoftware.dev</a>
+    </div>
   </div>
-  <ul class="ff-footer-links">
-    <li><a href="/work">Work</a></li>
-    <li><a href="/process">Process</a></li>
-    <li><a href="/pricing">Pricing</a></li>
-    <li><a href="/about">About</a></li>
-    <li><a href="/contact">Contact</a></li>
-  </ul>
-  <p class="ff-footer-copy">Helena, Montana &middot; &copy; 2026</p>
+
+  <!-- Bottom bar with signature -->
+  <div class="ff-footer-bottom">
+    <p class="ff-footer-copy">&copy; 2026 Firefly Software, LLC. Helena, Montana.</p>
+    <div class="ff-signature">
+      <span class="ff-signature-rule"></span>
+      <span class="ff-signature-inner">
+        <span class="ff-signature-glyph">&#10022;</span>
+        <span class="ff-signature-text">
+          Made in Montana by <a href="https://fireflysoftware.dev">Firefly Software</a>
+        </span>
+      </span>
+      <span class="ff-signature-rule"></span>
+    </div>
+  </div>
 </footer>
 {{ end }}

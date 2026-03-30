@@ -1220,7 +1220,10 @@ body {
   font-size: 12px; letter-spacing: 0.16em;
   text-transform: uppercase; color: var(--ff-stone);
   display: flex; align-items: center; gap: 8px;
+  text-decoration: none;
+  transition: color 0.2s;
 }
+.ff-footer-logo:hover { color: var(--ff-ash); }
 
 .ff-footer-links { display: flex; gap: 28px; list-style: none; }
 .ff-footer-links a {
@@ -1231,10 +1234,78 @@ body {
 }
 .ff-footer-links a:hover { opacity: 1; }
 
+.ff-footer-contact {
+  display: flex; gap: 20px; align-items: center;
+}
+.ff-footer-contact a {
+  font-size: var(--type-label); letter-spacing: 0.06em;
+  color: var(--ff-stone); text-decoration: none;
+  opacity: 0.7; transition: opacity 0.2s;
+}
+.ff-footer-contact a:hover { opacity: 1; }
+
+.ff-footer-bottom {
+  border-top: 1px solid var(--ff-border);
+  padding: 24px var(--page-gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .ff-footer-copy {
   font-size: var(--type-label);
   color: rgba(61, 68, 89, 0.55);
   letter-spacing: 0.06em;
+}
+
+/* Signature mark */
+.ff-signature {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.ff-signature-rule {
+  flex: 1;
+  height: 1px;
+  background: var(--ff-border);
+}
+.ff-signature-inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  flex-shrink: 0;
+}
+.ff-signature-glyph {
+  font-size: 11px;
+  line-height: 1;
+  color: rgba(237, 240, 247, 0.15);
+}
+.ff-signature-text {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: rgba(237, 240, 247, 0.35);
+}
+.ff-signature-text a {
+  color: var(--ff-dusk);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s;
+}
+.ff-signature-text a:hover {
+  border-bottom-color: var(--ff-dusk);
+}
+
+/* Footer focus-visible */
+.ff-footer-logo:focus-visible,
+.ff-footer-links a:focus-visible,
+.ff-footer-contact a:focus-visible,
+.ff-signature-text a:focus-visible {
+  outline: 2px solid var(--ff-dusk);
+  outline-offset: 2px;
 }
 
 /* ============================================================
@@ -1357,7 +1428,17 @@ body {
   /* Footer stacked */
   .ff-footer {
     flex-direction: column;
-    gap: 16px;
+    gap: 20px;
     text-align: center;
   }
+  .ff-footer-links { flex-wrap: wrap; justify-content: center; gap: 16px 24px; }
+  .ff-footer-contact { justify-content: center; }
+  .ff-footer-bottom {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+  .ff-signature-rule { display: none; }
+  .ff-signature { justify-content: center; }
+  .ff-signature-text { white-space: normal; text-align: center; }
 }
