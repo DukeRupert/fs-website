@@ -75,6 +75,7 @@ func main() {
 		"A selection of recent projects. Websites, software, and the problems behind both.",
 		site,
 	).WithNav("work")))
+	mux.HandleFunc("GET /work/{slug}", handlers.PortfolioHandler(tr, site))
 	mux.HandleFunc("GET /process", handlers.PageHandler(tr, "process", handlers.NewPageData(
 		"How We Work — Firefly Software",
 		"Every project is different. The process isn't. Here's exactly what working with Firefly looks like.",

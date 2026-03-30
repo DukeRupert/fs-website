@@ -1,0 +1,204 @@
+{{ define "content" }}
+
+<!-- ============================================================
+     Hero
+     ============================================================ -->
+<section class="ff-hero" style="grid-template-columns: 1fr; min-height: auto; padding-bottom: 48px;">
+  <div>
+    <p class="ff-eyebrow">
+      <a href="/work" style="color: var(--ff-ash); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--ff-cream)'" onmouseout="this.style.color='var(--ff-ash)'">&larr; Back to work</a>
+    </p>
+    <p class="ff-eyebrow" style="margin-top: 20px;">
+      <span class="ff-eyebrow-line" id="hero-line"></span>
+      <span class="ff-eyebrow-text" id="hero-eyebrow-text">Field report</span>
+    </p>
+    <h1 class="ff-headline" id="hero-headline" style="max-width: 640px;">
+      {{ .Project.Title }}
+    </h1>
+    <p class="ff-subline" id="hero-subline" style="max-width: 520px;">
+      {{ .Project.Subtitle }}
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     Project Meta
+     ============================================================ -->
+<section style="padding: 0 var(--page-gutter) 48px;">
+  <div style="display: flex; gap: 24px; flex-wrap: wrap; align-items: center;">
+    <span style="font-size: var(--type-label); letter-spacing: 0.16em; text-transform: uppercase; color: var(--ff-dusk);">{{ .Project.Client }}</span>
+    <span style="font-size: var(--type-label); color: var(--ff-stone);">{{ .Project.Location }}</span>
+    {{ range .Project.Tags }}
+    <span style="font-size: var(--type-micro); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ff-stone); border: 1px solid rgba(61, 68, 89, 0.5); padding: 3px 7px;">{{ . }}</span>
+    {{ end }}
+  </div>
+</section>
+
+<!-- ============================================================
+     Screenshots
+     ============================================================ -->
+{{ if .Project.Screenshot }}
+<section style="padding: 0 var(--page-gutter) 0;">
+  <div class="ff-screenshot-pair reveal">
+    <!-- Desktop -->
+    <div class="ff-screenshot-desktop">
+      <div class="ff-browser-frame">
+        <div class="ff-browser-chrome">
+          <span class="ff-browser-dot"></span>
+          <span class="ff-browser-dot"></span>
+          <span class="ff-browser-dot"></span>
+        </div>
+        <img src="{{ .Project.Screenshot }}" alt="{{ .Project.Client }} website — desktop view" width="800" height="542">
+      </div>
+    </div>
+    {{ if .Project.ScreenshotMobile }}
+    <!-- Mobile -->
+    <div class="ff-screenshot-mobile">
+      <img src="{{ .Project.ScreenshotMobile }}" alt="{{ .Project.Client }} website — mobile view" width="400" height="866">
+    </div>
+    {{ end }}
+  </div>
+
+  {{ if .Project.LiveURL }}
+  <div class="ff-live-banner reveal">
+    <p class="ff-live-banner-text"><strong>This site is live.</strong> See the real thing — not just a screenshot.</p>
+    <a href="{{ .Project.LiveURL }}" target="_blank" rel="noopener">Visit {{ .Project.Client }} &nearr;</a>
+  </div>
+  {{ end }}
+</section>
+
+<div style="padding: 0 0 var(--section-gap);"></div>
+{{ end }}
+
+<!-- ============================================================
+     The Story
+     ============================================================ -->
+<section class="reveal" id="story-section" style="padding: 0 var(--page-gutter) var(--section-gap);">
+  <div class="ff-portfolio-story">
+    <div>
+      <p class="ff-eyebrow" style="margin-bottom: 16px;">
+        <span class="ff-eyebrow-line" id="story-line"></span>
+        <span class="ff-eyebrow-text" id="story-eyebrow-text">The problem</span>
+      </p>
+      <div class="ff-prose">
+        {{ range .Project.Story }}
+        <p>{{ . }}</p>
+        {{ end }}
+      </div>
+    </div>
+
+    <!-- Proof column -->
+    <div class="ff-portfolio-proof">
+      {{ range .Project.Results }}
+      <div>
+        <div class="cs-result-num" style="font-size: 38px;">{{ .Value }}<span style="font-size: 16px;">{{ .Unit }}</span></div>
+        <div class="cs-result-label">{{ .Label }}</div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     Client Quote
+     ============================================================ -->
+{{ if .Project.Quote }}
+<section style="padding: 0 var(--page-gutter) var(--section-gap); max-width: 680px;">
+  <div class="reveal" style="border-left: 2px solid var(--ff-dusk-mid); padding: 20px 24px; background: var(--ff-panel2);">
+    <p style="font-family: var(--font-display); font-style: italic; font-size: 18px; line-height: 1.5; color: var(--ff-moon); margin-bottom: 10px;">
+      &ldquo;{{ .Project.Quote.Text }}&rdquo;
+    </p>
+    <p style="font-size: var(--type-micro); letter-spacing: 0.12em; text-transform: uppercase; color: var(--ff-stone);">
+      {{ .Project.Quote.Attribution }}
+    </p>
+  </div>
+</section>
+{{ end }}
+
+<!-- ============================================================
+     What We Delivered
+     ============================================================ -->
+{{ if .Project.Deliverables }}
+<section class="reveal" id="delivered-section" style="padding: 0 var(--page-gutter) var(--section-gap); max-width: 680px;">
+  <p class="ff-eyebrow" style="margin-bottom: 16px;">
+    <span class="ff-eyebrow-line" id="delivered-line"></span>
+    <span class="ff-eyebrow-text" id="delivered-eyebrow-text">What we delivered</span>
+  </p>
+  <ul class="ff-features" style="gap: 14px;">
+    {{ range .Project.Deliverables }}
+    <li class="ff-feature"><span class="ff-feature-dot"></span><span>{{ . }}</span></li>
+    {{ end }}
+  </ul>
+</section>
+{{ end }}
+
+<!-- ============================================================
+     Next Project
+     ============================================================ -->
+{{ if .Project.NextSlug }}
+<a href="/work/{{ .Project.NextSlug }}" class="ff-next-project">
+  <div>
+    <p class="ff-next-project-label">Next field report</p>
+    <p class="ff-next-project-name">{{ .Project.NextClient }}</p>
+  </div>
+  <span class="ff-next-project-arrow">&rarr;</span>
+</a>
+{{ end }}
+
+<!-- ============================================================
+     CTA
+     ============================================================ -->
+<section class="reveal" id="portfolio-cta" style="border-top: 1px solid var(--ff-border); padding: var(--section-gap) var(--page-gutter);">
+  <div style="max-width: 560px;">
+    <p class="ff-eyebrow">
+      <span class="ff-eyebrow-line" id="cta-line"></span>
+      <span class="ff-eyebrow-text" id="cta-eyebrow-text">Let's talk</span>
+    </p>
+    <h2 style="font-family: var(--font-display); font-size: var(--type-h2); font-weight: 500; color: var(--ff-paper); line-height: 1.05; margin-bottom: 20px;">Have a similar project?</h2>
+    <p style="color: var(--ff-ash); font-weight: 300; font-size: var(--type-body); line-height: 1.75; margin-bottom: 36px;">Tell us what you're working on. We'll tell you whether we're the right fit.</p>
+    <div style="display: flex; align-items: center; gap: 28px; flex-wrap: wrap;">
+      <a href="/contact" class="ff-btn-primary">Start a project</a>
+      <a href="/work" class="ff-btn-secondary">Back to all work</a>
+    </div>
+  </div>
+</section>
+
+{{ end }}
+
+{{ define "scripts" }}
+<script>
+  (function () {
+    function draw(id) { var el = document.getElementById(id); if (el) el.classList.add('drawn'); }
+    setTimeout(function() { draw('hero-line'); draw('hero-eyebrow-text'); }, 120);
+    setTimeout(function() { draw('hero-headline'); }, 300);
+    setTimeout(function() { draw('hero-subline'); }, 550);
+  })();
+
+  (function () {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        var lineMap = {
+          'story-section':     ['story-line',     'story-eyebrow-text'],
+          'delivered-section':  ['delivered-line',  'delivered-eyebrow-text'],
+          'portfolio-cta':     ['cta-line',        'cta-eyebrow-text'],
+        };
+        var ids = lineMap[el.id];
+        if (ids) {
+          setTimeout(function() {
+            var line = document.getElementById(ids[0]);
+            var text = document.getElementById(ids[1]);
+            if (line) line.classList.add('drawn');
+            if (text) text.classList.add('drawn');
+          }, 150);
+        }
+        observer.unobserve(el);
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('#story-section, #delivered-section, #portfolio-cta').forEach(function(el) {
+      observer.observe(el);
+    });
+  })();
+</script>
+{{ end }}

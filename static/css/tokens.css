@@ -569,6 +569,31 @@ body {
 }
 .cs-card:hover { border-color: rgba(91, 126, 196, 0.32); }
 
+/* Linked card — whole card is an <a> */
+.cs-card--link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+.cs-card--link:hover .cs-card-action { color: var(--ff-ice); }
+.cs-card--link:focus-visible {
+  outline: 2px solid var(--ff-dusk);
+  outline-offset: 2px;
+}
+
+.cs-card-action {
+  display: block;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--ff-border);
+  font-size: var(--type-label);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ff-ash);
+  transition: color 0.2s;
+}
+.cs-card-action::after { content: ' \2192'; }
+
 .cs-visual {
   height: 200px;
   position: relative;
@@ -835,6 +860,169 @@ body {
   margin-top: 10px;
 }
 .ff-privacy-list li strong { color: var(--ff-cream); font-weight: 400; }
+
+/* ============================================================
+   PORTFOLIO PAGE
+   ============================================================ */
+
+/* Prose — generic body text for portfolio stories, privacy, etc. */
+.ff-prose p {
+  color: var(--ff-ash);
+  font-weight: 300;
+  font-size: var(--type-body);
+  line-height: 1.75;
+  margin-bottom: 14px;
+}
+.ff-prose p:last-child { margin-bottom: 0; }
+.ff-prose p strong { color: var(--ff-cream); font-weight: 400; }
+
+/* Browser frame for screenshots */
+.ff-browser-frame {
+  max-width: 920px;
+  border: 1px solid var(--ff-border);
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+.ff-browser-chrome {
+  height: 12px;
+  background: var(--ff-panel2);
+  border-bottom: 1px solid var(--ff-border);
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  gap: 5px;
+}
+.ff-browser-dot {
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: var(--ff-stone);
+  opacity: 0.4;
+}
+.ff-browser-frame img {
+  width: 100%;
+  display: block;
+}
+
+/* Screenshot pair — desktop + mobile side by side */
+.ff-screenshot-pair {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  max-width: 920px;
+}
+.ff-screenshot-desktop { flex: 1; }
+.ff-screenshot-mobile {
+  width: 160px;
+  flex-shrink: 0;
+  border: 1px solid var(--ff-border);
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+}
+.ff-screenshot-mobile img {
+  width: 100%;
+  display: block;
+}
+
+/* Live site banner */
+.ff-live-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  background: var(--ff-panel);
+  border: 1px solid var(--ff-dusk-lo);
+  max-width: 920px;
+  margin-top: 16px;
+}
+.ff-live-banner-text {
+  font-size: var(--type-small);
+  color: var(--ff-ash);
+  font-weight: 300;
+}
+.ff-live-banner-text strong { color: var(--ff-cream); font-weight: 400; }
+.ff-live-banner a {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: var(--ff-dusk);
+  color: #fff;
+  border: none;
+  padding: 10px 22px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+.ff-live-banner a:hover { background: #6d8fd4; }
+
+/* Story grid */
+.ff-portfolio-story {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 48px;
+  max-width: 920px;
+}
+.ff-portfolio-proof {
+  border-left: 1px solid var(--ff-border);
+  padding-left: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 24px;
+  padding-top: 40px;
+}
+
+/* Next project link */
+.ff-next-project {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px var(--page-gutter);
+  border-top: 1px solid var(--ff-border);
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.ff-next-project:hover { background: var(--ff-panel); }
+.ff-next-project-label {
+  font-size: var(--type-label);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ff-stone);
+  margin-bottom: 6px;
+}
+.ff-next-project-name {
+  font-family: var(--font-display);
+  font-size: var(--type-h4);
+  font-weight: 500;
+  color: var(--ff-paper);
+}
+.ff-next-project-arrow {
+  font-size: 24px;
+  color: var(--ff-ash);
+  transition: transform 0.2s;
+}
+.ff-next-project:hover .ff-next-project-arrow { transform: translateX(4px); }
+
+@media (max-width: 768px) {
+  .ff-screenshot-pair { flex-direction: column; }
+  .ff-screenshot-mobile { width: 100%; max-width: 200px; border-radius: 8px; }
+  .ff-portfolio-story { grid-template-columns: 1fr; }
+  .ff-portfolio-proof {
+    border-left: none;
+    padding-left: 0;
+    padding-top: 24px;
+    border-top: 1px solid var(--ff-border);
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  .ff-portfolio-proof > div { min-width: 120px; }
+  .ff-browser-chrome { display: none; }
+  .ff-live-banner { flex-direction: column; gap: 12px; text-align: center; }
+}
 
 /* ============================================================
    PRICING
