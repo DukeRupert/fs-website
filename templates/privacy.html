@@ -1,0 +1,91 @@
+{{ define "content" }}
+
+<!-- ============================================================
+     Hero
+     ============================================================ -->
+<section class="ff-hero" style="grid-template-columns: 1fr; min-height: auto; padding-bottom: 64px;">
+  <div>
+    <p class="ff-eyebrow">
+      <span class="ff-eyebrow-line" id="hero-line"></span>
+      <span class="ff-eyebrow-text" id="hero-eyebrow-text">Legal</span>
+    </p>
+    <h1 class="ff-headline" id="hero-headline" style="max-width: 500px;">
+      Privacy Policy
+    </h1>
+    <p class="ff-subline" id="hero-subline" style="max-width: 520px;">
+      Last updated: March 29, 2026
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     Privacy Content
+     ============================================================ -->
+<section style="padding: 0 var(--page-gutter) var(--section-gap); max-width: 720px;">
+
+  <div class="ff-privacy-section reveal">
+    <h2 class="ff-privacy-heading">Who we are</h2>
+    <p>Firefly Software, LLC is a custom web development studio based in Helena, Montana. This policy explains what data we collect when you visit fireflysoftware.dev and how we use it.</p>
+  </div>
+
+  <div class="ff-privacy-section reveal">
+    <h2 class="ff-privacy-heading">Analytics</h2>
+    <p>We use two analytics services to understand how visitors use this site:</p>
+
+    <h3 class="ff-privacy-subheading">Google Analytics</h3>
+    <p>We use Google Analytics 4 to measure traffic patterns, page views, and referral sources. Google Analytics uses cookies to identify returning visitors. Google may process this data on servers outside your country of residence. You can opt out of Google Analytics by installing the <a href="https://tools.google.com/dlpage/gaoptout" style="color: var(--ff-dusk); text-decoration: underline; text-underline-offset: 2px;">Google Analytics Opt-out Browser Add-on</a>.</p>
+
+    <h3 class="ff-privacy-subheading">Plausible Analytics</h3>
+    <p>We also use Plausible Analytics, a privacy-focused alternative. Plausible does not use cookies, does not collect personal data, and does not track visitors across sites. All data is aggregated and no individual visitor can be identified. Plausible is compliant with GDPR, CCPA, and PECR without requiring a cookie consent banner.</p>
+  </div>
+
+  <div class="ff-privacy-section reveal">
+    <h2 class="ff-privacy-heading">Contact form</h2>
+    <p>When you submit the contact form on this site, we collect the name, email address, and message you provide. This information is sent to us via Postmark (our email delivery service) and used solely to respond to your inquiry. We do not add you to any mailing list, CRM, or automated sequence.</p>
+  </div>
+
+  <div class="ff-privacy-section reveal">
+    <h2 class="ff-privacy-heading">Cookies</h2>
+    <p>This site uses cookies only through Google Analytics. No cookies are set by Firefly Software directly. Plausible Analytics does not use cookies. No advertising or tracking cookies are present on this site.</p>
+  </div>
+
+  <div class="ff-privacy-section reveal">
+    <h2 class="ff-privacy-heading">Third-party services</h2>
+    <p>In addition to the analytics services above, this site uses:</p>
+    <ul class="ff-privacy-list">
+      <li><strong>Cloudflare</strong> &mdash; DNS and CDN. Cloudflare may process connection data (IP address, request headers) to serve and protect the site.</li>
+      <li><strong>Hetzner</strong> &mdash; Server hosting. Our servers are located in the EU and US.</li>
+      <li><strong>Postmark</strong> &mdash; Email delivery for contact form submissions.</li>
+      <li><strong>Cloudflare Turnstile</strong> &mdash; Bot protection on the contact form. Turnstile does not use cookies and does not collect personal data.</li>
+    </ul>
+  </div>
+
+  <div class="ff-privacy-section reveal">
+    <h2 class="ff-privacy-heading">Data retention</h2>
+    <p>Contact form submissions are retained in our email inbox for the duration of the business relationship. Google Analytics data is retained for 14 months. Plausible Analytics data is retained indefinitely in aggregated, anonymous form.</p>
+  </div>
+
+  <div class="ff-privacy-section reveal">
+    <h2 class="ff-privacy-heading">Your rights</h2>
+    <p>If you'd like to request deletion of any data we hold about you, or have questions about this policy, contact us at <a href="mailto:logan@fireflysoftware.dev" style="color: var(--ff-dusk); text-decoration: underline; text-underline-offset: 2px;">logan@fireflysoftware.dev</a> or call <a href="tel:+14068719875" style="color: var(--ff-dusk); text-decoration: underline; text-underline-offset: 2px;">+1 (406) 871-9875</a>.</p>
+  </div>
+
+  <div class="ff-privacy-section reveal">
+    <h2 class="ff-privacy-heading">Changes to this policy</h2>
+    <p>We may update this policy from time to time. Changes will be posted on this page with an updated revision date.</p>
+  </div>
+
+</section>
+
+{{ end }}
+
+{{ define "scripts" }}
+<script>
+  (function () {
+    function draw(id) { var el = document.getElementById(id); if (el) el.classList.add('drawn'); }
+    setTimeout(function() { draw('hero-line'); draw('hero-eyebrow-text'); }, 120);
+    setTimeout(function() { draw('hero-headline'); }, 300);
+    setTimeout(function() { draw('hero-subline'); }, 550);
+  })();
+</script>
+{{ end }}

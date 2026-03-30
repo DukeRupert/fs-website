@@ -750,6 +750,67 @@ body {
 @keyframes pulse { 0%,100%{opacity:0.3} 50%{opacity:0.75} }
 
 /* ============================================================
+   PRIVACY / PROSE CONTENT
+   ============================================================ */
+.ff-privacy-section {
+  margin-bottom: 40px;
+}
+.ff-privacy-section:last-child { margin-bottom: 0; }
+
+.ff-privacy-heading {
+  font-family: var(--font-display);
+  font-size: var(--type-h4);
+  font-weight: 500;
+  color: var(--ff-paper);
+  margin-bottom: 12px;
+}
+
+.ff-privacy-subheading {
+  font-size: var(--type-small);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--ff-ice);
+  margin: 20px 0 8px;
+}
+
+.ff-privacy-section p {
+  color: var(--ff-ash);
+  font-weight: 300;
+  font-size: var(--type-body);
+  line-height: 1.75;
+  margin-bottom: 12px;
+}
+.ff-privacy-section p:last-child { margin-bottom: 0; }
+.ff-privacy-section p strong { color: var(--ff-cream); font-weight: 400; }
+
+.ff-privacy-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 8px;
+}
+.ff-privacy-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: var(--ff-ash);
+  font-weight: 300;
+  font-size: var(--type-body);
+  line-height: 1.75;
+}
+.ff-privacy-list li::before {
+  content: '';
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--ff-dusk);
+  opacity: 0.55;
+  flex-shrink: 0;
+  margin-top: 10px;
+}
+.ff-privacy-list li strong { color: var(--ff-cream); font-weight: 400; }
+
+/* ============================================================
    PRICING
    ============================================================ */
 .ff-pricing { padding: 64px var(--page-gutter) 0; }

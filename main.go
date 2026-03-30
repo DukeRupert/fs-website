@@ -95,6 +95,11 @@ func main() {
 		"Tell us what you're working on. We'll tell you honestly whether we're the right fit.",
 		site,
 	).WithNav("contact")))
+	mux.HandleFunc("GET /privacy", handlers.PageHandler(tr, "privacy", handlers.NewPageData(
+		"Privacy Policy — Firefly Software",
+		"How Firefly Software handles your data. We use Google Analytics and Plausible Analytics.",
+		site,
+	)))
 	mux.HandleFunc("GET /services/websites", handlers.PageHandler(tr, "services-websites", handlers.NewPageData(
 		"Websites — Firefly Software",
 		"Custom-built from scratch. No templates, no page builders, no WordPress.",
