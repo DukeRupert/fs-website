@@ -1704,16 +1704,15 @@ body {
     position: fixed;
     inset: 0;
     z-index: 150;
-    background: rgba(10, 12, 18, 0.6);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    background: rgba(10, 12, 18, 0.7);
     opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.35s ease, visibility 0.35s ease;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+    -webkit-transform: translateZ(0);
   }
   .ff-mobile-backdrop.is-open {
     opacity: 1;
-    visibility: visible;
+    pointer-events: auto;
   }
 
   .ff-mobile-panel {
@@ -1724,11 +1723,14 @@ body {
     bottom: 0;
     width: min(340px, 85vw);
     z-index: 200;
-    transform: translateX(100%);
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
     transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
   }
   .ff-mobile-panel.is-open {
-    transform: translateX(0);
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
   }
 
   /* Accent bar — vertical dusk stripe on the left edge */
@@ -1773,12 +1775,14 @@ body {
   }
   .ff-mobile-panel-links li {
     opacity: 0;
+    -webkit-transform: translateX(20px);
     transform: translateX(20px);
-    transition: opacity 0.35s ease, transform 0.35s ease;
+    transition: opacity 0.35s ease, transform 0.35s ease, -webkit-transform 0.35s ease;
     transition-delay: calc(0.08s + var(--i, 0) * 0.06s);
   }
   .ff-mobile-panel.is-open .ff-mobile-panel-links li {
     opacity: 1;
+    -webkit-transform: translateX(0);
     transform: translateX(0);
   }
   .ff-mobile-panel-links a {
@@ -1820,15 +1824,19 @@ body {
     border: 1px solid var(--ff-dusk-lo);
     padding: 14px 28px;
     text-align: center;
-    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
     opacity: 0;
+    -webkit-transform: translateX(20px);
     transform: translateX(20px);
-    transition: opacity 0.35s ease, transform 0.35s ease,
-                background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
-    transition-delay: 0.36s;
+    transition: opacity 0.35s ease 0.36s,
+                transform 0.35s ease 0.36s,
+                -webkit-transform 0.35s ease 0.36s,
+                background 0.2s ease,
+                border-color 0.2s ease,
+                color 0.2s ease;
   }
   .ff-mobile-panel.is-open .ff-mobile-panel-cta {
     opacity: 1;
+    -webkit-transform: translateX(0);
     transform: translateX(0);
   }
   .ff-mobile-panel-cta:hover {

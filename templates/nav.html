@@ -1,47 +1,50 @@
 {{ define "nav" }}
-<nav class="ff-nav"
-     x-data="{ open: false }"
-     x-on:keydown.escape.window="open = false"
-     x-effect="document.body.style.overflow = open ? 'hidden' : ''">
-  <div class="ff-nav-inner">
-    <a href="/" class="ff-logo">
-      <img src="/static/images/logo/firefly_logo_raw_white.svg" alt="" width="24" height="20" aria-hidden="true">
-      Firefly Software
-    </a>
+<div x-data="{ navOpen: false }"
+     x-on:keydown.escape.window="navOpen = false"
+     x-effect="document.body.style.overflow = navOpen ? 'hidden' : ''">
 
-    <ul class="ff-nav-links">
-      <li><a href="/work" {{ if eq .ActiveNav "work" }}class="active"{{ end }}>Work</a></li>
-      <li><a href="/process" {{ if eq .ActiveNav "process" }}class="active"{{ end }}>Process</a></li>
-      <li><a href="/pricing" {{ if eq .ActiveNav "pricing" }}class="active"{{ end }}>Pricing</a></li>
-      <li><a href="/about" {{ if eq .ActiveNav "about" }}class="active"{{ end }}>About</a></li>
-    </ul>
+  <nav class="ff-nav">
+    <div class="ff-nav-inner">
+      <a href="/" class="ff-logo">
+        <img src="/static/images/logo/firefly_logo_raw_white.svg" alt="" width="24" height="20" aria-hidden="true">
+        Firefly Software
+      </a>
 
-    <a href="/contact" class="ff-nav-cta">Start a project</a>
+      <ul class="ff-nav-links">
+        <li><a href="/work" {{ if eq .ActiveNav "work" }}class="active"{{ end }}>Work</a></li>
+        <li><a href="/process" {{ if eq .ActiveNav "process" }}class="active"{{ end }}>Process</a></li>
+        <li><a href="/pricing" {{ if eq .ActiveNav "pricing" }}class="active"{{ end }}>Pricing</a></li>
+        <li><a href="/about" {{ if eq .ActiveNav "about" }}class="active"{{ end }}>About</a></li>
+      </ul>
 
-    <!-- Mobile hamburger -->
-    <button class="ff-nav-hamburger"
-            :class="open && 'is-active'"
-            @click="open = !open"
-            :aria-expanded="open"
-            aria-label="Toggle navigation">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </div>
+      <a href="/contact" class="ff-nav-cta">Start a project</a>
 
-  <!-- Mobile panel — slides in from right, pure CSS transition -->
-  <div class="ff-mobile-panel" :class="open && 'is-open'" aria-hidden="true" :aria-hidden="!open">
+      <!-- Mobile hamburger -->
+      <button class="ff-nav-hamburger"
+              :class="navOpen && 'is-active'"
+              @click="navOpen = !navOpen"
+              :aria-expanded="navOpen"
+              aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile panel + backdrop — siblings of nav, not children, to avoid iOS Safari position:fixed + backdrop-filter compositing bug -->
+  <div class="ff-mobile-backdrop" :class="navOpen && 'is-open'" @click="navOpen = false"></div>
+  <div class="ff-mobile-panel" :class="navOpen && 'is-open'" :aria-hidden="!navOpen">
     <div class="ff-mobile-panel-accent"></div>
     <div class="ff-mobile-panel-body">
       <span class="ff-mobile-panel-label">Navigation</span>
       <ul class="ff-mobile-panel-links">
-        <li style="--i:0"><a href="/work" @click="open = false" {{ if eq .ActiveNav "work" }}class="active"{{ end }}>Work</a></li>
-        <li style="--i:1"><a href="/process" @click="open = false" {{ if eq .ActiveNav "process" }}class="active"{{ end }}>Process</a></li>
-        <li style="--i:2"><a href="/pricing" @click="open = false" {{ if eq .ActiveNav "pricing" }}class="active"{{ end }}>Pricing</a></li>
-        <li style="--i:3"><a href="/about" @click="open = false" {{ if eq .ActiveNav "about" }}class="active"{{ end }}>About</a></li>
+        <li style="--i:0"><a href="/work" @click="navOpen = false" {{ if eq .ActiveNav "work" }}class="active"{{ end }}>Work</a></li>
+        <li style="--i:1"><a href="/process" @click="navOpen = false" {{ if eq .ActiveNav "process" }}class="active"{{ end }}>Process</a></li>
+        <li style="--i:2"><a href="/pricing" @click="navOpen = false" {{ if eq .ActiveNav "pricing" }}class="active"{{ end }}>Pricing</a></li>
+        <li style="--i:3"><a href="/about" @click="navOpen = false" {{ if eq .ActiveNav "about" }}class="active"{{ end }}>About</a></li>
       </ul>
-      <a href="/contact" @click="open = false" class="ff-mobile-panel-cta">Start a project</a>
+      <a href="/contact" @click="navOpen = false" class="ff-mobile-panel-cta">Start a project</a>
       <div class="ff-mobile-panel-contact">
         <a href="tel:+14068719875">+1 (406) 871-9875</a>
         <a href="mailto:logan@fireflysoftware.dev">logan@fireflysoftware.dev</a>
@@ -49,7 +52,5 @@
     </div>
   </div>
 
-  <!-- Backdrop -->
-  <div class="ff-mobile-backdrop" :class="open && 'is-open'" @click="open = false"></div>
-</nav>
+</div>
 {{ end }}

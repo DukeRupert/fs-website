@@ -79,7 +79,7 @@
         </div>
 
         <!-- Turnstile -->
-        <div class="cf-turnstile" data-sitekey="0x4AAAAAACNEZHtGHIkcNePc" data-theme="dark" data-callback="onTurnstileSuccess" style="margin-bottom: 16px;"></div>
+        <div class="cf-turnstile" style="margin-bottom: 16px;"></div>
 
         <!-- Error message -->
         <div x-show="state === 'error'" x-cloak style="margin-bottom: 16px;">
@@ -158,5 +158,18 @@ function contactForm() {
     setTimeout(function() { draw('hero-headline'); }, 300);
     setTimeout(function() { draw('hero-subline'); }, 550);
   })();
+</script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" defer></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var el = document.querySelector('.cf-turnstile');
+    if (el && typeof turnstile !== 'undefined') {
+      turnstile.render(el, {
+        sitekey: '0x4AAAAAACNEZHtGHIkcNePc',
+        theme: 'dark',
+        callback: function(token) { _turnstileToken = token; }
+      });
+    }
+  });
 </script>
 {{ end }}

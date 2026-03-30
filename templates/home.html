@@ -330,7 +330,7 @@
             <input class="ff-input" type="text" x-ref="name" name="name" placeholder="Your name" />
             <input class="ff-input" type="email" x-ref="email" name="email" placeholder="Email address" />
           </div>
-          <div id="cta-turnstile" class="cf-turnstile" data-sitekey="0x4AAAAAACNEZHtGHIkcNePc" data-theme="dark" style="margin-bottom: 16px;"></div>
+          <div id="cta-turnstile" style="margin-bottom: 16px;"></div>
           <div class="ff-submit-row">
             <button class="ff-btn-submit" type="submit" :disabled="sending">
               <span x-show="!sending">Send it &rarr;</span>
@@ -497,5 +497,17 @@
 
     document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
   })();
+</script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" defer></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var el = document.getElementById('cta-turnstile');
+    if (el && typeof turnstile !== 'undefined') {
+      turnstile.render(el, {
+        sitekey: '0x4AAAAAACNEZHtGHIkcNePc',
+        theme: 'dark'
+      });
+    }
+  });
 </script>
 {{ end }}
