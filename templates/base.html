@@ -27,6 +27,15 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ .Site.BaseURL }}">
   <meta property="og:image" content="{{ .Site.BaseURL }}/static/images/facebook_link_image.png">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B6NKT7J888"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-B6NKT7J888');
+  </script>
 </head>
 <body x-data x-init="
   const observer = new IntersectionObserver((entries) => {
