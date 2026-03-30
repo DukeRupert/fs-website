@@ -33,41 +33,44 @@
     <p class="ff-section-note">3 projects</p>
   </div>
 
-  <div class="ff-card-grid">
-
-    <!-- Nautilus Group -->
-    <article class="cs-card">
-      <div class="cs-body">
+  <!-- Featured: Nautilus Group -->
+  <article class="cs-card cs-card--featured reveal" style="margin-bottom: 20px;">
+    <div class="cs-body" style="display: grid; grid-template-columns: 1fr 300px; gap: 32px;">
+      <div>
         <div class="cs-meta">
-          <div class="cs-client">Nautilus Group</div>
+          <div class="cs-client">Nautilus Group Cleaning Services</div>
           <div class="cs-tags">
             <div class="cs-tag">Marketing site</div>
             <div class="cs-tag">Brand</div>
             <div class="cs-tag">SEO</div>
           </div>
         </div>
+        <p class="cs-location">Commercial cleaning &middot; Kennewick, WA</p>
         <h3 class="cs-title">No web presence. Now they have a pipeline.</h3>
         <p class="cs-outcome">
           Nautilus had nothing &mdash; no site, no listings, no digital footprint. We built from scratch:
           custom site, brand direction, SEO setup, and Google Business Profile.
           <strong>Within four weeks of launch they had a commercial contract and five new inquiries.</strong>
         </p>
-        <div class="cs-results">
-          <div class="cs-result">
-            <div class="cs-result-num">0<span>&rarr;1</span></div>
-            <div class="cs-result-label">Web presence built</div>
-          </div>
-          <div class="cs-result">
-            <div class="cs-result-num">4<span>wks</span></div>
-            <div class="cs-result-label">First contract</div>
-          </div>
-          <div class="cs-result">
-            <div class="cs-result-num">5<span>leads</span></div>
-            <div class="cs-result-label">Month one inquiries</div>
-          </div>
+      </div>
+      <div style="display: flex; flex-direction: column; justify-content: center; border-left: 1px solid var(--ff-border); padding-left: 32px;">
+        <div style="margin-bottom: 24px;">
+          <div class="cs-result-num" style="font-size: 38px;">0<span style="font-size: 16px;">&rarr;1</span></div>
+          <div class="cs-result-label">Web presence built from nothing</div>
+        </div>
+        <div style="margin-bottom: 24px;">
+          <div class="cs-result-num" style="font-size: 38px;">4<span style="font-size: 16px;">wks</span></div>
+          <div class="cs-result-label">Launch to first commercial contract</div>
+        </div>
+        <div>
+          <div class="cs-result-num" style="font-size: 38px;">5<span style="font-size: 16px;">leads</span></div>
+          <div class="cs-result-label">Inquiries in month one</div>
         </div>
       </div>
-    </article>
+    </div>
+  </article>
+
+  <div class="ff-card-grid">
 
     <!-- A-Team Asphalt -->
     <article class="cs-card">
@@ -100,6 +103,7 @@
             <div class="cs-tag">SEO</div>
           </div>
         </div>
+        <p class="cs-location">Asphalt &amp; paving &middot; Sumner, WA</p>
         <h3 class="cs-title">Twenty years of reputation. A website that finally matched it.</h3>
         <p class="cs-outcome">
           A Pacific Northwest paving company with decades of experience and no digital presence to show for it.
@@ -137,6 +141,7 @@
             <div class="cs-tag">Brand</div>
           </div>
         </div>
+        <p class="cs-location">Gutter installation &middot; Bonney Lake, WA</p>
         <h3 class="cs-title">New trade, new brand, built to generate leads from day one.</h3>
         <p class="cs-outcome">
           A-Team Gutters launched in 2024 with strong trade credentials and no web presence.
@@ -166,7 +171,7 @@
 <!-- ============================================================
      Software
      ============================================================ -->
-<section class="ff-work reveal" id="software-section" style="padding-top: 0;">
+<section class="ff-work reveal" id="software-section" style="padding-top: 40px;">
   <div class="ff-section-header">
     <div>
       <p class="ff-eyebrow">
@@ -233,6 +238,7 @@
             <div class="cs-tag">Estimating</div>
           </div>
         </div>
+        <p class="cs-location">Construction &middot; Hamilton, MT</p>
         <div class="cs-status">
           <div class="cs-status-dot"></div>
           In progress
@@ -271,6 +277,7 @@
             <div class="cs-tag">B2B + B2C</div>
           </div>
         </div>
+        <p class="cs-location">Coffee roaster &middot; Kennewick, WA</p>
         <h3 class="cs-title">Two buying experiences, two pricing structures, one platform.</h3>
         <p class="cs-outcome">
           Rockabilly sells retail to consumers and wholesale to cafes and restaurants &mdash;
@@ -299,29 +306,22 @@
 </section>
 
 <!-- ============================================================
-     More Coming
-     ============================================================ -->
-<section style="padding: 0 var(--page-gutter) var(--section-gap); max-width: 560px;">
-  <p class="reveal" style="color: var(--ff-ash); font-weight: 300; font-size: var(--type-body); line-height: 1.75; margin-bottom: 28px;">
-    We're selective about the projects we take on. That means the list stays short and the work stays strong.
-    If you want to see something specific &mdash; a particular industry, a particular kind of problem &mdash;
-    get in touch and we'll tell you honestly what we've built that's closest to it.
-  </p>
-  <a href="/contact" class="ff-btn-secondary reveal">Start a conversation</a>
-</section>
-
-<!-- ============================================================
      CTA Close
      ============================================================ -->
-<section style="border-top: 1px solid var(--ff-border); padding: var(--section-gap) var(--page-gutter);">
+<section class="reveal" id="work-cta" style="border-top: 1px solid var(--ff-border); padding: var(--section-gap) var(--page-gutter);">
   <div style="max-width: 560px;">
-    <p class="ff-eyebrow reveal">
-      <span class="ff-eyebrow-line drawn" style="width: 28px;"></span>
-      <span class="ff-eyebrow-text drawn" style="opacity: 1;">Let's talk</span>
+    <p class="ff-eyebrow">
+      <span class="ff-eyebrow-line" id="cta-line"></span>
+      <span class="ff-eyebrow-text" id="cta-eyebrow-text">Let's talk</span>
     </p>
-    <h2 class="reveal" style="font-family: var(--font-display); font-size: var(--type-h2); font-weight: 500; color: var(--ff-paper); line-height: 1.05; margin-bottom: 20px;">Have a project in mind?</h2>
-    <p class="reveal" style="color: var(--ff-ash); font-weight: 300; font-size: var(--type-body); line-height: 1.75; margin-bottom: 36px;">Tell us what you're working on. We'll tell you honestly whether we're the right fit.</p>
-    <div class="reveal" style="display: flex; align-items: center; gap: 28px;">
+    <h2 style="font-family: var(--font-display); font-size: var(--type-h2); font-weight: 500; color: var(--ff-paper); line-height: 1.05; margin-bottom: 20px;">Have a project in mind?</h2>
+    <p style="color: var(--ff-ash); font-weight: 300; font-size: var(--type-body); line-height: 1.75; margin-bottom: 16px;">
+      We're selective about the projects we take on. That means the list stays short and the work stays strong.
+      If you want to see something specific &mdash; a particular industry, a particular kind of problem &mdash;
+      get in touch and we'll tell you honestly what we've built that's closest to it.
+    </p>
+    <p style="color: var(--ff-ash); font-weight: 300; font-size: var(--type-body); line-height: 1.75; margin-bottom: 36px;">Tell us what you're working on. We'll tell you honestly whether we're the right fit.</p>
+    <div style="display: flex; align-items: center; gap: 28px; flex-wrap: wrap;">
       <a href="/contact" class="ff-btn-primary">Start a project</a>
       <a href="tel:+14068719875" class="ff-btn-secondary">+1 (406) 871-9875</a>
     </div>
@@ -349,6 +349,7 @@
         var lineMap = {
           'websites-section': ['websites-line', 'websites-eyebrow-text'],
           'software-section': ['software-line', 'software-eyebrow-text'],
+          'work-cta':         ['cta-line',      'cta-eyebrow-text'],
         };
         var ids = lineMap[el.id];
         if (ids) {
@@ -363,7 +364,7 @@
       });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.ff-work').forEach(function(el) { observer.observe(el); });
+    document.querySelectorAll('.ff-work, #work-cta').forEach(function(el) { observer.observe(el); });
   })();
 </script>
 {{ end }}

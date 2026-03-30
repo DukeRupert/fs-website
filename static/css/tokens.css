@@ -689,10 +689,36 @@ body {
   border: 1px solid rgba(61, 68, 89, 0.5); padding: 3px 7px;
 }
 
+.cs-location {
+  font-size: var(--type-micro); letter-spacing: 0.1em;
+  color: var(--ff-stone); font-style: italic;
+  margin-bottom: 14px;
+}
+
 .cs-title {
   font-family: var(--font-display);
   font-size: var(--type-h4); font-weight: 500;
   color: var(--ff-paper); line-height: 1.25; margin-bottom: 12px;
+}
+
+/* Featured card — full width with side proof column */
+.cs-card--featured {
+  background: var(--ff-panel);
+  border: 1px solid var(--ff-dusk-mid);
+  transition: border-color 0.35s;
+}
+
+@media (max-width: 768px) {
+  .cs-card--featured .cs-body {
+    grid-template-columns: 1fr !important;
+  }
+  .cs-card--featured .cs-body > div:last-child {
+    border-left: none !important;
+    padding-left: 0 !important;
+    border-top: 1px solid var(--ff-border);
+    padding-top: 24px;
+    margin-top: 8px;
+  }
 }
 
 .cs-outcome {
