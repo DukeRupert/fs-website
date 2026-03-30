@@ -1042,16 +1042,68 @@ body {
 }
 
 /* ============================================================
-   PROCESS STEPS
+   PROCESS STEPS — Timeline
    ============================================================ */
+.ff-process-group {
+  position: relative;
+  padding-left: 40px;
+}
+
+/* Vertical timeline line */
+.ff-process-group::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--ff-border2);
+}
+
+/* Group label (Before we build / The build itself) */
+.ff-process-group-label {
+  font-size: var(--type-label);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ff-dusk);
+  margin-bottom: 32px;
+  position: relative;
+}
+.ff-process-group-label::before {
+  content: '';
+  position: absolute;
+  left: -40px;
+  top: 50%;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 1px solid var(--ff-dusk);
+  background: var(--ff-dark);
+  transform: translateY(-50%);
+}
+
 .ff-process-step {
   display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 48px;
-  padding: 40px 0;
+  grid-template-columns: 160px 1fr;
+  gap: 40px;
+  padding: 32px 0;
   border-bottom: 1px solid var(--ff-border);
+  position: relative;
 }
 .ff-process-step:last-child { border-bottom: none; }
+
+/* Timeline dot per step */
+.ff-process-step::before {
+  content: '';
+  position: absolute;
+  left: -36px;
+  top: 42px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ff-dusk);
+  opacity: 0.5;
+}
 
 .ff-process-step__header {
   display: flex;
@@ -1082,11 +1134,35 @@ body {
 }
 .ff-process-step__body p:last-child { margin-bottom: 0; }
 
+/* Highlighted step (Build) */
+.ff-process-step--highlight {
+  background: var(--ff-panel);
+  border: 1px solid var(--ff-border);
+  border-bottom: 1px solid var(--ff-border);
+  padding: 32px;
+  margin: 8px 0;
+}
+.ff-process-step--highlight + .ff-process-step { border-top: none; }
+
+/* Dark card responsive */
+.ff-process-card {
+  background: var(--ff-panel);
+  border: 1px solid var(--ff-border);
+  padding: 48px;
+  max-width: 820px;
+}
+
 @media (max-width: 768px) {
+  .ff-process-group { padding-left: 28px; }
+  .ff-process-group::before { left: 5px; }
+  .ff-process-group-label::before { left: -28px; width: 11px; height: 11px; }
   .ff-process-step {
     grid-template-columns: 1fr;
     gap: 12px;
   }
+  .ff-process-step::before { left: -24px; top: 38px; }
+  .ff-process-step--highlight { padding: 24px; }
+  .ff-process-card { padding: 24px; }
 }
 
 /* ============================================================
