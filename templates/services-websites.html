@@ -1,91 +1,227 @@
 {{ define "content" }}
 
 <!-- ============================================================
-     Hero — Short dark hero
+     Hero
      ============================================================ -->
-<section class="hero hero--short">
-  <div class="content-wrap" style="position: relative; z-index: 1;">
-    <h1 style="font-family: var(--font-display); font-size: var(--text-h1); color: var(--color-dark-text); text-transform: uppercase; margin: 0 0 1rem;">Websites</h1>
-    <p style="color: var(--color-dark-muted); font-size: 1.2rem; max-width: 560px;">Custom-built from scratch. No templates, no page builders, no WordPress.</p>
+<section class="ff-hero" style="grid-template-columns: 1fr; min-height: auto; padding-bottom: 64px;">
+  <div>
+    <p class="ff-eyebrow">
+      <span class="ff-eyebrow-line" id="hero-line"></span>
+      <span class="ff-eyebrow-text" id="hero-eyebrow-text">Websites</span>
+    </p>
+    <h1 class="ff-headline" id="hero-headline" style="max-width: 640px;">
+      Custom-built from scratch.
+    </h1>
+    <p class="ff-subline" id="hero-subline" style="max-width: 560px;">
+      No WordPress. No plugins. No templates. No overseas maintainers.
+    </p>
   </div>
 </section>
 
-<!-- Dark-to-light gradient transition -->
-<div class="gradient-transition"></div>
-
 <!-- ============================================================
-     Opening copy
+     Opening
      ============================================================ -->
-<section class="section section--light">
-  <div class="content-narrow">
-    <p class="reveal" style="margin-bottom: 1.25rem;">Most small business websites are assembled, not built. A template gets purchased, some colors get swapped, and six months later you're paying a plugin subscription to do something the site should have done from the start. When the plugin breaks, you call a support line that's never heard of you.</p>
-
-    <p class="reveal">We build from scratch. Every site we ship is custom-coded, fast, secure, and yours — no platform to outgrow, no monthly ransom to a third-party tool, no stranger on the other end of a ticket queue. When something needs attention, you call us. We built it. We know where everything is.</p>
-  </div>
+<section style="padding: 0 var(--page-gutter) var(--section-gap); max-width: 720px;">
+  <p class="reveal" style="color: var(--ff-ash); font-weight: 300; font-size: var(--type-body); line-height: 1.75; margin-bottom: 20px;">
+    WordPress powers 43% of the internet. It also generates more small business headaches than any other platform
+    in existence. A plugin that breaks on update and takes the contact form with it. A theme that stopped being
+    supported. A maintenance company that responds in 48 hours from a timezone you've never heard of. A site that
+    looks like ten thousand other sites because it started from the same template.
+  </p>
+  <p class="reveal" style="color: var(--ff-ash); font-weight: 300; font-size: var(--type-body); line-height: 1.75; margin-bottom: 20px;">
+    Wix and Squarespace are cleaner &mdash; until you hit the ceiling. No custom functionality. No real ownership.
+    A site that's permanently dependent on a platform that can change its pricing, its features, or its terms
+    whenever it wants.
+  </p>
+  <p class="reveal" style="color: var(--ff-ash); font-weight: 300; font-size: var(--type-body); line-height: 1.75; margin-bottom: 20px;">
+    AI-generated sites are the newest version of the same problem. Fast to spin up, cheap to start, and increasingly
+    indistinguishable from each other. By year two the cracks show. By year three you're looking for someone
+    to fix what the AI left behind.
+  </p>
+  <p class="reveal" style="color: var(--ff-cream); font-weight: 400; font-size: var(--type-body); line-height: 1.75;">
+    <strong>We build the thing you should have had from the start.</strong>
+  </p>
 </section>
 
 <!-- ============================================================
      What's Included
      ============================================================ -->
-<section class="section section--light" style="padding-top: 0;">
-  <div class="content-narrow">
-    <span class="section-label reveal">WHAT'S INCLUDED</span>
-    <p class="reveal">Every website project includes custom design and development, SSL, hosting, mobile optimization, contact forms, basic SEO setup, analytics integration, and a developer who stays accountable after launch. We handle edits, updates, and questions — ongoing, not just until the invoice clears.</p>
+<section class="reveal" id="included-section" style="padding: 0 var(--page-gutter) var(--section-gap);">
+  <div style="max-width: 720px;">
+    <p class="ff-eyebrow" style="margin-bottom: 16px;">
+      <span class="ff-eyebrow-line" id="included-line"></span>
+      <span class="ff-eyebrow-text" id="included-eyebrow-text">What's included</span>
+    </p>
+    <p style="color: var(--ff-ash); font-weight: 300; font-size: var(--type-body); line-height: 1.75; margin-bottom: 20px;">
+      Every Firefly website is custom-coded from scratch for your business and your market. No templates.
+      No plugins. No page builders. The design is yours. The copy is written for how your actual customers
+      search &mdash; not optimized by a plugin running the same schema on ten thousand sites.
+    </p>
+    <p style="color: var(--ff-ash); font-weight: 300; font-size: var(--type-body); line-height: 1.75;">
+      Your site is hosted on our infrastructure, maintained by us, and updated by us. SSL, security, backups,
+      mobile optimization, analytics, and edits &mdash; all included. When something needs attention, you contact
+      the people who built it.
+    </p>
   </div>
 </section>
 
 <!-- ============================================================
-     Turnaround
+     The SEO Difference
      ============================================================ -->
-<section class="section section--light" style="padding-top: 0;">
-  <div class="content-narrow">
-    <span class="section-label reveal">TURNAROUND</span>
-    <p class="reveal">Brochure sites typically ship in one week. Dynamic sites and web applications run four to six weeks depending on scope. Both timelines are agreed in writing before work starts.</p>
+<section class="reveal" id="seo-section" style="padding: 0 var(--page-gutter) var(--section-gap);">
+  <div style="max-width: 720px;">
+    <p class="ff-eyebrow" style="margin-bottom: 16px;">
+      <span class="ff-eyebrow-line" id="seo-line"></span>
+      <span class="ff-eyebrow-text" id="seo-eyebrow-text">The SEO difference</span>
+    </p>
+    <p style="color: var(--ff-ash); font-weight: 300; font-size: var(--type-body); line-height: 1.75; margin-bottom: 20px;">
+      SEO plugins rank you for the search terms they know about. They don't know your market, your region,
+      or how your customers' search behavior is shifting. They run the same template on a plumbing company
+      in Bonney Lake and a law firm in Boston.
+    </p>
+    <p style="color: var(--ff-ash); font-weight: 300; font-size: var(--type-body); line-height: 1.75;">
+      We write your copy and structure your site for the specific things your specific customers are searching
+      for right now. No plugin automates that. When the market shifts &mdash; and it does &mdash; we adjust.
+      <strong style="color: var(--ff-cream); font-weight: 400;">That's what the monthly relationship is for.</strong>
+    </p>
   </div>
 </section>
 
 <!-- ============================================================
      Pricing
      ============================================================ -->
-<section class="section section--light" style="padding-top: 0;">
-  <div class="content-narrow">
-    <span class="section-label reveal">PRICING</span>
-
-    <div class="card-light reveal" style="padding: 2rem;">
-      <p style="margin-bottom: 1.25rem;">Marketing sites start at <span style="font-family: var(--font-display); font-size: 2rem; color: var(--color-light-text);">$4,500</span>. Dynamic sites and web applications start at <span style="font-family: var(--font-display); font-size: 2rem; color: var(--color-light-text);">$8,000</span>. Every project gets a fixed quote before we start — no hourly surprises, no scope creep without a conversation first.</p>
-
-      <p>Ongoing support starts at <span style="font-family: var(--font-display); font-size: 2rem; color: var(--color-light-text);">$75</span>/mo for static sites and <span style="font-family: var(--font-display); font-size: 2rem; color: var(--color-light-text);">$175</span>/mo for dynamic. That covers hosting, security, updates, and a developer on call — not a help desk, not a ticket queue. Us.</p>
+<section class="reveal" id="pricing-section" style="padding: 0 var(--page-gutter) var(--section-gap);">
+  <div style="max-width: 720px;">
+    <p class="ff-eyebrow" style="margin-bottom: 16px;">
+      <span class="ff-eyebrow-line" id="pricing-line"></span>
+      <span class="ff-eyebrow-text" id="pricing-eyebrow-text">Pricing</span>
+    </p>
+    <div class="ff-card-grid" style="gap: 16px;">
+      <div class="ff-process-card">
+        <div style="font-family: var(--font-display); font-size: var(--type-h3); font-weight: 500; color: var(--ff-paper); margin-bottom: 4px;">$375<span style="font-size: var(--type-body); color: var(--ff-ash); font-family: var(--font-body);">/mo</span></div>
+        <div style="font-size: var(--type-label); letter-spacing: 0.12em; text-transform: uppercase; color: var(--ff-dusk); margin-bottom: 12px;">Standard</div>
+        <p style="color: var(--ff-ash); font-weight: 300; font-size: var(--type-small); line-height: 1.7;">
+          Marketing sites up to 6 pages. Custom design and development, hosting, SSL, security, updates, edits,
+          and a developer on call. 12-month minimum. No upfront cost.
+        </p>
+      </div>
+      <div class="ff-process-card">
+        <div style="font-family: var(--font-display); font-size: var(--type-h3); font-weight: 500; color: var(--ff-paper); margin-bottom: 4px;">$625<span style="font-size: var(--type-body); color: var(--ff-ash); font-family: var(--font-body);">/mo</span></div>
+        <div style="font-size: var(--type-label); letter-spacing: 0.12em; text-transform: uppercase; color: var(--ff-dusk); margin-bottom: 12px;">Advanced</div>
+        <p style="color: var(--ff-ash); font-weight: 300; font-size: var(--type-small); line-height: 1.7;">
+          Everything in Standard plus dynamic features, web application functionality, and priority turnaround
+          on changes. For businesses that need more than a marketing site.
+        </p>
+      </div>
     </div>
+    <p style="color: var(--ff-ash); font-weight: 300; font-size: var(--type-small); line-height: 1.75; margin-top: 20px;">
+      Every engagement starts with a scoping call. The rate is agreed before any work begins. It doesn't change.
+      <a href="/pricing" style="color: var(--ff-dusk); text-decoration: underline; text-underline-offset: 2px;">See full pricing details &rarr;</a>
+    </p>
   </div>
 </section>
 
 <!-- ============================================================
-     Not sure if you need a full rebuild?
+     The Migration
      ============================================================ -->
-<section class="section section--light" style="padding-top: 0;">
-  <div class="content-narrow">
-    <div class="aside-accent reveal">
-      <h3 style="font-family: var(--font-display); font-size: var(--text-h2); color: var(--color-light-text); text-transform: uppercase; margin: 0 0 0.75rem;">Not sure if you need a full rebuild?</h3>
-      <p style="margin-bottom: 1.25rem;">If your current site is broken, slow, or stuck on a platform you've outgrown, we can assess it and tell you honestly whether it needs a fix or a replacement. Sometimes it's a repair. Sometimes it isn't. Either way you'll get a straight answer.</p>
-      <a href="/contact" class="btn-secondary">Talk to us about your site &rarr;</a>
-    </div>
+<section class="reveal" id="migration-section" style="padding: 0 var(--page-gutter) var(--section-gap);">
+  <div style="max-width: 720px;">
+    <p class="ff-eyebrow" style="margin-bottom: 16px;">
+      <span class="ff-eyebrow-line" id="migration-line"></span>
+      <span class="ff-eyebrow-text" id="migration-eyebrow-text">The migration</span>
+    </p>
+    <p style="color: var(--ff-ash); font-weight: 300; font-size: var(--type-body); line-height: 1.75; margin-bottom: 20px;">
+      If you're on WordPress, Wix, or Squarespace, switching is simpler than it sounds. We handle the migration.
+      Your domain stays yours. Your content comes with you. Your SEO won't take a hit &mdash; it'll improve,
+      because the new site is faster, cleaner, and written for your market instead of optimized by a plugin.
+    </p>
+    <p style="color: var(--ff-cream); font-weight: 400; font-size: var(--type-body); line-height: 1.75;">
+      We've never lost a domain in a migration. We don't intend to start.
+    </p>
   </div>
 </section>
 
 <!-- ============================================================
-     CTA Close
+     Not Sure If It's Time?
      ============================================================ -->
-<section class="section section--dark" style="padding: 6rem 0;">
-  <div style="max-width: 620px; margin: 0 auto; padding: 0 1.5rem; text-align: center;">
-    <h2 style="font-family: var(--font-display); font-size: var(--text-h1); color: var(--color-dark-text); margin: 0 0 1.5rem; text-transform: uppercase;">Ready to build something that lasts?</h2>
+<section class="reveal" style="padding: 0 var(--page-gutter) var(--section-gap);">
+  <div class="ff-process-card" style="max-width: 720px; border-left: 2px solid var(--ff-dusk-lo);">
+    <h3 style="font-family: var(--font-display); font-size: var(--type-h4); font-weight: 500; color: var(--ff-paper); margin-bottom: 12px;">
+      Not sure if it's time to switch?
+    </h3>
+    <p style="color: var(--ff-ash); font-weight: 300; font-size: var(--type-body); line-height: 1.75; margin-bottom: 20px;">
+      If your site is breaking regularly, your maintenance company is hard to reach, or you've hit the ceiling
+      on what your platform can do &mdash; it's probably time. Tell us what you're dealing with. We'll tell you
+      honestly whether a switch makes sense or whether what you have can be fixed.
+    </p>
+    <a href="/contact" class="ff-btn-secondary">Talk to us about your site &rarr;</a>
+  </div>
+</section>
 
-    <p style="color: var(--color-dark-muted); margin-bottom: 2.5rem;">Tell us about your project. We'll tell you what it takes and what it costs — before anything starts.</p>
-
-    <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; align-items: center;">
-      <a href="/contact" class="btn-primary">Start a project</a>
-      <a href="tel:+14068719875" class="btn-secondary btn-secondary--dark">+1 (406) 871-9875</a>
+<!-- ============================================================
+     CTA
+     ============================================================ -->
+<section class="reveal" id="websites-cta" style="border-top: 1px solid var(--ff-border); padding: var(--section-gap) var(--page-gutter);">
+  <div style="max-width: 560px;">
+    <p class="ff-eyebrow">
+      <span class="ff-eyebrow-line" id="wcta-line"></span>
+      <span class="ff-eyebrow-text" id="wcta-eyebrow-text">Ready?</span>
+    </p>
+    <h2 style="font-family: var(--font-display); font-size: var(--type-h2); font-weight: 500; color: var(--ff-paper); line-height: 1.05; margin-bottom: 20px;">
+      Ready to leave<br>WordPress behind?
+    </h2>
+    <p style="color: var(--ff-ash); font-weight: 300; font-size: var(--type-body); line-height: 1.75; margin-bottom: 36px;">
+      The first conversation costs nothing. Tell us what platform you're on and what's not working.
+      We'll tell you exactly what a switch would look like.
+    </p>
+    <div style="display: flex; align-items: center; gap: 28px; flex-wrap: wrap;">
+      <a href="/contact" class="ff-btn-primary">Start a project</a>
+      <a href="tel:+14068719875" class="ff-btn-secondary">+1 (406) 871-9875</a>
     </div>
   </div>
 </section>
 
+{{ end }}
+
+{{ define "scripts" }}
+<script>
+  // Hero reveal
+  (function () {
+    function draw(id) { var el = document.getElementById(id); if (el) el.classList.add('drawn'); }
+    setTimeout(function() { draw('hero-line'); draw('hero-eyebrow-text'); }, 120);
+    setTimeout(function() { draw('hero-headline'); }, 300);
+    setTimeout(function() { draw('hero-subline'); }, 550);
+  })();
+
+  // Section eyebrow draw-ins
+  (function () {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        var lineMap = {
+          'included-section':  ['included-line',  'included-eyebrow-text'],
+          'seo-section':       ['seo-line',       'seo-eyebrow-text'],
+          'pricing-section':   ['pricing-line',   'pricing-eyebrow-text'],
+          'migration-section': ['migration-line',  'migration-eyebrow-text'],
+          'websites-cta':      ['wcta-line',       'wcta-eyebrow-text'],
+        };
+        var ids = lineMap[el.id];
+        if (ids) {
+          setTimeout(function() {
+            var line = document.getElementById(ids[0]);
+            var text = document.getElementById(ids[1]);
+            if (line) line.classList.add('drawn');
+            if (text) text.classList.add('drawn');
+          }, 150);
+        }
+        observer.unobserve(el);
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('#included-section, #seo-section, #pricing-section, #migration-section, #websites-cta').forEach(function(el) {
+      observer.observe(el);
+    });
+  })();
+</script>
 {{ end }}

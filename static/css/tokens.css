@@ -165,6 +165,22 @@ body {
   text-decoration: none;
 }
 
+/* Firefly logo glow pulse: gray → white → firefly yellow → back */
+.ff-logo-mark {
+  animation: firefly-pulse 4s ease-in-out infinite;
+}
+@keyframes firefly-pulse {
+  0%, 100% {
+    filter: brightness(0.7);
+  }
+  40% {
+    filter: brightness(1);
+  }
+  60% {
+    filter: brightness(1.2) sepia(1) hue-rotate(15deg) saturate(3);
+  }
+}
+
 .ff-nav-links {
   display: flex;
   gap: 36px;
