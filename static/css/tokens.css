@@ -624,11 +624,31 @@ body {
 .cs-card-action::after { content: ' \2192'; }
 
 .cs-visual {
-  height: 200px;
+  height: 280px;
   position: relative;
   overflow: hidden;
   border-bottom: 1px solid var(--ff-border);
   flex-shrink: 0;
+}
+@media (max-width: 768px) {
+  .cs-visual { height: 200px; }
+}
+
+/* Screenshot thumbnail in card visual */
+.cs-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top left;
+  filter: grayscale(100%) brightness(0.7);
+  transition: filter 0.6s ease, transform 0.6s ease;
+}
+.cs-card:hover .cs-visual img,
+.cs-card.is-visible .cs-visual img {
+  filter: grayscale(0%) brightness(1);
+}
+.cs-card:hover .cs-visual img {
+  transform: scale(1.03);
 }
 
 /* Asphalt card visual */
