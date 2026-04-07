@@ -119,10 +119,10 @@ func main() {
 
 	// Lo Mo Outfitting routes
 	cssFile := site.CSSFile
-	mux.HandleFunc("GET /lo-mo-outfitters", handlers.LoMoLandingHandler(tr, cssFile))
-	mux.HandleFunc("GET /lo-mo-outfitters/", handlers.LoMoLandingHandler(tr, cssFile))
-	mux.HandleFunc("GET /lo-mo-outfitters/{slug}/", handlers.LoMoHomeHandler(tr, cssFile))
-	mux.HandleFunc("GET /lo-mo-outfitters/{slug}/contact", handlers.LoMoContactHandler(tr, cssFile))
+	mux.HandleFunc("GET /lo-mo-outfitting", handlers.LoMoLandingHandler(tr, cssFile))
+	mux.HandleFunc("GET /lo-mo-outfitting/", handlers.LoMoLandingHandler(tr, cssFile))
+	mux.HandleFunc("GET /lo-mo-outfitting/{slug}/", handlers.LoMoHomeHandler(tr, cssFile))
+	mux.HandleFunc("GET /lo-mo-outfitting/{slug}/contact", handlers.LoMoContactHandler(tr, cssFile))
 
 	// Blog routes
 	mux.HandleFunc("GET /posts/", postHandler.HandlePostList)

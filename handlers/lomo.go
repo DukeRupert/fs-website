@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-const lomoBasePath = "/lo-mo-outfitters"
+const lomoBasePath = "/lo-mo-outfitting"
 
 // LoMoData holds template data for Lo Mo Outfitting pages.
 type LoMoData struct {
