@@ -1,0 +1,61 @@
+{{ define "content" }}
+<section class="py-16 sm:py-20 {{ if eq .Slug "amber" }}bg-la-cream{{ else }}bg-lt-bone{{ end }}">
+  <div class="mx-auto max-w-6xl px-6 sm:px-8">
+    <div class="mb-4 flex items-center gap-3">
+      <span class="block h-px w-7 {{ if eq .Slug "amber" }}bg-la-accent{{ else }}bg-lt-accent{{ end }}"></span>
+      <span class="font-lomo-body text-[13px] font-bold uppercase tracking-[0.15em] {{ if eq .Slug "amber" }}text-la-accent{{ else }}text-lt-accent{{ end }}">
+        Get in Touch
+      </span>
+    </div>
+    <h1 class="mb-4 font-lomo-display text-[2rem] font-bold {{ if eq .Slug "amber" }}text-la-dark{{ else }}text-lt-deep{{ end }}">
+      Book Your Trip
+    </h1>
+    <p class="mb-10 max-w-lg font-lomo-body text-[1rem] font-normal leading-relaxed {{ if eq .Slug "amber" }}text-la-stone{{ else }}text-lt-stone{{ end }}">
+      Tell us about the trip you're looking for. We'll get back to you within one business day.
+    </p>
+    <div class="max-w-lg" x-data="{ submitted: false }">
+      <form x-show="!submitted" class="space-y-5" @submit.prevent="submitted = true">
+        <!-- Honeypot -->
+        <div class="hidden" aria-hidden="true">
+          <label for="website">Website</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+        <div>
+          <label for="name" class="mb-1.5 block font-lomo-body text-[13px] font-medium {{ if eq .Slug "amber" }}text-la-dark{{ else }}text-lt-deep{{ end }}">
+            Name
+          </label>
+          <input type="text" id="name" name="name"
+                 class="w-full rounded-sm border bg-white px-4 py-2.5 font-lomo-body text-[15px] font-light outline-none transition {{ if eq .Slug "amber" }}border-la-border text-la-dark placeholder-la-stone focus:border-la-accent{{ else }}border-lt-border text-lt-deep placeholder-lt-stone focus:border-lt-accent{{ end }}"
+                 placeholder="Your name">
+        </div>
+        <div>
+          <label for="email" class="mb-1.5 block font-lomo-body text-[13px] font-medium {{ if eq .Slug "amber" }}text-la-dark{{ else }}text-lt-deep{{ end }}">
+            Email
+          </label>
+          <input type="email" id="email" name="email"
+                 class="w-full rounded-sm border bg-white px-4 py-2.5 font-lomo-body text-[15px] font-light outline-none transition {{ if eq .Slug "amber" }}border-la-border text-la-dark placeholder-la-stone focus:border-la-accent{{ else }}border-lt-border text-lt-deep placeholder-lt-stone focus:border-lt-accent{{ end }}"
+                 placeholder="you@example.com">
+        </div>
+        <div>
+          <label for="message" class="mb-1.5 block font-lomo-body text-[13px] font-medium {{ if eq .Slug "amber" }}text-la-dark{{ else }}text-lt-deep{{ end }}">
+            Message
+          </label>
+          <textarea id="message" name="message" rows="5"
+                    class="w-full rounded-sm border bg-white px-4 py-2.5 font-lomo-body text-[15px] font-light outline-none transition {{ if eq .Slug "amber" }}border-la-border text-la-dark placeholder-la-stone focus:border-la-accent{{ else }}border-lt-border text-lt-deep placeholder-lt-stone focus:border-lt-accent{{ end }}"
+                    placeholder="Tell us about the trip you're looking for..."></textarea>
+        </div>
+        <button type="submit"
+                class="rounded-sm px-[26px] py-[13px] font-lomo-body text-[13px] font-bold uppercase tracking-[0.1em] text-white transition active:scale-[0.98] {{ if eq .Slug "amber" }}bg-la-accent hover:bg-la-accent-dk{{ else }}bg-lt-accent hover:bg-lt-accent-dk{{ end }}">
+          Send Message
+        </button>
+      </form>
+      <div x-show="submitted" x-cloak
+           class="rounded-sm border p-6 {{ if eq .Slug "amber" }}border-la-accent/30 bg-white{{ else }}border-lt-accent/30 bg-white{{ end }}">
+        <p class="font-lomo-body text-[15px] font-normal {{ if eq .Slug "amber" }}text-la-dark{{ else }}text-lt-deep{{ end }}">
+          Thanks! We'll be in touch soon.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

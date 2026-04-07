@@ -1,0 +1,44 @@
+{{ define "footer" }}
+<footer class="{{ .BodyClass }}">
+  <div class="mx-auto max-w-6xl px-6 pb-8 pt-12 sm:px-8">
+    <div class="grid gap-10 sm:grid-cols-3">
+      <!-- Brand -->
+      <div>
+        <p class="font-lomo-display text-[1.1rem] font-bold text-[#F7F2EA]">Lo Mo Outfitting LLC</p>
+        <p class="mt-2 max-w-[200px] font-lomo-body text-[12px] font-light text-[#F7F2EA]/40 leading-relaxed">
+          Missouri River fly fishing out of Craig, Montana. Local guides. Real fish. No pretense.
+        </p>
+      </div>
+      <!-- Navigation -->
+      <div>
+        <p class="mb-3 font-lomo-body text-[9px] font-medium uppercase tracking-[0.12em] text-[#F7F2EA]/30">Navigation</p>
+        <div class="flex flex-col gap-1.5">
+          <a href="{{ .BasePath }}/{{ .Slug }}/#trips" class="font-lomo-body text-[13px] text-[#F7F2EA]/60 transition hover:text-[#F7F2EA]">Trip Options</a>
+          <a href="{{ .BasePath }}/{{ .Slug }}/#guides" class="font-lomo-body text-[13px] text-[#F7F2EA]/60 transition hover:text-[#F7F2EA]">Meet Our Guides</a>
+          <a href="{{ .BasePath }}/{{ .Slug }}/#heroes" class="font-lomo-body text-[13px] text-[#F7F2EA]/60 transition hover:text-[#F7F2EA]">Heroes Program</a>
+          <a href="{{ .BasePath }}/{{ .Slug }}/#reviews" class="font-lomo-body text-[13px] text-[#F7F2EA]/60 transition hover:text-[#F7F2EA]">Read Our Reviews</a>
+        </div>
+      </div>
+      <!-- Contact -->
+      <div>
+        <p class="mb-3 font-lomo-body text-[9px] font-medium uppercase tracking-[0.12em] text-[#F7F2EA]/30">Contact</p>
+        <div class="flex flex-col gap-1.5">
+          <a href="tel:+14065550100" class="font-lomo-body text-[13px] text-[#F7F2EA]/60 transition hover:text-[#F7F2EA]">(406) 555-0100</a>
+          <a href="mailto:matt@lomooutfitting.com" class="font-lomo-body text-[13px] text-[#F7F2EA]/60 transition hover:text-[#F7F2EA]">matt@lomooutfitting.com</a>
+          <p class="font-lomo-body text-[13px] text-[#F7F2EA]/60">Craig, Montana</p>
+        </div>
+      </div>
+    </div>
+    <!-- Bottom bar -->
+    <div class="mt-10 flex flex-col items-start justify-between gap-2 border-t border-white/[0.08] pt-6 sm:flex-row sm:items-center">
+      <p class="font-lomo-body text-[11px] font-light text-[#F7F2EA]/30">
+        &copy; {{ .Year }} Lo Mo Outfitting LLC &middot; All rights reserved.
+      </p>
+      <div class="flex items-center gap-4">
+        <p class="font-lomo-body text-[11px] font-light text-[#F7F2EA]/30">Montana Outfitter License OTF-XXXXX</p>
+        <a href="https://fireflysoftware.dev" class="font-lomo-body text-[9px] font-light text-[#F7F2EA]/20 transition hover:text-[#F7F2EA]/40">Site by Firefly Software</a>
+      </div>
+    </div>
+  </div>
+</footer>
+{{ end }}

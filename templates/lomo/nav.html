@@ -1,0 +1,47 @@
+{{ define "nav" }}
+<header
+  x-data="{ open: false }"
+  class="sticky top-0 z-50 border-b border-white/[0.06] backdrop-blur-sm {{ if eq .Slug "amber" }}bg-la-dark/90{{ else }}bg-lt-deep/90{{ end }}"
+>
+  <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-0 sm:px-8" style="height:62px;" aria-label="Main navigation">
+    <a href="{{ .BasePath }}/{{ .Slug }}/" class="flex items-center gap-2.5">
+      <img src="/static/images/lomo/logo.webp" alt="Lo Mo Outfitting" class="h-8 w-auto">
+    </a>
+    <!-- Desktop links -->
+    <div class="hidden items-center gap-6 lg:flex">
+      {{ template "nav-links" . }}
+      <a href="{{ .BasePath }}/{{ .Slug }}/contact"
+         class="rounded-sm px-4 py-[7px] font-lomo-body text-[13px] font-bold uppercase tracking-[0.08em] text-white {{ if eq .Slug "amber" }}bg-la-accent hover:bg-la-accent-dk{{ else }}bg-lt-accent hover:bg-lt-accent-dk{{ end }}">
+        Book Now
+      </a>
+    </div>
+    <!-- Mobile hamburger -->
+    <button @click="open = !open" class="flex items-center justify-center lg:hidden" aria-label="Toggle menu" :aria-expanded="open">
+      <svg x-show="!open" class="h-6 w-6 text-[#F7F2EA]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+      <svg x-show="open" x-cloak class="h-6 w-6 text-[#F7F2EA]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+  </nav>
+  <!-- Mobile menu -->
+  <div x-show="open" x-cloak x-transition class="border-t border-white/10 px-6 pb-6 pt-4 lg:hidden {{ .BodyClass }}">
+    <div class="flex flex-col gap-4">
+      {{ template "nav-links" . }}
+      <a href="{{ .BasePath }}/{{ .Slug }}/contact"
+         class="mt-2 inline-block rounded-sm px-4 py-[10px] text-center font-lomo-body text-[13px] font-bold uppercase tracking-[0.08em] text-white {{ if eq .Slug "amber" }}bg-la-accent{{ else }}bg-lt-accent{{ end }}">
+        Book Now
+      </a>
+    </div>
+  </div>
+</header>
+{{ end }}
+
+{{ define "nav-links" }}
+  <a href="{{ .BasePath }}/{{ .Slug }}/#trips" class="rounded-sm px-2 py-3 font-lomo-body text-[13px] font-semibold uppercase tracking-[0.1em] text-[#F7F2EA]/65 transition hover:text-[#F7F2EA] lg:px-0 lg:py-0">Trips</a>
+  <a href="{{ .BasePath }}/{{ .Slug }}/#guides" class="rounded-sm px-2 py-3 font-lomo-body text-[13px] font-semibold uppercase tracking-[0.1em] text-[#F7F2EA]/65 transition hover:text-[#F7F2EA] lg:px-0 lg:py-0">Guides</a>
+  <a href="{{ .BasePath }}/{{ .Slug }}/#reviews" class="rounded-sm px-2 py-3 font-lomo-body text-[13px] font-semibold uppercase tracking-[0.1em] text-[#F7F2EA]/65 transition hover:text-[#F7F2EA] lg:px-0 lg:py-0">Reviews</a>
+  <a href="{{ .BasePath }}/{{ .Slug }}/#heroes" class="rounded-sm px-2 py-3 font-lomo-body text-[13px] font-semibold uppercase tracking-[0.1em] text-[#F7F2EA]/65 transition hover:text-[#F7F2EA] lg:px-0 lg:py-0">Heroes</a>
+  <a href="tel:+14065550100" class="rounded-sm px-2 py-3 font-lomo-body text-[13px] font-semibold uppercase tracking-[0.1em] transition lg:px-0 lg:py-0 {{ if eq .Slug "amber" }}text-la-accent{{ else }}text-lt-accent{{ end }}">(406) 555-0100</a>
+{{ end }}

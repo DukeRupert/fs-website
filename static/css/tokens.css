@@ -93,20 +93,24 @@
 }
 
 /* ── BASE RESETS ── */
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-
-body {
-  font-family: var(--font-body);
-  font-size: var(--type-body);
-  background: var(--ff-dark);
-  color: var(--ff-cream);
-  overflow-x: hidden;
-  line-height: 1.7;
-  -webkit-font-smoothing: antialiased;
+@layer base {
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
 }
 
-[x-cloak] { display: none !important; }
+@layer base {
+  body {
+    font-family: var(--font-body);
+    font-size: var(--type-body);
+    background: var(--ff-dark);
+    color: var(--ff-cream);
+    overflow-x: hidden;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  [x-cloak] { display: none !important; }
+}
 
 /* ── SCROLL REVEAL ── */
 .reveal {
@@ -1965,4 +1969,96 @@ body {
   .ff-signature-rule { display: none; }
   .ff-signature { justify-content: center; }
   .ff-signature-text { white-space: normal; text-align: center; }
+}
+
+/* ============================================================
+   LO MO OUTFITTING — Design Tokens
+   Amber & Slate (la-*) · Teal & Bone (lt-*)
+   Fonts: Playfair Display + Source Sans 3
+   ============================================================ */
+
+@theme {
+  /* Amber & Slate palette */
+  --color-la-dark:       #2A2420;
+  --color-la-mid:        #3D3530;
+  --color-la-accent:     #C8872A;
+  --color-la-accent-dk:  #A06A18;
+  --color-la-cream:      #F7F2EA;
+  --color-la-stone:      #8A8078;
+  --color-la-border:     #E3DDD5;
+
+  /* Teal & Bone palette */
+  --color-lt-deep:       #1A2E30;
+  --color-lt-mid:        #2A4A4E;
+  --color-lt-accent:     #3E9E98;
+  --color-lt-accent-dk:  #2C7A75;
+  --color-lt-bone:       #F4F1EB;
+  --color-lt-stone:      #7A8E8F;
+  --color-lt-border:     #E0DBD2;
+
+  /* Lo Mo font families */
+  --font-lomo-display: 'Playfair Display', serif;
+  --font-lomo-body:    'Source Sans 3', sans-serif;
+}
+
+/* Lo Mo anchor scroll offset for sticky nav */
+@layer base {
+  .bg-la-dark [id],
+  .bg-lt-deep [id] {
+    scroll-margin-top: 70px;
+  }
+}
+
+/* Lo Mo selection colors */
+@layer base {
+  body.bg-la-dark ::selection {
+    background: rgba(200, 135, 42, 0.3);
+    color: #F7F2EA;
+  }
+  body.bg-lt-deep ::selection {
+    background: rgba(62, 158, 152, 0.3);
+    color: #F4F1EB;
+  }
+}
+
+/* Lo Mo scroll-triggered reveal — only animate when JS is ready */
+.js-ready [data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+}
+.js-ready [data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.7s cubic-bezier(0.25, 1, 0.5, 1),
+    transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+  transition-delay: var(--reveal-delay, 0s);
+}
+
+/* Lo Mo hero entrance stagger */
+.hero-stagger > * {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: hero-enter 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+.hero-stagger > *:nth-child(1) { animation-delay: 0.15s; }
+.hero-stagger > *:nth-child(2) { animation-delay: 0.3s; }
+.hero-stagger > *:nth-child(3) { animation-delay: 0.45s; }
+.hero-stagger > *:nth-child(4) { animation-delay: 0.6s; }
+
+@keyframes hero-enter {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .hero-stagger > * {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
 }

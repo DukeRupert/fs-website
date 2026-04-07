@@ -1,0 +1,351 @@
+{{ define "content" }}
+<!-- Hero -->
+<section class="relative flex min-h-[90vh] items-center bg-lt-deep">
+  <img src="/static/images/lomo/hero-river.webp" alt="Drift boat on the Missouri River near Craig, Montana" class="absolute inset-0 h-full w-full object-cover">
+  <div class="absolute inset-0 bg-gradient-to-t from-lt-deep/75 via-lt-deep/40 to-lt-deep/20"></div>
+  <div class="hero-stagger relative z-10 mx-auto w-full max-w-6xl px-6 py-28 sm:px-8 sm:py-40">
+    <p class="mb-4 font-lomo-body text-[13px] font-bold uppercase tracking-[0.15em] text-lt-accent">
+      Missouri River &middot; Craig, Montana
+    </p>
+    <h1 class="max-w-xl font-lomo-display text-[2rem] font-bold leading-[1.1] text-[#F4F1EB] sm:text-[3rem]">
+      The Missouri.<br>Local guides.<br>No pretense.
+    </h1>
+    <p class="mt-6 max-w-[480px] font-lomo-body text-[1rem] font-light leading-relaxed text-[#F4F1EB]/70">
+      Born and raised on this river. Matt Mohar and a crew of seven guides who actually live here — not a booking platform in waders.
+    </p>
+    <div class="mt-10 flex flex-wrap gap-4">
+      <a href="#trips" class="rounded-sm bg-lt-accent px-[26px] py-[13px] font-lomo-body text-[13px] font-bold uppercase tracking-[0.1em] text-white transition hover:bg-lt-accent-dk active:scale-[0.98]">
+        Book a Trip
+      </a>
+      <a href="#guides" class="rounded-sm border border-[#F4F1EB]/35 px-[26px] py-[13px] font-lomo-body text-[13px] font-semibold uppercase tracking-[0.08em] text-[#F4F1EB] transition hover:border-[#F4F1EB]/60 hover:text-white active:scale-[0.98]">
+        Meet Our Guides
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Stats Bar -->
+<section class="bg-lt-mid">
+  <div class="mx-auto grid max-w-6xl grid-cols-2 gap-0 sm:grid-cols-4" data-reveal>
+    <div class="px-6 py-8 text-center">
+      <p class="font-lomo-display text-[2rem] font-bold text-lt-accent">20+</p>
+      <p class="mt-1 font-lomo-body text-[11px] font-semibold uppercase tracking-[0.1em] text-[#F4F1EB]/40">Years on the Mo</p>
+    </div>
+    <div class="px-6 py-8 text-center">
+      <p class="font-lomo-display text-[2rem] font-bold text-lt-accent">7</p>
+      <p class="mt-1 font-lomo-body text-[11px] font-semibold uppercase tracking-[0.1em] text-[#F4F1EB]/40">Licensed Guides</p>
+    </div>
+    <div class="px-6 py-8 text-center">
+      <p class="font-lomo-display text-[2rem] font-bold text-lt-accent">35mi</p>
+      <p class="mt-1 font-lomo-body text-[11px] font-semibold uppercase tracking-[0.1em] text-[#F4F1EB]/40">Blue-Ribbon Water</p>
+    </div>
+    <div class="px-6 py-8 text-center">
+      <p class="font-lomo-display text-[2rem] font-bold text-lt-accent">5K+</p>
+      <p class="mt-1 font-lomo-body text-[11px] font-semibold uppercase tracking-[0.1em] text-[#F4F1EB]/40">Trout per Mile</p>
+    </div>
+  </div>
+</section>
+
+<!-- Trip Options -->
+<section id="trips" class="bg-lt-bone py-20 sm:py-28">
+  <div class="mx-auto max-w-6xl px-6 sm:px-8" data-reveal>
+    <div class="mb-4 flex items-center gap-3">
+      <span class="block h-px w-7 bg-lt-accent"></span>
+      <span class="font-lomo-body text-[13px] font-bold uppercase tracking-[0.15em] text-lt-accent">Float Trip Options</span>
+    </div>
+    <h2 class="mb-2 font-lomo-display text-[2rem] font-bold leading-[1.2] text-lt-deep">
+      Choose Your Day on the Water
+    </h2>
+    <p class="mb-10 max-w-2xl font-lomo-body text-[1rem] font-normal leading-relaxed text-lt-stone">
+      All trips include fly fishing gear and shuttle transportation. Full day trips include a shoreline lunch and cold drinks. Gratuity for your guide is not included — standard is $150 for a half day, $200 for a full day.
+    </p>
+    <!-- Featured trip — breaks out wider with image background -->
+    <div class="relative mb-6 overflow-hidden rounded-sm bg-lt-deep">
+      <img src="/static/images/lomo/catch-rainbow.webp" alt="Anglers on the Missouri River" class="absolute inset-0 h-full w-full object-cover opacity-25">
+      <div class="relative p-8 sm:flex sm:items-center sm:justify-between sm:p-10">
+        <div>
+          <span class="mb-3 inline-block rounded-sm bg-lt-accent px-2.5 py-[3px] font-lomo-body text-[11px] font-bold uppercase tracking-[0.08em] text-white">Most Popular</span>
+          <h3 class="font-lomo-display text-[22px] font-bold text-[#F4F1EB] sm:text-[26px]">Full Day — Single Boat</h3>
+          <p class="mt-2 font-lomo-body text-[14px] font-light leading-relaxed text-[#F4F1EB]/70">1–2 anglers &middot; 7–8 hours &middot; Gear, lunch, drinks, shuttle included</p>
+        </div>
+        <div class="mt-6 sm:mt-0 sm:shrink-0 sm:pl-8 sm:text-right">
+          <p class="font-lomo-display text-[2.5rem] font-bold text-lt-accent sm:text-[3rem]">$675</p>
+          <a href="{{ .BasePath }}/{{ .Slug }}/contact" class="mt-2 inline-block font-lomo-body text-[13px] font-bold uppercase tracking-[0.08em] text-lt-accent transition hover:text-[#F4F1EB]">Book This Trip &rarr;</a>
+        </div>
+      </div>
+    </div>
+    <div class="grid gap-5 sm:grid-cols-3">
+      <div class="rounded-sm border border-lt-stone/20 bg-white p-6">
+        <span class="mb-2 block font-lomo-body text-[11px] font-bold uppercase tracking-[0.12em] text-lt-accent">Half Day</span>
+        <h3 class="font-lomo-display text-[16px] font-bold text-lt-deep">Half Day — Single Boat</h3>
+        <p class="mt-1 font-lomo-display text-[1.5rem] font-bold text-lt-deep">$575</p>
+        <p class="mt-2 font-lomo-body text-[13px] font-light leading-relaxed text-lt-stone">1–2 anglers &middot; 4–5 hours &middot; Gear and shuttle included &middot; No lunch</p>
+        <a href="{{ .BasePath }}/{{ .Slug }}/contact" class="mt-3 inline-block font-lomo-body text-[13px] font-bold uppercase tracking-[0.08em] text-lt-accent transition hover:text-lt-accent-dk">Book This Trip &rarr;</a>
+      </div>
+      <div class="rounded-sm border border-lt-stone/20 bg-white p-6">
+        <span class="mb-2 block font-lomo-body text-[11px] font-bold uppercase tracking-[0.12em] text-lt-accent">Off Season</span>
+        <h3 class="font-lomo-display text-[16px] font-bold text-lt-deep">Early Season Full Day</h3>
+        <p class="mt-1 font-lomo-display text-[1.5rem] font-bold text-lt-deep">$500</p>
+        <p class="mt-2 font-lomo-body text-[13px] font-light leading-relaxed text-lt-stone">March–April only &middot; 1–2 anglers &middot; Gear, lunch, drinks included</p>
+        <a href="{{ .BasePath }}/{{ .Slug }}/contact" class="mt-3 inline-block font-lomo-body text-[13px] font-bold uppercase tracking-[0.08em] text-lt-accent transition hover:text-lt-accent-dk">Book This Trip &rarr;</a>
+      </div>
+      <div class="rounded-sm border border-lt-stone/20 bg-white p-6">
+        <span class="mb-2 block font-lomo-body text-[11px] font-bold uppercase tracking-[0.12em] text-lt-accent">Groups</span>
+        <h3 class="font-lomo-display text-[16px] font-bold text-lt-deep">Full Day — Multiple Boats</h3>
+        <p class="mt-1 font-lomo-display text-[1.5rem] font-bold text-lt-deep">$675<span class="font-lomo-body text-[13px] font-normal text-lt-stone"> per boat</span></p>
+        <p class="mt-2 font-lomo-body text-[13px] font-light leading-relaxed text-lt-stone">1–2 anglers per boat &middot; Parties of 3 or more &middot; Gear, lunch, drinks included</p>
+        <a href="{{ .BasePath }}/{{ .Slug }}/contact" class="mt-3 inline-block font-lomo-body text-[13px] font-bold uppercase tracking-[0.08em] text-lt-accent transition hover:text-lt-accent-dk">Book This Trip &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Teal divider -->
+<div class="bg-lt-deep py-10 sm:py-14">
+  <div class="mx-auto flex max-w-6xl items-center gap-6 px-6 sm:px-8">
+    <span class="h-px flex-1 bg-lt-accent/20"></span>
+    <span class="font-lomo-body text-[11px] font-medium uppercase tracking-[0.2em] text-lt-accent/40">On the Missouri</span>
+    <span class="h-px flex-1 bg-lt-accent/20"></span>
+  </div>
+</div>
+
+<!-- Guides — stacked list with photos -->
+<section id="guides" class="bg-lt-deep pt-0 pb-16 sm:pb-24">
+  <div class="mx-auto max-w-6xl px-6 sm:px-8" data-reveal>
+    <p class="mb-2 font-lomo-body text-[13px] font-bold uppercase tracking-[0.15em] text-lt-accent">The Crew</p>
+    <h2 class="mb-2 font-lomo-display text-[2rem] font-bold leading-[1.2] text-[#F4F1EB]">
+      Guides Who Live on the Water
+    </h2>
+    <p class="mb-10 max-w-xl font-lomo-body text-[1rem] font-light leading-relaxed text-[#F4F1EB]/65">
+      Seven licensed guides. Most of them fish this river on their days off. You'll get someone who knows where the fish are, not where they were last season.
+    </p>
+    <!-- Featured guide — Matt, large -->
+    <div class="mb-8 overflow-hidden rounded-sm bg-lt-mid sm:flex">
+      <div class="aspect-[4/5] overflow-hidden sm:aspect-auto sm:w-2/5">
+        <img src="/static/images/lomo/matt-portrait.webp" alt="Matt Mohar on the Missouri River" class="h-full w-full object-cover">
+      </div>
+      <div class="flex flex-col justify-center p-8 sm:p-10">
+        <p class="mb-1 font-lomo-body text-[13px] font-bold uppercase tracking-[0.15em] text-lt-accent">Owner &middot; Head Guide</p>
+        <h3 class="mb-4 font-lomo-display text-[1.5rem] font-bold text-[#F4F1EB]">Matt Mohar</h3>
+        <p class="font-lomo-body text-[15px] font-light leading-relaxed text-[#F4F1EB]/65">
+          Born and raised in Helena, Montana. 20+ years fly fishing the Missouri River, close to ten guiding on it. This is home water — not a destination he flies into for the season. He built Lo Mo around guides who feel the same way.
+        </p>
+      </div>
+    </div>
+    <!-- Guide grid — 2 columns with photos -->
+    <div class="grid gap-5 sm:grid-cols-2">
+      <div class="flex gap-5 rounded-sm bg-lt-mid p-5">
+        <div class="h-20 w-20 shrink-0 overflow-hidden rounded-sm">
+          <img src="/static/images/lomo/guide-ria.webp" alt="Ria French" class="h-full w-full object-cover object-top">
+        </div>
+        <div>
+          <p class="font-lomo-display text-[15px] font-bold text-[#F4F1EB]">Ria French</p>
+          <p class="mb-1.5 font-lomo-body text-[11px] font-bold uppercase tracking-[0.08em] text-lt-accent">Guide</p>
+          <p class="font-lomo-body text-[13px] font-light leading-relaxed text-[#F4F1EB]/60">Born and raised in Great Falls. Former paramedic turned full-time guide. On the Trout Unlimited board for the Missouri River Flyfishers chapter.</p>
+        </div>
+      </div>
+      <div class="flex gap-5 rounded-sm bg-lt-mid p-5">
+        <div class="h-20 w-20 shrink-0 overflow-hidden rounded-sm">
+          <img src="/static/images/lomo/guide-colter.webp" alt="Colter Day" class="h-full w-full object-cover">
+        </div>
+        <div>
+          <p class="font-lomo-display text-[15px] font-bold text-[#F4F1EB]">Colter Day</p>
+          <p class="mb-1.5 font-lomo-body text-[11px] font-bold uppercase tracking-[0.08em] text-lt-accent">Guide</p>
+          <p class="font-lomo-body text-[13px] font-light leading-relaxed text-[#F4F1EB]/60">Lifetime Montana local. Missouri River and Bitterroot specialist. Patient with beginners, pushes experienced anglers to fish better water.</p>
+        </div>
+      </div>
+      <div class="flex gap-5 rounded-sm bg-lt-mid p-5">
+        <div class="h-20 w-20 shrink-0 overflow-hidden rounded-sm">
+          <img src="/static/images/lomo/guide-rain.webp" alt="Rain Keating" class="h-full w-full object-cover">
+        </div>
+        <div>
+          <p class="font-lomo-display text-[15px] font-bold text-[#F4F1EB]">Rain Keating</p>
+          <p class="mb-1.5 font-lomo-body text-[11px] font-bold uppercase tracking-[0.08em] text-lt-accent">Guide</p>
+          <p class="font-lomo-body text-[13px] font-light leading-relaxed text-[#F4F1EB]/60">Guided the Snake, Flathead, and Green rivers before the Missouri got its hooks in him. He calls it home water now.</p>
+        </div>
+      </div>
+      <div class="flex gap-5 rounded-sm bg-lt-mid p-5">
+        <div class="h-20 w-20 shrink-0 overflow-hidden rounded-sm">
+          <img src="/static/images/lomo/guide-dylan.webp" alt="Dylan Huseby" class="h-full w-full object-cover">
+        </div>
+        <div>
+          <p class="font-lomo-display text-[15px] font-bold text-[#F4F1EB]">Dylan Huseby</p>
+          <p class="mb-1.5 font-lomo-body text-[11px] font-bold uppercase tracking-[0.08em] text-lt-accent">Guide</p>
+          <p class="font-lomo-body text-[13px] font-light leading-relaxed text-[#F4F1EB]/60">Captivated by the thrill of good drifts, the allure of moving water, and the joy of teaching the craft to new anglers.</p>
+        </div>
+      </div>
+      <div class="flex gap-5 rounded-sm bg-lt-mid p-5">
+        <div class="h-20 w-20 shrink-0 overflow-hidden rounded-sm">
+          <img src="/static/images/lomo/guide-andrew.webp" alt="Andrew Osborn" class="h-full w-full object-cover">
+        </div>
+        <div>
+          <p class="font-lomo-display text-[15px] font-bold text-[#F4F1EB]">Andrew Osborn</p>
+          <p class="mb-1.5 font-lomo-body text-[11px] font-bold uppercase tracking-[0.08em] text-lt-accent">Guide</p>
+          <p class="font-lomo-body text-[13px] font-light leading-relaxed text-[#F4F1EB]/60">Originally from Nebraska, found his passion for fly fishing when he moved to Montana. Now he can't imagine being anywhere else.</p>
+        </div>
+      </div>
+      <div class="flex gap-5 rounded-sm bg-lt-mid p-5">
+        <div class="h-20 w-20 shrink-0 overflow-hidden rounded-sm">
+          <img src="/static/images/lomo/guide-sam.webp" alt="Sam Botz" class="h-full w-full object-cover">
+        </div>
+        <div>
+          <p class="font-lomo-display text-[15px] font-bold text-[#F4F1EB]">Sam Botz</p>
+          <p class="mb-1.5 font-lomo-body text-[11px] font-bold uppercase tracking-[0.08em] text-lt-accent">Guide</p>
+          <p class="font-lomo-body text-[13px] font-light leading-relaxed text-[#F4F1EB]/60">Grew up in Bozeman hunting and fishing from an early age. Developed a deep passion for the Missouri and its wild trout.</p>
+        </div>
+      </div>
+    </div>
+    <!-- Dave Buck — Bitterroot specialist, standalone -->
+    <div class="mt-6 flex gap-5 rounded-sm bg-lt-mid p-5 sm:max-w-[calc(50%-10px)]">
+      <div class="h-20 w-20 shrink-0 overflow-hidden rounded-sm">
+        <img src="/static/images/lomo/guide-dave.webp" alt="Dave Buck" class="h-full w-full object-cover">
+      </div>
+      <div>
+        <p class="font-lomo-display text-[15px] font-bold text-[#F4F1EB]">Dave Buck</p>
+        <p class="mb-1.5 font-lomo-body text-[11px] font-bold uppercase tracking-[0.08em] text-lt-accent">Bitterroot River Specialist</p>
+        <p class="font-lomo-body text-[13px] font-light leading-relaxed text-[#F4F1EB]/60">Grew up in central Oregon, served in the Air Force. Now guides fly fishing on the Bitterroot and Missouri rivers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Photo break — between guides and heroes -->
+<div class="relative h-[200px] overflow-hidden sm:h-[280px]">
+  <img src="/static/images/lomo/trophy-brown-3.webp" alt="Brown trout on the Missouri River" class="absolute inset-0 h-full w-full object-cover object-center">
+  <div class="absolute inset-0 bg-gradient-to-b from-lt-deep/20 via-transparent to-lt-bone/30"></div>
+</div>
+
+<!-- Heroes Program -->
+<section id="heroes" class="bg-lt-bone py-20 sm:py-28">
+  <div class="mx-auto max-w-6xl px-6 sm:px-8">
+    <div class="grid items-start gap-12 sm:grid-cols-2 sm:gap-16" data-reveal>
+      <div>
+        <span class="mb-4 inline-block rounded-sm border border-lt-accent px-3 py-1 font-lomo-body text-[11px] font-bold uppercase tracking-[0.1em] text-lt-accent">Montana Heroes Program</span>
+        <p class="mb-2 font-lomo-body text-[13px] font-bold uppercase tracking-[0.15em] text-lt-accent">
+          Military &middot; Fire &middot; EMS &middot; Law Enforcement
+        </p>
+        <h2 class="mb-4 font-lomo-display text-[2rem] font-bold leading-[1.2] text-lt-deep">
+          A Full Day, at a Different Rate.
+        </h2>
+        <p class="mb-6 font-lomo-body text-[1rem] font-normal leading-relaxed text-lt-stone">
+          Some people don't take enough days off. Matt built this program for the ones who serve — active and retired military, National Guard, firefighters, search and rescue, law enforcement, and EMTs. A full day on the Missouri, gear and lunch included, at $500.
+        </p>
+        <p class="mb-1 font-lomo-display text-[2.5rem] font-bold text-lt-accent">$500</p>
+        <p class="mb-6 font-lomo-body text-[13px] font-normal text-lt-stone">full day trip, gear and lunch included</p>
+        <ul class="mb-8 space-y-1 font-lomo-body text-[15px] font-light text-lt-stone">
+          <li>— Active and retired military</li>
+          <li>— National Guard</li>
+          <li>— Firefighters and search and rescue</li>
+          <li>— Law enforcement and EMT/Paramedics</li>
+        </ul>
+        <a href="{{ .BasePath }}/{{ .Slug }}/contact" class="rounded-sm bg-lt-accent px-6 py-3 font-lomo-body text-[13px] font-bold uppercase tracking-[0.1em] text-white transition hover:bg-lt-accent-dk">
+          Book the Heroes Rate
+        </a>
+      </div>
+      <div class="flex flex-col items-center gap-6">
+        <div class="overflow-hidden rounded-sm">
+          <img src="/static/images/lomo/heroes-badge.webp" alt="Montana Heroes Program — military, fire, EMS, law enforcement" class="w-full max-w-sm">
+        </div>
+        <div class="rounded-sm bg-lt-mid p-8 text-center">
+          <p class="font-lomo-display text-[1.25rem] font-normal italic leading-relaxed text-[#F4F1EB]">
+            "Taking people fishing is my passion."
+          </p>
+          <p class="mt-4 font-lomo-body text-[13px] font-bold uppercase tracking-[0.06em] text-lt-accent">
+            — Matt Mohar, Owner
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Reviews -->
+<section id="reviews" class="bg-white py-16 sm:py-20">
+  <div class="mx-auto max-w-6xl px-6 sm:px-8" data-reveal>
+    <div class="mb-4 flex items-center gap-3">
+      <span class="block h-px w-7 bg-lt-accent"></span>
+      <span class="font-lomo-body text-[13px] font-bold uppercase tracking-[0.15em] text-lt-accent">What Anglers Say</span>
+    </div>
+    <h2 class="mb-10 font-lomo-display text-[2rem] font-bold leading-[1.2] text-lt-deep">
+      On the Water and After
+    </h2>
+    <div class="mb-5 overflow-hidden rounded-sm bg-lt-bone sm:flex">
+      <div class="aspect-[4/3] overflow-hidden sm:aspect-auto sm:w-2/5">
+        <img src="/static/images/lomo/trophy-brown-1.webp" alt="Guide and client with a brown trout on the Missouri River" class="h-full w-full object-cover">
+      </div>
+      <div class="p-8 sm:flex sm:flex-1 sm:flex-col sm:justify-center sm:p-10">
+        <div class="mb-3 flex gap-1 text-lt-accent">
+          <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <p class="mb-4 font-lomo-display text-[15px] italic leading-relaxed text-lt-deep sm:text-[18px]">"Best day I've had on a river. Guide put us on fish from the first run and didn't stop all day."</p>
+        <p class="font-lomo-body text-[13px] font-bold uppercase tracking-[0.06em] text-lt-stone">— James T. &middot; Google</p>
+      </div>
+    </div>
+    <div class="grid gap-5 sm:grid-cols-2">
+      <div class="overflow-hidden rounded-sm bg-lt-bone">
+        <div class="aspect-[4/3] overflow-hidden">
+          <img src="/static/images/lomo/trophy-double.webp" alt="Two anglers each holding brown trout on the Missouri River" class="h-full w-full object-cover">
+        </div>
+        <div class="p-6">
+          <div class="mb-2 flex gap-1 text-lt-accent">
+            <svg class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <p class="mb-3 font-lomo-display text-[14px] italic leading-relaxed text-lt-deep">"First time fly fishing and our guide made it look easy. Caught more trout in a day than I thought possible."</p>
+          <p class="font-lomo-body text-[13px] font-bold uppercase tracking-[0.06em] text-lt-stone">— Sarah M. &middot; Facebook</p>
+        </div>
+      </div>
+      <div class="overflow-hidden rounded-sm bg-lt-bone">
+        <div class="aspect-[4/3] overflow-hidden">
+          <img src="/static/images/lomo/trophy-brown-2.webp" alt="Client and guide with a large brown trout on the Missouri River" class="h-full w-full object-cover">
+        </div>
+        <div class="p-6">
+          <div class="mb-2 flex gap-1 text-lt-accent">
+            <svg class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <p class="mb-3 font-lomo-display text-[14px] italic leading-relaxed text-lt-deep">"Already booked for next year. The Heroes program made it possible for our whole crew to get out on the water."</p>
+          <p class="font-lomo-body text-[13px] font-bold uppercase tracking-[0.06em] text-lt-stone">— Mike R. &middot; Google</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta" class="bg-lt-deep py-20 sm:py-24">
+  <div class="mx-auto max-w-6xl px-6 sm:px-8" data-reveal>
+    <div class="mx-auto max-w-2xl text-center">
+      <p class="mb-3 font-lomo-body text-[13px] font-bold uppercase tracking-[0.15em] text-lt-accent">Book Your Trip</p>
+      <h2 class="mb-4 font-lomo-display text-[2rem] font-bold text-[#F4F1EB] sm:text-[2.5rem]">
+        2025 dates are booking.<br class="hidden sm:block"> Don't wait for the hatch.
+      </h2>
+      <p class="mb-8 font-lomo-body text-[1rem] font-light text-[#F4F1EB]/60">
+        Email to start. Call when you're ready to talk dates.
+      </p>
+      <a href="{{ .BasePath }}/{{ .Slug }}/contact" class="inline-block rounded-sm bg-lt-accent px-8 py-4 font-lomo-body text-[14px] font-bold uppercase tracking-[0.1em] text-white transition hover:bg-lt-accent-dk active:scale-[0.98]">
+        Book Online &rarr;
+      </a>
+      <div class="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center sm:gap-6">
+        <a href="tel:+14065550100" class="font-lomo-display text-[1.25rem] font-bold text-[#F4F1EB]/80 transition hover:text-[#F4F1EB]">
+          (406) 555-0100
+        </a>
+        <span class="hidden text-[#F4F1EB]/20 sm:inline">&middot;</span>
+        <a href="mailto:matt@lomooutfitting.com" class="font-lomo-body text-[14px] text-[#F4F1EB]/50 transition hover:text-[#F4F1EB]">
+          matt@lomooutfitting.com
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

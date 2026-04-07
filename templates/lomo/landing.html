@@ -1,0 +1,72 @@
+{{ define "base" }}
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth motion-reduce:scroll-auto">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Compare two brand directions for Lo Mo Outfitting.">
+  <title>Lo Mo Outfitting — Choose Your Direction</title>
+  <link rel="icon" href="/static/images/lomo/logo.webp" type="image/webp">
+  <meta property="og:title" content="Lo Mo Outfitting — Choose Your Direction">
+  <meta property="og:description" content="Compare two brand directions for Lo Mo Outfitting.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="/static/images/lomo/hero-river.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap">
+  <link rel="stylesheet" href="{{ .CSSFile }}">
+</head>
+<body class="min-h-screen font-lomo-body text-[15px] font-light antialiased">
+  <main>
+    <section class="flex min-h-screen flex-col sm:flex-row">
+      <!-- Amber & Slate panel -->
+      <a href="{{ .BasePath }}/amber/"
+         class="group relative flex flex-1 flex-col items-center justify-center bg-la-dark p-12 text-center transition-all duration-300 hover:flex-[1.1]">
+        <div class="relative z-10">
+          <p class="mb-4 font-lomo-body text-[11px] font-semibold uppercase tracking-[0.2em] text-la-accent">Direction A</p>
+          <h2 class="mb-3 font-lomo-display text-[2.5rem] font-bold leading-tight text-[#F7F2EA] sm:text-[3rem]">
+            Amber &amp; Slate
+          </h2>
+          <p class="mx-auto mb-8 max-w-xs font-lomo-body text-[14px] font-light leading-relaxed text-[#F7F2EA]/60">
+            Rugged, warm, no-nonsense craft. Inspired by the brown trout — the fish people come to catch.
+          </p>
+          <div class="mb-8 flex items-center justify-center gap-3">
+            <span class="h-8 w-8 rounded-full bg-la-dark ring-1 ring-white/20" title="Slate Deep"></span>
+            <span class="h-8 w-8 rounded-full bg-la-mid" title="Slate Mid"></span>
+            <span class="h-8 w-8 rounded-full bg-la-accent" title="Amber"></span>
+            <span class="h-8 w-8 rounded-full bg-la-cream ring-1 ring-la-border" title="Warm Cream"></span>
+            <span class="h-8 w-8 rounded-full bg-la-stone" title="Warm Stone"></span>
+          </div>
+          <span class="inline-block rounded-sm bg-la-accent px-6 py-3 font-lomo-body text-[11px] font-bold uppercase tracking-[0.1em] text-white transition group-hover:bg-la-accent-dk">
+            View Amber &amp; Slate &rarr;
+          </span>
+        </div>
+      </a>
+      <!-- Teal & Bone panel -->
+      <a href="{{ .BasePath }}/teal/"
+         class="group relative flex flex-1 flex-col items-center justify-center bg-lt-deep p-12 text-center transition-all duration-300 hover:flex-[1.1]">
+        <div class="relative z-10">
+          <p class="mb-4 font-lomo-body text-[11px] font-semibold uppercase tracking-[0.2em] text-lt-accent">Direction B</p>
+          <h2 class="mb-3 font-lomo-display text-[2.5rem] font-bold leading-tight text-[#F4F1EB] sm:text-[3rem]">
+            Teal &amp; Bone
+          </h2>
+          <p class="mx-auto mb-8 max-w-xs font-lomo-body text-[14px] font-light leading-relaxed text-[#F4F1EB]/60">
+            Quiet confidence, river-connected, slightly more premium. Inspired by the Missouri itself.
+          </p>
+          <div class="mb-8 flex items-center justify-center gap-3">
+            <span class="h-8 w-8 rounded-full bg-lt-deep ring-1 ring-white/20" title="River Deep"></span>
+            <span class="h-8 w-8 rounded-full bg-lt-mid" title="River Mid"></span>
+            <span class="h-8 w-8 rounded-full bg-lt-accent" title="Teal"></span>
+            <span class="h-8 w-8 rounded-full bg-lt-bone ring-1 ring-lt-border" title="Warm Bone"></span>
+            <span class="h-8 w-8 rounded-full bg-lt-stone" title="Teal Stone"></span>
+          </div>
+          <span class="inline-block rounded-sm bg-lt-accent px-6 py-3 font-lomo-body text-[11px] font-bold uppercase tracking-[0.1em] text-white transition group-hover:bg-lt-accent-dk">
+            View Teal &amp; Bone &rarr;
+          </span>
+        </div>
+      </a>
+    </section>
+  </main>
+</body>
+</html>
+{{ end }}

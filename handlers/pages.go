@@ -67,6 +67,34 @@ func (tr *TemplateRenderer) parseAll() error {
 		tr.templates[name] = tmpl
 	}
 
+	// Lo Mo Outfitting templates — separate base/nav/footer
+	lomoShared := []string{
+		tr.baseDir + "/lomo/base.html",
+		tr.baseDir + "/lomo/nav.html",
+		tr.baseDir + "/lomo/footer.html",
+	}
+	lomoPages := map[string]string{
+		"lomo-amber":         tr.baseDir + "/lomo/amber.html",
+		"lomo-teal":          tr.baseDir + "/lomo/teal.html",
+		"lomo-contact-amber": tr.baseDir + "/lomo/contact.html",
+		"lomo-contact-teal":  tr.baseDir + "/lomo/contact.html",
+	}
+	for name, pageFile := range lomoPages {
+		files := append([]string{pageFile}, lomoShared...)
+		tmpl, err := template.ParseFiles(files...)
+		if err != nil {
+			return err
+		}
+		tr.templates[name] = tmpl
+	}
+
+	// Lo Mo landing page is self-contained (no shared partials)
+	lomoLanding, err := template.ParseFiles(tr.baseDir + "/lomo/landing.html")
+	if err != nil {
+		return err
+	}
+	tr.templates["lomo-landing"] = lomoLanding
+
 	return nil
 }
 
