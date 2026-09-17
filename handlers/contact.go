@@ -2,10 +2,10 @@ package handlers
 
 import (
 	"bytes"
+	"context"
 	"encoding/json"
 	"fmt"
 	"io"
-	"log"
 	"net/http"
 	"os"
 	"strings"
@@ -25,6 +25,15 @@ type ContactRequest struct {
 	TurnstileResponse string `json:"cf-turnstile-response"` // Cloudflare Turnstile token
 }
 
+// emailDomain returns the domain part of an address, so logs can record where
+// mail went without carrying the address itself.
+func emailDomain(addr string) string {
+	if i := strings.LastIndex(addr, "@"); i >= 0 {
+		return addr[i+1:]
+	}
+	return ""
+}
+
 // captureError sends an error to Sentry if it has been initialized.
 func captureError(err error) {
 	sentry.CaptureException(err)
@@ -39,10 +48,10 @@ func jsonResponse(w http.ResponseWriter, status int, key, value string) {
 
 // verifyTurnstile calls Cloudflare's siteverify endpoint.
 // Returns (success bool, err error). Skips if TURNSTILE_SECRET is unset.
-func verifyTurnstile(token string) (bool, error) {
+func verifyTurnstile(ctx context.Context, token string) (bool, error) {
 	secret := os.Getenv("TURNSTILE_SECRET")
 	if secret == "" {
-		log.Println("[turnstile] TURNSTILE_SECRET not set — skipping verification")
+		Logger(ctx).Warn("turnstile verification skipped", "reason", "TURNSTILE_SECRET not set")
 		return true, nil
 	}
 	if token == "" {
@@ -78,10 +87,10 @@ func verifyTurnstile(token string) (bool, error) {
 }
 
 // sendEmail sends an email via the Postmark API.
-func sendEmail(from, to, subject, textBody, htmlBody string) error {
+func sendEmail(ctx context.Context, from, to, subject, textBody, htmlBody string) error {
 	token := os.Getenv("POSTMARK_TOKEN")
 	if token == "" {
-		log.Printf("[email] POSTMARK_TOKEN not set — would have sent: To=%s Subject=%s", to, subject)
+		Logger(ctx).Warn("email send skipped", "reason", "POSTMARK_TOKEN not set", "to_domain", emailDomain(to))
 		return nil
 	}
 
@@ -140,7 +149,7 @@ func HandleContact(w http.ResponseWriter, r *http.Request) {
 
 	// Honeypot — bot filled the hidden field; return fake success
 	if strings.TrimSpace(req.Website) != "" {
-		log.Printf("[honeypot] blocked submission from %s", r.RemoteAddr)
+		Logger(r.Context()).Info("honeypot triggered", "remote_ip", realIP(r))
 		jsonResponse(w, http.StatusOK, "message", "Thank you! We'll be in touch shortly.")
 		return
 	}
@@ -168,9 +177,9 @@ func HandleContact(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Turnstile verification
-	ok, err := verifyTurnstile(req.TurnstileResponse)
+	ok, err := verifyTurnstile(r.Context(), req.TurnstileResponse)
 	if err != nil {
-		log.Printf("[turnstile] error: %v", err)
+		Logger(r.Context()).Warn("turnstile verification failed", "error", err.Error(), "action", "allowed through")
 		// On Turnstile service error, allow through (degrade gracefully)
 	} else if !ok {
 		jsonResponse(w, http.StatusBadRequest, "error", "CAPTCHA verification failed. Please try again.")
@@ -219,13 +228,19 @@ func HandleContact(w http.ResponseWriter, r *http.Request) {
 		req.Name, req.Email, req.Email, req.Phone, serviceRow, req.Message,
 	)
 
-	if err := sendEmail(fromEmail, toEmail, subject, textBody, htmlBody); err != nil {
-		log.Printf("[email] send failed: %v", err)
+	if err := sendEmail(r.Context(), fromEmail, toEmail, subject, textBody, htmlBody); err != nil {
+		SetRequestError(r.Context(), fmt.Errorf("send contact email: %w", err))
+		Logger(r.Context()).Error("email send failed", "to_domain", emailDomain(toEmail), "error", err.Error())
 		jsonResponse(w, http.StatusInternalServerError, "error", "Failed to send message. Please call us directly.")
 		return
 	}
 
-	log.Printf("[contact] sent email from %s <%s>", req.Name, req.Email)
+	// Log the shape of the submission, never its contents.
+	Logger(r.Context()).Info("contact email sent",
+		"to_domain", emailDomain(toEmail),
+		"from_domain", emailDomain(req.Email),
+		"service", req.Service,
+	)
 	jsonResponse(w, http.StatusOK, "message", "Thank you! Your message has been sent. We'll be in touch shortly.")
 }
 

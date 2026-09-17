@@ -4,15 +4,22 @@
 
 	# Disable automatic HTTPS — outer Caddy on host handles TLS termination
 	auto_https off
-}
 
-:{$PORT:80} {
-	# Access logs to stdout (captured by Docker)
+	# Caddy's own runtime log: JSON on stdout, never `format console` (ANSI
+	# escape codes make lines unparseable). This keeps one format per service.
 	log {
 		output stdout
 		format json
 		level INFO
 	}
+}
+
+:{$PORT:80} {
+	# No access log here on purpose: the Go server logs every request itself in
+	# the fleet standard format, so each request is logged exactly once.
+	# (Caddy's native JSON differs from the standard — float epoch `ts`,
+	# lowercase level, msg "handled request", nested request.*, duration in
+	# seconds, `uri` not `path` — and would need mapping at the shipping layer.)
 
 	# Compress responses
 	encode zstd gzip
@@ -33,7 +40,12 @@
 	reverse_proxy 127.0.0.1:{$API_PORT:8080} {
 		header_up Host {host}
 		header_up X-Real-IP {remote_host}
-		header_up X-Forwarded-For {remote_host}
+		# Pass the host-level Caddy's X-Forwarded-For through untouched. Setting
+		# it to {remote_host} here would overwrite the visitor address with the
+		# Docker bridge peer; appending (Caddy's default) would leave the bridge
+		# address as the right-most entry. Either way the app could no longer
+		# see the real client IP. One trusted hop: the host Caddy.
+		header_up X-Forwarded-For {http.request.header.X-Forwarded-For}
 		header_up X-Forwarded-Proto {scheme}
 	}
 

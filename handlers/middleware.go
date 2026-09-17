@@ -1,12 +1,14 @@
 package handlers
 
 import (
+	"context"
 	"crypto/md5"
 	"fmt"
 	"io"
-	"log"
+	"log/slog"
 	"net/http"
 	"os"
+	"runtime/debug"
 	"time"
 
 	"github.com/getsentry/sentry-go"
@@ -44,9 +46,17 @@ func CORSMiddleware(allowedOrigin string, next http.HandlerFunc) http.HandlerFun
 func RecoveryMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		defer func() {
-			if err := recover(); err != nil {
-				sentry.CurrentHub().Recover(err)
+			if rec := recover(); rec != nil {
+				sentry.CurrentHub().Recover(rec)
 				sentry.Flush(2 * time.Second)
+
+				err := fmt.Errorf("panic: %v", rec)
+				SetRequestError(r.Context(), err)
+				// The stack goes in a single string field: one event, one line.
+				Logger(r.Context()).Error("panic recovered",
+					"error", err.Error(),
+					"stack", string(debug.Stack()),
+				)
 				jsonResponse(w, http.StatusInternalServerError, "error", "internal server error")
 			}
 		}()
@@ -54,13 +64,58 @@ func RecoveryMiddleware(next http.Handler) http.Handler {
 	})
 }
 
-// LoggingMiddleware logs each request method, path, status, and duration.
+// healthPath is polled by the container healthcheck every 30s. Logging it at
+// INFO would be pure noise, so it is logged at DEBUG (off in production).
+const healthPath = "/api/health"
+
+// LoggingMiddleware emits exactly one structured line per request, and puts a
+// request_id and a request-scoped logger into the context so every other line
+// logged while serving the request carries the same id.
 func LoggingMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		start := time.Now()
-		sw := &statusWriter{ResponseWriter: w, status: 200}
+
+		requestID := newRequestID()
+		state := &requestState{}
+		ctx := r.Context()
+		ctx = context.WithValue(ctx, ctxKeyRequestID, requestID)
+		ctx = context.WithValue(ctx, ctxKeyRequestState, state)
+		ctx = context.WithValue(ctx, ctxKeyLogger, slog.Default().With("request_id", requestID))
+		r = r.WithContext(ctx)
+
+		w.Header().Set("X-Request-Id", requestID)
+		sw := &statusWriter{ResponseWriter: w, status: http.StatusOK}
 		next.ServeHTTP(sw, r)
-		log.Printf("[http] %s %s %d %s", r.Method, r.URL.Path, sw.status, time.Since(start).Round(time.Millisecond))
+
+		attrs := []any{
+			"request_id", requestID,
+			"method", r.Method,
+			"path", r.URL.Path,
+			"query", r.URL.RawQuery,
+			"status", sw.status,
+			"duration_ms", float64(time.Since(start).Microseconds()) / 1000.0,
+			"remote_ip", realIP(r),
+			"user_agent", r.UserAgent(),
+			"referer", r.Referer(),
+		}
+
+		err := state.getError()
+		// 5xx and unhandled errors are a distinct event name, so alerts do not
+		// have to regex the status. 4xx stays normal traffic at INFO.
+		if sw.status >= 500 || err != nil {
+			msg := "unhandled error"
+			if err != nil {
+				msg = err.Error()
+			}
+			slog.Error("request failed", append(attrs, "error", msg)...)
+			return
+		}
+
+		if r.URL.Path == healthPath {
+			slog.Debug("request", attrs...)
+			return
+		}
+		slog.Info("request", attrs...)
 	})
 }
 
@@ -134,14 +189,14 @@ func cssFilePath(staticDir string) string {
 	path := staticDir + "/css/output.css"
 	f, err := os.Open(path)
 	if err != nil {
-		log.Printf("[css] cannot open %s: %v — using unhashed path", path, err)
+		slog.Warn("css fingerprint failed", "path", path, "error", err.Error(), "fallback", "/static/css/output.css")
 		return "/static/css/output.css"
 	}
 	defer f.Close()
 
 	h := md5.New()
 	if _, err := io.Copy(h, f); err != nil {
-		log.Printf("[css] hash error: %v — using unhashed path", err)
+		slog.Warn("css fingerprint failed", "path", path, "error", err.Error(), "fallback", "/static/css/output.css")
 		return "/static/css/output.css"
 	}
 
@@ -154,14 +209,14 @@ func cssFilePath(staticDir string) string {
 	if _, err := os.Stat(dst); os.IsNotExist(err) {
 		data, err := os.ReadFile(src)
 		if err != nil {
-			log.Printf("[css] read error: %v — using unhashed path", err)
+			slog.Warn("css fingerprint failed", "path", src, "error", err.Error(), "fallback", "/static/css/output.css")
 			return "/static/css/output.css"
 		}
 		if err := os.WriteFile(dst, data, 0644); err != nil {
-			log.Printf("[css] write error: %v — using unhashed path", err)
+			slog.Warn("css fingerprint failed", "path", dst, "error", err.Error(), "fallback", "/static/css/output.css")
 			return "/static/css/output.css"
 		}
-		log.Printf("[css] created %s", dst)
+		slog.Info("css fingerprinted", "path", dst)
 	}
 
 	return hashedName

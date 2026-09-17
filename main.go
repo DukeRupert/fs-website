@@ -1,7 +1,7 @@
 package main
 
 import (
-	"log"
+	"log/slog"
 	"net/http"
 	"os"
 	"time"
@@ -12,6 +12,12 @@ import (
 )
 
 func main() {
+	devMode := os.Getenv("DEV_MODE") == "true"
+
+	// Structured JSON logging to stdout — must be first so every later line,
+	// including startup failures, is emitted in the fleet log format.
+	handlers.InitLogger(devMode)
+
 	// Initialize Sentry (Bugsink-compatible via DSN)
 	sentryDSN := os.Getenv("SENTRY_DSN")
 	if sentryDSN != "" {
@@ -26,13 +32,13 @@ func main() {
 			TracesSampleRate: 0,
 		})
 		if err != nil {
-			log.Printf("[sentry] init failed: %v", err)
+			slog.Error("sentry init failed", "environment", env, "error", err.Error())
 		} else {
-			log.Printf("[sentry] initialized (env=%s)", env)
+			slog.Info("sentry initialized", "environment", env)
 		}
 		defer sentry.Flush(2 * time.Second)
 	} else {
-		log.Println("[sentry] SENTRY_DSN not set — error reporting disabled")
+		slog.Warn("sentry disabled", "reason", "SENTRY_DSN not set")
 	}
 
 	// Configuration
@@ -44,12 +50,12 @@ func main() {
 	if allowedOrigin == "" {
 		allowedOrigin = "http://localhost:8080"
 	}
-	devMode := os.Getenv("DEV_MODE") == "true"
 
 	// Template renderer
 	tr, err := handlers.NewTemplateRenderer("templates", devMode)
 	if err != nil {
-		log.Fatalf("[server] template parse error: %v", err)
+		slog.Error("template parse failed", "dir", "templates", "error", err.Error())
+		os.Exit(1)
 	}
 
 	// Site data
@@ -159,8 +165,9 @@ func main() {
 	handler = handlers.LoggingMiddleware(handler)
 
 	addr := "0.0.0.0:" + port
-	log.Printf("[server] listening on %s (dev=%v)", addr, devMode)
+	slog.Info("server starting", "addr", addr, "dev_mode", devMode)
 	if err := http.ListenAndServe(addr, handler); err != nil {
-		log.Fatalf("[server] fatal: %v", err)
+		slog.Error("server stopped", "addr", addr, "error", err.Error())
+		os.Exit(1)
 	}
 }
