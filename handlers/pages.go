@@ -1,8 +1,8 @@
 package handlers
 
 import (
+	"fmt"
 	"html/template"
-	"log"
 	"net/http"
 	"sync"
 )
@@ -39,20 +39,20 @@ func (tr *TemplateRenderer) parseAll() error {
 	}
 
 	pages := map[string]string{
-		"home":               tr.baseDir + "/home.html",
-		"work":               tr.baseDir + "/work.html",
-		"process":            tr.baseDir + "/process.html",
-		"about":              tr.baseDir + "/about.html",
-		"pricing":            tr.baseDir + "/pricing.html",
-		"privacy":            tr.baseDir + "/privacy.html",
-		"portfolio":          tr.baseDir + "/portfolio.html",
-		"terms":              tr.baseDir + "/terms.html",
-		"contact":            tr.baseDir + "/contact.html",
-		"services-websites":  tr.baseDir + "/services-websites.html",
-		"services-software":  tr.baseDir + "/services-software.html",
-		"post":               tr.baseDir + "/post.html",
-		"posts":              tr.baseDir + "/posts.html",
-		"404":                tr.baseDir + "/404.html",
+		"home":              tr.baseDir + "/home.html",
+		"work":              tr.baseDir + "/work.html",
+		"process":           tr.baseDir + "/process.html",
+		"about":             tr.baseDir + "/about.html",
+		"pricing":           tr.baseDir + "/pricing.html",
+		"privacy":           tr.baseDir + "/privacy.html",
+		"portfolio":         tr.baseDir + "/portfolio.html",
+		"terms":             tr.baseDir + "/terms.html",
+		"contact":           tr.baseDir + "/contact.html",
+		"services-websites": tr.baseDir + "/services-websites.html",
+		"services-software": tr.baseDir + "/services-software.html",
+		"post":              tr.baseDir + "/post.html",
+		"posts":             tr.baseDir + "/posts.html",
+		"404":               tr.baseDir + "/404.html",
 	}
 
 	tr.mu.Lock()
@@ -103,7 +103,8 @@ func (tr *TemplateRenderer) Render(w http.ResponseWriter, r *http.Request, name 
 	// In dev mode, reparse templates on every request for hot reload.
 	if tr.devMode {
 		if err := tr.parseAll(); err != nil {
-			log.Printf("[template] reparse error: %v", err)
+			SetRequestError(r.Context(), fmt.Errorf("template reparse: %w", err))
+			Logger(r.Context()).Error("template reparse failed", "template", name, "error", err.Error())
 			http.Error(w, "template error", http.StatusInternalServerError)
 			return
 		}
@@ -114,14 +115,15 @@ func (tr *TemplateRenderer) Render(w http.ResponseWriter, r *http.Request, name 
 	tr.mu.RUnlock()
 
 	if !ok {
-		log.Printf("[template] not found: %s", name)
+		Logger(r.Context()).Warn("template not found", "template", name)
 		http.Error(w, "page not found", http.StatusNotFound)
 		return
 	}
 
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	if err := tmpl.ExecuteTemplate(w, "base", data); err != nil {
-		log.Printf("[template] render error (%s): %v", name, err)
+		SetRequestError(r.Context(), fmt.Errorf("render %s: %w", name, err))
+		Logger(r.Context()).Error("template render failed", "template", name, "error", err.Error())
 	}
 }
 

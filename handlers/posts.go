@@ -2,8 +2,9 @@ package handlers
 
 import (
 	"bufio"
+	"fmt"
 	"html/template"
-	"log"
+	"log/slog"
 	"net/http"
 	"os"
 	"path/filepath"
@@ -70,7 +71,7 @@ func (ph *PostHandler) HandlePost(w http.ResponseWriter, r *http.Request) {
 
 	post, err := ph.loadPost(slug)
 	if err != nil {
-		log.Printf("[posts] error loading %s: %v", slug, err)
+		Logger(r.Context()).Warn("post load failed", "slug", slug, "error", err.Error())
 		http.NotFound(w, r)
 		return
 	}
@@ -86,7 +87,8 @@ func (ph *PostHandler) HandlePost(w http.ResponseWriter, r *http.Request) {
 func (ph *PostHandler) HandlePostList(w http.ResponseWriter, r *http.Request) {
 	posts, err := ph.loadAllPosts()
 	if err != nil {
-		log.Printf("[posts] error loading posts: %v", err)
+		SetRequestError(r.Context(), fmt.Errorf("load posts: %w", err))
+		Logger(r.Context()).Error("post list load failed", "error", err.Error())
 		http.Error(w, "error loading posts", http.StatusInternalServerError)
 		return
 	}
@@ -117,7 +119,7 @@ func (ph *PostHandler) loadAllPosts() ([]Post, error) {
 		slug := strings.TrimSuffix(entry.Name(), ".md")
 		post, err := ph.parseMarkdownFile(filepath.Join(ph.contentDir, entry.Name()), slug)
 		if err != nil {
-			log.Printf("[posts] skipping %s: %v", entry.Name(), err)
+			slog.Warn("post skipped", "file", entry.Name(), "error", err.Error())
 			continue
 		}
 		posts = append(posts, post)
